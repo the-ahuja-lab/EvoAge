@@ -1,0 +1,51 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+dist/
+build/
+
+# --- Virtual envs / conda ---
+.venv/
+venv/
+env/
+ENV/
+.conda/
+
+# --- Secrets / config ---
+.env
+*.pem
+*.key
+
+# --- Caches / tooling ---
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# --- Editors / OS ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+nohup.out
+
+# --- Logs & runtime ---
+logs/
+*.log
+*.pid
+*.out
+*.err
+
+# --- ML / KG binaries (keep out of git; prefer LFS or external storage) ---
+*.pt
+*.pth
+*.onnx
+*.h5
+*.pkl
+*.bin
+*.npz
+*.ckpt

@@ -1,0 +1,81 @@
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "neo4j-fastapi"
+version = "0.1.0"
+description = "API for interacting with the Evo-KG knowledge graph using Neo4j and PyKeen models"
+authors = ["Ankit Singh <ankit21450@iiitd.ac.in>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "app"}]
+package-mode = false
+
+[tool.poetry.dependencies]
+python=">=3.11,<4.0"
+fastapi = "^0.110.0" # Use specific versions or ranges as needed
+uvicorn = "^0.27.1"
+neo4j = "^5.17.0"
+python-dotenv = "^1.0.1"
+pydantic-settings = "^2.2.1"
+pydantic = {extras = ["email"], version = "^2.6.3"}
+openai = "^1.13.3"
+pykeen = "^1.10.1"
+pandas = "^2.2.1"
+torch = "^2.2.1"
+redis = "^6.0.0" # Added redis client
+passlib = {extras = ["bcrypt"], version = "^1.7.4"} # Added for password hashing
+bcrypt = "^4.1.0" # Explicitly added bcrypt
+python-jose = {extras = ["cryptography"], version = "^3.3.0"} # Added for JWT
+python-multipart = "^0.0.9" # Added for form data handling
+fastapi-mail = {extras = ["pyproject"], version = "^1.4.2"}
+fastapi-limiter = "*"
+gunicorn = "23.0.0"
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.6.2"
+ruff = "^0.3.2" # Match or keep compatible with pre-commit hook version
+
+[tool.ruff]
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+]
+line-length = 88
+indent-width = 4
+
+[tool.ruff.lint]
+# Add specific rules if needed, e.g., select = ["E", "F", "W", "I"]
+# See Ruff documentation for available rules.
+select = ["E", "F", "W", "I"] # Select common rule sets
+ignore = ["E501"] # Example: ignore line length errors if handled by formatter
+
+[tool.ruff.format]
+# Like Black, use double quotes for strings.
+quote-style = "double"
+# Like Black, indent with spaces, rather than tabs.
+indent-style = "space"
+# Like Black, respect magic trailing commas.
+skip-magic-trailing-comma = false
+# Like Black, automatically detect the appropriate line ending.
+line-ending = "auto"
