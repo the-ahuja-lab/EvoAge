@@ -1,10 +1,8 @@
-#!/usr/bin/env python3
-
 # -*- coding: utf-8 -*-
 #
-# setup.py
+# __init__.py
 #
-# Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# Copyright 2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,7 +17,5 @@
 # limitations under the License.
 #
 
-from setuptools import setup
-
-if __name__ == "__main__":
-    setup()
+from .general_models import KEModel, InferModel
+from .ke_model import TransEModel, TransE_l2Model, TransE_l1Model, DistMultModel, TransRModel, ComplExModel, RESCALModel, RotatEModel, GNNModel
