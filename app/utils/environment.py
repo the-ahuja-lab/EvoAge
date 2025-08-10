@@ -74,6 +74,23 @@ class AdminSettings(BaseSettings):
     class Config:
         env_prefix = "ADMIN_"
 
+class DGLConfig(BaseSettings):
+    # Required (no defaults → must be in .env)
+    NODE_MAPPINGS_PATH: str
+    MODEL_PATH: str
+    ENT_DICT_PATH: str
+    REL_DICT_PATH: str
+    DGLKE_INPUT_DIR: str
+    DGLKE_DUMMY_HEAD_LIST: str
+    DGLKE_DUMMY_REL_LIST: str
+
+    # Optional (recommended)
+    DGLKE_DEVICE: int = 0
+    DGLKE_SFUNC: str = "logsigmoid"
+
+    class Config:
+        env_prefix = ""   # read env vars exactly as named in .env
+        # extra = "ignore"  # (optional) ignore unexpected vars
 
 class CONFIG:
     UVICORN = UvicornConfig()
@@ -82,3 +99,4 @@ class CONFIG:
     JWT = JWTSettings()
     MAIL = MailConfig()
     ADMIN = AdminSettings()
+    DGLCONFIG = DGLConfig()
