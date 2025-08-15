@@ -3,6 +3,7 @@ import uuid
 import os
 import time
 import logging
+from pathlib import Path
 
 os.environ["CUDA_LAUNCH_BLOCKING"] = "0"
 
@@ -29,7 +30,6 @@ from app.utils.schema import (
 
 router = APIRouter()
 
-
 # DGL configuration paths from .env
 NODE_MAPPINGS_PATH = CONFIG.DGLCONFIG.NODE_MAPPINGS_PATH
 MODEL_PATH         = CONFIG.DGLCONFIG.MODEL_PATH
@@ -43,16 +43,48 @@ DEVICE             = CONFIG.DGLCONFIG.DGLKE_DEVICE
 SFUNC              = CONFIG.DGLCONFIG.DGLKE_SFUNC
 
 # validate once, fail with clear messages
+def _as_path(value, name: str) -> Path:
+    if value is None or (isinstance(value, str) and value.strip() == ""):
+        raise RuntimeError(f"{name} is not set (empty/None).")
+    try:
+        return value if isinstance(value, Path) else Path(value)
+    except TypeError:
+        raise RuntimeError(f"{name} must be path-like, got {type(value).__name__}.")
+    
+# Normalize everything to Path objects
+MODEL_PATH        = _as_path(MODEL_PATH, "MODEL_PATH")
+ENT_DICT_PATH     = _as_path(ENT_DICT_PATH, "ENT_DICT_PATH")
+REL_DICT_PATH     = _as_path(REL_DICT_PATH, "REL_DICT_PATH")
+NODE_MAPPINGS_PATH= _as_path(NODE_MAPPINGS_PATH, "NODE_MAPPINGS_PATH")
+DUMMY_HEAD        = _as_path(DUMMY_HEAD, "DUMMY_HEAD")        # <-- only keep as Path if it’s a file path
+DUMMY_REL         = _as_path(DUMMY_REL, "DUMMY_REL")          # <-- only keep as Path if it’s a file path
+
+# validate once, fail with clear messages
 errors = []
-if not MODEL_PATH.is_dir(): errors.append(f"MODEL_PATH not a directory: {MODEL_PATH}")
-if not (MODEL_PATH / "config.json").is_file(): errors.append(f"Missing config.json at {MODEL_PATH/'config.json'}")
-for name, p in [("ENT_DICT_PATH", ENT_DICT_PATH), ("REL_DICT_PATH", REL_DICT_PATH),
-                ("NODE_MAPPINGS_PATH", NODE_MAPPINGS_PATH), ("DUMMY_HEAD", DUMMY_HEAD),
-                ("DUMMY_REL", DUMMY_REL)]:
+
+# MODEL_PATH must exist and be a directory
+if not MODEL_PATH.exists():
+    errors.append(f"MODEL_PATH missing: {MODEL_PATH}")
+elif not MODEL_PATH.is_dir():
+    errors.append(f"MODEL_PATH not a directory: {MODEL_PATH}")
+
+cfg = MODEL_PATH / "config.json"
+if not cfg.is_file():
+    errors.append(f"Missing config.json at {cfg}")
+
+for name, p in [
+    ("ENT_DICT_PATH", ENT_DICT_PATH),
+    ("REL_DICT_PATH", REL_DICT_PATH),
+    ("NODE_MAPPINGS_PATH", NODE_MAPPINGS_PATH),
+    ("DUMMY_HEAD", DUMMY_HEAD),
+    ("DUMMY_REL", DUMMY_REL),
+]:
     if not p.is_file():
         errors.append(f"{name} not a file: {p}")
+
 if errors:
     raise FileNotFoundError(" | ".join(errors))
+
 
 def predict_tails_dglke(k=10, head_list_path=None, rel_list_path=None):
     """
