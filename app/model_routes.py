@@ -13,6 +13,7 @@ from fastapi import APIRouter, HTTPException, Query
 # DGL-KE imports
 from dglke.utils import load_model_config, load_raw_triplet_data
 from dglke.models.infer import ScoreInfer
+from app.utils.model_manager import LazyKGEManager
 
 
 
@@ -114,13 +115,21 @@ def predict_tails_dglke(k=10, head_list_path=None, rel_list_path=None):
 
     # 3) run inference
     logger.info("Running infer.topK(exec_mode='batch_head', k=%d)", k)
-    raw_results = infer.topK(
-        head=head_ids,
-        rel=rel_ids,
-        tail=tail_ids,
-        exec_mode="batch_head",
-        k=k
-    )
+    # raw_results = infer.topK(
+    #     head=head_ids,
+    #     rel=rel_ids,
+    #     tail=tail_ids,
+    #     exec_mode="batch_head",
+    #     k=k
+    # )
+    with MODEL.session() as infer:
+        raw_results = infer.topK(
+            head=head_ids,
+            rel=rel_ids,
+            tail=tail_ids,
+            exec_mode="batch_head",
+            k=k
+        )
 
     # 4) map back to strings
     output = [
@@ -159,12 +168,19 @@ def predict_rank_dglke(
 
     logger.info("Running infer.get_rank_score(exec_mode='batch_head')")
     # get_rank_score expects lists of length 1 for head_ids, rel_ids, tail_ids
-    rank, user_score, max_score = infer.get_rank_score(
-        head=head_ids,
-        rel=rel_ids,
-        user_set_tail=tail_ids,
-        exec_mode="batch_head",
-    )
+    # rank, user_score, max_score = infer.get_rank_score(
+    #     head=head_ids,
+    #     rel=rel_ids,
+    #     user_set_tail=tail_ids,
+    #     exec_mode="batch_head",
+    # )
+    with MODEL.session() as infer:
+        rank, user_score, max_score = infer.get_rank_score(
+            head=head_ids,
+            rel=rel_ids,
+            user_set_tail=tail_ids,
+            exec_mode="batch_head",
+        )
     elapsed = time.time() - start_time
     logger.info("Cal. completed in %.3f seconds", elapsed)
     return rank, user_score, max_score, elapsed
@@ -178,36 +194,36 @@ try:
 except Exception as e:
     raise RuntimeError(f"Failed to load model config: {e!s}")
 
-try:
-    logger.info(f"Initializing ScoreInfer on device {DEVICE}")
-    infer = ScoreInfer(
-        device=DEVICE,
-        config=config,
-        model_path=MODEL_PATH,
-        sfunc=SFUNC
-    )
-    logger.info("Starting model.load_model() (this may take a while)")
-    infer.load_model()
-except Exception as e:
-        logger.warning("Loading on GPU failed: %s", str(e))
-        raise RuntimeError(f"Cannot initialize inference model: {e!s}")
+# try:
+#     logger.info(f"Initializing ScoreInfer on device {DEVICE}")
+#     infer = ScoreInfer(
+#         device=DEVICE,
+#         config=config,
+#         model_path=MODEL_PATH,
+#         sfunc=SFUNC
+#     )
+#     logger.info("Starting model.load_model() (this may take a while)")
+#     infer.load_model()
+# except Exception as e:
+#         logger.warning("Loading on GPU failed: %s", str(e))
+#         raise RuntimeError(f"Cannot initialize inference model: {e!s}")
 
-logger.info("Inference service starting up… warming up DGL-KE model on GPU")
-try:
-    # One tiny predict call to force the first GPU / JIT warm‑up
-    dummy_head = DUMMY_HEAD
-    dummy_rel = DUMMY_REL
+# logger.info("Inference service starting up… warming up DGL-KE model on GPU")
+# try:
+#     # One tiny predict call to force the first GPU / JIT warm‑up
+#     dummy_head = DUMMY_HEAD
+#     dummy_rel = DUMMY_REL
 
-    _ , _ = predict_tails_dglke(k=1,
-        head_list_path=dummy_head,
-        rel_list_path=dummy_rel)
+#     _ , _ = predict_tails_dglke(k=1,
+#         head_list_path=dummy_head,
+#         rel_list_path=dummy_rel)
 
-    logger.info("Model warm‑up complete; ready to receive requests")
-except Exception as e:
-    logger.error("Model warm‑up failed: %s", str(e), exc_info=True)
-    raise HTTPException(status_code=404, detail=f"Model warm‑up failed: {str(e)}")
+#     logger.info("Model warm‑up complete; ready to receive requests")
+# except Exception as e:
+#     logger.error("Model warm‑up failed: %s", str(e), exc_info=True)
+#     raise HTTPException(status_code=404, detail=f"Model warm‑up failed: {str(e)}")
 
-logger.info("Model successfully loaded into GPU memory")
+# logger.info("Model successfully loaded into GPU memory")
 
 # Load the mappings for the entities and relations
 try:
@@ -218,6 +234,16 @@ except FileNotFoundError:
     )
 except Exception as e:
     raise Exception(f"Error loading node mappings: {e!s}")
+
+MODEL = LazyKGEManager(
+    score_infer_cls=ScoreInfer,
+    device=DEVICE,
+    config=config,
+    model_path=MODEL_PATH,
+    sfunc=SFUNC,
+    idle_seconds=900,   # 15 minutes
+    max_inflight=1      # start with 1; raise carefully if memory allows
+)
 
 
 @router.get(
@@ -366,3 +392,11 @@ async def get_prediction_rank(
             except OSError:
                 pass
     
+@router.post("/unload_model")
+def unload_model():
+    unloaded = MODEL.unload_now()
+    return {"unloaded": unloaded, "stats": MODEL.stats()}
+
+@router.get("/model_stats")
+def model_stats():
+    return MODEL.stats()
