@@ -5,7 +5,7 @@ FastAPI service for EvoKG predictions using a bundled (patched) DGL-KE RotatE mo
 ## Requirements
 - Linux/macOS
 - **Python 3.11.2**
-- NVIDIA GPU + CUDA (recommended). CPU works but is slower.
+- NVIDIA GPU(32 GB) + CUDA (recommended). CPU works but is slower.
 - `git`, `pip`
 
 ## Quick start
