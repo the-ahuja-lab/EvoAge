@@ -62,12 +62,14 @@ def load_model_config(config_f):
 def _load_entity_map(emap_f):
     eid_map = {}
     id2e_map = {}
+    id2t_map = {}
     with open(emap_f, 'r') as f:
         reader = csv.reader(f, delimiter='\t')
         for row in reader:
             eid_map[row[1]] = int(row[0])
             id2e_map[int(row[0])] = row[1]
-    return eid_map, id2e_map
+            id2t_map[int(row[0])] = row[2]
+    return eid_map, id2e_map, id2t_map
 
 @lru_cache(maxsize=1)
 def _load_relation_map(rmap_f):
@@ -80,7 +82,7 @@ def _load_relation_map(rmap_f):
             id2r_map[int(row[0])] = row[1]
     return rid_map, id2r_map
 
-def load_raw_triplet_data(head_f=None, rel_f=None, tail_f=None, emap_f=None, rmap_f=None):
+def load_raw_triplet_data(head_f=None, rel_f=None, tail_f=None, user_tail_f=None, emap_f=None, rmap_f=None, head_type = None, tail_type=None):
     # if emap_f is not None:
     #     eid_map = {}
     #     id2e_map = {}
@@ -100,7 +102,7 @@ def load_raw_triplet_data(head_f=None, rel_f=None, tail_f=None, emap_f=None, rma
     #             id2r_map[int(row[0])] = row[1]
 
     if emap_f is not None:
-        eid_map, id2e_map = _load_entity_map(emap_f)
+        eid_map, id2e_map, id2t_map = _load_entity_map(emap_f)
     if rmap_f is not None:
         rid_map, id2r_map = _load_relation_map(rmap_f)
 
@@ -111,6 +113,12 @@ def load_raw_triplet_data(head_f=None, rel_f=None, tail_f=None, emap_f=None, rma
             while len(id) > 0:
                 head.append(eid_map[id[:-1]])
                 id = f.readline()
+        head = np.asarray(head)
+    elif head_type is not None:
+        head = []
+        for key, value in id2t_map.items():
+            if (value or "").strip().lower() == head_type.lower():
+                head.append(int(key))
         head = np.asarray(head)
     else:
         head = None
@@ -134,10 +142,27 @@ def load_raw_triplet_data(head_f=None, rel_f=None, tail_f=None, emap_f=None, rma
                 tail.append(eid_map[id[:-1]])
                 id = f.readline()
         tail = np.asarray(tail)
+    elif tail_type is not None:
+        tail = []
+        for key, value in id2t_map.items():
+            if (value or "").strip().lower() == tail_type.lower():
+                tail.append(int(key))
+        tail = np.asarray(tail)
     else:
         tail = None
-
-    return head, rel, tail, id2e_map, id2r_map
+    
+    if user_tail_f is not None:
+        user_tail = []
+        with open(user_tail_f, 'r') as f:
+            id = f.readline()
+            while len(id) > 0:
+                user_tail.append(eid_map[id[:-1]])
+                id = f.readline()
+        user_tail = np.asarray(user_tail)
+    else:
+        user_tail = None
+    
+    return head, rel, tail, user_tail, id2e_map, id2r_map
 
 def load_triplet_data(head_f=None, rel_f=None, tail_f=None):
     if head_f is not None:

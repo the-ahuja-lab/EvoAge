@@ -1,6 +1,6 @@
 import re
 from typing import Any, Dict, List, Optional
-
+import logging
 from fastapi import APIRouter, Depends, HTTPException, Query
 
 from app.utils.database import Neo4jConnection, get_neo4j_connection
@@ -15,7 +15,11 @@ from app.utils.schema import (
 )
 
 router = APIRouter()
-
+logger = logging.getLogger("main_server_kge")
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s"
+)
 
 @router.get(
     "/sample_triples",
@@ -93,7 +97,7 @@ async def get_nodes_by_label(
             status_code=404,
             detail=f"No nodes found for label '{label}'",
         )
-
+    logger.info(f"Response from get  nodes by label entities:")
     return [record["node_properties"] for record in records]
 
 
@@ -177,7 +181,7 @@ async def get_subgraph(
                 for connection in record["connections"]
             ],
         )
-
+    logger.info(f"Response from get_subgraph: {source_node}")
     return SubgraphResponse(source_node=source_node, connections=connections)
 
 
@@ -250,7 +254,7 @@ async def search_biological_entities(
         {"entityType": record["entityType"], "topEntities": record["topEntities"]}
         for record in result
     ]
-
+    logger.info(f"Response from search bilogical entities: {response}")
     return response
 
 

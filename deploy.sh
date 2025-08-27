@@ -8,7 +8,7 @@ pkill -f "python -m app.main" -u "$(whoami)" || true
 
 echo "🚀 Starting main API server…"
 nohup \
-  poetry run gunicorn -w 1 --timeout 60 \
+  poetry run gunicorn -w 1 --timeout 300 \
     -k uvicorn.workers.UvicornWorker app.main:app \
     --bind 0.0.0.0:1026 \
   > neo4j_api_logs.log 2>&1 &

@@ -130,39 +130,32 @@ class ScoreInfer(object):
         # 3) extract the single integers
         h = head_ids[0]
         r = rel_ids[0]
+        # After you’ve built: head_ids, rel_ids, tail_ids
         t_target = int(user_set_tail[0])
 
-        # 4) score every (rel, tail) for this head
-        #    raw_score: 1-D tensor of length (num_rel * num_tail)
-        raw_score = self.model.score(F.unsqueeze(h, 0), rel_ids, tail_ids)
-        scores = self.score_func(raw_score)  # apply logsigmoid/none
+        # Score all candidate tails for (head, rel)
+        raw_scores = self.model.score(F.unsqueeze(head_ids[0], 0), rel_ids, tail_ids)
+        scores     = self.score_func(raw_scores)          # higher = better
+        scores_np  = F.asnumpy(scores)
 
-        # 5) sort descending
-        #    idx_sorted: indices into `scores` sorted by score desc
-        idx = F.argsort(scores, dim=0, descending=True)
-        sorted_scores = scores[idx]
+        # Map global tail ID -> its position within the candidate set
+        tail_ids_np = F.asnumpy(tail_ids)                 # e.g., [7, 42, 101, ...]  (subset or full)
+        where = np.where(tail_ids_np == t_target)[0]
+        if where.size == 0:
+            raise RuntimeError(f"Tail ID {t_target} not in candidate tails")
+        user_tail_pos = int(where[0])                     # 0-based position inside tail_ids
 
-        # 6) convert to numpy for rank math
-        sorted_scores_np = F.asnumpy(sorted_scores)
-        idx_np           = F.asnumpy(idx)
+        # 3) Sort and find the position in the sorted array
+        idx      = F.argsort(scores, dim=0, descending=True)  # permutation: sorted_pos -> original_pos
+        idx_np   = F.asnumpy(idx)
+        pos_in_sorted = int(np.where(idx_np == user_tail_pos)[0][0])  # 0-based
+        rank = pos_in_sorted + 1                                       # 1-based rank
 
-        # 7) compute max score
-        max_score = float(sorted_scores_np[0])
-
-        # 8) find where our target tail lives
-        #    each flat position corresponds to: flat_i = rel_index * num_tail + tail_index
-        num_tail = int(F.shape(tail_ids)[0])
-        tail_positions = idx_np % num_tail
-        matches = np.where(tail_positions == t_target)[0]
-        if matches.size == 0:
-            raise RuntimeError(f"Tail ID {t_target} not found in scoring output")
-        pos = int(matches[0])
-
-        # 9) its score and dense rank
-        user_score = float(sorted_scores_np[pos])
-        rank       = int((sorted_scores_np > user_score).sum() + 1)
+        user_score = float(scores_np[user_tail_pos])
+        max_score  = float(scores_np[idx_np[0]])  # top score (same as scores_np.max())
 
         return rank, user_score, max_score
+
 
 
     def topK(self, head=None, rel=None, tail=None, exec_mode='all', k=10):
