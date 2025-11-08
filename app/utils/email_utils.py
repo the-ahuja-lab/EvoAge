@@ -39,6 +39,8 @@ async def send_welcome_email(email_to: EmailStr):
     logo_path = Path(__file__).parent.parent / "data" / "logo.png"
     logo_cid = "logo_welcome"  # Use a different CID to avoid conflicts
 
+    logger.debug(f"Preparing to send welcome email to {email_to}")
+
     # Create a beautiful HTML body
     body = f"""
     <!DOCTYPE html>

@@ -13,4 +13,4 @@ nohup \
     --bind 0.0.0.0:1026 \
   > neo4j_api_logs.log 2>&1 &
 
-echo "✅ Deployment complete. API on :1026"
+echo "✅ Check Log for Deployment."

@@ -156,6 +156,43 @@ class ScoreInfer(object):
 
         return rank, user_score, max_score
 
+    def topK_no_sort(self, head=None, rel=None, tail=None, exec_mode='triplet_wise'):
+        if head is None:
+            head = F.arange(0, self.model.num_entity)
+        else:
+            head = F.tensor(head)
+        if rel is None:
+            rel = F.arange(0, self.model.num_rel)
+        else:
+            rel = F.tensor(rel)
+        if tail is None:
+            tail = F.arange(0, self.model.num_entity)
+        else:
+            tail = F.tensor(tail)
+
+        num_head = F.shape(head)[0]
+        num_rel = F.shape(rel)[0]
+        num_tail = F.shape(tail)[0]
+
+        assert exec_mode == 'triplet_wise', \
+                'Exec Mode should be triplet_wise'
+
+        if exec_mode == 'triplet_wise':
+            result = []
+            assert num_head == num_rel, \
+                'For triplet wise exection mode, head, relation and tail lists should have same length'
+            assert num_head == num_tail, \
+                'For triplet wise exection mode, head, relation and tail lists should have same length'
+
+            raw_score = self.model.score(head, rel, tail, triplet_wise=True)
+            score = self.score_func(raw_score)
+            idx = F.arange(0, num_head)
+
+            result.append((F.asnumpy(head[idx]),
+                           F.asnumpy(rel[idx]),
+                           F.asnumpy(tail[idx]),
+                           F.asnumpy(score)))
+        return result
 
 
     def topK(self, head=None, rel=None, tail=None, exec_mode='all', k=10):

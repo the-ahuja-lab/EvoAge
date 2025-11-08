@@ -267,49 +267,47 @@ async def search_biological_entities(
     operation_id="get_entity_relationships",
 )
 async def get_entity_relationships(
-    entity_type: str = Query(
-        ...,
-        description="The type of entity to search for (e.g., Gene, Protein)",
-    ),
-    property_name: str = Query(
-        ...,
-        description="The property used to identify the entity (e.g., id, name)",
-    ),
-    property_value: str = Query(
-        ...,
-        description="The value of the property for the entity",
-    ),
-    relationship_type: Optional[str] = Query(
-        None,
-        description="The type of relationship to filter by (optional)",
-    ),
+    entity_type: str = Query(..., description="The type of entity to search for (e.g., Gene, Protein)"),
+    property_name: str = Query(..., description="The property used to identify the entity (e.g., id, name)"),
+    property_value: str = Query(..., description="The value of the property for the entity"),
+    relationship_type: Optional[str] = Query(None, description="The type of relationship to filter by (optional)"),
+    target_label: Optional[str] = Query(None, description="The label of the related entity to filter (optional)"),
     db: Neo4jConnection = Depends(get_neo4j_connection),
 ):
-    """Fetch related entities, optionally filter by relationship type, and limit details to 20 entities while providing the total count."""
-    # List of properties to exclude for optimization
-    ignore_properties = [
-        "sequence",
-        "seq",
-        "smiles",
-        "detail",
-        "details",
-        "description",
-    ]
+    """Fetch related entities, optionally filter by relationship type and target label."""
 
-    # Define query depending on whether relationship_type is provided
+    ignore_properties = ["sequence", "seq", "smiles", "detail", "details", "description"]
+
     if relationship_type:
-        # Apply LOWER() in the query for case-insensitive relationship matching
+        # Normalize relationship type and handle possible reverse forms
+        rt_lower = relationship_type.lower()
+        rt_reverse = check_rev_rel.get(rt_lower) if 'check_rev_rel' in globals() else None  # Optional reverse map
+        rt_candidates = [rt_lower]
+        if rt_reverse and rt_reverse != rt_lower:
+            rt_candidates.append(rt_reverse)
+
+        # Normalize target label if provided
+        target_label = target_label.lower() if target_label else None
+
         query = f"""
-        MATCH (e:{entity_type})-[r]-(related)
-        WHERE e.{property_name} = $property_value AND LOWER(type(r)) = LOWER($relationship_type)
+        MATCH (e:{entity_type})
+        WHERE e.{property_name} = $property_value
+        WITH e
+        MATCH (e)-[r]-(related)
+        WHERE toLower(type(r)) IN $rt_candidates
+        AND ($target_label IS NULL OR any(lbl IN labels(related) WHERE toLower(lbl) = $target_label))
         RETURN count(related) AS total_count,
-               collect(apoc.map.removeKeys(properties(related), $ignore_properties))[0..20] AS entity_properties
+            collect(apoc.map.removeKeys(properties(related), $ignore_properties))[0..20] AS entity_properties
+
         """
+
         params = {
             "property_value": property_value,
-            "relationship_type": relationship_type,
+            "rt_candidates": rt_candidates,
+            "target_label": target_label,
             "ignore_properties": ignore_properties,
         }
+
     else:
         query = f"""
         MATCH (e:{entity_type})--(related)
@@ -322,19 +320,15 @@ async def get_entity_relationships(
             "ignore_properties": ignore_properties,
         }
 
-    # Execute the query
     result = db.query(query, parameters=params)
 
     if not result:
-        relationship_message = (
-            f" of type '{relationship_type}'" if relationship_type else ""
-        )
+        relationship_message = f" of type '{relationship_type}'" if relationship_type else ""
         raise HTTPException(
             status_code=404,
             detail=f"No relationships{relationship_message} found for {entity_type} with {property_name}='{property_value}'",
         )
 
-    # Extract the total count and related entities
     total_count = result[0]["total_count"]
     related_entities = [
         RelatedEntity(entity_properties=entity)
@@ -345,6 +339,7 @@ async def get_entity_relationships(
         total_relationships=total_count,
         related_entities=related_entities,
     )
+
 
 
 @router.get(
@@ -382,13 +377,21 @@ async def check_relationship(
     ),
     db: Neo4jConnection = Depends(get_neo4j_connection),
 ):
-    # Query to check if a relationship exists between the two entities
+    ## Query to check if a relationship exists between the two entities
     query = f"""
     MATCH (e1:{entity1_type})-[r]-(e2:{entity2_type})
     WHERE e1.{entity1_property_name} = $entity1_property_value
       AND e2.{entity2_property_name} = $entity2_property_value
     RETURN type(r) AS relationship_type
     """
+    # query = f"""
+    # MATCH (e1:{entity1_type}), (e2:{entity2_type})
+    # WHERE e1.{entity1_property_name} = $entity1_property_value
+    # AND e2.{entity2_property_name} = $entity2_property_value
+    # WITH e1, e2
+    # MATCH (e1)-[r]-(e2)
+    # RETURN DISTINCT type(r) AS relationship_type
+    # """
 
     result = db.query(
         query,

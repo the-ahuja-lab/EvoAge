@@ -18,7 +18,7 @@ from app.utils.model_manager import LazyKGEManager
 
 
 
-logger = logging.getLogger("main_server_kge")
+logger = logging.getLogger("LinkPrediction")
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(name)s: %(message)s"

@@ -92,6 +92,30 @@ class DGLConfig(BaseSettings):
         env_prefix = ""   # read env vars exactly as named in .env
         # extra = "ignore"  # (optional) ignore unexpected vars
 
+class HypothesisConfig(BaseSettings):
+    INPUT_DIR_HYPOTHESIS: str
+    API_BASE: str = "http://localhost:1026"
+    DEFAULT_ENTITY_PROP: str = "id"
+    CUTOFF_FILE_NAME: str
+    HYPOTHESIS_ENT_DICT_PATH: str
+
+    class Config:
+        env_prefix = ""   # read env vars exactly as named in .env
+
+class OpenAIConfig(BaseSettings):
+    OPENAI_API_KEY: str
+    OPENAI_MODEL: str = "gpt-4o-mini"
+
+    class Config:
+        env_prefix = ""   # read env vars exactly as named in .env
+        
+class GoogleGeminiConfig(BaseSettings):
+    GEMINI_API_KEY: str
+    GEMINI_MODEL: str = "gemini-1.5-flash"
+
+    class Config:
+        env_prefix = ""   # read env vars exactly as named in .env
+
 class CONFIG:
     UVICORN = UvicornConfig()
     NEO4J = Neo4jConfig()
@@ -100,3 +124,6 @@ class CONFIG:
     MAIL = MailConfig()
     ADMIN = AdminSettings()
     DGLCONFIG = DGLConfig()
+    OPENAI = OpenAIConfig()
+    GEMINI = GoogleGeminiConfig()
+    HYPOTHESIS = HypothesisConfig()

@@ -54,3 +54,4 @@ logs/
 *.npy
 
 /DGL-EvoKG/
+/DGL-EvoKG-Data/

@@ -1,8 +1,7 @@
 import logging
 from contextlib import asynccontextmanager
-
-import redis.asyncio as redis
 import uvicorn
+import redis.asyncio as redis
 from fastapi import Depends, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi_limiter import FastAPILimiter
@@ -15,6 +14,7 @@ from app import (
     routes,
     user_routes,
     utils_routes,
+    hypothesis_routes,
 )
 from app.utils.environment import CONFIG
 
@@ -46,22 +46,26 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
+# ✅ define logger BEFORE using it
+logger = logging.getLogger("uvicorn.error")
+
 app.include_router(routes.router)
 app.include_router(auth_routes.router)
 app.include_router(user_routes.router)
 app.include_router(utils_routes.router)
+app.include_router(demo_routes.router) # Completely for testing purposes
 
-logger = logging.getLogger("uvicorn.error")
+try:
+    app.include_router(hypothesis_routes.router)
+    logger.info("Hypothesis Routes included Successfully")
+except Exception as e:
+    logger.error(f"Error including Hypothesis routes: {e}")
 
 try:
     app.include_router(model_routes.router)
-    logger.info("Model routes included successfully")
+    logger.info("Model Routes included Successfully")
 except Exception as e:
-    logger.error(f"Error including model routes: {e}")
-
-# Include demo routes for testing
-# Completely for testing purposes
-app.include_router(demo_routes.router)
+    logger.error(f"Error including Model Routes: {e}")
 
 # Allow CORS
 app.add_middleware(
