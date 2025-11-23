@@ -55,3 +55,13 @@ class UserOpenAIKeyUpdate(BaseModel):
 class AdminUserQueryLimitUpdate(BaseModel):
     admin_password: str
     new_query_limit: int
+
+class ForgotPasswordRequest(BaseModel):
+    """Model for the /forgot-password request body."""
+    email: EmailStr
+
+
+class ResetPasswordRequest(BaseModel):
+    """Model for the /reset-password request body."""
+    token: str
+    new_password: str = Field(..., min_length=8)

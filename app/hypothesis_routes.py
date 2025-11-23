@@ -10,6 +10,10 @@ import asyncio
 from pathlib import Path
 from openai import OpenAI
 import httpx
+import time
+from threading import Lock
+from itertools import cycle
+from google.api_core import exceptions as gcp_exceptions
 
 # DGL-KE imports
 from dglke.models.infer import ScoreInfer
@@ -25,10 +29,27 @@ router = APIRouter(prefix="/hypothesis", tags=["Hypothesis"])
 # OpenAI Configuration
 # client = OpenAI(api_key=CONFIG.OPENAI.OPENAI_API_KEY) 
 
-# Gemini Configuration
-genai.configure(api_key=CONFIG.GEMINI.GEMINI_API_KEY) 
+# # Gemini Configuration
+# genai.configure(api_key=CONFIG.GEMINI.GEMINI_API_KEY) 
 
 logger = logging.getLogger("HypothesisTesting")
+comma_separated_keys: str = CONFIG.GEMINI.GEMINI_API_KEY
+ALL_KEYS: List[str] = [
+    key.strip() 
+    for key in comma_separated_keys.split(',')
+    if key.strip() # Ensure empty strings (e.g., from trailing comma) are ignored
+]
+# Create a cyclic iterator for the keys
+KEY_CYCLE = cycle(ALL_KEYS)
+
+# Create a Lock to ensure thread-safe access to the iterator state
+KEY_CYCLE_LOCK = Lock()
+
+def get_next_key() -> str:
+    """Retrieves the next key in a thread-safe (non-racing) manner."""
+    with KEY_CYCLE_LOCK:
+        # Only one thread can advance the cycle at a time
+        return next(KEY_CYCLE)
 
 # =========================
 # CONFIGURATION
@@ -717,28 +738,57 @@ def run_hypothesis_pipeline(
         "categorizedRows": categorized_rows,  # only buckets 1,2,4
     }
 
-    # ----------------------------- To Save JSON ----------------------------------------
-    save_response_obj(response_obj, "/storage/Arushi/EvoAge-backend/DGL-EvoKG/HypothesisTesting/JSONResult", f"response_obj.json")
-
     # ------------------------------ Google Vertex SDK Implementation -----------------------
+    MAX_RETRIES = len(ALL_KEYS) # Max retries equals the number of keys
+    gemini_response = None
 
-    try:
-        with open("/storage/Arushi/EvoAge-backend/DGL-EvoKG/HypothesisTesting/JSONResult/response_obj.json", "r") as f:
-            json_data = f.read()
-        model = genai.GenerativeModel(CONFIG.GEMINI.GEMINI_MODEL)
-        # Send JSON + prompt together
-        response = model.generate_content([build_hypothesis_system_prompt(hypothesis), json_data])
-    except Exception as e:
-        # Log and re-raise (or convert to your API's error)
-        logger.exception("Gemini generate_content failed: %s", e)
-        raise
-    finally:
+    for attempt in range(MAX_RETRIES):
+        # 1. Thread-safe, Round-Robin Key Rotation
+        current_key = get_next_key() 
+        key_suffix = current_key[-4:]
+        
         try:
-            if os.path.exists("/storage/Arushi/EvoAge-backend/DGL-EvoKG/HypothesisTesting/JSONResult/response_obj.json"):
-                os.remove("/storage/Arushi/EvoAge-backend/DGL-EvoKG/HypothesisTesting/JSONResult/response_obj.json")
-        except OSError:
-            pass
-    payload = genai_response_to_payload(response)
+            # 2. Initialize the client and model with the current key
+            genai.configure(api_key=current_key)
+            
+            # 3. Instantiate the Model
+            model = genai.GenerativeModel(CONFIG.GEMINI.GEMINI_MODEL)
+            
+            logger.info(f"Attempt {attempt + 1}: Calling Gemini with key ending in ...{key_suffix}")
+            
+            # 3. Send the content
+            response = model.generate_content([build_hypothesis_system_prompt(hypothesis), json.dumps(response_obj, indent=2)])
+            
+            gemini_response = response # Success!
+            break 
+            
+        except gcp_exceptions.ResourceExhausted as e:
+            # This handles the rare case where a key is still exhausted
+            logger.warning(
+                f"Key ending in ...{key_suffix} hit quota limit. Cycling to the next key automatically."
+            )
+            # Do NOT re-raise yet. The loop will increment and call get_next_key() again.
+            if attempt == MAX_RETRIES - 1:
+                logger.error("All Gemini API keys exhausted their quota.")
+                raise HTTPException(
+                    status_code=503, 
+                    detail="All available Gemini API keys have exceeded their current quota. Please retry later."
+                ) from e
+            # Wait briefly before trying the next key
+            time.sleep(1) 
+        
+        except Exception as e:
+            # Handle other, non-quota related exceptions
+            logger.exception("Gemini generate_content failed with a non-quota error: %s", e)
+            raise
+                
+    # try:
+    if gemini_response is None:
+        # This check handles the case where the loop completed all MAX_RETRIES 
+        # (i.e., all keys failed with ResourceExhausted).
+        raise HTTPException(status_code=503, detail="Gemini call failed after all retries.")
+
+    payload = genai_response_to_payload(gemini_response)
     return payload['response']
 
     # ------------------------------ OpenAI Implementation -----------------------

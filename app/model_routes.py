@@ -5,8 +5,6 @@ import time
 import logging
 from pathlib import Path
 
-os.environ["CUDA_LAUNCH_BLOCKING"] = "0"
-
 from app.utils.environment import CONFIG
 from fastapi import APIRouter, HTTPException, Query
 from app.utils.constants import check_rev_rel, Ntype_split
@@ -266,37 +264,6 @@ try:
     config = load_model_config(config_json)
 except Exception as e:
     raise RuntimeError(f"Failed to load model config: {e!s}")
-
-# try:
-#     logger.info(f"Initializing ScoreInfer on device {DEVICE}")
-#     infer = ScoreInfer(
-#         device=DEVICE,
-#         config=config,
-#         model_path=MODEL_PATH,
-#         sfunc=SFUNC
-#     )
-#     logger.info("Starting model.load_model() (this may take a while)")
-#     infer.load_model()
-# except Exception as e:
-#         logger.warning("Loading on GPU failed: %s", str(e))
-#         raise RuntimeError(f"Cannot initialize inference model: {e!s}")
-
-# logger.info("Inference service starting up… warming up DGL-KE model on GPU")
-# try:
-#     # One tiny predict call to force the first GPU / JIT warm‑up
-#     dummy_head = DUMMY_HEAD
-#     dummy_rel = DUMMY_REL
-
-#     _ , _ = predict_tails_dglke(k=1,
-#         head_list_path=dummy_head,
-#         rel_list_path=dummy_rel)
-
-#     logger.info("Model warm‑up complete; ready to receive requests")
-# except Exception as e:
-#     logger.error("Model warm‑up failed: %s", str(e), exc_info=True)
-#     raise HTTPException(status_code=404, detail=f"Model warm‑up failed: {str(e)}")
-
-# logger.info("Model successfully loaded into GPU memory")
 
 # Load the mappings for the entities and relations
 try:

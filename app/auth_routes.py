@@ -7,12 +7,27 @@ from fastapi_limiter.depends import (
 )
 from redis.asyncio import Redis
 
-from app.crud.user import check_email_exists, create_user, get_user_by_username
-from app.models.user import Token, UserCreate, UserPublic
+from app.crud.user import (
+    check_email_exists, 
+    create_user, 
+    get_user_by_username,
+    get_user_by_email,
+    create_password_reset_token,
+    get_user_by_reset_token,
+    update_user_password,
+)
+from app.models.user import (
+    Token, 
+    UserCreate, 
+    UserPublic,
+    ForgotPasswordRequest,
+    ResetPasswordRequest,
+)
 from app.models.utils_models import OpenAIKeyRequest
 from app.utils.email_utils import (
     send_new_user_notification,
     send_welcome_email,
+    send_password_reset_email,
 )
 from app.utils.environment import CONFIG
 from app.utils.redis_utils import get_redis_connection
@@ -130,3 +145,75 @@ async def login_for_access_token(
         data={"sub": user.username}, expires_delta=access_token_expires
     )
     return {"access_token": access_token, "token_type": "bearer"}
+
+@router.post(
+    "/forgot-password",
+    dependencies=[Depends(RateLimiter(times=5, minutes=1))],
+)
+async def forgot_password(
+    request: ForgotPasswordRequest,
+    db: Redis = Depends(get_redis_connection),
+):
+    """
+    Handles a 'forgot password' request.
+    If the user's email exists, generates a reset token and sends it.
+    Always returns 200 OK to prevent email-guessing attacks.
+    """
+    # 1. Find the user by email
+    user = await get_user_by_email(db, request.email)
+    
+    # 2. As per your plan: If the user exists, send the email.
+    #    If not, we do nothing but still return 200 OK.
+    if user:
+        try:
+            # 3. Generate a token and send the email
+            token = await create_password_reset_token(db, user.username)
+            await send_password_reset_email(email_to=user.email, token=token)
+        except Exception as e:
+            # Log the error but don't fail the request for the user
+            logger.error(f"Failed to send password reset email to {request.email}: {e}")
+            # We can choose to raise an internal error or just pass
+            # For this flow, we'll just pass to not reveal info
+            pass
+
+    # 4. Always return a generic, successful message
+    return {"message": "If an account with this email exists, a password reset link has been sent."}
+
+
+@router.post(
+    "/reset-password",
+    status_code=status.HTTP_200_OK,
+    dependencies=[Depends(RateLimiter(times=5, minutes=1))],
+)
+async def reset_password(
+    request: ResetPasswordRequest,
+    db: Redis = Depends(get_redis_connection),
+):
+    """
+    Resets the user's password using a valid token and new password.
+    """
+    # 1. Validate the token and get the user
+    #    The get_user_by_reset_token function also deletes the token
+    user = await get_user_by_reset_token(db, request.token)
+    
+    if not user:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Invalid or expired token",
+        )
+
+    # 2. Update the user's password
+    success = await update_user_password(
+        db,
+        username=user.username,
+        new_password=request.new_password,
+    )
+
+    if not success:
+        # This should rarely happen if the token was valid
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Failed to update password",
+        )
+
+    return {"message": "Password updated successfully"}

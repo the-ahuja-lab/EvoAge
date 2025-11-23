@@ -40,6 +40,11 @@ class RedisConfig(BaseSettings):
     class Config:
         env_prefix = "REDIS_"
 
+class FEConfig(BaseSettings):
+    FRONTEND_URL: str = "http://localhost:8501"
+
+    class Config:
+        env_prefix = ""
 
 class JWTSettings(BaseSettings):
     SECRET_KEY: str
@@ -127,3 +132,4 @@ class CONFIG:
     OPENAI = OpenAIConfig()
     GEMINI = GoogleGeminiConfig()
     HYPOTHESIS = HypothesisConfig()
+    FE = FEConfig()
