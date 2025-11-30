@@ -254,7 +254,6 @@ async def search_biological_entities(
         {"entityType": record["entityType"], "topEntities": record["topEntities"]}
         for record in result
     ]
-    logger.info(f"Response from search bilogical entities: {response}")
     return response
 
 

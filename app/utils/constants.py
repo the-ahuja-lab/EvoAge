@@ -28,6 +28,8 @@ check_rev_rel: dict[str, str] = {
     'disease_pmid': 'pmid_disease',
     'protein_pmid': 'pmid_protein',
     'tissue_pmid': 'pmid_tissue',
+    #'biologicalprocess_promotes_genes': 'gene_promotes_biologicalprocess',
+    #'biologicalprocess_inhibits_chemicalentity': chemicalentity_inhibits_biologicalprocess',
 }
 
 
@@ -58,10 +60,10 @@ Ntype_split: dict[str, list[str]] = {
     'biologicalprocess_biologicalprocess': ['biologicalprocess', 'biologicalprocess'],
     'phenotype_phenotype': ['phenotype', 'phenotype'],
     'phenotype_gene': ['phenotype', 'gene'],
-    # 'chemicalentity_inhibits_biologicalprocess': ['chemicalentity', 'biologicalprocess'],
-    # 'gene_inhibits_biologicalprocess': ['gene', 'biologicalprocess'],
+    'chemicalentity_inhibits_biologicalprocess': ['chemicalentity', 'biologicalprocess'],
+    'gene_inhibits_biologicalprocess': ['gene', 'biologicalprocess'],
     'protein_biologicalprocess': ['protein', 'biologicalprocess'],
-    # 'gene_promotes_biologicalprocess': ['gene', 'biologicalprocess'],
+    'gene_promotes_biologicalprocess': ['gene', 'biologicalprocess'],
     'gene_molecularfunction': ['gene', 'molecularfunction'],
     'gene_pathway': ['gene', 'pathway'],
     'chemicalentity_pathway': ['chemicalentity', 'pathway'],
@@ -76,8 +78,8 @@ Ntype_split: dict[str, list[str]] = {
     'gene_chemicalentity': ['gene', 'chemicalentity'],
     'protein_pathway': ['protein', 'pathway'],
     'gene_protein': ['gene', 'protein'],
-    # 'gene_noeffect_biologicalprocess': ['gene', 'biologicalprocess'],
-    # 'chemicalentity_promotes_biologicalprocess': ['chemicalentity', 'biologicalprocess'],
+    'gene_noeffect_biologicalprocess': ['gene', 'biologicalprocess'],
+    'chemicalentity_promotes_biologicalprocess': ['chemicalentity', 'biologicalprocess'],
     'gene_biologicalprocess': ['gene', 'biologicalprocess'],
     'protein_molecularfunction': ['protein', 'molecularfunction'],
     'mutation_gene': ['mutation', 'gene'],

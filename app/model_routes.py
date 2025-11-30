@@ -4,6 +4,8 @@ import os
 import time
 import logging
 from pathlib import Path
+import requests
+import json
 
 from app.utils.environment import CONFIG
 from fastapi import APIRouter, HTTPException, Query
@@ -41,6 +43,10 @@ DUMMY_REL          = CONFIG.DGLCONFIG.DGLKE_DUMMY_REL_LIST
 
 DEVICE             = CONFIG.DGLCONFIG.DGLKE_DEVICE
 SFUNC              = CONFIG.DGLCONFIG.DGLKE_SFUNC
+
+API_BASE           = CONFIG.HYPOTHESIS.API_BASE
+
+SEARCH_URL = f"{API_BASE}/search_biological_entities"
 
 # validate once, fail with clear messages
 def _as_path(value, name: str) -> Path:
@@ -298,119 +304,208 @@ def predict_tail(
     head: str = Query(..., description="model_id for the head entity"),
     relation: str = Query(..., description="Relation for the prediction"),
     top_k_predictions: int = Query(10, description="Number of top predictions to return"),
-):  
+):
+
     os.makedirs(INPUT_DIR, exist_ok=True)
 
     unique_id = uuid.uuid4().hex
     head_file = os.path.join(INPUT_DIR, f"head_{unique_id}.list")
-    tail_file = os.path.join(INPUT_DIR, f"tail{unique_id}.list")
+    tail_file = os.path.join(INPUT_DIR, f"tail_{unique_id}.list")
     rel_file = os.path.join(INPUT_DIR, f"rel_{unique_id}.list")
+
     try:
+        # -----------------------------  
+        # 1. Resolve head entity mapping  
+        # -----------------------------
         head_input = str(head).strip()
         mapped = None
+
         if head_input.isdigit():
             mapped = node_mappings.loc[node_mappings["MappedID"] == int(head_input)]
-        elif mapped is None or mapped.empty:
+
+        if mapped is None or mapped.empty:
             mapped = node_mappings.loc[node_mappings["Node"] == head_input]
 
         if mapped.empty:
-            raise HTTPException(status_code=404, detail=f"No head found for '{head}'")
-        
-        head_str = mapped["Node"].iat[0]          
-        head = int(mapped["MappedID"].iat[0]) 
+            raise HTTPException(
+                status_code=404,
+                detail=f"No head found for '{head}'"
+            )
+
+        head_str = mapped["Node"].iat[0]
+        head = int(mapped["MappedID"].iat[0])
         head_type = mapped["Node_type"].iat[0].lower()
 
-        # Normalize relation
+        # -----------------------------  
+        # 2. Normalize relation  
+        # -----------------------------
         rel_norm = relation.lower()
         if rel_norm in check_rev_rel:
             rel_norm = check_rev_rel[rel_norm]
+
         Ntype_split_array = Ntype_split.get(rel_norm, [])
+        if len(Ntype_split_array) == 0:
+            raise HTTPException(
+                status_code=400,
+                detail=f"Relation '{rel_norm}' does not exist in Evo-Age."
+            )
 
-        # Default values in case of missing parts
-        rel_head_type = None
-        tail_head_type = None
+        rel_head_type = Ntype_split_array[0]
+        tail_head_type = Ntype_split_array[-1]
 
-        if len(Ntype_split_array) == 2:
-            rel_head_type = Ntype_split_array[0]
-            tail_head_type = Ntype_split_array[1]
-        else:
-            raise HTTPException(status_code=400,
-                                detail=f"This relation doesn't exist in Evo-Age, relation: {rel_norm}")
+        logger.info(f"predict_tail called: Head: {head_str}; HeadID: {head}; Relation: {rel_norm}")
 
-        logger.info(f"predict_tails called: Head: {head_str}; Head: {head}; Relation: {rel_norm}")
+        # ======================================================================
+        # CASE A: head_type == expected relation's head type → predict tails
+        # ======================================================================
+        if head_type == rel_head_type:
 
-        if (head_type == rel_head_type):
-            # write head and relation files
             with open(head_file, "w") as hf:
                 hf.write(head_str + "\n")
+
             with open(rel_file, "w") as rf:
                 rf.write(rel_norm + "\n")
 
-            # Direct inference
             results, elapsed = predict_tails_dglke(
                 k=top_k_predictions,
                 head_list_path=head_file,
                 rel_list_path=rel_file,
                 tail_type=tail_head_type
             )
+
             if not results:
                 raise HTTPException(status_code=404, detail="No predictions returned")
 
-            # Build predictions list
-            predictions = [
-                PredictionResult(tail_entity=tail, score=score)
-                for _, _, tail, score in results
-            ]
+            predictions_list = []
 
-            # Use original head ID in response, and the relation string from model output if available
+            # -----------------------------  
+            # 3. Enrich predicted tails  
+            # -----------------------------
+            for _, _, tail, score in results:
+                properties = None
+
+                try:
+                    api_json, api_err = _call_search_once(tail)
+                    if api_err:
+                        logger.warning("Search API error for tail=%s: %s", tail, api_err)
+
+                    elif api_json and isinstance(api_json, list) and len(api_json) > 0:
+                        first_item = api_json[0]
+                        top_entities = first_item.get("topEntities")
+                        if top_entities:
+                            first_top = top_entities[0]
+                            props = first_top.get("properties") or {}
+
+                            properties = {
+                                "name": props.get("name"),
+                                "alternative_name": props.get("alternative_name"),
+                            }
+
+                except Exception:
+                    logger.exception("Error enriching tail=%s", tail)
+
+                predictions_list.append(PredictionResult(
+                    tail_entity=tail,
+                    score=score,
+                    properties=properties
+                ))
+
             relation_return = results[0][1] if results else rel_norm
 
             return PredictionResponse(
                 head_entity=str(head),
                 relation=relation_return,
-                predictions=predictions,
+                predictions=predictions_list,
             )
-        
-        elif (head_type == tail_head_type):
-            # write head and relation files
+
+        # ======================================================================
+        # CASE B: head_type matches relation's tail_type → reverse prediction  
+        # ======================================================================
+        elif head_type == tail_head_type:
+
             with open(tail_file, "w") as tf:
                 tf.write(head_str + "\n")
+
             with open(rel_file, "w") as rf:
                 rf.write(rel_norm + "\n")
 
-            # Direct inference
             results, elapsed = predict_heads_dglke(
                 k=top_k_predictions,
                 tail_list_path=tail_file,
                 rel_list_path=rel_file,
                 head_type=rel_head_type
             )
-        
+
             if not results:
                 raise HTTPException(status_code=404, detail="No predictions returned")
 
-            # Build predictions list
-            predictions = [
-                PredictionResult(tail_entity=head, score=score)
-                for head, _, _, score in results
-            ]
+            predictions_list = []
 
-            # Use original head ID in response, and the relation string from model output if available
-            relation_return = results[0][1] if results else rel_norm
+            # -----------------------------  
+            # 4. Enrich predicted heads  
+            # -----------------------------
+            for pred_head, pred_rel, pred_tail, score in results:
+                properties = None
+
+                try:
+                    api_json, api_err = _call_search_once(pred_head)
+                    if api_err:
+                        logger.warning("Search API error for predicted head=%s: %s", pred_head, api_err)
+
+                    elif api_json and isinstance(api_json, list) and len(api_json) > 0:
+                        first_item = api_json[0]
+                        top_entities = first_item.get("topEntities")
+                        if top_entities:
+                            first_top = top_entities[0]
+                            props = first_top.get("properties") or {}
+
+                            properties = {
+                                "name": props.get("name"),
+                                "alternative_name": props.get("alternative_name"),
+                            }
+
+                except Exception:
+                    logger.exception("Error enriching predicted head=%s", pred_head)
+
+                predictions_list.append(PredictionResult(
+                    tail_entity=pred_head,
+                    score=score,
+                    properties=properties
+                ))
 
             return PredictionResponse(
                 head_entity=str(head),
-                relation=Ntype_split_array[1]+"_"+Ntype_split_array[0],
-                predictions=predictions,
+                relation=Ntype_split_array[1] + "_" + Ntype_split_array[0],
+                predictions=predictions_list,
             )
-        
+
+        # ======================================================================
+        # CASE C: invalid type pairing  
+        # ======================================================================
         else:
-            raise HTTPException(status_code=400,
-                                detail=f"Entity type mismatch for relation '{relation}'.")
+            raise HTTPException(
+                status_code=400,
+                detail=f"Entity type '{head_type}' does not match relation '{relation}'."
+            )
+
+    # -----------------------------  
+    # CLEAN EXCEPTION HANDLING  
+    # -----------------------------
+    except HTTPException:
+        # preserve intentional 4xx exceptions
+        raise
 
     except Exception as e:
-        logger.error("Error in predict_tail: %s", str(e), exc_info=True)
-        raise HTTPException(status_code=500, detail=f"Prediction failed: {e!s}")
+        # real internal failures → 500
+        logger.error("Internal error in predict_tail: %s", str(e), exc_info=True)
+        raise HTTPException(
+            status_code=500,
+            detail="Internal Server Error while processing prediction."
+        )
+
+    # -----------------------------  
+    # ALWAYS CLEAN UP FILES  
+    # -----------------------------
     finally:
         for p in (head_file, rel_file, tail_file):
             if p and os.path.exists(p):
@@ -432,12 +527,10 @@ def predict_tail(
 async def get_prediction_rank(
     head: str = Query(..., description="model_id for head entity for the prediction"),
     relation: str = Query(..., description="Relation for the prediction"),
-    tail: str = Query(
-        ...,
-        description="model_id for tail entity to check for its rank",
-    ),
+    tail: str = Query(..., description="model_id for tail entity to check for its rank"),
 ):
     """Returns the rank, score of the given tail entity, and the maximum score among predictions."""
+
     os.makedirs(INPUT_DIR, exist_ok=True)
 
     unique_id = uuid.uuid4().hex
@@ -445,58 +538,71 @@ async def get_prediction_rank(
     rel_file  = os.path.join(INPUT_DIR, f"rel_{unique_id}.list")
     tail_file = os.path.join(INPUT_DIR, f"tail_{unique_id}.list")
 
-
     try:
-        # map head ID → string
+        # =====================================================================
+        # 1. MAP HEAD ENTITY
+        # =====================================================================
         head_input = str(head).strip()
         mapped_head = None
+
         if head_input.isdigit():
             mapped_head = node_mappings.loc[node_mappings["MappedID"] == int(head_input)]
-        elif mapped_head is None or mapped_head.empty:
+
+        if mapped_head is None or mapped_head.empty:
             mapped_head = node_mappings.loc[node_mappings["Node"] == head_input]
-        
+
         if mapped_head.empty:
             raise HTTPException(status_code=404, detail=f"No head found for ID {head}")
 
-        head_str = mapped_head["Node"].iat[0]          
+        head_str = mapped_head["Node"].iat[0]
         head = str(mapped_head["MappedID"].iat[0])
         head_node_type = mapped_head["Node_type"].iat[0].lower()
 
-        # map head ID → string
+        # =====================================================================
+        # 2. MAP TAIL ENTITY
+        # =====================================================================
         tail_input = str(tail).strip()
         mapped_tail = None
+
         if tail_input.isdigit():
             mapped_tail = node_mappings.loc[node_mappings["MappedID"] == int(tail_input)]
-        elif mapped_tail is None or mapped_tail.empty:
+
+        if mapped_tail is None or mapped_tail.empty:
             mapped_tail = node_mappings.loc[node_mappings["Node"] == tail_input]
-        
+
         if mapped_tail.empty:
-            raise HTTPException(status_code=404, detail=f"No head found for ID {tail}")
+            raise HTTPException(status_code=404, detail=f"No tail found for ID {tail}")
 
         tail_str = mapped_tail["Node"].iat[0]
         tail = str(mapped_tail["MappedID"].iat[0])
         tail_node_type = mapped_tail["Node_type"].iat[0].lower()
 
-        # normalize relation
+        # =====================================================================
+        # 3. NORMALIZE RELATION
+        # =====================================================================
         rel_norm = relation.lower()
         if rel_norm in check_rev_rel:
             rel_norm = check_rev_rel[rel_norm]
+
         Ntype_split_array = Ntype_split.get(rel_norm, [])
+        if len(Ntype_split_array) == 0:
+            raise HTTPException(
+                status_code=400,
+                detail=f"This relation doesn't exist in Evo-Age: '{rel_norm}'"
+            )
 
-        # Default values in case of missing parts
-        rel_head_type = None
-        rel_tail_type = None
+        rel_head_type, rel_tail_type = Ntype_split_array
 
-        if len(Ntype_split_array) == 2:
-            rel_head_type = Ntype_split_array[0]
-            rel_tail_type = Ntype_split_array[1]
-        else:
-            raise HTTPException(status_code=400, detail=f"This relation doesn't exist in Evo-Age, relation: {rel_norm}")
+        logger.info(
+            f"Head Node Type: {head_node_type}; Expected: {rel_head_type}; "
+            f"Tail Node Type: {tail_node_type}; Expected: {rel_tail_type}"
+        )
 
-        logger.info(f"Head Node Type: {head_node_type}; Head Type: {rel_head_type}; Tail Node Type: {tail_node_type}; Tail Type: {rel_tail_type}")
-        
-        if (head_node_type == rel_head_type and tail_node_type == rel_tail_type):
-            # write out the three .list files
+        # =====================================================================
+        # 4. CASE A: Normal direction (head → tail)
+        # =====================================================================
+        if head_node_type == rel_head_type and tail_node_type == rel_tail_type:
+
             with open(head_file, "w") as hf:
                 hf.write(head_str + "\n")
             with open(rel_file, "w") as rf:
@@ -504,12 +610,11 @@ async def get_prediction_rank(
             with open(tail_file, "w") as tf:
                 tf.write(tail_str + "\n")
 
-            # get rank, score, max_score
             rank, score, max_score, elapsed = predict_rank_dglke(
                 head_list_path=head_file,
                 rel_list_path=rel_file,
                 user_set_tail_list_path=tail_file,
-                tail_type = tail_node_type
+                tail_type=tail_node_type
             )
 
             return PredictionRankResponse(
@@ -520,8 +625,12 @@ async def get_prediction_rank(
                 score=score,
                 max_score=max_score
             )
-        elif (head_node_type == rel_tail_type and tail_node_type == rel_head_type):
-            # write out the three .list files
+
+        # =====================================================================
+        # 5. CASE B: Reverse direction (tail → head)
+        # =====================================================================
+        elif head_node_type == rel_tail_type and tail_node_type == rel_head_type:
+
             with open(head_file, "w") as hf:
                 hf.write(tail_str + "\n")
             with open(rel_file, "w") as rf:
@@ -529,12 +638,11 @@ async def get_prediction_rank(
             with open(tail_file, "w") as tf:
                 tf.write(head_str + "\n")
 
-            # get rank, score, max_score
             rank, score, max_score, elapsed = predict_rank_dglke(
                 head_list_path=head_file,
                 rel_list_path=rel_file,
                 user_set_tail_list_path=tail_file,
-                tail_type = head_node_type
+                tail_type=head_node_type
             )
 
             return PredictionRankResponse(
@@ -545,22 +653,33 @@ async def get_prediction_rank(
                 score=score,
                 max_score=max_score
             )
+
+        # =====================================================================
+        # 6. TYPE MISMATCH
+        # =====================================================================
         raise HTTPException(
             status_code=400,
-            detail=(
-                f"Entity type mismatch for relation '{relation}'."
-                # "Expected '{ht}->{tt}', got '{hnode}->{tnode}'"
-            )
-            # .format(
-            #     rel=relation,
-            #     ht=rel_head_type_expected, tt=tail_type_expected,
-            #     hnode=head_node_type, tnode=tail_node_type
-            # ),
+            detail=f"Entity type mismatch for relation '{relation}'."
         )
-        
+
+    # =====================================================================
+    # CLEAN EXCEPTION HANDLING
+    # =====================================================================
+    except HTTPException:
+        # pass through intentional errors
+        raise
+
     except Exception as e:
-        logger.error("Error in get_prediction_rank: %s", str(e), exc_info=True)
-        raise HTTPException(status_code=500, detail=f"Rank prediction failed: {e!s}")
+        # unexpected internal bugs → 500
+        logger.error("Internal error in get_prediction_rank: %s", str(e), exc_info=True)
+        raise HTTPException(
+            status_code=500,
+            detail="Internal Server Error while computing prediction rank."
+        )
+
+    # =====================================================================
+    # ALWAYS CLEAN UP FILES
+    # =====================================================================
     finally:
         for p in (head_file, rel_file, tail_file):
             try:
@@ -577,3 +696,17 @@ def unload_model():
 @router.get("/model_stats")
 def model_stats():
     return MODEL.stats()
+
+def _call_search_once(q: str, timeout: int = 60):
+    try:
+        r = requests.get(SEARCH_URL, params={"targetTerm": q}, timeout=timeout)
+        if r.status_code == 200:
+            try:
+                return r.json(), None
+            except ValueError as e:
+                logger.error("Failed to decode JSON from search response for q=%s: %s", q, e)
+                return None, f"JSON decode error: {e}"
+        return None, f"HTTP {r.status_code}: {r.text[:180]}"
+    except Exception as e:
+        logger.exception("Request error during search call for q=%s", q)
+        return None, f"Request error: {e}"

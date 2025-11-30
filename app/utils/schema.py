@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import List, Optional
+from typing import List, Optional, Dict, Any
 
 
 class TripleResponse(BaseModel):
@@ -25,6 +25,7 @@ class SubgraphResponse(BaseModel):
 class PredictionResult(BaseModel):
     tail_entity: str
     score: float
+    properties: Optional[Dict[str, Any]] = None
 
 
 class PredictionResponse(BaseModel):
