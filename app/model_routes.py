@@ -10,7 +10,8 @@ import json
 from app.utils.environment import CONFIG
 from fastapi import APIRouter, HTTPException, Query
 from app.utils.constants import check_rev_rel, Ntype_split
-
+from app.utils.database import neo4j_connection
+from app.utils.constants import mapping_reversed
 # DGL-KE imports
 from dglke.utils import load_model_config, load_raw_triplet_data
 from dglke.models.infer import ScoreInfer
@@ -133,14 +134,14 @@ def predict_tails_dglke(tail_type, k=10, head_list_path=None, rel_list_path=None
     #     exec_mode="batch_head",
     #     k=k
     # )
-    with MODEL.session() as infer:
-        raw_results = infer.topK(
-            head=head_ids,
-            rel=rel_ids,
-            tail=tail_ids,
-            exec_mode="batch_head",
-            k=k
-        )
+    # with MODEL.session() as infer:
+    raw_results = infer.topK(
+        head=head_ids,
+        rel=rel_ids,
+        tail=tail_ids,
+        exec_mode="batch_head",
+        k=k
+    )
 
     # 4) map back to strings
     output = [
@@ -195,14 +196,14 @@ def predict_heads_dglke(head_type, k=10, tail_list_path=None, rel_list_path=None
     #     exec_mode="batch_tail",
     #     k=k
     # )
-    with MODEL.session() as infer:
-        raw_results = infer.topK(
-            head=head_ids,
-            rel=rel_ids,
-            tail=tail_ids,
-            exec_mode="batch_tail",
-            k=k
-        )
+    # with MODEL.session() as infer:
+    raw_results = infer.topK(
+        head=head_ids,
+        rel=rel_ids,
+        tail=tail_ids,
+        exec_mode="batch_tail",
+        k=k
+    )
 
     # 4) map back to strings
     output = [
@@ -250,14 +251,14 @@ def predict_rank_dglke(
     #     user_set_tail=tail_ids,
     #     exec_mode="batch_head",
     # )
-    with MODEL.session() as infer:
-        rank, user_score, max_score = infer.get_rank_score(
-            head=head_ids,
-            rel=rel_ids,
-            tail=tail_ids,
-            user_set_tail=user_tail_id,
-            exec_mode="batch_head",
-        )
+    # with MODEL.session() as infer:
+    rank, user_score, max_score = infer.get_rank_score(
+        head=head_ids,
+        rel=rel_ids,
+        tail=tail_ids,
+        user_set_tail=user_tail_id,
+        exec_mode="batch_head",
+    )
     elapsed = time.time() - start_time
     logger.info("Cal. completed in %.3f seconds", elapsed)
     return rank, user_score, max_score, elapsed
@@ -281,15 +282,41 @@ except FileNotFoundError:
 except Exception as e:
     raise Exception(f"Error loading node mappings: {e!s}")
 
-MODEL = LazyKGEManager(
-    score_infer_cls=ScoreInfer,
-    device=DEVICE,
-    config=config,
-    model_path=MODEL_PATH,
-    sfunc=SFUNC,
-    idle_seconds=1800,   # 30 minutes
-    max_inflight=1      # start with 1; raise carefully if memory allows
-)
+# MODEL = LazyKGEManager(
+#     score_infer_cls=ScoreInfer,
+#     device=DEVICE,
+#     config=config,
+#     model_path=MODEL_PATH,
+#     sfunc=SFUNC,
+#     idle_seconds=1800,   # 30 minutes
+#     max_inflight=1      # start with 1; raise carefully if memory allows
+# )
+
+try:
+    logger.info(f"Initializing ScoreInfer on device {DEVICE}")
+    infer = ScoreInfer(
+        device=DEVICE,
+        config=config,
+        model_path=MODEL_PATH,
+        sfunc=SFUNC
+    )
+    logger.info("Starting model.load_model() (this may take a while)")
+    infer.load_model()
+except Exception as e:
+        logger.warning("Loading on GPU failed: %s", str(e))
+        raise RuntimeError(f"Cannot initialize inference model: {e!s}")
+
+logger.info("Inference service starting up… warming up DGL-KE model on GPU")
+try:
+    # one tiny predict call to force the first GPU / JIT warm‑up
+    _ , _ = predict_tails_dglke(tail_type="gene",k=1,
+        head_list_path=DUMMY_HEAD,
+        rel_list_path=DUMMY_REL)
+
+    logger.info("Model warm‑up complete; ready to receive requests")
+except Exception as e:
+    logger.error("Model warm‑up failed: %s", str(e), exc_info=True)
+    raise HTTPException(status_code=404, detail=f"Model warm‑up failed: {str(e)}")
 
 
 @router.get(
@@ -384,25 +411,16 @@ def predict_tail(
             for _, _, tail, score in results:
                 properties = None
 
-                try:
-                    api_json, api_err = _call_search_once(tail)
-                    if api_err:
-                        logger.warning("Search API error for tail=%s: %s", tail, api_err)
+                node_type_lc = tail_head_type  # e.g. "gene"
+                node_type = mapping_reversed.get(node_type_lc, node_type_lc.capitalize())
 
-                    elif api_json and isinstance(api_json, list) and len(api_json) > 0:
-                        first_item = api_json[0]
-                        top_entities = first_item.get("topEntities")
-                        if top_entities:
-                            first_top = top_entities[0]
-                            props = first_top.get("properties") or {}
-
-                            properties = {
-                                "name": props.get("name"),
-                                "alternative_name": props.get("alternative_name"),
-                            }
-
-                except Exception:
-                    logger.exception("Error enriching tail=%s", tail)
+                info = fetch_name_and_alt(tail, node_type=node_type)
+                properties = None
+                if info is not None:
+                    properties = {
+                        "name": info.get("name"),
+                        "alternative_name": info.get("alternative_name"),
+                    }
 
                 predictions_list.append(PredictionResult(
                     tail_entity=tail,
@@ -447,25 +465,16 @@ def predict_tail(
             for pred_head, pred_rel, pred_tail, score in results:
                 properties = None
 
-                try:
-                    api_json, api_err = _call_search_once(pred_head)
-                    if api_err:
-                        logger.warning("Search API error for predicted head=%s: %s", pred_head, api_err)
+                node_type_lc = rel_head_type  # e.g. "gene"
+                node_type = mapping_reversed.get(node_type_lc, node_type_lc.capitalize())
 
-                    elif api_json and isinstance(api_json, list) and len(api_json) > 0:
-                        first_item = api_json[0]
-                        top_entities = first_item.get("topEntities")
-                        if top_entities:
-                            first_top = top_entities[0]
-                            props = first_top.get("properties") or {}
-
-                            properties = {
-                                "name": props.get("name"),
-                                "alternative_name": props.get("alternative_name"),
-                            }
-
-                except Exception:
-                    logger.exception("Error enriching predicted head=%s", pred_head)
+                info = fetch_name_and_alt(pred_head, node_type=node_type)
+                properties = None
+                if info is not None:
+                    properties = {
+                        "name": info.get("name"),
+                        "alternative_name": info.get("alternative_name"),
+                    }
 
                 predictions_list.append(PredictionResult(
                     tail_entity=pred_head,
@@ -688,25 +697,69 @@ async def get_prediction_rank(
             except OSError:
                 pass
     
-@router.post("/unload_model")
-def unload_model():
-    unloaded = MODEL.unload_now()
-    return {"unloaded": unloaded, "stats": MODEL.stats()}
+# @router.post("/unload_model")
+# def unload_model():
+#     unloaded = MODEL.unload_now()
+#     return {"unloaded": unloaded, "stats": MODEL.stats()}
 
-@router.get("/model_stats")
-def model_stats():
-    return MODEL.stats()
+# @router.get("/model_stats")
+# def model_stats():
+#     return MODEL.stats()
 
-def _call_search_once(q: str, timeout: int = 60):
+# def _call_search_once(q: str, timeout: int = 60):
+#     try:
+#         r = requests.get(SEARCH_URL, params={"targetTerm": q}, timeout=timeout)
+#         if r.status_code == 200:
+#             try:
+#                 return r.json(), None
+#             except ValueError as e:
+#                 logger.error("Failed to decode JSON from search response for q=%s: %s", q, e)
+#                 return None, f"JSON decode error: {e}"
+#         return None, f"HTTP {r.status_code}: {r.text[:180]}"
+#     except Exception as e:
+#         logger.exception("Request error during search call for q=%s", q)
+#         return None, f"Request error: {e}"
+
+
+def fetch_name_and_alt(id: str, node_type: str) -> dict | None:
+    """
+    Executes:
+        MATCH (n {id: $id, type: $node_type})
+        RETURN name, alternative_name
+
+    Args:
+        id (str): Node's ID property
+        node_type (str): Exact type label stored in DB (case-sensitive)
+
+    Returns:
+        dict | None:
+            { "name": <str or None>, "alternative_name": <str or None> }
+            or None if no match found.
+    """
+
+    QUERY = """
+    MATCH (n {id: $id, type: $node_type})
+    RETURN n.name AS name,
+        n.alternative_name AS alternative_name
+    LIMIT 1
+    """
+
     try:
-        r = requests.get(SEARCH_URL, params={"targetTerm": q}, timeout=timeout)
-        if r.status_code == 200:
-            try:
-                return r.json(), None
-            except ValueError as e:
-                logger.error("Failed to decode JSON from search response for q=%s: %s", q, e)
-                return None, f"JSON decode error: {e}"
-        return None, f"HTTP {r.status_code}: {r.text[:180]}"
+        records = neo4j_connection.query(
+            QUERY,
+            {"id": id, "node_type": node_type}
+        )
+
+        if not records:
+            logger.info(f"No node found with id={id}, type={node_type}")
+            return None
+
+        rec = records[0]
+        return {
+            "name": rec.get("name"),
+            "alternative_name": rec.get("alternative_name"),
+        }
+
     except Exception as e:
-        logger.exception("Request error during search call for q=%s", q)
-        return None, f"Request error: {e}"
+        logger.error(f"Neo4j query failed for id={id}, type={node_type}: {e}", exc_info=True)
+        return None

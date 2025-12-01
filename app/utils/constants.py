@@ -102,6 +102,24 @@ Ntype_split: dict[str, list[str]] = {
     # 'species_associatedwith_nodes': ['species', 'nodes'],
 }
 
+mapping_reversed: Dict[str, str] = {
+    "gene": "Gene",
+    "protein": "Protein",
+    "disease": "Disease",
+    "chemicalentity": "ChemicalEntity",
+    "phenotype": "Phenotype",
+    "tissue": "Tissue",
+    "anatomy": "Anatomy",
+    "biologicalprocess": "BiologicalProcess",
+    "molecularfunction": "MolecularFunction",
+    "cellularcomponent": "CellularComponent",
+    "pathway": "Pathway",
+    "mutation": "Mutation",
+    "pmid": "PMID",
+    "species": "Species",
+    "plantextract": "PlantExtract",
+}
+
 def build_hypothesis_system_prompt(hypothesis: str) -> str:
     """
     Returns a formatted system prompt that embeds the provided hypothesis.

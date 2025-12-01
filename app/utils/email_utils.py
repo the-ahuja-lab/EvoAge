@@ -347,7 +347,7 @@ async def send_password_reset_email(email_to: EmailStr, token: str):
         
         # This URL should point to your Streamlit 'Reset_Password' page
         # e.g., "https://your-app.com/Reset_Password"
-        reset_link = f"{frontend_url}/Reset_Password?token={token}"
+        reset_link = f"{frontend_url}/?page=Reset_Password&token={token}"
     
     except AttributeError:
         logger.error("FATAL: CONFIG.APP.FRONTEND_URL is not set in the environment.")
