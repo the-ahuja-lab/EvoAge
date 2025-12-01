@@ -1,0 +1,179 @@
+[data-testid="stSidebar"] {
+    background-color: rgba(238, 238, 238, 0.9) !important;  /* light gray with 90% opacity */
+    color: black !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6); /* soft shadow */
+}
+
+[data-testid="stSidebarLogo"] {
+    margin-top: 45px !important;  /* Adjust this value as needed */
+    display: block;
+    margin-left: None;
+    justify-content: center !important;
+}
+hr {
+    margin-top: 10px !important;   /* Adjust for tighter spacing */
+    margin-bottom: 20px !important;
+}
+[data-testid="stHeader"] {
+    background: transparent;
+}
+div[data-testid="stSidebarHeader"] > img, div[data-testid="collapsedControl"] > img {
+  height: 4.5rem;
+  width: auto;
+}
+
+div[data-testid="stSidebarHeader"], div[data-testid="stSidebarHeader"] > *,
+div[data-testid="collapsedControl"], div[data-testid="collapsedControl"] > * {
+  display: flex;
+  align-items: center;
+}
+/* Make user_input bar transparent */
+[data-testid="stBottom"] > div {
+    background: transparent;
+}
+
+[data-testid="stAppViewContainer"] {
+    background: url("data:image/png;base64,{image}");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+/* button[kind="secondary"] {
+    all: unset;
+    display: block !important;
+    width: 100% !important;
+    padding: 8px 12px !important;
+    background: linear-gradient(to right, #dbe4ec, #f0f2f5) !important;
+    color: #2f4f60 !important;
+    border: 1px solid #bfc9d1 !important;
+    border-radius: 10px !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08) !important;
+    cursor: pointer;
+    margin: 6px 0 !important;
+} */
+ 
+.stButton>button {
+    all: unset;
+    display: block !important;
+    width: 92% !important;
+    padding: 8px 12px !important;
+    background: linear-gradient(to right, #dbe4ec, #f0f2f5) !important;
+    color: #2f4f60 !important;
+    border: 1px solid #bfc9d1 !important;
+    border-radius: 10px !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08) !important;
+    cursor: pointer;
+    margin: 6px 0 !important;
+}
+
+button[kind="secondary"]:hover {
+    background: linear-gradient(to right, #c3d9e9, #e0ebf3) !important;
+    width: 92% !important;
+    color: #1d3a49 !important;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15) !important;
+}
+
+button[kind="secondary"]:focus,
+button[kind="secondary"]:active {
+    background: linear-gradient(to right, #c5ccd2, #d9dee3) !important;
+    color: #1a252d !important;
+    border: 1px solid #8b949b !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18) !important;
+    transform: translateY(-1px) scale(1.01);
+    font-weight: 700 !important;
+}
+
+
+
+
+.st-key-download_chat_txt button {
+    all: unset;
+    display: block !important;
+    width: 92% !important;
+    padding: 8px 12px !important;
+    background: linear-gradient(to right, #dbe4ec, #f0f2f5) !important;
+    color: #2f4f60 !important;
+    border: 1px solid #bfc9d1 !important;
+    border-radius: 10px !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08) !important;
+    cursor: pointer;
+    margin: 6px 0 !important;}
+
+/* .st-key-download_chat_txt button:hover {
+    background: linear-gradient(to right, #b7c9dd, #d7e0eb);
+    box-shadow: 0 6px 14px rgba(100, 130, 160, 0.3);
+    width: 100%;
+    text-align: center !important;
+} */
+
+
+
+
+/* .st-key-About_Us button {
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    background: linear-gradient(to right, #dbe4ec, #f0f2f5);
+    border: none;
+    color: #2E7D32;
+    font-weight: 600;
+    transition: all 0.3s ease;
+} */
+
+/* Centering main page elemets (helps not to attach chat page with sidebar) */
+/* .block-container {
+    max-width: 90%;
+    margin: 0 auto;
+    padding-top: 2rem;
+} */
+
+/* #evo-age-assistant {
+    text-align: center;
+    /* color: #41887c; /* Olive green for header */
+    /* color: #3d3e40;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 5px;
+} */ 
+
+/* Force equal width for all sidebar buttons */
+/* --- FIX KANI SIDEBAR BUTTON WIDTH --- */
+[data-testid="stSidebar"] button[kind="secondary"] {
+    all: unset;
+    display: block !important;
+    width: 100% !important;
+    padding: 8px 12px !important;
+
+    background: linear-gradient(to right, #dbe4ec, #f0f2f5) !important;
+    color: #2f4f60 !important;
+    border: 1px solid #bfc9d1 !important;
+    border-radius: 10px !important;
+
+    font-weight: 600 !important;
+    text-align: center !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08) !important;
+    cursor: pointer;
+    margin-bottom: 8px !important;
+}
+
+[data-testid="stSidebar"] button[kind="secondary"]:hover {
+    background: linear-gradient(to right, #c3d9e9, #e0ebf3) !important;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15) !important;
+}
+
+.st-key-UnifiedChat button {
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    background: linear-gradient(to right, #9f0606, #ccea07) !important;
+    border: none;
+    color: #07f813 !important;
+    font-weight: 1000;
+    transition: all 0.3s ease;
+}
