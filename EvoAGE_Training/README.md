@@ -95,5 +95,5 @@ conda activate my_env
 conda env update --file environment.yml --prune
 
 # 4) Install the current project in editable mode
-cd dglke
+cd dglke/python
 pip install -e .
