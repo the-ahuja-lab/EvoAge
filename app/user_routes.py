@@ -82,56 +82,56 @@ async def update_current_user_query_limits(
     return UserPublic.model_validate(updated_user)
 
 
-@router.put(
-    "/{username}/query_limit_admin",
-    response_model=UserPublic,
-    dependencies=[Depends(RateLimiter(times=10, minutes=1))],
-)  # Changed to 10 per minute
-async def admin_update_user_query_limit(
-    username: str,
-    update_data: AdminUserQueryLimitUpdate,
-    db: Redis = Depends(get_redis_connection),
-):
-    """
-    Admin endpoint to update a user's query limit.
-    Requires admin authentication.
-    """
-    # Verify admin password
-    # Ensure ADMIN_PASSWORD is set in your environment configuration
-    if not CONFIG.ADMIN.PASSWORD or not verify_password(
-        update_data.admin_password, get_password_hash(CONFIG.ADMIN.PASSWORD)
-    ):
-        raise HTTPException(
-            status_code=status.HTTP_403_FORBIDDEN,
-            detail="Incorrect admin password or not authorized",
-        )
+# @router.put(
+#     "/{username}/query_limit_admin",
+#     response_model=UserPublic,
+#     dependencies=[Depends(RateLimiter(times=10, minutes=1))],
+# )  # Changed to 10 per minute
+# async def admin_update_user_query_limit(
+#     username: str,
+#     update_data: AdminUserQueryLimitUpdate,
+#     db: Redis = Depends(get_redis_connection),
+# ):
+#     """
+#     Admin endpoint to update a user's query limit.
+#     Requires admin authentication.
+#     """
+#     # Verify admin password
+#     # Ensure ADMIN_PASSWORD is set in your environment configuration
+#     if not CONFIG.ADMIN.PASSWORD or not verify_password(
+#         update_data.admin_password, get_password_hash(CONFIG.ADMIN.PASSWORD)
+#     ):
+#         raise HTTPException(
+#             status_code=status.HTTP_403_FORBIDDEN,
+#             detail="Incorrect admin password or not authorized",
+#         )
 
-    user_to_update = await get_user_by_username(db, username=username)
-    if not user_to_update:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND, detail=f"User {username} not found"
-        )
+#     user_to_update = await get_user_by_username(db, username=username)
+#     if not user_to_update:
+#         raise HTTPException(
+#             status_code=status.HTTP_404_NOT_FOUND, detail=f"User {username} not found"
+#         )
 
-    success = await update_user_query_limit_data(
-        db,
-        username=username,
-        query_limits=update_data.new_query_limit,
-        last_query_reset=datetime.utcnow().isoformat(),
-    )
+#     success = await update_user_query_limit_data(
+#         db,
+#         username=username,
+#         query_limits=update_data.new_query_limit,
+#         last_query_reset=datetime.utcnow().isoformat(),
+#     )
 
-    if not success:
-        raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail="Failed to update user query limits",
-        )
+#     if not success:
+#         raise HTTPException(
+#             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+#             detail="Failed to update user query limits",
+#         )
 
-    updated_user = await get_user_by_username(db, username=username)
-    if updated_user is None:
-        raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail="Failed to retrieve updated user details post-update",
-        )
-    return UserPublic.model_validate(updated_user)
+#     updated_user = await get_user_by_username(db, username=username)
+#     if updated_user is None:
+#         raise HTTPException(
+#             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+#             detail="Failed to retrieve updated user details post-update",
+#         )
+#     return UserPublic.model_validate(updated_user)
 
 
 @router.post(

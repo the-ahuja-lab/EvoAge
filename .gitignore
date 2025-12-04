@@ -49,9 +49,8 @@ logs/
 *.bin
 *.npz
 *.ckpt
-*.list
 *.dict
 *.npy
+*.json
 
-/DGL-EvoKG/
 /DGL-EvoKG-Data/

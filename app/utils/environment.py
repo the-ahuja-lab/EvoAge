@@ -73,11 +73,11 @@ class MailConfig(BaseSettings):
         env_prefix = "MAIL_"
 
 
-class AdminSettings(BaseSettings):
-    PASSWORD: str  # For the admin user/operations
+# class AdminSettings(BaseSettings):
+#     PASSWORD: str  # For the admin user/operations
 
-    class Config:
-        env_prefix = "ADMIN_"
+#     class Config:
+#         env_prefix = "ADMIN_"
 
 class DGLConfig(BaseSettings):
     # Required (no defaults → must be in .env)
@@ -107,12 +107,12 @@ class HypothesisConfig(BaseSettings):
     class Config:
         env_prefix = ""   # read env vars exactly as named in .env
 
-class OpenAIConfig(BaseSettings):
-    OPENAI_API_KEY: str
-    OPENAI_MODEL: str = "gpt-4o-mini"
+# class OpenAIConfig(BaseSettings):
+#     OPENAI_API_KEY: str
+#     OPENAI_MODEL: str = "gpt-4o-mini"
 
-    class Config:
-        env_prefix = ""   # read env vars exactly as named in .env
+#     class Config:
+#         env_prefix = ""   # read env vars exactly as named in .env
         
 class GoogleGeminiConfig(BaseSettings):
     GEMINI_API_KEY: str
@@ -127,9 +127,9 @@ class CONFIG:
     REDIS = RedisConfig()
     JWT = JWTSettings()
     MAIL = MailConfig()
-    ADMIN = AdminSettings()
+    # ADMIN = AdminSettings()
     DGLCONFIG = DGLConfig()
-    OPENAI = OpenAIConfig()
+    # OPENAI = OpenAIConfig()
     GEMINI = GoogleGeminiConfig()
     HYPOTHESIS = HypothesisConfig()
     FE = FEConfig()
