@@ -1,6 +1,5 @@
 # Uncovering Cross-Species Aging Mechanisms with the Integrated Knowledge Graph and Agentic AI Platform EvoAge
 
-## EvoAge: Unified AI-Enabled Framework for Multi-Species Aging Research
 
 ### Overview
 EvoAge is a comprehensive computational framework designed to accelerate discovery in:
@@ -8,7 +7,7 @@ EvoAge is a comprehensive computational framework designed to accelerate discove
 - Age-related diseases  
 - Cross-species comparative research  
 
-It achieves this through a unified **1.04 billion–triple multi-species Knowledge Graph (KG)** built from **48 integrated public biomedical datasets**.
+It achieves this through a unified **1.04 billion–triples multi-species Knowledge Graph (KG)** built from **48 integrated public biomedical datasets**.
 
 ---
 
@@ -32,16 +31,6 @@ It achieves this through a unified **1.04 billion–triple multi-species Knowled
 
 ---
 
-### 🧪 Experimental Validation
-EvoAge predicted — and experiments confirmed — a **novel Alzheimer's disease mechanism** involving:
-- **Nanoscale synaptic redistribution of BACE1 (beta-secretase)**  
-- Verified across:
-  - Human iPSC-derived neurons  
-  - Mouse models  
-  - Postmortem human brain tissue  
-
----
-
 ### Summary
 EvoAge provides a robust, AI-driven platform integrating massive biomedical knowledge with cutting-edge ML techniques, enabling transformative insights into aging and age-related diseases.
 
@@ -54,8 +43,8 @@ The EvoAGE repository is organized into three primary functional components:
 | Folder            | Description |
 |-------------------|-------------|
 | **Backend**       | Contains the core EvoAGE server logic. Handles API requests, manages interactions with Neo4j and Redis, and orchestrates Knowledge Graph Embedding (KGE) and LLM-based query workflows. |
+| **Frontend**      | The user-facing application (Streamlit). Provides an interactive interface for natural-language querying, visualization of predictions, and exploration of the EvoAGE Knowledge Graph. |
 | **EvoAGE_Training** | Includes all scripts, configurations, and utilities required for training, validating, and optimizing KGE models. Refer to the `README.md` inside this folder for detailed instructions. |
-| **Frontend**      | The user-facing application (React/Angular/HTML). Provides an interactive interface for natural-language querying, visualization of predictions, and exploration of the EvoAGE Knowledge Graph. |
 
 
 
