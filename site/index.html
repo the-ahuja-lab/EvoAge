@@ -1,0 +1,1140 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Multi-Species Aging Knowledge Graph Platform">
+      
+      
+        <meta name="author" content="The Ahuja Lab">
+      
+      
+        <link rel="canonical" href="https://the-ahuja-lab.github.io/EvoAge/">
+      
+      
+      
+        <link rel="next" href="./quick-start/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="./assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.30">
+    
+    
+      
+        <title>EvoAge: Multi-Species Aging Knowledge Graph Platform - EvoAge</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="./assets/stylesheets/modern/main.3b031116.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="./assets/stylesheets/modern/palette.dfe2e883.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#evoage-multi-species-aging-knowledge-graph-platform" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="" title="EvoAge" class="md-header__button md-logo" aria-label="EvoAge" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            EvoAge
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              EvoAge: Multi-Species Aging Knowledge Graph Platform
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="" title="EvoAge" class="md-nav__button md-logo" aria-label="EvoAge" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+
+    </a>
+    EvoAge
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <a href="" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./data-collection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Collection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./preprocessing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Preprocessing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./relation-processing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Relation Processing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./ortholog-mapping/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ortholog Mapping
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./kg-construction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    KG Construction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./kg-tensors-and-splitting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tensors & Splitting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./documentation-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                    <div class="md-sidebar-button__wrapper">
+                      <label class="md-sidebar-button" for="__toc"></label>
+                    </div>
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-stats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 Quick Stats
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Quick Start
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Quick Start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation-5-minutes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation (5 minutes)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-your-first-kg-30-minutes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build Your First KG (30 minutes)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-sections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 Documentation Sections
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 Documentation Sections">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-1-data-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 1: Data Engineering
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-2-knowledge-graph-construction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 2: Knowledge Graph Construction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-3-tensors-training" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 3: Tensors &amp; Training
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-evoage-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧬 The EvoAge Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📦 Key Components
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📦 Key Components">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#three-kg-variants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Three KG Variants
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#two-ortholog-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Two Ortholog Strategies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#six-kge-models-evaluated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Six KGE Models Evaluated
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-publications-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔬 Key Publications &amp; References
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💻 System Requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use-this-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📖 How to Use This Documentation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repository-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📁 Repository Structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authors-attribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        👥 Authors &amp; Attribution
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📝 License
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contributing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🤝 Contributing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contact-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📧 Contact &amp; Support
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔗 Quick Links
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="evoage-multi-species-aging-knowledge-graph-platform">EvoAge: Multi-Species Aging Knowledge Graph Platform<a class="headerlink" href="#evoage-multi-species-aging-knowledge-graph-platform" title="Permanent link">&para;</a></h1>
+<p><strong>EvoAge</strong> is a comprehensive knowledge graph (KG) integration platform combining 48+ biomedical databases into ~1 billion RDF triples across six species (Human, Mouse, Zebrafish, Drosophila, C. elegans, Yeast). EvoAge integrates aging-specific and biomedical context to enable predictive aging biology research through knowledge graph embeddings and machine learning.</p>
+<hr />
+<h2 id="quick-stats">📊 <strong>Quick Stats</strong><a class="headerlink" href="#quick-stats" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Databases Integrated</strong></td>
+<td>48+ biomedical sources</td>
+</tr>
+<tr>
+<td><strong>Total Triples</strong></td>
+<td>~1 billion across all KGs</td>
+</tr>
+<tr>
+<td><strong>Species Covered</strong></td>
+<td>6 (Human, Mouse, Zebrafish, Drosophila, C. elegans, Yeast)</td>
+</tr>
+<tr>
+<td><strong>Relation Types</strong></td>
+<td>60+ semantic relations</td>
+</tr>
+<tr>
+<td><strong>KG Variants</strong></td>
+<td>3 (Aging-specific, Biomedical, Combined EvoAge)</td>
+</tr>
+<tr>
+<td><strong>Best KGE Model</strong></td>
+<td>RESCAL (Test MRR: 0.874, Hit@10: 0.997)</td>
+</tr>
+<tr>
+<td><strong>Ortholog Strategies</strong></td>
+<td>2 (1-to-1 representatives, 1-to-many 121_12M)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="quick-start">🚀 <strong>Quick Start</strong><a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
+<h3 id="installation-5-minutes"><strong>Installation (5 minutes)</strong><a class="headerlink" href="#installation-5-minutes" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Clone and setup environment</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git<span class="w"> </span>clone<span class="w"> </span>&lt;repo-url&gt;
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">cd</span><span class="w"> </span>EvoAge-Documentation
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>environment.yml
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>conda<span class="w"> </span>activate<span class="w"> </span>evoage_env
+</span></code></pre></div>
+<h3 id="build-your-first-kg-30-minutes"><strong>Build Your First KG (30 minutes)</strong><a class="headerlink" href="#build-your-first-kg-30-minutes" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">evoage.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">download_sources</span><span class="p">,</span> <span class="n">merge_triples</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">evoage.orthology</span><span class="w"> </span><span class="kn">import</span> <span class="n">map_orthologs</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Download data from 48+ sources</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">data</span> <span class="o">=</span> <span class="n">download_sources</span><span class="p">(</span><span class="n">species</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;human&#39;</span><span class="p">,</span> <span class="s1">&#39;mouse&#39;</span><span class="p">])</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># Map orthologs</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">ortho_data</span> <span class="o">=</span> <span class="n">map_orthologs</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;1-to-1&#39;</span><span class="p">)</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1"># Merge and standardize</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="n">kg</span> <span class="o">=</span> <span class="n">merge_triples</span><span class="p">(</span><span class="n">ortho_data</span><span class="p">,</span> <span class="n">kg_variant</span><span class="o">=</span><span class="s1">&#39;aging&#39;</span><span class="p">)</span>
+</span></code></pre></div>
+<hr />
+<h2 id="documentation-sections">📚 <strong>Documentation Sections</strong><a class="headerlink" href="#documentation-sections" title="Permanent link">&para;</a></h2>
+<h3 id="phase-1-data-engineering"><strong>Phase 1: Data Engineering</strong><a class="headerlink" href="#phase-1-data-engineering" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="installation/"><strong>Installation &amp; Setup</strong></a> — Environment, dependencies, cluster access</li>
+<li><a href="data-collection/"><strong>Data Collection</strong></a> — Sourcing from 48+ databases</li>
+<li><a href="preprocessing/"><strong>Preprocessing</strong></a> — Cleaning, standardization, validation</li>
+</ul>
+<h3 id="phase-2-knowledge-graph-construction"><strong>Phase 2: Knowledge Graph Construction</strong><a class="headerlink" href="#phase-2-knowledge-graph-construction" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="relation-processing/"><strong>Relation Processing</strong></a> — Handling 60+ relation types</li>
+<li><a href="ortholog-mapping/"><strong>Ortholog Mapping</strong></a> — Ensembl Compara ortholog mapping (1-to-1 and 1-to-many)</li>
+<li><a href="kg-construction/"><strong>KG Construction</strong></a> — Creating Aging vs Biomedical KG variants</li>
+</ul>
+<h3 id="phase-3-tensors-training"><strong>Phase 3: Tensors &amp; Training</strong><a class="headerlink" href="#phase-3-tensors-training" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="kg-tensors-and-splitting/"><strong>Tensors &amp; Splitting</strong></a> — Converting to integer tensors and train/valid/test splitting</li>
+</ul>
+<h3 id="reference"><strong>Reference</strong><a class="headerlink" href="#reference" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="quick-start/"><strong>Quick Start Guide</strong></a> — Brief framework checklist</li>
+<li><a href="documentation-structure/"><strong>Documentation Structure</strong></a> — Navigation mapping and roadmap</li>
+</ul>
+<hr />
+<h2 id="the-evoage-pipeline">🧬 <strong>The EvoAge Pipeline</strong><a class="headerlink" href="#the-evoage-pipeline" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>┌─────────────────────────────────────────────────────────────┐
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>│                   DATA COLLECTION                           │
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>│  (48+ databases: DrugAge, GenAge, DRKG, PrimeKG, etc.)     │
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>└────────────┬────────────────────────────────────────────────┘
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>             │
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>┌────────────▼────────────────────────────────────────────────┐
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>│               PREPROCESSING &amp; VALIDATION                     │
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>│  • SMILES canonicalization (chemistry)                      │
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>│  • Gene symbol resolution (tiered, per-species)             │
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>│  • Relation type standardization                            │
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>└────────────┬────────────────────────────────────────────────┘
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>             │
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>┌────────────▼────────────────────────────────────────────────┐
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>│            ORTHOLOG MAPPING (Ensembl Compara)               │
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>│  • 1-to-1: Single representative human gene per target      │
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>│  • 1-to-many: All ortholog types (121_12M)                 │
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>└────────────┬────────────────────────────────────────────────┘
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>             │
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>        ┌────┴────┐
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>        │          │
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>┌───────▼──┐  ┌────▼──────┐
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>│  Aging   │  │ Biomedical│
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>│   KG     │  │    KG     │
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>└────┬─────┘  └────┬──────┘
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>     │             │
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>     └──────┬──────┘
+</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>            │
+</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>     ┌──────▼──────┐
+</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>     │ EvoAge KG   │
+</span><span id="__span-2-30"><a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>     │  (Combined) │
+</span><span id="__span-2-31"><a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>     └──────┬──────┘
+</span><span id="__span-2-32"><a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a>            │
+</span><span id="__span-2-33"><a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a> ┌──────────▼──────────────────┐
+</span><span id="__span-2-34"><a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a> │   KGE TRAINING (DGL-KE)       │
+</span><span id="__span-2-35"><a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a> │   6 Models: RESCAL, RotatE... │
+</span><span id="__span-2-36"><a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a> └──────────┬──────────────────┘
+</span><span id="__span-2-37"><a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a>            │
+</span><span id="__span-2-38"><a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a> ┌──────────▼──────────────────────────────┐
+</span><span id="__span-2-39"><a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a> │           EVALUATION TASKS                 │
+</span><span id="__span-2-40"><a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a> │  • Edge type prediction                   │
+</span><span id="__span-2-41"><a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a> │  • Null-hypothesis (shuffled) KGs         │
+</span><span id="__span-2-42"><a id="__codelineno-2-42" name="__codelineno-2-42" href="#__codelineno-2-42"></a> │  • Aging-specific test set (AB_test)      │
+</span><span id="__span-2-43"><a id="__codelineno-2-43" name="__codelineno-2-43" href="#__codelineno-2-43"></a> │  • Per-relation statistical cutoffs       │
+</span><span id="__span-2-44"><a id="__codelineno-2-44" name="__codelineno-2-44" href="#__codelineno-2-44"></a> │  • 1% species-specific test set           │
+</span><span id="__span-2-45"><a id="__codelineno-2-45" name="__codelineno-2-45" href="#__codelineno-2-45"></a> └──────────┬──────────────────────────────┘
+</span><span id="__span-2-46"><a id="__codelineno-2-46" name="__codelineno-2-46" href="#__codelineno-2-46"></a>            │
+</span><span id="__span-2-47"><a id="__codelineno-2-47" name="__codelineno-2-47" href="#__codelineno-2-47"></a> ┌──────────▼──────────────────┐
+</span><span id="__span-2-48"><a id="__codelineno-2-48" name="__codelineno-2-48" href="#__codelineno-2-48"></a> │    DOWNSTREAM ANALYSIS        │
+</span><span id="__span-2-49"><a id="__codelineno-2-49" name="__codelineno-2-49" href="#__codelineno-2-49"></a> │  • LLM-based QA scoring       │
+</span><span id="__span-2-50"><a id="__codelineno-2-50" name="__codelineno-2-50" href="#__codelineno-2-50"></a> │  • Candidate compound ranking │
+</span><span id="__span-2-51"><a id="__codelineno-2-51" name="__codelineno-2-51" href="#__codelineno-2-51"></a> │  • Feature extraction (cuGraph)
+</span><span id="__span-2-52"><a id="__codelineno-2-52" name="__codelineno-2-52" href="#__codelineno-2-52"></a> │  • Community detection        │
+</span><span id="__span-2-53"><a id="__codelineno-2-53" name="__codelineno-2-53" href="#__codelineno-2-53"></a> └───────────────────────────────┘
+</span></code></pre></div>
+<hr />
+<h2 id="key-components">📦 <strong>Key Components</strong><a class="headerlink" href="#key-components" title="Permanent link">&para;</a></h2>
+<h3 id="three-kg-variants"><strong>Three KG Variants</strong><a class="headerlink" href="#three-kg-variants" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Aging KG</strong>: Aging-specific data (DrugAge, GenAge, CellAge, etc.) + 48 species orthologs</li>
+<li><strong>Biomedical KG</strong>: General biomedical data (DRKG, PrimeKG, STRING, etc.)</li>
+<li><strong>EvoAge (Combined)</strong>: Aging + Biomedical contexts for richer predictions</li>
+</ol>
+<h3 id="two-ortholog-strategies"><strong>Two Ortholog Strategies</strong><a class="headerlink" href="#two-ortholog-strategies" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>1-to-1</strong>: One representative human ortholog per gene target</li>
+<li><strong>1-to-many (121_12M)</strong>: All ortholog types for broader coverage</li>
+</ul>
+<h3 id="six-kge-models-evaluated"><strong>Six KGE Models Evaluated</strong><a class="headerlink" href="#six-kge-models-evaluated" title="Permanent link">&para;</a></h3>
+<ul>
+<li>RESCAL ⭐ <strong>(Best: MRR 0.874, Hit@10 0.997)</strong></li>
+<li>RotatE</li>
+<li>ComplEx</li>
+<li>SimplE</li>
+<li>DistMult</li>
+<li>TransE</li>
+</ul>
+<hr />
+<h2 id="key-publications-references">🔬 <strong>Key Publications &amp; References</strong><a class="headerlink" href="#key-publications-references" title="Permanent link">&para;</a></h2>
+<p>This work is currently under review at <strong>Nature Communications</strong> (Reference manuscript included in repo).</p>
+<p><strong>Key Datasets</strong>:
+- Aging Sources: DrugAge, GenAge, GenDR, CellAge, AgeXtend, Aging Atlas
+- Biomedical Sources: DRKG, PrimeKG, Hetionet, Monarch, STRING, miRTarBase
+- Ortholog Mapping: Ensembl Compara (biomaRt, release e114)</p>
+<hr />
+<h2 id="system-requirements">💻 <strong>System Requirements</strong><a class="headerlink" href="#system-requirements" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Compute</strong>: 629GB RAM, Multi-GPU setup (RTX 5000 Ada, RTX 3090)</li>
+<li><strong>Storage</strong>: ~2TB for full pipeline outputs</li>
+<li><strong>OS</strong>: Linux (Ubuntu 20.04+)</li>
+<li><strong>Job Scheduler</strong>: PBS/Torque (HPC cluster)</li>
+<li><strong>Python</strong>: 3.8+, PyTorch, DGL-KE, cuGraph</li>
+</ul>
+<p>See <a href="installation/">Installation Guide</a> for detailed setup.</p>
+<hr />
+<h2 id="how-to-use-this-documentation">📖 <strong>How to Use This Documentation</strong><a class="headerlink" href="#how-to-use-this-documentation" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>New to EvoAge?</strong> Start with <a href="installation/">Overview &amp; Installation</a></li>
+<li><strong>Want to reproduce the pipeline?</strong> Follow the step-by-step <a href="data-collection/">Data Collection</a> → <a href="preprocessing/">Preprocessing</a> → <a href="relation-processing/">Relation Processing</a> → <a href="ortholog-mapping/">Ortholog Mapping</a> → <a href="kg-construction/">KG Construction</a> → <a href="kg-tensors-and-splitting/">Tensors &amp; Splitting</a></li>
+<li><strong>Troubleshooting?</strong> See structure/reference guides.</li>
+</ol>
+<hr />
+<h2 id="repository-structure">📁 <strong>Repository Structure</strong><a class="headerlink" href="#repository-structure" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>evoage/
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>├── data/                          # Raw data, processed KGs
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>├── preprocessing/                 # Scripts: download, clean, standardize
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>├── orthology/                     # Ensembl Compara mapping
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>├── kg_construction/               # Merging, splitting, tensor building
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>├── training/                      # DGL-KE training pipelines
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>├── evaluation/                    # Edge prediction, cutoff calibration
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>├── analysis/                      # Dashboards, visualizations
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>├── notebooks/                     # Jupyter notebooks per source type
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>└── doc/                           # This documentation
+</span></code></pre></div>
+<hr />
+<h2 id="authors-attribution">👥 <strong>Authors &amp; Attribution</strong><a class="headerlink" href="#authors-attribution" title="Permanent link">&para;</a></h2>
+<p><strong>Principal Investigator</strong>: Gaurav Ahuja (IIIT-Delhi)<br />
+<strong>Lead Developer</strong>: Arushi Arora<br />
+<strong>Collaborators</strong>: [Additional team members]</p>
+<hr />
+<h2 id="license">📝 <strong>License</strong><a class="headerlink" href="#license" title="Permanent link">&para;</a></h2>
+<p>[Specify your license here: MIT, Apache 2.0, etc.]</p>
+<hr />
+<h2 id="contributing">🤝 <strong>Contributing</strong><a class="headerlink" href="#contributing" title="Permanent link">&para;</a></h2>
+<p>[Guidelines for contributing updates to documentation or code]</p>
+<hr />
+<h2 id="contact-support">📧 <strong>Contact &amp; Support</strong><a class="headerlink" href="#contact-support" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Issues/Bugs</strong>: [GitHub Issues]</li>
+<li><strong>Questions</strong>: [Contact email]</li>
+<li><strong>Lab Website</strong>: <a href="https://the-ahuja-lab.github.io/">The Ahuja Lab</a></li>
+</ul>
+<hr />
+<h2 id="quick-links">🔗 <strong>Quick Links</strong><a class="headerlink" href="#quick-links" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="link-to-preprint">Nature Communications Manuscript</a></li>
+<li><a href="link">GitHub Repository</a></li>
+<li><a href="link-if-available">Interactive KG Browser</a></li>
+<li><a href="https://the-ahuja-lab.github.io/">The Ahuja Lab</a></li>
+</ul>
+<hr />
+<p><strong>Last Updated</strong>: June 2026<br />
+<strong>Status</strong>: Under review at Nature Communications</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+        
+          
+          <a href="./quick-start/" class="md-footer__link md-footer__link--next" aria-label="Next: Quick Start">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Quick Start
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 The Ahuja Lab
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":".","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"./assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="./assets/javascripts/bundle.66be65ca.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

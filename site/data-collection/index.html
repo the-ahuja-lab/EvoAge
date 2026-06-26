@@ -1,0 +1,1384 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Multi-Species Aging Knowledge Graph Platform">
+      
+      
+        <meta name="author" content="The Ahuja Lab">
+      
+      
+        <link rel="canonical" href="https://the-ahuja-lab.github.io/EvoAge/data-collection/">
+      
+      
+        <link rel="prev" href="../installation/">
+      
+      
+        <link rel="next" href="../preprocessing/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.30">
+    
+    
+      
+        <title>2. Data Collection - EvoAge</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.3b031116.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#2-data-collection" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="./.." title="EvoAge" class="md-header__button md-logo" aria-label="EvoAge" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            EvoAge
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2. Data Collection
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="EvoAge" class="md-nav__button md-logo" aria-label="EvoAge" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+
+    </a>
+    EvoAge
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Collection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../preprocessing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Preprocessing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../relation-processing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Relation Processing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ortholog-mapping/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ortholog Mapping
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kg-construction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    KG Construction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kg-tensors-and-splitting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tensors & Splitting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documentation-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                    <div class="md-sidebar-button__wrapper">
+                      <label class="md-sidebar-button" for="__toc"></label>
+                    </div>
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#21-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-master-data-source-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Master Data Source Table
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-source-categories-functional-grouping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Source Categories (Functional Grouping)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 Source Categories (Functional Grouping)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-aging-specific-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A. Aging-Specific Sources
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-general-biomedical-knowledge-graphs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B. General Biomedical Knowledge Graphs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-proteingene-interaction-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C. Protein/Gene Interaction Networks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d-chemical-drug-target-databases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        D. Chemical / Drug / Target Databases
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e-species-specific-annotation-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E. Species-Specific Annotation Resources
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#f-mirna-regulatory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        F. miRNA / Regulatory
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#g-phytochemical-traditional-medicine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        G. Phytochemical / Traditional Medicine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#h-literature-curation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        H. Literature Curation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-cross-species-connection-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        I. Cross-Species Connection Sources
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-download-provenance-reproducibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Download Provenance &amp; Reproducibility
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 Download Provenance &amp; Reproducibility">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#non-standard-provenance-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Non-standard provenance cases
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#version-mismatches-to-watch-for" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version mismatches to watch for
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#25-building-your-local-source-manifest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 Building Your Local Source Manifest
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#26-next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference-quick-counts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reference: Quick Counts
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="2-data-collection">2. Data Collection<a class="headerlink" href="#2-data-collection" title="Permanent link">&para;</a></h1>
+<p>This section documents all data sources integrated into EvoAge — the master source table (also provided as a Supplementary Table with the manuscript), download provenance, and how each source feeds into the KG construction pipeline.</p>
+<hr />
+<h2 id="21-overview"><strong>2.1 Overview</strong><a class="headerlink" href="#21-overview" title="Permanent link">&para;</a></h2>
+<p>EvoAge integrates <strong>48+ data sources</strong> spanning:</p>
+<ul>
+<li><strong>Aging-specific databases</strong> (GenAge, DrugAge, CellAge, AgeAnno, etc.)</li>
+<li><strong>General biomedical knowledge graphs</strong> (DRKG, PrimeKG, Hetionet, Monarch, CKG, etc.)</li>
+<li><strong>Protein-protein / gene-gene interaction networks</strong> (STRING, BioGRID, IntAct-style resources)</li>
+<li><strong>Drug / chemical / chemical-target databases</strong> (ChEMBL, DrugBank, BindingDB, STITCH, TTD)</li>
+<li><strong>Species-specific resources</strong> (FlyBase, WormBase, SGD, ZFIN, MGI, species interactomes)</li>
+<li><strong>Phytochemical / Ayurvedic compound sources</strong> (plant-compound and traditional-medicine databases)</li>
+<li><strong>Literature-curated hallmark-of-aging relations</strong> (manually curated links between the hallmarks of aging and biological processes)</li>
+</ul>
+<p>All sources are version-pinned and timestamped at download to ensure reproducibility — this is required for the Nature Communications reproducibility package (frozen splits, source versions, download dates).</p>
+<hr />
+<h2 id="22-master-data-source-table"><strong>2.2 Master Data Source Table</strong><a class="headerlink" href="#22-master-data-source-table" title="Permanent link">&para;</a></h2>
+<p>This is the canonical source table — identical to the Supplementary Table accompanying the manuscript. <strong>Every source here must keep its Version/Build and Last Download fields in sync with the manuscript supplement.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Data Source</th>
+<th>Version / Build</th>
+<th>Last Download</th>
+<th>Download Link</th>
+<th>Reference / Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AgeAnno</td>
+<td>version 1.0</td>
+<td>Mar 27 2025</td>
+<td><a href="https://github.com/vikkihuangkexin/AgeAnno/tree/main">https://github.com/vikkihuangkexin/AgeAnno/tree/main</a></td>
+<td><a href="https://academic.oup.com/nar/article/51/D1/D805/6749541">https://academic.oup.com/nar/article/51/D1/D805/6749541</a></td>
+</tr>
+<tr>
+<td>AgeAnnoMO</td>
+<td>version 1.0</td>
+<td>Apr 15 2025</td>
+<td><a href="https://github.com/vikkihuangkexin/AgeAnnoMO">https://github.com/vikkihuangkexin/AgeAnnoMO</a></td>
+<td><a href="https://relab.xidian.edu.cn/AgeAnnoMO">https://relab.xidian.edu.cn/AgeAnnoMO</a></td>
+</tr>
+<tr>
+<td>AgeXtend</td>
+<td>version 1.0</td>
+<td>Jan 2025</td>
+<td>In house data</td>
+<td><a href="https://www.nature.com/articles/s43587-024-00763-4">https://www.nature.com/articles/s43587-024-00763-4</a></td>
+</tr>
+<tr>
+<td>AgingBank</td>
+<td>version 1.0</td>
+<td>Apr 15 2025</td>
+<td><a href="https://bio-bigdata.hrbmu.edu.cn/AgingBank/download.html">https://bio-bigdata.hrbmu.edu.cn/AgingBank/download.html</a></td>
+<td><a href="https://academic.oup.com/bib/article/23/6/bbac438/6760117">https://academic.oup.com/bib/article/23/6/bbac438/6760117</a></td>
+</tr>
+<tr>
+<td>Aging Atlas</td>
+<td>version 1.0</td>
+<td>Feb 2025</td>
+<td><a href="https://ngdc.cncb.ac.cn/aging/index">https://ngdc.cncb.ac.cn/aging/index</a></td>
+<td><a href="https://academic.oup.com/nar/article/49/D1/D825/5943197">https://academic.oup.com/nar/article/49/D1/D825/5943197</a></td>
+</tr>
+<tr>
+<td>BindingDB</td>
+<td>28-May-2023</td>
+<td>28-May-2023</td>
+<td><a href="https://library.ucsd.edu/dc/object/bb6496315b">https://library.ucsd.edu/dc/object/bb6496315b</a></td>
+<td><a href="https://www.bindingdb.org/rwd/bind/index.jsp">https://www.bindingdb.org/rwd/bind/index.jsp</a></td>
+</tr>
+<tr>
+<td>BioGrakn</td>
+<td>Version 0.1</td>
+<td>10-January-2025</td>
+<td><a href="https://github.com/typedb/biograkn">https://github.com/typedb/biograkn</a></td>
+<td><a href="https://link.springer.com/chapter/10.1007/978-3-319-61566-0_28">https://link.springer.com/chapter/10.1007/978-3-319-61566-0_28</a></td>
+</tr>
+<tr>
+<td>Biosnap</td>
+<td>August 2018 release</td>
+<td>May 2023</td>
+<td>ChG-InterDecagon: <a href="https://snap.stanford.edu/biodata/datasets/10016/10016-ChG-InterDecagon.html">https://snap.stanford.edu/biodata/datasets/10016/10016-ChG-InterDecagon.html</a> · ChCh-Miner: <a href="https://snap.stanford.edu/biodata/datasets/10001/10001-ChCh-Miner.html">https://snap.stanford.edu/biodata/datasets/10001/10001-ChCh-Miner.html</a> · ChG-TargetDecagon: <a href="https://snap.stanford.edu/biodata/datasets/10015/10015-ChG-TargetDecagon.html">https://snap.stanford.edu/biodata/datasets/10015/10015-ChG-TargetDecagon.html</a></td>
+<td><a href="https://snap.stanford.edu/biodata/index.html">https://snap.stanford.edu/biodata/index.html</a></td>
+</tr>
+<tr>
+<td>CKG (Clinical Knowledge Graph)</td>
+<td>version 1.0</td>
+<td>May 30 2024</td>
+<td><a href="https://github.com/MannLabs/CKG">https://github.com/MannLabs/CKG</a></td>
+<td><a href="https://www.nature.com/articles/s41587-021-01145-6">https://www.nature.com/articles/s41587-021-01145-6</a></td>
+</tr>
+<tr>
+<td>CROssBAR</td>
+<td>2021 version</td>
+<td>10 Jan 2025</td>
+<td><a href="https://github.com/cansyl/CROssBAR/archive/refs/heads/master.zip">https://github.com/cansyl/CROssBAR/archive/refs/heads/master.zip</a></td>
+<td><a href="https://academic.oup.com/nar/article/49/16/e96/6310792">https://academic.oup.com/nar/article/49/16/e96/6310792</a></td>
+</tr>
+<tr>
+<td>CellAge</td>
+<td>Build 3 (23/04/2023)</td>
+<td>January 2025</td>
+<td><a href="https://genomics.senescence.info/cells/">https://genomics.senescence.info/cells/</a></td>
+<td><a href="https://academic.oup.com/nar/article/46/D1/D1083/4599180">https://academic.oup.com/nar/article/46/D1/D1083/4599180</a></td>
+</tr>
+<tr>
+<td>ChEMBL</td>
+<td>v33 (released 31-May-2023)</td>
+<td>May 2023</td>
+<td><a href="https://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/releases/chembl_33/">https://ftp.ebi.ac.uk/pub/databases/chembl/ChEMBLdb/releases/chembl_33/</a></td>
+<td><a href="https://www.ebi.ac.uk/chembl/">https://www.ebi.ac.uk/chembl/</a></td>
+</tr>
+<tr>
+<td>DRKG</td>
+<td>version 1.0</td>
+<td>May 4 2020</td>
+<td><a href="https://github.com/gnn4dr/DRKG">https://github.com/gnn4dr/DRKG</a></td>
+<td><a href="https://arxiv.org/abs/2212.03911">https://arxiv.org/abs/2212.03911</a></td>
+</tr>
+<tr>
+<td>DTInet (drug-target interaction)</td>
+<td>9/1/2017 version</td>
+<td>11-January-2025</td>
+<td><a href="https://github.com/luoyunan/DTINet">https://github.com/luoyunan/DTINet</a></td>
+<td><a href="https://www.frontiersin.org/journals/bioinformatics/articles/10.3389/fbinf.2025.1649337/full">https://www.frontiersin.org/journals/bioinformatics/articles/10.3389/fbinf.2025.1649337/full</a></td>
+</tr>
+<tr>
+<td>Digital Aging Atlas</td>
+<td>Database Build: 5</td>
+<td>January 2025</td>
+<td><a href="https://ageing-map.org/atlas/downloads/">https://ageing-map.org/atlas/downloads/</a></td>
+<td><a href="https://pure.amsterdamumc.nl/en/publications/the-digital-ageing-atlas-integrating-the-diversity-of-age-related">https://pure.amsterdamumc.nl/en/publications/the-digital-ageing-atlas-integrating-the-diversity-of-age-related</a></td>
+</tr>
+<tr>
+<td>DrugAge</td>
+<td>Build: 5</td>
+<td>Nov 29 2024</td>
+<td><a href="https://genomics.senescence.info/drugs/">https://genomics.senescence.info/drugs/</a></td>
+<td><a href="https://genomics.senescence.info/drugs/">https://genomics.senescence.info/drugs/</a></td>
+</tr>
+<tr>
+<td>DrugBank</td>
+<td>version v5.1.10</td>
+<td>May 2023</td>
+<td><a href="https://go.drugbank.com/releases/5-1-10">https://go.drugbank.com/releases/5-1-10</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/29126136/">https://pubmed.ncbi.nlm.nih.gov/29126136/</a></td>
+</tr>
+<tr>
+<td>Evolf</td>
+<td>Version v1</td>
+<td>March 2025</td>
+<td>In house data</td>
+<td><a href="https://www.sciencedirect.com/science/article/pii/S2211124726000811">https://www.sciencedirect.com/science/article/pii/S2211124726000811</a></td>
+</tr>
+<tr>
+<td>FICE (Functional Interactome of C. elegans)</td>
+<td>version FIC_v2018_01</td>
+<td>January 2025</td>
+<td><a href="http://worm.biomedtzc.cn/#/download">http://worm.biomedtzc.cn/#/download</a></td>
+<td><a href="https://biologydirect.biomedcentral.com/articles/10.1186/s13062-020-00271-6">https://biologydirect.biomedcentral.com/articles/10.1186/s13062-020-00271-6</a></td>
+</tr>
+<tr>
+<td>FlyBase</td>
+<td>FB2024_02 release</td>
+<td>June 2024</td>
+<td><a href="https://flybase.org/releases/FB2024_02/precomputed_files/alleles/">https://flybase.org/releases/FB2024_02/precomputed_files/alleles/</a></td>
+<td><a href="https://flybase.org/">https://flybase.org/</a></td>
+</tr>
+<tr>
+<td>BOCK KG</td>
+<td>version 1.0</td>
+<td>September 2024</td>
+<td><a href="https://zenodo.org/records/8124854">https://zenodo.org/records/8124854</a></td>
+<td><a href="https://link.springer.com/article/10.1186/s12859-023-05451-5">https://link.springer.com/article/10.1186/s12859-023-05451-5</a></td>
+</tr>
+<tr>
+<td>GenDR</td>
+<td>Build 4 (24/06/2017)</td>
+<td>January 2025</td>
+<td><a href="https://genomics.senescence.info/diet/">https://genomics.senescence.info/diet/</a></td>
+<td><a href="https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1002834">https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1002834</a></td>
+</tr>
+<tr>
+<td>GenAge</td>
+<td>Build 21 (8/28/2023)</td>
+<td>January 2025</td>
+<td><a href="https://genomics.senescence.info/genes/index.html">https://genomics.senescence.info/genes/index.html</a></td>
+<td><a href="https://academic.oup.com/nar/article/52/D1/D900/7337614">https://academic.oup.com/nar/article/52/D1/D900/7337614</a></td>
+</tr>
+<tr>
+<td>BioGRID</td>
+<td>Release 4.4.221</td>
+<td>May 2023</td>
+<td><a href="https://downloads.thebiogrid.org/BioGRID/Release-Archive/BIOGRID-4.4.221/">https://downloads.thebiogrid.org/BioGRID/Release-Archive/BIOGRID-4.4.221/</a></td>
+<td><a href="https://academic.oup.com/nar/article/34/suppl_1/D535/1133554">https://academic.oup.com/nar/article/34/suppl_1/D535/1133554</a></td>
+</tr>
+<tr>
+<td>HALD (Human Aging and Longevity Knowledge graph)</td>
+<td>Downloaded January 2025</td>
+<td>January 2025</td>
+<td><a href="https://figshare.com/articles/dataset/HALD_a_human_aging_and_longevity_knowledge_graph_for_precision_gerontology_and_geroscience_analyses/22828196/4">https://figshare.com/articles/dataset/HALD_a_human_aging_and_longevity_knowledge_graph_for_precision_gerontology_and_geroscience_analyses/22828196/4</a></td>
+<td><a href="https://www.nature.com/articles/s41597-023-02781-0">https://www.nature.com/articles/s41597-023-02781-0</a></td>
+</tr>
+<tr>
+<td>Harmonizome</td>
+<td>version 3.0</td>
+<td>February 2025</td>
+<td>Custom Python script</td>
+<td><a href="https://academic.oup.com/nar/article/53/D1/D1016/7905315">https://academic.oup.com/nar/article/53/D1/D1016/7905315</a></td>
+</tr>
+<tr>
+<td>Hetionet</td>
+<td>version 1.0</td>
+<td>February 2025</td>
+<td><a href="https://github.com/hetio/hetionet">https://github.com/hetio/hetionet</a></td>
+<td><a href="https://elifesciences.org/articles/26726">https://elifesciences.org/articles/26726</a></td>
+</tr>
+<tr>
+<td>IMPPAT</td>
+<td>version 2.0</td>
+<td>January 2025</td>
+<td><a href="https://cb.imsc.res.in/imppat">https://cb.imsc.res.in/imppat</a></td>
+<td><a href="https://www.nature.com/articles/s41598-018-22631-z">https://www.nature.com/articles/s41598-018-22631-z</a></td>
+</tr>
+<tr>
+<td>MGI (Mouse Genome Informatics)</td>
+<td>Downloaded January 2025</td>
+<td>January 2025</td>
+<td><a href="https://www.informatics.jax.org/downloads/reports/index.html">https://www.informatics.jax.org/downloads/reports/index.html</a></td>
+<td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11075557/">https://pmc.ncbi.nlm.nih.gov/articles/PMC11075557/</a></td>
+</tr>
+<tr>
+<td><strong>Literature</strong> <em>(hallmarks-of-aging ↔ biological process curation)</em></td>
+<td>—</td>
+<td>—</td>
+<td>manually curated</td>
+<td>—</td>
+</tr>
+<tr>
+<td>MetaboAge</td>
+<td>August 2020</td>
+<td>January 2025</td>
+<td><a href="https://www.metaboage.info/download/">https://www.metaboage.info/download/</a></td>
+<td><a href="https://link.springer.com/article/10.1007/s10522-020-09892-w">https://link.springer.com/article/10.1007/s10522-020-09892-w</a></td>
+</tr>
+<tr>
+<td>MonarchKG</td>
+<td>5 January 2024</td>
+<td>January 2025</td>
+<td><a href="https://data.monarchinitiative.org/monarch-kg/latest/monarch-kg.tar.gz">https://data.monarchinitiative.org/monarch-kg/latest/monarch-kg.tar.gz</a></td>
+<td><a href="https://academic.oup.com/nar/article/52/D1/D938/7449493">https://academic.oup.com/nar/article/52/D1/D938/7449493</a></td>
+</tr>
+<tr>
+<td>MouseNet v2</td>
+<td>version 2</td>
+<td>January 2025</td>
+<td><a href="https://www.inetbio.org/mousenet/">https://www.inetbio.org/mousenet/</a></td>
+<td><a href="https://academic.oup.com/nar/article/44/D1/D848/2502647">https://academic.oup.com/nar/article/44/D1/D848/2502647</a></td>
+</tr>
+<tr>
+<td>PharmKG</td>
+<td>version 3</td>
+<td>January 2025</td>
+<td><a href="https://zenodo.org/records/4077338">https://zenodo.org/records/4077338</a></td>
+<td><a href="https://academic.oup.com/bib/article/22/4/bbaa344/6042240">https://academic.oup.com/bib/article/22/4/bbaa344/6042240</a></td>
+</tr>
+<tr>
+<td>PhytoHub</td>
+<td>Version 1.4</td>
+<td>March 2025</td>
+<td><a href="https://phytohub.eu/entries">https://phytohub.eu/entries</a></td>
+<td><a href="https://hal.science/hal-01697081/file/2017_Giacomoni_ICPH_Qu%C3%A9bec.pdf">https://hal.science/hal-01697081/file/2017_Giacomoni_ICPH_Qu%C3%A9bec.pdf</a></td>
+</tr>
+<tr>
+<td>PrimeKG</td>
+<td>Feb 2023 version</td>
+<td>January 2025</td>
+<td><a href="https://dataverse.harvard.edu/api/access/datafile/6180620">https://dataverse.harvard.edu/api/access/datafile/6180620</a></td>
+<td><a href="https://www.nature.com/articles/s41597-023-01960-3">https://www.nature.com/articles/s41597-023-01960-3</a></td>
+</tr>
+<tr>
+<td>SGD (Saccharomyces Genome Database)</td>
+<td>Downloaded January 2025</td>
+<td>January 2025</td>
+<td><a href="http://sgd-archive.yeastgenome.org/curation/literature/">http://sgd-archive.yeastgenome.org/curation/literature/</a></td>
+<td><a href="https://academic.oup.com/nar/article/26/1/73/2379479">https://academic.oup.com/nar/article/26/1/73/2379479</a></td>
+</tr>
+<tr>
+<td>SMS (Small Molecule Suite)</td>
+<td>Harvard, 2019</td>
+<td>May 2023</td>
+<td><a href="https://lsp.connect.hms.harvard.edu/smallmoleculesuite/">https://lsp.connect.hms.harvard.edu/smallmoleculesuite/</a></td>
+<td><a href="https://www.sciencedirect.com/science/article/pii/S245194561930073X">https://www.sciencedirect.com/science/article/pii/S245194561930073X</a></td>
+</tr>
+<tr>
+<td>STITCH</td>
+<td>version 5</td>
+<td>January 2025</td>
+<td><a href="https://stitch-db.org/">https://stitch-db.org/</a></td>
+<td><a href="https://academic.oup.com/nar/article/44/D1/D380/2503089">https://academic.oup.com/nar/article/44/D1/D380/2503089</a></td>
+</tr>
+<tr>
+<td>STRING</td>
+<td>version 12</td>
+<td>January 2025</td>
+<td><a href="https://string-db.org/">https://string-db.org/</a></td>
+<td><a href="https://string-db.org/">https://string-db.org/</a></td>
+</tr>
+<tr>
+<td>TARKG</td>
+<td>October 2024 version</td>
+<td>January 2025</td>
+<td><a href="https://tarkg.ddtmlab.org/download">https://tarkg.ddtmlab.org/download</a></td>
+<td><a href="https://academic.oup.com/bioinformatics/article/40/10/btae598/7818343">https://academic.oup.com/bioinformatics/article/40/10/btae598/7818343</a></td>
+</tr>
+<tr>
+<td>TTD (Therapeutic Target Database)</td>
+<td>2024 version</td>
+<td>March 2025</td>
+<td><a href="https://ttd.idrblab.cn/full-data-download">https://ttd.idrblab.cn/full-data-download</a></td>
+<td><a href="https://academic.oup.com/nar/article/52/D1/D1465/7275004">https://academic.oup.com/nar/article/52/D1/D1465/7275004</a></td>
+</tr>
+<tr>
+<td>Worm Interactome Database</td>
+<td>version 8</td>
+<td>January 2025</td>
+<td><a href="https://interactome.dfci.harvard.edu/C_elegans/index.php?page=download">https://interactome.dfci.harvard.edu/C_elegans/index.php?page=download</a></td>
+<td><a href="https://interactome.dfci.harvard.edu/C_elegans/">https://interactome.dfci.harvard.edu/C_elegans/</a></td>
+</tr>
+<tr>
+<td>WormBase</td>
+<td>version WS287 (2024)</td>
+<td>January 2025</td>
+<td><a href="https://ftp.ebi.ac.uk/pub/databases/wormbase/parasite/datasets/">https://ftp.ebi.ac.uk/pub/databases/wormbase/parasite/datasets/</a></td>
+<td><a href="https://www.wormbase.org/">https://www.wormbase.org/</a></td>
+</tr>
+<tr>
+<td>YeastNet v3</td>
+<td>version 3</td>
+<td>January 2025</td>
+<td><a href="https://www.inetbio.org/yeastnet/downloadnetwork.php">https://www.inetbio.org/yeastnet/downloadnetwork.php</a></td>
+<td><a href="https://www.inetbio.org/yeastnet/">https://www.inetbio.org/yeastnet/</a></td>
+</tr>
+<tr>
+<td>ZFIN (Zebrafish Information Network)</td>
+<td>2024</td>
+<td>January 2025</td>
+<td><a href="https://zfin.org/downloads">https://zfin.org/downloads</a></td>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/21036866/">https://pubmed.ncbi.nlm.nih.gov/21036866/</a></td>
+</tr>
+<tr>
+<td><strong>species connection</strong> <em>(cross-species ortholog/connection sources)</em></td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>iBKH</td>
+<td>2023-03-21</td>
+<td>January 2025</td>
+<td><a href="https://github.com/wcm-wanglab/iBKH/tree/main/iBKH/iBKH_2021_05_03">https://github.com/wcm-wanglab/iBKH/tree/main/iBKH/iBKH_2021_05_03</a></td>
+<td><a href="https://www.cell.com/iscience/fulltext/S2589-0042(23)00537-0">https://www.cell.com/iscience/fulltext/S2589-0042(23)00537-0</a></td>
+</tr>
+<tr>
+<td>miRTarBase 2025</td>
+<td>Release 10.0</td>
+<td>17-05-2026</td>
+<td><a href="https://mirtarbase.cuhk.edu.cn/~miRTarBase/miRTarBase_2025">https://mirtarbase.cuhk.edu.cn/~miRTarBase/miRTarBase_2025</a></td>
+<td>miRTarBase 2025: updates to the collection of experimentally validated microRNA–target interactions, <em>Nucleic Articles Research</em></td>
+</tr>
+<tr>
+<td>PheKnowLator</td>
+<td>v1</td>
+<td>17-05-2026</td>
+<td><a href="https://github.com/callahantiff/PheKnowLator">https://github.com/callahantiff/PheKnowLator</a></td>
+<td><a href="https://www.nature.com/articles/s41597-024-03171-w">https://www.nature.com/articles/s41597-024-03171-w</a></td>
+</tr>
+<tr>
+<td><strong>Other sources (phytochemical / Ayurvedic compound data)</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>AyurvedicPlantClassifier (english.xlsx)</td>
+<td>March 2024</td>
+<td>July 2025</td>
+<td><a href="https://github.com/akshachrya/AyurvedicPlantClassifier/blob/main/data/english.xlsx">https://github.com/akshachrya/AyurvedicPlantClassifier/blob/main/data/english.xlsx</a></td>
+<td>same</td>
+</tr>
+<tr>
+<td>PhytoChemicalDiversity (all_species_compound_data.csv)</td>
+<td>July 2025</td>
+<td>July 2025</td>
+<td><a href="https://github.com/alrichardbollans/PhytoChemicalDiversity/blob/master/collect_and_compile_data/collect_compound_data/outputs/all_species_compound_data.csv">https://github.com/alrichardbollans/PhytoChemicalDiversity/blob/master/collect_and_compile_data/collect_compound_data/outputs/all_species_compound_data.csv</a></td>
+<td>same</td>
+</tr>
+<tr>
+<td>phytochemicals (phyto_chemicals.db)</td>
+<td>February 2023</td>
+<td>July 2025</td>
+<td><a href="https://github.com/asgarhussain/phytochemicals/blob/main/phyto_chemicals.db">https://github.com/asgarhussain/phytochemicals/blob/main/phyto_chemicals.db</a></td>
+<td>same</td>
+</tr>
+<tr>
+<td>Ayurvedic medicine catalogue (Database.json)</td>
+<td>March 2019</td>
+<td>July 2025</td>
+<td><a href="https://github.com/kuralamuthan300/ayurvedic-medicine-catalogue/blob/master/Database.json">https://github.com/kuralamuthan300/ayurvedic-medicine-catalogue/blob/master/Database.json</a></td>
+<td>same</td>
+</tr>
+<tr>
+<td>CEVOpen (Plant_compound.csv)</td>
+<td>June 2021</td>
+<td>July 2025</td>
+<td><a href="https://github.com/petermr/CEVOpen/blob/master/Data%20Analysis/Plant_compound.csv">https://github.com/petermr/CEVOpen/blob/master/Data%20Analysis/Plant_compound.csv</a></td>
+<td>same</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Note on bare category rows</strong>: <em>Literature</em> and <em>species connection</em> are not standalone downloadable databases — they are curation categories. <strong>Literature</strong> denotes manually curated links connecting the hallmarks of aging to relevant biological processes (used to build aging ↔ biological-process relation triples). <strong>species connection</strong> groups sources (iBKH, miRTarBase, PheKnowLator) used primarily to establish cross-species/cross-entity connections rather than aging- or disease-specific content on their own.</p>
+</blockquote>
+<hr />
+<h2 id="23-source-categories-functional-grouping"><strong>2.3 Source Categories (Functional Grouping)</strong><a class="headerlink" href="#23-source-categories-functional-grouping" title="Permanent link">&para;</a></h2>
+<p>While the table above is the single master/supplementary reference, it's useful to mentally group sources by what they contribute to the KG:</p>
+<h3 id="a-aging-specific-sources"><strong>A. Aging-Specific Sources</strong><a class="headerlink" href="#a-aging-specific-sources" title="Permanent link">&para;</a></h3>
+<p>GenAge, DrugAge, GenDR, CellAge, AgeXtend, Aging Atlas, AgeAnno, AgeAnnoMO, AgingBank, Digital Aging Atlas, HALD, MetaboAge, Evolf</p>
+<p>→ Feed the <strong>Aging KG</strong> variant directly (gene/drug/cell ↔ aging relations).</p>
+<h3 id="b-general-biomedical-knowledge-graphs"><strong>B. General Biomedical Knowledge Graphs</strong><a class="headerlink" href="#b-general-biomedical-knowledge-graphs" title="Permanent link">&para;</a></h3>
+<p>DRKG, PrimeKG, Hetionet, MonarchKG, CKG, CROssBAR, iBKH, TARKG, PharmKG, BOCK KG, BioGrakn, PheKnowLator</p>
+<p>→ Feed the <strong>Biomedical KG</strong> variant (disease-gene-chemical-phenotype context).</p>
+<h3 id="c-proteingene-interaction-networks"><strong>C. Protein/Gene Interaction Networks</strong><a class="headerlink" href="#c-proteingene-interaction-networks" title="Permanent link">&para;</a></h3>
+<p>STRING, BioGRID, Biosnap, MouseNet v2, YeastNet v3, Worm Interactome Database, FICE</p>
+<p>→ Gene-Gene / Protein-Protein edges, species-specific where noted.</p>
+<h3 id="d-chemical-drug-target-databases"><strong>D. Chemical / Drug / Target Databases</strong><a class="headerlink" href="#d-chemical-drug-target-databases" title="Permanent link">&para;</a></h3>
+<p>ChEMBL, DrugBank, BindingDB, STITCH, TTD, DTInet, SMS</p>
+<p>→ Chemical-Gene and Chemical-Target edges.</p>
+<h3 id="e-species-specific-annotation-resources"><strong>E. Species-Specific Annotation Resources</strong><a class="headerlink" href="#e-species-specific-annotation-resources" title="Permanent link">&para;</a></h3>
+<p>FlyBase (Drosophila), WormBase (C. elegans), SGD (Yeast), ZFIN (Zebrafish), MGI (Mouse)</p>
+<p>→ Gene ID resolution, symbol mapping, and species-specific annotation — critical inputs to the Ortholog Mapping pipeline (see <a href="../ortholog-mapping/">Ortholog Mapping</a>).</p>
+<h3 id="f-mirna-regulatory"><strong>F. miRNA / Regulatory</strong><a class="headerlink" href="#f-mirna-regulatory" title="Permanent link">&para;</a></h3>
+<p>miRTarBase 2025</p>
+<p>→ miRNA-Gene regulatory edges.</p>
+<h3 id="g-phytochemical-traditional-medicine"><strong>G. Phytochemical / Traditional Medicine</strong><a class="headerlink" href="#g-phytochemical-traditional-medicine" title="Permanent link">&para;</a></h3>
+<p>PhytoHub, IMPPAT, AyurvedicPlantClassifier, PhytoChemicalDiversity, phytochemicals (phyto_chemicals.db), Ayurvedic medicine catalogue, CEVOpen</p>
+<p>→ Plant-compound and Ayurvedic-compound data, feeding Chemical-entity nodes for compound-aging association work (relevant to candidate screening, e.g. chrysin and other CS-inhibitor candidates).</p>
+<h3 id="h-literature-curation"><strong>H. Literature Curation</strong><a class="headerlink" href="#h-literature-curation" title="Permanent link">&para;</a></h3>
+<p>Hallmarks-of-aging ↔ biological process links</p>
+<p>→ Aging-BiologicalProcess relation triples, manually curated rather than bulk-downloaded.</p>
+<h3 id="i-cross-species-connection-sources"><strong>I. Cross-Species Connection Sources</strong><a class="headerlink" href="#i-cross-species-connection-sources" title="Permanent link">&para;</a></h3>
+<p>iBKH, miRTarBase, PheKnowLator</p>
+<p>→ Support cross-species entity linking used in ortholog/connection mapping.</p>
+<hr />
+<h2 id="24-download-provenance-reproducibility"><strong>2.4 Download Provenance &amp; Reproducibility</strong><a class="headerlink" href="#24-download-provenance-reproducibility" title="Permanent link">&para;</a></h2>
+<p>Each source row in the master table carries four reproducibility-critical fields, matched 1:1 to the manuscript's Supplementary Table:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Version / Build</strong></td>
+<td>Exact release pinned — required because aging databases (GenAge, DrugAge, CellAge) update periodically and results must be traceable to a specific build</td>
+</tr>
+<tr>
+<td><strong>Last Download</strong></td>
+<td>Date the data was actually pulled — distinct from the database's own release date</td>
+</tr>
+<tr>
+<td><strong>Download Link</strong></td>
+<td>Direct retrieval path (GitHub repo, FTP, institutional archive, or "In house data" / "Custom Python script" / "manually curated" for non-bulk sources)</td>
+</tr>
+<tr>
+<td><strong>Reference / Link</strong></td>
+<td>Primary publication or landing page describing the resource</td>
+</tr>
+</tbody>
+</table>
+<h3 id="non-standard-provenance-cases"><strong>Non-standard provenance cases</strong><a class="headerlink" href="#non-standard-provenance-cases" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>In house data</strong> (AgeXtend, Evolf): generated internally rather than downloaded from a public repository — document the generating script/notebook alongside the table entry.</li>
+<li><strong>Custom Python script</strong> (Harmonizome): no flat-file bulk download exists; a script queries the Harmonizome API. Keep the script version-controlled alongside the data version.</li>
+<li><strong>Manually curated</strong> (Literature category): no download link applies; curation date and curator should be tracked instead of a "Last Download" date.</li>
+</ul>
+<h3 id="version-mismatches-to-watch-for"><strong>Version mismatches to watch for</strong><a class="headerlink" href="#version-mismatches-to-watch-for" title="Permanent link">&para;</a></h3>
+<p>During the Nature Communications revision, a <strong>BioGRID 4.4.221 vs. 5.0.257</strong> mismatch was found in yeast-specific notebooks — always cross-check the version actually used in each species notebook against the version recorded in this table before finalizing any KG build.</p>
+<hr />
+<h2 id="25-building-your-local-source-manifest"><strong>2.5 Building Your Local Source Manifest</strong><a class="headerlink" href="#25-building-your-local-source-manifest" title="Permanent link">&para;</a></h2>
+<p>For your own working copy (separate from the manuscript supplement, useful for day-to-day pipeline runs), maintain a <code>source_manifest.csv</code> that mirrors the master table plus operational metadata:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>source_name,version,last_download,download_link,n_records,n_columns,local_path,hash_md5,notes
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>GenAge,Build 21 (8/28/2023),January 2025,https://genomics.senescence.info/genes/index.html,,,/storage/Arushi/090526_EvoAge/data/raw/aging/genage.csv,,
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>DrugAge,Build 5,Nov 29 2024,https://genomics.senescence.info/drugs/,,,/storage/Arushi/090526_EvoAge/data/raw/aging/drugAge.csv,,
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>STRING,version 12,January 2025,https://string-db.org/,,,/storage/Arushi/090526_EvoAge/data/raw/biomedical/string.tsv,,confidence&gt;0.7 filter applied downstream
+</span></code></pre></div>
+<p>Fill in <code>n_records</code>, <code>n_columns</code>, <code>local_path</code>, and <code>hash_md5</code> as each source is actually pulled onto the cluster — this gives you a working, queryable inventory distinct from (but consistent with) the static manuscript table above.</p>
+<hr />
+<h2 id="26-next-steps"><strong>2.6 Next Steps</strong><a class="headerlink" href="#26-next-steps" title="Permanent link">&para;</a></h2>
+<ol>
+<li>✅ <strong>Master table finalized?</strong> → Move to <a href="../preprocessing/">Preprocessing</a> (per-source cleaning, gene symbol resolution, relation standardization)</li>
+<li><strong>Need ortholog/species mapping for these sources?</strong> → See <a href="../ortholog-mapping/">Ortholog Mapping</a></li>
+<li><strong>Tracking version mismatches across notebooks?</strong> → Log them here and cross-reference against the Supplementary Table before each KG rebuild</li>
+</ol>
+<hr />
+<h2 id="reference-quick-counts"><strong>Reference: Quick Counts</strong><a class="headerlink" href="#reference-quick-counts" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Total sources in master table</strong>: 48 named databases/resources + 2 curation categories (Literature, species connection grouping)</li>
+<li><strong>Earliest source vintage</strong>: DRKG (May 2020)</li>
+<li><strong>Most recent downloads</strong>: miRTarBase 2025, PheKnowLator (17-05-2026)</li>
+<li><strong>Species-specific annotation sources</strong>: 5 (FlyBase, WormBase, SGD, ZFIN, MGI)</li>
+<li><strong>Phytochemical/Ayurvedic sources</strong>: 7 (PhytoHub, IMPPAT, AyurvedicPlantClassifier, PhytoChemicalDiversity, phyto_chemicals.db, Ayurvedic medicine catalogue, CEVOpen)</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../installation/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Installation">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Installation
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../preprocessing/" class="md-footer__link md-footer__link--next" aria-label="Next: Preprocessing">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Preprocessing
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 The Ahuja Lab
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.66be65ca.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

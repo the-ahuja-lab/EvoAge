@@ -1,0 +1,71 @@
+[project]
+site_name = "EvoAge"
+site_description = "Multi-Species Aging Knowledge Graph Platform"
+site_url = "https://the-ahuja-lab.github.io/EvoAge/"
+site_author = "The Ahuja Lab"
+copyright = "Copyright &copy; 2026 The Ahuja Lab"
+docs_dir = "doc"
+
+# Explicit navigation structure
+nav = [
+    { "Home" = "index.md" },
+    { "Quick Start" = "quick-start.md" },
+    { "Installation" = "installation.md" },
+    { "Data Collection" = "data-collection.md" },
+    { "Preprocessing" = "preprocessing.md" },
+    { "Relation Processing" = "relation-processing.md" },
+    { "Ortholog Mapping" = "ortholog-mapping.md" },
+    { "KG Construction" = "kg-construction.md" },
+    { "Tensors & Splitting" = "kg-tensors-and-splitting.md" },
+    { "Structure" = "documentation-structure.md" }
+]
+
+# Additional JavaScript for MathJax rendering support
+extra_javascript = [
+    "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"
+]
+
+# Markdown extensions configuration for math and code block fencing
+[project.markdown]
+extensions = [
+    "pymdownx.arithmatex",
+    "pymdownx.superfences"
+]
+
+[project.markdown.arithmatex]
+generic = true
+
+[project.theme]
+variant = "modern"
+language = "en"
+
+# Advanced interactive features for user experience
+features = [
+    "announce.dismiss",
+    "content.code.annotate",
+    "content.code.copy",
+    "content.code.select",
+    "content.footnote.tooltips",
+    "content.tabs.link",
+    "content.tooltips",
+    "navigation.footer",
+    "navigation.indexes",
+    "navigation.instant",
+    "navigation.instant.prefetch",
+    "navigation.path",
+    "navigation.sections",
+    "navigation.top",
+    "navigation.tracking",
+    "search.highlight"
+]
+
+# Dark mode and Light mode toggles
+[[project.theme.palette]]
+scheme = "default"
+toggle.icon = "lucide/sun"
+toggle.name = "Switch to dark mode"
+
+[[project.theme.palette]]
+scheme = "slate"
+toggle.icon = "lucide/moon"
+toggle.name = "Switch to light mode"

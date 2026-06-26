@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+      <url>
+        <loc>https://the-ahuja-lab.github.io/EvoAge/</loc>
+      </url>
+      <url>
+        <loc>https://the-ahuja-lab.github.io/EvoAge/quick-start/</loc>
+      </url>
+      <url>
+        <loc>https://the-ahuja-lab.github.io/EvoAge/installation/</loc>
+      </url>
+      <url>
+        <loc>https://the-ahuja-lab.github.io/EvoAge/data-collection/</loc>
+      </url>
+      <url>
+        <loc>https://the-ahuja-lab.github.io/EvoAge/preprocessing/</loc>
+      </url>
+      <url>
+        <loc>https://the-ahuja-lab.github.io/EvoAge/relation-processing/</loc>
+      </url>
+      <url>
+        <loc>https://the-ahuja-lab.github.io/EvoAge/ortholog-mapping/</loc>
+      </url>
+      <url>
+        <loc>https://the-ahuja-lab.github.io/EvoAge/kg-construction/</loc>
+      </url>
+      <url>
+        <loc>https://the-ahuja-lab.github.io/EvoAge/kg-tensors-and-splitting/</loc>
+      </url>
+      <url>
+        <loc>https://the-ahuja-lab.github.io/EvoAge/documentation-structure/</loc>
+      </url>
+</urlset>

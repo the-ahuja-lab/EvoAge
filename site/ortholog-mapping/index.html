@@ -1,0 +1,1174 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Multi-Species Aging Knowledge Graph Platform">
+      
+      
+        <meta name="author" content="The Ahuja Lab">
+      
+      
+        <link rel="canonical" href="https://the-ahuja-lab.github.io/EvoAge/ortholog-mapping/">
+      
+      
+        <link rel="prev" href="../relation-processing/">
+      
+      
+        <link rel="next" href="../kg-construction/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.30">
+    
+    
+      
+        <title>5. Ortholog Mapping - EvoAge</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.3b031116.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#5-ortholog-mapping" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="./.." title="EvoAge" class="md-header__button md-logo" aria-label="EvoAge" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            EvoAge
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              5. Ortholog Mapping
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="EvoAge" class="md-nav__button md-logo" aria-label="EvoAge" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+
+    </a>
+    EvoAge
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-collection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Collection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../preprocessing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Preprocessing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../relation-processing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Relation Processing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ortholog Mapping
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kg-construction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    KG Construction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kg-tensors-and-splitting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tensors & Splitting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../documentation-structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                    <div class="md-sidebar-button__wrapper">
+                      <label class="md-sidebar-button" for="__toc"></label>
+                    </div>
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#51-pipeline-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Pipeline Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52-step-1-collect-unique-genes-per-species" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Step 1 — Collect Unique Genes Per Species
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#53-step-2-query-ensembl-biomart-for-human-orthologs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Step 2 — Query Ensembl BioMart for Human Orthologs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.3 Step 2 — Query Ensembl BioMart for Human Orthologs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-two-tools-biomart-gprofiler2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why two tools (biomaRt + gprofiler2)?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connection-robustness" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection robustness
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#homology-query-chunked" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Homology query (chunked)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output-split-by-orthology_type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Output split by orthology_type
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#54-step-3-build-the-two-kg-variants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4 Step 3 — Build the Two KG Variants
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.4 Step 3 — Build the Two KG Variants">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#541-1-to-1-only-121" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4.1 1-to-1 Only (121)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#542-merging-1-to-1-with-1-to-many" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4.2 Merging 1-to-1 with 1-to-Many
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#543-1-to-1-plus-1-to-many-12112m" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4.3 1-to-1 Plus 1-to-Many (121+12M)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#55-output-file-naming-convention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.5 Output File Naming Convention
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#56-key-design-decisions-worth-remembering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.6 Key Design Decisions Worth Remembering
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="5-ortholog-mapping">5. Ortholog Mapping<a class="headerlink" href="#5-ortholog-mapping" title="Permanent link">&para;</a></h1>
+<p>After relation-wise merging produces per-relation, per-species CSVs (<a href="../relation-processing/">Relation Processing</a>), the non-human species data still has genes in their native ID systems (WormBase, FlyBase, MGI, SGD, ZFIN). To make these connect to the human-anchored Aging/Biomedical KGs, every non-human gene needs to be mapped to its human ortholog. This section documents that pipeline: collecting unique genes per species, querying Ensembl BioMart for orthologs, and producing two parallel ortholog-mapped KG variants — <strong>121</strong> (1-to-1 only) and <strong>121+12M</strong> (1-to-1 plus 1-to-many).</p>
+<hr />
+<h2 id="51-pipeline-overview"><strong>5.1 Pipeline Overview</strong><a class="headerlink" href="#51-pipeline-overview" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>OTHER_SPECIES/&lt;species&gt;/*.csv (relation-wise merged, species-native gene IDs)
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>        │
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        ▼
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>collecting_all_species_Unique_gene.py
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>   → one *_unique_genes.csv per species (deduplicated gene list)
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>        │
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>        ▼
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>Final_Final_map_orthologs_to_human_desc.R   (Ensembl BioMart, e114, via biomaRt + gprofiler2)
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>   → &lt;Species&gt;_byType_ortholog_one2one.csv
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>   → &lt;Species&gt;_byType_ortholog_one2many.csv
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>   → &lt;Species&gt;_byType_ortholog_many2many.csv   (kept aside, not used downstream)
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>        │
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>        ├──────────────────────────────┐
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>        ▼                              ▼
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>  1to1_converting.py            merge_121_12M_tomake_121PLUS12M.py
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>  (maps one2one only)           (concatenates one2one + one2many,
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>        │                        drops exact dupes)
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>        ▼                              ▼
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>  *_ortho_1_to_1.csv            1toM_121_converting.py
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>  (= &quot;121&quot; KG input)            (explodes rows for 1-to-many orthologs)
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>                                       │
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>                                       ▼
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>                              *_ortho_1_to_one2one_plus_one2many.csv
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>                              (= &quot;121+12M&quot; KG input)
+</span></code></pre></div>
+<p>Two KG variants come out the other end of this pipeline:</p>
+<table>
+<thead>
+<tr>
+<th>Variant</th>
+<th>Ortholog types used</th>
+<th>Row behavior</th>
+<th>Use case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>121</strong></td>
+<td>1-to-1 only</td>
+<td>One row stays one row — gene is simply renamed to its human symbol</td>
+<td>Conservative, no row inflation, cleanest signal</td>
+</tr>
+<tr>
+<td><strong>121+12M</strong></td>
+<td>1-to-1 <strong>and</strong> 1-to-many</td>
+<td>A gene with N human orthologs explodes into N rows</td>
+<td>Broader coverage, captures duplication/divergence relationships, more triples</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="52-step-1-collect-unique-genes-per-species"><strong>5.2 Step 1 — Collect Unique Genes Per Species</strong><a class="headerlink" href="#52-step-1-collect-unique-genes-per-species" title="Permanent link">&para;</a></h2>
+<p><strong>Script</strong>: <code>collecting_all_species_Unique_gene.py</code></p>
+<p>Before querying Ensembl, every relation-wise CSV for a species is scanned to pull out the complete, deduplicated set of gene identifiers that actually appear in that species' KG — from <strong>both</strong> the <code>head</code> and <code>tail</code> columns, filtered by <code>head_type</code>/<code>tail_type == 'Gene'</code>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">extract_genes_from_file</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="n">header</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="n">need</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;head&#39;</span><span class="p">,</span> <span class="s1">&#39;tail&#39;</span><span class="p">,</span> <span class="s1">&#39;head_type&#39;</span><span class="p">,</span> <span class="s1">&#39;tail_type&#39;</span><span class="p">]</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="n">usecols</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">need</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">header</span><span class="p">]</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="n">usecols</span><span class="p">,</span> <span class="n">low_memory</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="n">genes</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="k">if</span> <span class="s1">&#39;head&#39;</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="ow">and</span> <span class="s1">&#39;head_type&#39;</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>        <span class="n">mask</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;head_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;gene&#39;</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>        <span class="n">genes</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="s1">&#39;head&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    <span class="k">if</span> <span class="s1">&#39;tail&#39;</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="ow">and</span> <span class="s1">&#39;tail_type&#39;</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>        <span class="n">mask</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;tail_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;gene&#39;</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>        <span class="n">genes</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="s1">&#39;tail&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>    <span class="k">return</span> <span class="n">genes</span>
+</span></code></pre></div>
+<p>This is run once per species across <strong>every</strong> relation-wise CSV in that species' folder, with results unioned into a single gene set:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">SPECIES_CONFIG</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="s1">&#39;Celegans&#39;</span>   <span class="p">:</span> <span class="p">(</span><span class="s1">&#39;Celegans&#39;</span><span class="p">,</span>   <span class="s1">&#39;Caenorhabditis elegans&#39;</span><span class="p">,</span>  <span class="s1">&#39;Celegans_gene&#39;</span><span class="p">),</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="s1">&#39;Drosophila&#39;</span> <span class="p">:</span> <span class="p">(</span><span class="s1">&#39;Drosophila&#39;</span><span class="p">,</span> <span class="s1">&#39;Drosophila melanogaster&#39;</span><span class="p">,</span> <span class="s1">&#39;Droso_gene&#39;</span><span class="p">),</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="s1">&#39;Mouse&#39;</span>      <span class="p">:</span> <span class="p">(</span><span class="s1">&#39;Mouse&#39;</span><span class="p">,</span>      <span class="s1">&#39;Mus musculus&#39;</span><span class="p">,</span>            <span class="s1">&#39;Mouse_gene&#39;</span><span class="p">),</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="s1">&#39;Yeast&#39;</span>      <span class="p">:</span> <span class="p">(</span><span class="s1">&#39;Yeast&#39;</span><span class="p">,</span>      <span class="s1">&#39;Saccharomyces cerevisiae&#39;</span><span class="p">,</span><span class="s1">&#39;Yeast_gene&#39;</span><span class="p">),</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="s1">&#39;Zebrafish&#39;</span>  <span class="p">:</span> <span class="p">(</span><span class="s1">&#39;Zebrafish&#39;</span><span class="p">,</span>  <span class="s1">&#39;Danio rerio&#39;</span><span class="p">,</span>             <span class="s1">&#39;Zebrafish_gene&#39;</span><span class="p">),</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">}</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="k">for</span> <span class="n">species</span><span class="p">,</span> <span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">canonical_species</span><span class="p">,</span> <span class="n">col_name</span><span class="p">)</span> <span class="ow">in</span> <span class="n">SPECIES_CONFIG</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>    <span class="n">csv_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ROOT</span><span class="p">,</span> <span class="n">folder</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="s1">&#39;*.csv&#39;</span><span class="p">))</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>                 <span class="k">if</span> <span class="s1">&#39;.ipynb_checkpoints&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">f</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>                 <span class="ow">and</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;_SUMMARY&#39;</span><span class="p">)</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>                 <span class="ow">and</span> <span class="s1">&#39;ortho_1_to_&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">f</span><span class="p">)]</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    <span class="n">all_genes</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>    <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">csv_files</span><span class="p">:</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>        <span class="n">all_genes</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">extract_genes_from_file</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>    <span class="n">gene_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>        <span class="n">col_name</span><span class="p">:</span>    <span class="nb">sorted</span><span class="p">(</span><span class="n">all_genes</span><span class="p">),</span>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>        <span class="s1">&#39;Node_type&#39;</span><span class="p">:</span> <span class="s1">&#39;Gene&#39;</span><span class="p">,</span>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>        <span class="s1">&#39;species&#39;</span><span class="p">:</span>   <span class="n">canonical_species</span><span class="p">,</span>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>    <span class="p">})</span>
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>    <span class="n">gene_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">species</span><span class="si">}</span><span class="s1">_unique_genes.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Note the column naming convention — each species gets its own gene-column name (<code>Celegans_gene</code>, <code>Droso_gene</code>, <code>Mouse_gene</code>, <code>Yeast_gene</code>, <code>Zebrafish_gene</code>) rather than a shared generic name, because this matches what the R script's <code>species_info</code> table expects per-species (<code>gene_col</code> field).</p>
+<p><strong>Output</strong>: 5 files — <code>Celegans_unique_genes.csv</code>, <code>Drosophila_unique_genes.csv</code>, <code>Mouse_unique_genes.csv</code>, <code>Yeast_unique_genes.csv</code>, <code>Zebrafish_unique_genes.csv</code> — each a clean list of every distinct gene ID that appears anywhere in that species' merged KG.</p>
+<hr />
+<h2 id="53-step-2-query-ensembl-biomart-for-human-orthologs"><strong>5.3 Step 2 — Query Ensembl BioMart for Human Orthologs</strong><a class="headerlink" href="#53-step-2-query-ensembl-biomart-for-human-orthologs" title="Permanent link">&para;</a></h2>
+<p><strong>Script</strong>: <code>Final_Final_map_orthologs_to_human_desc.R</code></p>
+<p>This is the actual ortholog lookup, run once per species against Ensembl (pinned to <strong>release e114</strong>, May 2025 archive, for reproducibility — current/default mirrors serve whatever the latest release is, which would break reproducibility months later).</p>
+<h3 id="why-two-tools-biomart-gprofiler2"><strong>Why two tools (biomaRt + gprofiler2)?</strong><a class="headerlink" href="#why-two-tools-biomart-gprofiler2" title="Permanent link">&para;</a></h3>
+<p>Species gene lists arrive as a mix of symbols, synonyms, and sometimes stale IDs. A single resolution path isn't reliable enough, so the script uses a <strong>two-stage resolution cascade</strong>:</p>
+<div class="language-r highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Stage 1: g:Convert (gprofiler2) — robust, cross-namespace symbol -&gt; Ensembl ID</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">resolved</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">safe_gconvert</span><span class="p">(</span><span class="n">genes</span><span class="p">,</span><span class="w"> </span><span class="n">gp_org</span><span class="p">)</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Stage 2: biomaRt fallback for anything g:Convert couldn&#39;t resolve</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">still</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">setdiff</span><span class="p">(</span><span class="nf">unique</span><span class="p">(</span><span class="n">genes</span><span class="p">),</span><span class="w"> </span><span class="n">resolved</span><span class="o">$</span><span class="n">input_gene</span><span class="p">)</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="kr">if</span><span class="w"> </span><span class="p">(</span><span class="nf">length</span><span class="p">(</span><span class="n">still</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span><span class="n">fb</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">id_map</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="nf">filter</span><span class="p">(</span><span class="n">k_name</span><span class="w"> </span><span class="o">%in%</span><span class="w"> </span><span class="nf">norm_key</span><span class="p">(</span><span class="n">still</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">k_id</span><span class="w"> </span><span class="o">%in%</span><span class="w"> </span><span class="nf">norm_key</span><span class="p">(</span><span class="n">still</span><span class="p">))</span><span class="w"> </span><span class="o">|&gt;</span><span class="w"> </span><span class="kc">...</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">  </span><span class="n">resolved</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">bind_rows</span><span class="p">(</span><span class="n">resolved</span><span class="p">,</span><span class="w"> </span><span class="n">fb</span><span class="p">)</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>g:Convert handles the bulk of symbol→Ensembl resolution; biomaRt's own genome-wide <code>id_map</code> (built once per species from <code>ensembl_gene_id</code> + <code>external_gene_name</code>) catches anything left over. Both stages are version-pinned: g:Profiler is checked against the same Ensembl release (<code>GP_TARGET_ENSEMBL &lt;- 114</code>) and falls back to a fixed archive (<code>e114_eg62_p19</code>) if the current g:Profiler release has drifted.</p>
+<h3 id="connection-robustness"><strong>Connection robustness</strong><a class="headerlink" href="#connection-robustness" title="Permanent link">&para;</a></h3>
+<p>Every BioMart call goes through retry wrappers because Ensembl's REST endpoint intermittently returns transient 500s:</p>
+<div class="language-r highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">CONNECT_TRIES</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="m">15</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">ALLOW_MIRROR_FALLBACK</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="kc">FALSE</span><span class="w">   </span><span class="c1"># mirrors serve the CURRENT release, not e114 — never fall back silently</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">connect_mart</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="p">(</span><span class="n">attempt</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nf">seq_len</span><span class="p">(</span><span class="n">CONNECT_TRIES</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="n">m</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">tryCatch</span><span class="p">(</span><span class="nf">useEnsembl</span><span class="p">(</span><span class="n">biomart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;genes&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dataset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dataset</span><span class="p">,</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ENSEMBL_HOST</span><span class="p">),</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">                  </span><span class="n">error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nf">Sys.sleep</span><span class="p">(</span><span class="nf">min</span><span class="p">(</span><span class="m">10</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">attempt</span><span class="p">,</span><span class="w"> </span><span class="m">30</span><span class="p">));</span><span class="w"> </span><span class="kc">NULL</span><span class="w"> </span><span class="p">})</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nf">is.null</span><span class="p">(</span><span class="n">m</span><span class="p">))</span><span class="w"> </span><span class="kr">return</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">  </span><span class="nf">stop</span><span class="p">(</span><span class="s">&quot;e114 archive host unreachable after &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">CONNECT_TRIES</span><span class="p">,</span><span class="w"> </span><span class="s">&quot; tries...&quot;</span><span class="p">)</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="p">}</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="n">safe_getBM</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="kc">...</span><span class="p">,</span><span class="w"> </span><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;query&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">  </span><span class="kr">for</span><span class="w"> </span><span class="p">(</span><span class="n">attempt</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nf">seq_len</span><span class="p">(</span><span class="n">MAX_TRIES</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">    </span><span class="n">res</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">tryCatch</span><span class="p">(</span><span class="nf">getBM</span><span class="p">(</span><span class="kc">...</span><span class="p">),</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nf">Sys.sleep</span><span class="p">(</span><span class="m">3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">attempt</span><span class="p">);</span><span class="w"> </span><span class="kc">NULL</span><span class="w"> </span><span class="p">})</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">    </span><span class="kr">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nf">is.null</span><span class="p">(</span><span class="n">res</span><span class="p">))</span><span class="w"> </span><span class="kr">return</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">  </span><span class="nf">stop</span><span class="p">(</span><span class="nf">sprintf</span><span class="p">(</span><span class="s">&quot;[%s] failed after %d attempts.&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">label</span><span class="p">,</span><span class="w"> </span><span class="n">MAX_TRIES</span><span class="p">))</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><code>ALLOW_MIRROR_FALLBACK &lt;- FALSE</code> is a deliberate reproducibility guard — it would be easy to silently fall back to a regional mirror serving the current Ensembl release, which would quietly break the e114 pin without erroring. The script chooses to fail loudly instead.</p>
+<h3 id="homology-query-chunked"><strong>Homology query (chunked)</strong><a class="headerlink" href="#homology-query-chunked" title="Permanent link">&para;</a></h3>
+<p>IDs are queried in chunks of 200 (<code>CHUNK_SIZE</code>) to keep individual requests small and retry-friendly, pulling all the fields needed for downstream confidence filtering and provenance:</p>
+<div class="language-r highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">HOM_ATTRS</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="s">&quot;ensembl_gene_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;external_gene_name&quot;</span><span class="p">,</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="s">&quot;hsapiens_homolog_ensembl_gene&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;hsapiens_homolog_associated_gene_name&quot;</span><span class="p">,</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="s">&quot;hsapiens_homolog_orthology_type&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;hsapiens_homolog_orthology_confidence&quot;</span><span class="p">,</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="s">&quot;hsapiens_homolog_perc_id&quot;</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="p">)</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="n">get_homologs_chunked</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="n">ids</span><span class="p">,</span><span class="w"> </span><span class="n">mart</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">  </span><span class="n">chunks</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">split</span><span class="p">(</span><span class="nf">unique</span><span class="p">(</span><span class="n">ids</span><span class="p">),</span><span class="w"> </span><span class="nf">ceiling</span><span class="p">(</span><span class="nf">seq_along</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">CHUNK_SIZE</span><span class="p">))</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">  </span><span class="n">out</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">lapply</span><span class="p">(</span><span class="nf">seq_along</span><span class="p">(</span><span class="n">chunks</span><span class="p">),</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="nf">safe_getBM</span><span class="p">(</span><span class="n">attributes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HOM_ATTRS</span><span class="p">,</span><span class="w"> </span><span class="n">filters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ensembl_gene_id&quot;</span><span class="p">,</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">               </span><span class="n">values</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">chunks</span><span class="p">[[</span><span class="n">j</span><span class="p">]],</span><span class="w"> </span><span class="n">mart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mart</span><span class="p">))</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">  </span><span class="nf">bind_rows</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Human gene <strong>descriptions</strong> are fetched separately from the human mart (<code>hsapiens_gene_ensembl</code>) and cached in-session (<code>.human_desc_cache</code>) so the same human Ensembl ID is never queried twice across species:</p>
+<div class="language-r highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">get_human_descriptions</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="n">ids</span><span class="p">,</span><span class="w"> </span><span class="n">human_mart</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="n">miss</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">ids</span><span class="p">[</span><span class="o">!</span><span class="nf">vapply</span><span class="p">(</span><span class="n">ids</span><span class="p">,</span><span class="w"> </span><span class="kr">function</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="nf">exists</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">envir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">.human_desc_cache</span><span class="p">),</span><span class="w"> </span><span class="nf">logical</span><span class="p">(</span><span class="m">1</span><span class="p">))]</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="c1"># ... query only the missing ones, cache results ...</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="output-split-by-orthology_type"><strong>Output split by orthology_type</strong><a class="headerlink" href="#output-split-by-orthology_type" title="Permanent link">&para;</a></h3>
+<p>The final matched table is split and written <strong>one file per orthology type</strong>, per species:</p>
+<div class="language-r highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kr">for</span><span class="w"> </span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="kr">in</span><span class="w"> </span><span class="nf">unique</span><span class="p">(</span><span class="n">matched</span><span class="o">$</span><span class="n">orthology_type</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nf">write_csv</span><span class="p">(</span><span class="nf">filter</span><span class="p">(</span><span class="n">matched</span><span class="p">,</span><span class="w"> </span><span class="n">orthology_type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">t</span><span class="p">),</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">            </span><span class="nf">file.path</span><span class="p">(</span><span class="n">sp_dir</span><span class="p">,</span><span class="w"> </span><span class="nf">paste0</span><span class="p">(</span><span class="n">sp</span><span class="o">$</span><span class="n">species_name</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;_byType_&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;.csv&quot;</span><span class="p">)))</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>This produces, per species:</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Orthology type</th>
+<th>Used downstream?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;Species&gt;_byType_ortholog_one2one.csv</code></td>
+<td>1 source gene ↔ 1 human gene</td>
+<td>✅ Yes — feeds both 121 and 121+12M</td>
+</tr>
+<tr>
+<td><code>&lt;Species&gt;_byType_ortholog_one2many.csv</code></td>
+<td>1 source gene ↔ N human genes</td>
+<td>✅ Yes — feeds 121+12M only</td>
+</tr>
+<tr>
+<td><code>&lt;Species&gt;_byType_ortholog_many2many.csv</code></td>
+<td>N source genes ↔ M human genes</td>
+<td>❌ Not used in either KG variant</td>
+</tr>
+</tbody>
+</table>
+<p>Plus per-species diagnostics: <code>&lt;Species&gt;_UNMAPPED.txt</code>, <code>&lt;Species&gt;_SYMBOL_NOT_FOUND.txt</code>, <code>&lt;Species&gt;_PerGene_Summary.csv</code>, and a master <code>AllSpecies_Orthology_Summary.csv</code> with coverage stats across all five species.</p>
+<hr />
+<h2 id="54-step-3-build-the-two-kg-variants"><strong>5.4 Step 3 — Build the Two KG Variants</strong><a class="headerlink" href="#54-step-3-build-the-two-kg-variants" title="Permanent link">&para;</a></h2>
+<h3 id="541-1-to-1-only-121"><strong>5.4.1 1-to-1 Only (121)</strong><a class="headerlink" href="#541-1-to-1-only-121" title="Permanent link">&para;</a></h3>
+<p><strong>Script</strong>: <code>1to1_converting.py</code></p>
+<p>Loads each species' <code>_byType_ortholog_one2one.csv</code> and builds simple <code>gene → human_symbol</code> dictionaries:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">build_ortholog_dicts</span><span class="p">(</span><span class="n">biomart_path</span><span class="p">,</span> <span class="n">species_key</span><span class="p">):</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    <span class="n">bm</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">biomart_path</span><span class="p">)</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    <span class="n">bm</span><span class="p">[</span><span class="s1">&#39;ortholog_info&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>        <span class="s1">&#39;species: &#39;</span> <span class="o">+</span> <span class="n">species_key</span> <span class="o">+</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>        <span class="s1">&#39; ::: original_gene: &#39;</span>        <span class="o">+</span> <span class="n">bm</span><span class="p">[</span><span class="s1">&#39;input_gene&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span> <span class="o">+</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>        <span class="s1">&#39; ::: orthology_confidence: &#39;</span> <span class="o">+</span> <span class="n">bm</span><span class="p">[</span><span class="s1">&#39;orthology_confidence&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span> <span class="o">+</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>        <span class="s1">&#39; ::: perc_identity: &#39;</span>        <span class="o">+</span> <span class="n">bm</span><span class="p">[</span><span class="s1">&#39;perc_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span> <span class="o">+</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>        <span class="s1">&#39; ::: orthology_type: &#39;</span>       <span class="o">+</span> <span class="n">bm</span><span class="p">[</span><span class="s1">&#39;orthology_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>    <span class="p">)</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>    <span class="n">bm</span> <span class="o">=</span> <span class="n">bm</span><span class="p">[</span><span class="n">bm</span><span class="p">[</span><span class="s1">&#39;human_symbol&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>    <span class="n">bm</span><span class="p">[</span><span class="s1">&#39;input_gene_upper&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bm</span><span class="p">[</span><span class="s1">&#39;input_gene&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>    <span class="n">gene2ortho</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">bm</span><span class="p">[</span><span class="s1">&#39;input_gene_upper&#39;</span><span class="p">],</span> <span class="n">bm</span><span class="p">[</span><span class="s1">&#39;human_symbol&#39;</span><span class="p">]))</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>    <span class="n">gene2desc</span>  <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">bm</span><span class="p">[</span><span class="s1">&#39;input_gene_upper&#39;</span><span class="p">],</span> <span class="n">bm</span><span class="p">[</span><span class="s1">&#39;human_description&#39;</span><span class="p">]))</span>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>    <span class="n">gene2info</span>  <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">bm</span><span class="p">[</span><span class="s1">&#39;input_gene_upper&#39;</span><span class="p">],</span> <span class="n">bm</span><span class="p">[</span><span class="s1">&#39;ortholog_info&#39;</span><span class="p">]))</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>    <span class="k">return</span> <span class="n">gene2ortho</span><span class="p">,</span> <span class="n">gene2desc</span><span class="p">,</span> <span class="n">gene2info</span>
+</span></code></pre></div>
+<p>Because the mapping is strictly 1-to-1, <strong>no row explosion is needed</strong> — each gene value is simply swapped in place for both <code>head</code> and <code>tail</code> columns:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">map_one_side</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">side</span><span class="p">,</span> <span class="n">gene2ortho</span><span class="p">,</span> <span class="n">gene2desc</span><span class="p">,</span> <span class="n">gene2info</span><span class="p">,</span> <span class="n">original_species</span><span class="p">):</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    <span class="n">type_col</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">side</span><span class="si">}</span><span class="s1">_type&#39;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    <span class="n">is_gene</span>  <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">type_col</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;gene&#39;</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    <span class="n">keys</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">is_gene</span><span class="p">,</span> <span class="n">side</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    <span class="n">mapped_mask</span> <span class="o">=</span> <span class="n">is_gene</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>    <span class="n">mapped_mask</span><span class="p">[</span><span class="n">is_gene</span><span class="p">]</span> <span class="o">=</span> <span class="n">keys</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">gene2ortho</span><span class="p">)</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span><span class="o">.</span><span class="n">values</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>    <span class="n">mapped_keys</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mapped_mask</span><span class="p">,</span> <span class="n">side</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>    <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mapped_mask</span><span class="p">,</span> <span class="n">side</span><span class="p">]</span>                   <span class="o">=</span> <span class="n">mapped_keys</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">gene2ortho</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>    <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mapped_mask</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">side</span><span class="si">}</span><span class="s1">_detail_name&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="n">mapped_keys</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">gene2desc</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>    <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mapped_mask</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">side</span><span class="si">}</span><span class="s1">_species&#39;</span><span class="p">]</span>      <span class="o">=</span> <span class="s1">&#39;Homo sapiens&#39;</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>    <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mapped_mask</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">side</span><span class="si">}</span><span class="s1">_ortholog_info&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">mapped_keys</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">gene2info</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">mapped_mask</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</span></code></pre></div>
+<p><strong>Unmapped genes are left unchanged</strong> (not dropped) — they keep their native species ID and <code>species</code> tag as the original organism, so the row survives but stays a non-human-anchored node.</p>
+<p>Every triple file across all 5 species gets run through this same <code>map_one_side</code> call for both <code>head</code> and <code>tail</code>, producing one <code>*_ortho_1_to_1.csv</code> per input file.</p>
+<h3 id="542-merging-1-to-1-with-1-to-many"><strong>5.4.2 Merging 1-to-1 with 1-to-Many</strong><a class="headerlink" href="#542-merging-1-to-1-with-1-to-many" title="Permanent link">&para;</a></h3>
+<p><strong>Script</strong>: <code>merge_121_12M_tomake_121PLUS12M.py</code></p>
+<p>Before building the 121+12M KG, the two BioMart ortholog tables (one2one and one2many) are concatenated per species into a single combined ortholog reference table:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">species_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Yeast&quot;</span><span class="p">,</span> <span class="s2">&quot;Celegans&quot;</span><span class="p">,</span> <span class="s2">&quot;Drosophila&quot;</span><span class="p">,</span> <span class="s2">&quot;Zebrafish&quot;</span><span class="p">,</span> <span class="s2">&quot;Mouse&quot;</span><span class="p">]</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="k">for</span> <span class="n">species</span> <span class="ow">in</span> <span class="n">species_list</span><span class="p">:</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    <span class="n">one2one_file</span>  <span class="o">=</span> <span class="n">species_dir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">species</span><span class="si">}</span><span class="s2">_byType_ortholog_one2one.csv&quot;</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>    <span class="n">one2many_file</span> <span class="o">=</span> <span class="n">species_dir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">species</span><span class="si">}</span><span class="s2">_byType_ortholog_one2many.csv&quot;</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>    <span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">one2one_file</span><span class="p">)</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>    <span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">one2many_file</span><span class="p">)</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>    <span class="n">merged</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>    <span class="n">merged</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">species_dir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">species</span><span class="si">}</span><span class="s2">_byType_ortholog_one2one_plus_one2many.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></code></pre></div>
+<p>This is the pivot point — <code>1toM_121_converting.py</code> reads from this <strong>combined</strong> file.</p>
+<h3 id="543-1-to-1-plus-1-to-many-12112m"><strong>5.4.3 1-to-1 Plus 1-to-Many (121+12M)</strong><a class="headerlink" href="#543-1-to-1-plus-1-to-many-12112m" title="Permanent link">&para;</a></h3>
+<p><strong>Script</strong>: <code>1toM_121_converting.py</code></p>
+<p>This is the more involved conversion, because <strong>a single source gene can now map to multiple human orthologs</strong>, which means a single triple row needs to become multiple rows — one per ortholog.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">build_ortholog_dicts_121_12M</span><span class="p">(</span><span class="n">biomart_path</span><span class="p">,</span> <span class="n">species_key</span><span class="p">):</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    <span class="n">bm</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">biomart_path</span><span class="p">)</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    <span class="n">bm</span><span class="p">[</span><span class="s1">&#39;ortholog_info&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="o">...</span><span class="p">)</span>  <span class="c1"># same provenance string as in 1to1_converting.py</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>    <span class="n">bm</span> <span class="o">=</span> <span class="n">bm</span><span class="p">[</span><span class="n">bm</span><span class="p">[</span><span class="s1">&#39;human_symbol&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>    <span class="n">bm</span><span class="p">[</span><span class="s1">&#39;input_gene_upper&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bm</span><span class="p">[</span><span class="s1">&#39;input_gene&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>    <span class="n">bm</span> <span class="o">=</span> <span class="n">bm</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;input_gene_upper&#39;</span><span class="p">,</span> <span class="s1">&#39;human_symbol&#39;</span><span class="p">],</span> <span class="n">keep</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">)</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>    <span class="n">gene2orthos</span> <span class="o">=</span> <span class="n">bm</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;input_gene_upper&#39;</span><span class="p">)[</span><span class="s1">&#39;human_symbol&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>    <span class="n">gene2descs</span>  <span class="o">=</span> <span class="n">bm</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;input_gene_upper&#39;</span><span class="p">)[</span><span class="s1">&#39;human_description&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>    <span class="n">gene2infos</span>  <span class="o">=</span> <span class="n">bm</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;input_gene_upper&#39;</span><span class="p">)[</span><span class="s1">&#39;ortholog_info&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>    <span class="k">return</span> <span class="n">gene2orthos</span><span class="p">,</span> <span class="n">gene2descs</span><span class="p">,</span> <span class="n">gene2infos</span>
+</span></code></pre></div>
+<p><strong>Exploding one side</strong>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">explode_side</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">side</span><span class="p">,</span> <span class="n">gene2orthos</span><span class="p">,</span> <span class="n">gene2descs</span><span class="p">,</span> <span class="n">gene2infos</span><span class="p">,</span> <span class="n">original_species</span><span class="p">):</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>    <span class="n">is_gene</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">side</span><span class="si">}</span><span class="s1">_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;gene&#39;</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>    <span class="n">df</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;_</span><span class="si">{</span><span class="n">side</span><span class="si">}</span><span class="s1">_orthos&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">side</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">v</span><span class="p">:</span> <span class="p">[</span><span class="n">v</span><span class="p">])</span>          <span class="c1"># default: no explosion</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>    <span class="n">df</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;_</span><span class="si">{</span><span class="n">side</span><span class="si">}</span><span class="s1">_descs&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="p">[[</span><span class="n">pd</span><span class="o">.</span><span class="n">NA</span><span class="p">]]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>    <span class="n">df</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;_</span><span class="si">{</span><span class="n">side</span><span class="si">}</span><span class="s1">_infos&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="p">[[</span><span class="n">pd</span><span class="o">.</span><span class="n">NA</span><span class="p">]]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>    <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">is_gene</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;_</span><span class="si">{</span><span class="n">side</span><span class="si">}</span><span class="s1">_orthos&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">is_gene</span><span class="p">,</span> <span class="n">side</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>        <span class="k">lambda</span> <span class="n">v</span><span class="p">:</span> <span class="n">gene2orthos</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span> <span class="p">[</span><span class="n">v</span><span class="p">]))</span>            <span class="c1"># fallback: [original] if unmapped</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>    <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">is_gene</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;_</span><span class="si">{</span><span class="n">side</span><span class="si">}</span><span class="s1">_descs&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">is_gene</span><span class="p">,</span> <span class="n">side</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>        <span class="k">lambda</span> <span class="n">v</span><span class="p">:</span> <span class="n">gene2descs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span> <span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">NA</span><span class="p">]))</span>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>    <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">is_gene</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;_</span><span class="si">{</span><span class="n">side</span><span class="si">}</span><span class="s1">_infos&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">is_gene</span><span class="p">,</span> <span class="n">side</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>        <span class="k">lambda</span> <span class="n">v</span><span class="p">:</span> <span class="n">gene2infos</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span> <span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">NA</span><span class="p">]))</span>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>    <span class="n">mapped_keys</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">gene2orthos</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;_was_mapped_&#39;</span> <span class="o">+</span> <span class="n">side</span><span class="p">]</span> <span class="o">=</span> <span class="n">is_gene</span> <span class="o">&amp;</span> <span class="n">df</span><span class="p">[</span><span class="n">side</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">mapped_keys</span><span class="p">)</span>
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a>
+</span><span id="__span-12-18"><a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>    <span class="c1"># Explode all 3 list columns together so they stay row-aligned</span>
+</span><span id="__span-12-19"><a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a>    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">explode</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;_</span><span class="si">{</span><span class="n">side</span><span class="si">}</span><span class="s1">_orthos&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;_</span><span class="si">{</span><span class="n">side</span><span class="si">}</span><span class="s1">_descs&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;_</span><span class="si">{</span><span class="n">side</span><span class="si">}</span><span class="s1">_infos&#39;</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-12-20"><a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a>
+</span><span id="__span-12-21"><a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a>    <span class="n">df</span><span class="p">[</span><span class="n">side</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;_</span><span class="si">{</span><span class="n">side</span><span class="si">}</span><span class="s1">_orthos&#39;</span><span class="p">]</span>
+</span><span id="__span-12-22"><a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a>    <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;_was_mapped_&#39;</span> <span class="o">+</span> <span class="n">side</span><span class="p">],</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">side</span><span class="si">}</span><span class="s1">_detail_name&#39;</span><span class="p">]</span>   <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;_was_mapped_&#39;</span> <span class="o">+</span> <span class="n">side</span><span class="p">],</span> <span class="sa">f</span><span class="s1">&#39;_</span><span class="si">{</span><span class="n">side</span><span class="si">}</span><span class="s1">_descs&#39;</span><span class="p">]</span>
+</span><span id="__span-12-23"><a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a>    <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;_was_mapped_&#39;</span> <span class="o">+</span> <span class="n">side</span><span class="p">],</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">side</span><span class="si">}</span><span class="s1">_ortholog_info&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;_was_mapped_&#39;</span> <span class="o">+</span> <span class="n">side</span><span class="p">],</span> <span class="sa">f</span><span class="s1">&#39;_</span><span class="si">{</span><span class="n">side</span><span class="si">}</span><span class="s1">_infos&#39;</span><span class="p">]</span>
+</span><span id="__span-12-24"><a id="__codelineno-12-24" name="__codelineno-12-24" href="#__codelineno-12-24"></a>    <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;_was_mapped_&#39;</span> <span class="o">+</span> <span class="n">side</span><span class="p">],</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">side</span><span class="si">}</span><span class="s1">_species&#39;</span><span class="p">]</span>       <span class="o">=</span> <span class="s1">&#39;Homo sapiens&#39;</span>
+</span><span id="__span-12-25"><a id="__codelineno-12-25" name="__codelineno-12-25" href="#__codelineno-12-25"></a>
+</span><span id="__span-12-26"><a id="__codelineno-12-26" name="__codelineno-12-26" href="#__codelineno-12-26"></a>    <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;_</span><span class="si">{</span><span class="n">side</span><span class="si">}</span><span class="s1">_orthos&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;_</span><span class="si">{</span><span class="n">side</span><span class="si">}</span><span class="s1">_descs&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;_</span><span class="si">{</span><span class="n">side</span><span class="si">}</span><span class="s1">_infos&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-12-27"><a id="__codelineno-12-27" name="__codelineno-12-27" href="#__codelineno-12-27"></a>    <span class="k">return</span> <span class="n">df</span>
+</span></code></pre></div>
+<p><strong>Order of operations matters</strong>: head is exploded first, then tail is exploded on the already-head-exploded frame — this is what produces the N×M cartesian product:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">if</span> <span class="n">head_has_gene</span><span class="p">:</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>    <span class="n">df</span> <span class="o">=</span> <span class="n">explode_side</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;head&#39;</span><span class="p">,</span> <span class="n">gene2orthos</span><span class="p">,</span> <span class="n">gene2descs</span><span class="p">,</span> <span class="n">gene2infos</span><span class="p">,</span> <span class="n">original_species</span><span class="p">)</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="k">else</span><span class="p">:</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;head_species&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;head_ortholog_info&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">original_species</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">NA</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="k">if</span> <span class="n">tail_has_gene</span><span class="p">:</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>    <span class="n">df</span> <span class="o">=</span> <span class="n">explode_side</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;tail&#39;</span><span class="p">,</span> <span class="n">gene2orthos</span><span class="p">,</span> <span class="n">gene2descs</span><span class="p">,</span> <span class="n">gene2infos</span><span class="p">,</span> <span class="n">original_species</span><span class="p">)</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="k">else</span><span class="p">:</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;tail_species&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;tail_ortholog_info&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">original_species</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">NA</span>
+</span></code></pre></div>
+<hr />
+<h2 id="55-output-file-naming-convention"><strong>5.5 Output File Naming Convention</strong><a class="headerlink" href="#55-output-file-naming-convention" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Suffix</th>
+<th>Meaning</th>
+<th>Produced by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>*_ortho_1_to_1.csv</code></td>
+<td>121 KG input — 1-to-1 orthologs only, no row explosion</td>
+<td><code>1to1_converting.py</code></td>
+</tr>
+<tr>
+<td><code>*_ortho_1_to_one2one_plus_one2many.csv</code></td>
+<td>121+12M KG input — 1-to-1 + 1-to-many, exploded</td>
+<td><code>1toM_121_converting.py</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="56-key-design-decisions-worth-remembering"><strong>5.6 Key Design Decisions Worth Remembering</strong><a class="headerlink" href="#56-key-design-decisions-worth-remembering" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>e114 pin, no silent mirror fallback</strong>: reproducibility was prioritized explicitly enough to make the script fail loudly rather than silently drift.</li>
+<li><strong>Two-stage gene resolution</strong>: g:Convert Primary → biomaRt fallback catches genes that fail in the first pass.</li>
+<li><strong>many2many orthologs are excluded entirely</strong> from both KG variants due to noise.</li>
+<li><strong>Unmapped genes are kept, not dropped</strong>, in both conversions.</li>
+<li><strong>Explosion order (head-then-tail) produces the cartesian product</strong> for 121+12M.</li>
+</ul>
+<hr />
+<h2 id="next-steps"><strong>Next Steps</strong><a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<ol>
+<li>✅ <strong>Ortholog mapping done for all 5 species?</strong> → Move to <a href="../kg-construction/">KG Construction</a></li>
+<li><strong>Adding a 6<sup>th</sup> species?</strong> → Add to <code>SPECIES_CONFIG</code> in <code>collecting_all_species_Unique_gene.py</code> and map datasets.</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../relation-processing/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Relation Processing">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Relation Processing
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../kg-construction/" class="md-footer__link md-footer__link--next" aria-label="Next: KG Construction">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                KG Construction
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 The Ahuja Lab
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.66be65ca.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
