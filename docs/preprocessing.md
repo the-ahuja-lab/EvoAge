@@ -1,6 +1,6 @@
 ﻿# 3. Per-Source Preprocessing
 
-> 📂 **Source Code & Notebooks:** [pipeline/02_data_processing](../pipeline/02_data_processing/)
+> 📂 **Source Code & Notebooks:** [pipeline/02_data_processing](https://github.com/the-ahuja-lab/EvoAge/tree/main/pipeline/02_data_processing)
 
 
 This section documents how each of the 48+ raw data sources is converted into the standard EvoAge triple schema before relation-type classification and KG merging. It is based on the actual notebooks in `kg_formation/data_processing/`.

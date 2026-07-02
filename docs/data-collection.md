@@ -1,6 +1,6 @@
 ﻿# 2. Data Collection
 
-> 📂 **Source Code & Notebooks:** [pipeline/01_data_collection](../pipeline/01_data_collection/)
+> 📂 **Source Code & Notebooks:** [pipeline/01_data_collection](https://github.com/the-ahuja-lab/EvoAge/tree/main/pipeline/01_data_collection)
 
 
 This section documents all data sources integrated into EvoAge — the master source table (also provided as a Supplementary Table with the manuscript), download provenance, and how each source feeds into the KG construction pipeline.

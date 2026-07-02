@@ -1,6 +1,6 @@
 ﻿# 9. Granular 1% Species & Cross-Species Evaluation Analysis
 
-> 📂 **Source Code & Notebooks:** [pipeline/08_evaluation_analysis](../pipeline/08_evaluation_analysis/)
+> 📂 **Source Code & Notebooks:** [pipeline/08_evaluation_analysis](https://github.com/the-ahuja-lab/EvoAge/tree/main/pipeline/08_evaluation_analysis)
 
 
 ## 9.1. Purpose

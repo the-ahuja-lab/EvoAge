@@ -1,6 +1,6 @@
 ﻿# 8. Model Training and Evaluation
 
-> 📂 **Source Code & Notebooks:** [pipeline/07_model_training](../pipeline/07_model_training/)
+> 📂 **Source Code & Notebooks:** [pipeline/07_model_training](https://github.com/the-ahuja-lab/EvoAge/tree/main/pipeline/07_model_training)
 
 
 ## 8.1. Purpose

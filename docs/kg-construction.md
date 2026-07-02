@@ -1,6 +1,6 @@
 ﻿# 6. KG Construction — Splitting into Aging-Specific & Biomedical
 
-> 📂 **Source Code & Notebooks:** [pipeline/05_kg_construction](../pipeline/05_kg_construction/)
+> 📂 **Source Code & Notebooks:** [pipeline/05_kg_construction](https://github.com/the-ahuja-lab/EvoAge/tree/main/pipeline/05_kg_construction)
 
 
 By this point in the pipeline, every relation has been merged across sources ([Relation Processing](relation-processing.md)) and every non-human species has been ortholog-mapped to human gene symbols in two variants, 121 and 121+12M ([Ortholog Mapping](ortholog-mapping.md)). The **full EvoKG is now ready** — one complete, ortholog-resolved knowledge graph spanning Human plus five model organisms.

@@ -1,6 +1,6 @@
 ﻿# 7. Building Final KG Tensors & Train/Valid/Test Splitting
 
-> 📂 **Source Code & Notebooks:** [pipeline/06_tensor_building](../pipeline/06_tensor_building/)
+> 📂 **Source Code & Notebooks:** [pipeline/06_tensor_building](https://github.com/the-ahuja-lab/EvoAge/tree/main/pipeline/06_tensor_building)
 
 
 This section covers the last stage before training: converting the split, ortholog-mapped CSV/Parquet files ([KG Construction](kg-construction.md)) into integer-encoded PyTorch tensors, and creating leakage-free train/valid/test splits across **four KG variants** — Aging (1-to-1), Biomedical (1-to-1), EvoAge (1-to-1), and EvoAge (121+12M).

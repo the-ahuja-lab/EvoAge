@@ -1,6 +1,6 @@
 ﻿# 5. Ortholog Mapping
 
-> 📂 **Source Code & Notebooks:** [pipeline/04_orthology_mapping](../pipeline/04_orthology_mapping/)
+> 📂 **Source Code & Notebooks:** [pipeline/04_orthology_mapping](https://github.com/the-ahuja-lab/EvoAge/tree/main/pipeline/04_orthology_mapping)
 
 
 After relation-wise merging produces per-relation, per-species CSVs ([Relation Processing](relation-processing.md)), the non-human species data still has genes in their native ID systems (WormBase, FlyBase, MGI, SGD, ZFIN). To make these connect to the human-anchored Aging/Biomedical KGs, every non-human gene needs to be mapped to its human ortholog. This section documents that pipeline: collecting unique genes per species, querying Ensembl BioMart for orthologs, and producing two parallel ortholog-mapped KG variants — **121** (1-to-1 only) and **121+12M** (1-to-1 plus 1-to-many).

@@ -1,6 +1,6 @@
 ﻿# 4. Relation-Wise Merging
 
-> 📂 **Source Code & Notebooks:** [pipeline/03_relation_merge](../pipeline/03_relation_merge/)
+> 📂 **Source Code & Notebooks:** [pipeline/03_relation_merge](https://github.com/the-ahuja-lab/EvoAge/tree/main/pipeline/03_relation_merge)
 
 
 After per-source preprocessing ([Preprocessing](preprocessing.md)) produces relation-typed CSVs from each of the 48+ data sources, the next step is to **merge across sources, one relation type at a time**. Each relation type (Gene_Disease, Gene_BiologicalProcess, Chemical_Gene, etc.) gets its own notebook that pulls in every source contributing to that relation, harmonizes columns, deduplicates, and writes a single canonical CSV.

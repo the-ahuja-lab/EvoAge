@@ -1,4 +1,4 @@
-# EvoAge: Multi-Species Aging Knowledge Graph Platform
+﻿# EvoAge: Multi-Species Aging Knowledge Graph Platform
 
 **EvoAge** is a comprehensive knowledge graph (KG) integration platform combining 48+ biomedical databases into ~1 billion RDF triples across six species (Human, Mouse, Zebrafish, Drosophila, C. elegans, Yeast). EvoAge integrates aging-specific and biomedical context to enable predictive aging biology research through knowledge graph embeddings and machine learning.
 
