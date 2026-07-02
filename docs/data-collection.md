@@ -30,7 +30,7 @@ EvoAge integrates data from **48+ named databases/resources**
 
 The full master table with **Version/Build**, **Last Download date**, **Download Link**, and **Reference/Publication** for all 48+ sources is documented in:
 
-📄 **[DataCollection_01.md](file:///storage/Arushi/090526_EvoAge/kg_formation/DOCUMENTATION/data_collection_01/DataCollection_01.md)** — §2.2
+📄 **[DataCollection.md](https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/01_data_collection/data_collection_01.md)**
 
 This table is kept in sync with the manuscript's Supplementary Table.
 
