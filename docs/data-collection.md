@@ -1,4 +1,4 @@
-﻿# 01 — Data Collection
+# 01 — Data Collection
 
 > 📂 **Source Code & Notebooks:** [pipeline/01_data_collection](https://github.com/the-ahuja-lab/EvoAge/tree/main/pipeline/01_data_collection)
 
@@ -6,6 +6,7 @@
 ## 1. Purpose
 
 This is the **first step** of the EvoAge Knowledge Graph (KG) construction pipeline. The goal is to collect, catalogue, and version-pin all raw data from **48+ external sources** that will feed into the KG. Every source is timestamped and version-locked to ensure reproducibility.
+
 ---
 
 ## 2. Overview
