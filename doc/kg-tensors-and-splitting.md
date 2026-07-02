@@ -1,362 +1,317 @@
-# 7. Building Final KG Tensors & Train/Valid/Test Splitting
 
-This section covers the last stage before training: converting the split, ortholog-mapped CSV/Parquet files ([KG Construction](kg-construction.md)) into integer-encoded PyTorch tensors, and creating leakage-free train/valid/test splits across **four KG variants** — Aging (1-to-1), Biomedical (1-to-1), EvoAge (1-to-1), and EvoAge (121+12M).
+##### # 06 — Final KG Building & Train/Valid/Test Splitting
+> 📂 **Source Code & Notebooks:** [pipeline/06_tensor_building](https://github.com/the-ahuja-lab/EvoAge/tree/main/pipeline/06_tensor_building)
 
-The single most important structural decision in this stage is the **global node and relation mapping**: it is built **once**, from the largest KG (EvoAge 121+12M), and every other KG variant — Aging, Biomedical, EvoAge 1-to-1 — reuses that exact same mapping rather than building its own. This is what makes the four KG variants directly comparable.
 
----
+## 1. Purpose
 
-## **7.1 Build Order (Critical — Do Not Reorder)**
-
-The scripts must run in this exact order, because each later step depends on an artifact produced by an earlier one:
-
-```
-1. EvoAge_1_to_1_1_to_M.py   ← Builds the GLOBAL node_id + relation_id mapping
-                                 (from the EvoAge 121+12M file set — the largest)
-                              ← Produces:
-                                  Store_House/node_id_mapping_EvoAge_121_12M.pkl
-                                  Store_House/relation_id_EvoAge_EvoAge_121_12M.csv
-                              ← Builds EvoAge_121_12M_to_many_KG.pt
-                                 (deferred — actually run AFTER step 2, see §7.5)
-
-2. EvoAge_1_to_1.py          ← Reuses the global mapping from step 1
-                              ← Builds EvoAge_1_to_1_KG.pt
-                              ← Splits into EvoAge_1to1_KG_test (= AB_test, see §7.4)
-                                 + train_90 / valid_10
-
-3. Aging_1_to_1.py           ← Reuses the SAME global mapping
-                              ← Builds Aging_specific_1_to_1_KG.pt
-                              ← Splits 80/10/10 → train_80 / valid_10 / test_10
-
-4. Biomedical_1_to_1.py      ← Reuses the SAME global mapping
-                              ← Builds Biomedical_1_to_1_KG.pt
-                              ← Splits 80/10/10 → train_80 / valid_10 / test_10
-
-   [Steps 3 + 4 must complete before re-entering EvoAge_1_to_1.py's splitting
-    section, because that section needs Aging_specific_1to1_KG_test_10.pt and
-    Biomedical_1to1_KG_test_10.pt as inputs — see §7.4]
-
-5. Aging_121_12M.py          ← Reuses the SAME global mapping
-                              ← Builds Aging_specific_121_12M_KG.pt
-                              ← Removes the Aging 1-to-1 test set from it, then
-                                90/10 splits the remainder → train_90 / valid_10
-
-6. Biomedical_121_12M.py     ← Reuses the SAME global mapping
-                              ← Builds Biomedical_121_12M_KG.pt (same pattern as #5)
-
-7. (back to) EvoAge_1_to_1_1_to_M.py's later cells
-                              ← Builds EvoAge_121_12M_to_many_KG.pt
-                              ← Removes EvoAge_1to1_KG_test from it, then
-                                90/10 splits the remainder → train_90 / valid_10
-```
+This is **Step 6** of the EvoAge Knowledge Graph (KG) construction pipeline. The goal is to convert all processed triple files into **integer-mapped PyTorch tensors** and produce reproducible **train / valid / test splits** for three KG variants: **Aging**, **Biomedical**, and **EvoAge** (the union of both). Each variant is built in two ortholog configurations (1:1 and 1:1∪1:M), yielding **6 final KGs**. The critical design requirement is that the **test set from the 1:1 KG is used to evaluate both the 1:1 and 1:1∪1:M versions** of the same KG variant — ensuring fair, leak-free comparison.
 
 ---
 
-## **7.2 Building the Global Node & Relation Mapping**
+## 2. Overview
 
-**Script**: `EvoAge_1_to_1_1_to_M.py` (Section: "BUILD NODE MAPPING of EvoAge 121+12M")
+### The 6 Final KGs
 
-The mapping is built from the **complete EvoAge 121+12M file set** — Human files plus all five species' `*_ortho_1_to_one2one_plus_one2many.csv` files plus six species-connection parquet files.
-
-### **Why a custom parallel builder instead of `pd.unique()` on everything at once**
-
-Some of these files are 25GB+. The builder is deliberately engineered for this scale:
-
-```python
-BATCH_ROWS = 2_000_000   # rows per streamed batch
-N_JOBS     = 8           # parallel workers across files
-
-def file_unique_nodes(idx, path, cache_dir=None):
-    """Read ONLY head & tail columns, streaming in batches, dedup per-batch."""
-    seen = set()
-    if path.lower().endswith('.parquet'):
-        pf = pq.ParquetFile(path)
-        for batch in pf.iter_batches(columns=['head', 'tail'], batch_size=BATCH_ROWS):
-            d = batch.to_pandas()
-            seen.update(pd.unique(d['head'].astype(str)))
-            seen.update(pd.unique(d['tail'].astype(str)))
-    else:
-        for chunk in pd.read_csv(path, usecols=['head', 'tail'], dtype=str,
-                                 chunksize=BATCH_ROWS, low_memory=False):
-            seen.update(pd.unique(chunk['head'].astype(str)))
-            seen.update(pd.unique(chunk['tail'].astype(str)))
-
-    arr = np.fromiter(seen, dtype=object, count=len(seen))
-    arr.sort()   # sorted output matches np.union1d's behavior — reproducible IDs
-    return idx, arr
-```
-
-Four optimizations stacked together:
-
-1. **Column projection** — only `head`/`tail` are read.
-2. **Streaming/chunked** — no file is ever held whole in RAM.
-3. **Parallel across files** — `ProcessPoolExecutor` runs `file_unique_nodes` concurrently.
-4. **Deterministic ID assignment** — Phase 2 replays files in original list order, making the resulting mapping exactly reproducible.
-
-```python
-def build_global_mapping(all_files, n_jobs=8, cache_dir=None):
-    # Phase 1: parallel per-file unique extraction
-    with ProcessPoolExecutor(max_workers=n_jobs) as ex:
-        futs = [ex.submit(file_unique_nodes, i, p, cache_dir) for i, p in enumerate(all_files)]
-        results = [None] * len(all_files)
-        for fut in as_completed(futs):
-            i, payload = fut.result()
-            results[i] = payload
-
-    # Phase 2: sequential, ORDER-PRESERVING id assignment
-    global_mapping = {}
-    n = 0
-    for payload in results:           # original order
-        arr = np.load(payload, allow_pickle=True) if isinstance(payload, str) else payload
-        for name in arr:
-            if name not in global_mapping:
-                global_mapping[name] = n
-                n += 1
-    return global_mapping
-```
-
-### **Saved artifacts**
-
-```python
-node_id_df.to_pickle('Store_House/node_id_mapping_EvoAge_121_12M.pkl')        # ['Node', 'MappedID']
-rel_id_df.to_csv('Store_House/relation_id_EvoAge_EvoAge_121_12M.csv')         # ['Relation', 'MappedID']
-```
-
-Every other script loads these files and never rebuilds them.
-
----
-
-## **7.3 The Shared Triple-Mapping Pattern**
-
-Every KG-variant script converts its CSV/Parquet files into an integer tensor using the **same four-part pattern**:
-
-### **Part 1 — Collect the right file set**
-
-Each variant pulls from a different combination:
-
-| Variant | Human source | Species source pattern |
+| KG Variant | Ortholog config | Sources |
 |---|---|---|
-| Aging (1-to-1) | `Aging_specific/Human/**/*.parquet` | `Aging_specific/**/*_ortho_1_to_1.csv` |
-| Aging (121+12M) | `Aging_specific/Human/**/*.parquet` | `Aging_specific/**/*1_to_one2one_plus_one2many.csv` |
-| Biomedical (1-to-1) | `Biomedical/Human/**/*.parquet` | `Biomedical/**/*_ortho_1_to_1.csv` |
-| Biomedical (121+12M) | `Biomedical/Human/**/*.parquet` | `Biomedical/**/*ortho_1_to_one2one_plus_one2many.csv` |
-| EvoAge (1-to-1) | `generalised/**/*.csv` + `*.parquet` (excl. `OTHER_SPECIES`) | `OTHER_SPECIES/<Species>/**/*_ortho_1_to_1.csv` **+ 6 species-connection parquet files** |
-| EvoAge (121+12M) | same human files | `**/*1_to_one2one_plus_one2many.csv` **+ 6 species-connection parquet files** |
+| **Aging 1:1** | `ortholog_one2one` | `Aging_specific/` Human + 1:1 species files |
+| **Aging 1:1∪1:M** | `one2one + one2many` | `Aging_specific/` Human + 1:1∪1:M species files |
+| **Biomedical 1:1** | `ortholog_one2one` | `Biomedical/` Human + 1:1 species files |
+| **Biomedical 1:1∪1:M** | `one2one + one2many` | `Biomedical/` Human + 1:1∪1:M species files |
+| **EvoAge 1:1** | `ortholog_one2one` | ALL generalised/ Human + 1:1 species + species connections |
+| **EvoAge 1:1∪1:M** | `one2one + one2many` | ALL generalised/ Human + 1:1∪1:M species + species connections |
 
-### **Part 2 — Vectorized ID lookup via `pd.Series.map`**
+### Shared Global Mappings
 
-```python
-head_map_s = pd.Series(global_mapping,   dtype='int64')
-tail_map_s = head_map_s
-rel_map_s  = pd.Series(relation_mapping, dtype='int64')
+All 6 KGs share the **same node-to-integer and relation-to-integer mappings**, built from the EvoAge 1:1∪1:M KG (the largest superset). This ensures that node ID `42` always refers to the same entity across all KGs, enabling direct comparison.
 
-h = df['head'].astype(str).map(head_map_s).fillna(-1).to_numpy('int64')
-t = df['tail'].astype(str).map(tail_map_s).fillna(-1).to_numpy('int64')
-r = df['relation'].astype(str).map(rel_map_s).fillna(-1).to_numpy('int64')
+---
+
+## 3. Test Set Flow — The Core Logic
+
+> [!IMPORTANT]
+> The test set design is the most critical part of this step. It ensures that when comparing the 1:1 KG against the 1:1∪1:M KG, the evaluation is fair — the same test triples are used for both, and every test triple is guaranteed to exist in both KGs.
+
+### How test sets are generated and reused
+
+```mermaid
+graph TD
+    subgraph "Phase 1: Build 1:1 KGs & generate test sets"
+        A1["Aging 1:1 KG"] -->|"80/10/10 split<br/>(seed=42)"| A1_train["Aging train 80%"]
+        A1 --> A1_valid["Aging valid 10%"]
+        A1 --> A1_test["Aging test 10%"]
+
+        B1["Biomedical 1:1 KG"] -->|"80/10/10 split<br/>(seed=42)"| B1_train["Biomed train 80%"]
+        B1 --> B1_valid["Biomed valid 10%"]
+        B1 --> B1_test["Biomed test 10%"]
+    end
+
+    subgraph "Phase 2: Build EvoAge 1:1 & derive its test set"
+        A1_test --> AB["Union: Aging test ∪ Biomed test<br/>(deduplicated)"]
+        B1_test --> AB
+        E1["EvoAge 1:1 KG<br/>(full)"] --> SUB["Subtract AB_test<br/>from EvoAge"]
+        AB --> SUB
+        SUB --> E1_test["EvoAge test<br/>(AB triples found in EvoAge)"]
+        SUB --> E1_rem["Remaining triples"]
+        E1_rem -->|"90/10 split<br/>(seed=42)"| E1_train["EvoAge train 90%"]
+        E1_rem --> E1_valid["EvoAge valid 10%"]
+    end
+
+    subgraph "Phase 3: Build 1:1∪1:M KGs & reuse 1:1 test sets"
+        A1_test2["Aging 1:1 test ✦"] --> A2_sub["Subtract from<br/>Aging 1:1∪1:M KG"]
+        A2["Aging 1:1∪1:M KG"] --> A2_sub
+        A2_sub --> A2_train["Aging 1:1∪1:M train 90%"]
+        A2_sub --> A2_valid["Aging 1:1∪1:M valid 10%"]
+
+        B1_test2["Biomed 1:1 test ✦"] --> B2_sub["Subtract from<br/>Biomed 1:1∪1:M KG"]
+        B2["Biomed 1:1∪1:M KG"] --> B2_sub
+        B2_sub --> B2_train["Biomed 1:1∪1:M train 90%"]
+        B2_sub --> B2_valid["Biomed 1:1∪1:M valid 10%"]
+
+        E1_test2["EvoAge 1:1 test ✦"] --> E2_sub["Subtract from<br/>EvoAge 1:1∪1:M KG"]
+        E2["EvoAge 1:1∪1:M KG"] --> E2_sub
+        E2_sub --> E2_train["EvoAge 1:1∪1:M train 90%"]
+        E2_sub --> E2_valid["EvoAge 1:1∪1:M valid 10%"]
+    end
+
+    style A1_test fill:#f9e79f,stroke:#f39c12
+    style B1_test fill:#f9e79f,stroke:#f39c12
+    style E1_test fill:#f9e79f,stroke:#f39c12
+    style A1_test2 fill:#f9e79f,stroke:#f39c12
+    style B1_test2 fill:#f9e79f,stroke:#f39c12
+    style E1_test2 fill:#f9e79f,stroke:#f39c12
 ```
 
-### **Part 3 — Unmapped-row auditing (not silent dropping)**
+**✦ = same test set reused** — the 1:1 test is subtracted from the 1:1∪1:M KG so the remaining triples become train+valid.
 
-```python
-mask_bad = (h < 0) | (t < 0) | (r < 0)
-if mask_bad.any():
-    bad = df[mask_bad].copy()
-    bad['unmapped_head']     = h[mask_bad] < 0
-    bad['unmapped_tail']     = t[mask_bad] < 0
-    bad['unmapped_relation'] = r[mask_bad] < 0
-    bad['source_file']       = os.path.basename(path)
-    unmapped_records.append(bad)
+### Why this works
 
-mask_good = ~mask_bad
-head_index_list.append(torch.from_numpy(h[mask_good]))
-tail_index_list.append(torch.from_numpy(t[mask_good]))
-edge_type_list.append(torch.from_numpy(r[mask_good]))
+1. **1:1 KG is a subset of 1:1∪1:M KG** (guaranteed by construction in Step 04). Therefore every triple in the 1:1 test set also exists in the 1:1∪1:M KG.
+2. By subtracting the 1:1 test set from the 1:1∪1:M KG, we ensure:
+   - The **test set is identical** for both configurations → fair comparison
+   - No test triple leaks into the train/valid sets of the 1:1∪1:M KG
+3. The remaining triples (after subtraction) are split into train (90%) and valid (10%).
+
+> [!WARNING]
+> If separate test sets were drawn for the 1:1 and 1:1∪1:M KGs, some 1:1∪1:M test triples would involve genes that don't exist in the 1:1 KG — making the 1:1 KG's performance artificially worse (evaluating on nodes it has never seen). The shared-test-set approach avoids this bias entirely.
+
+---
+
+## 4. Pipeline — Step-by-Step
+
+### 4.0. Pre-step — Build Global Mappings (node IDs + relation IDs)
+
+📄 **Script**: [01.py](file:///storage/Arushi/090526_EvoAge/kg_formation/DOCUMENTATION/final_kg_building_06/01.py)
+
+**What it does:**
+- Reads **all** source files (Human + all species + species connections) for the EvoAge 1:1∪1:M KG (the largest superset)
+- Extracts every unique `head` and `tail` value → builds a global `node → integer` mapping
+- Extracts every unique `relation` value → builds a `relation → integer` mapping
+- Uses parallel processing (8 workers) with streaming batches (2M rows) to handle files up to 25 GB
+- Saves mappings as `node_id_mapping_EvoAge_121_12M.pkl` and `relation_id_EvoAge_EvoAge_121_12M.csv`
+
+**Key detail:** The mapping is built from the **largest KG** so that every node/relation across all 6 KGs gets a consistent integer ID. Smaller KGs (Aging, Biomedical) reuse these same mappings — they just use a subset of the IDs.
+
+**Outputs:**
+- `node_id_mapping_EvoAge_121_12M.pkl` — DataFrame with `[Node, MappedID]`
+- `relation_id_EvoAge_EvoAge_121_12M.csv` — CSV with `[Relation, MappedID]`
+
+---
+
+### 4.1. Build Aging KGs
+
+#### Run 1 — Aging 1:1 KG (build + 80/10/10 split)
+
+📄 **Script**: [Run_1_Aging_1_to_1.py](file:///storage/Arushi/090526_EvoAge/kg_formation/DOCUMENTATION/final_kg_building_06/building_aging_kg_new_02/Run_1_Aging_1_to_1.py)
+
+**What it does:**
+1. Loads the global node + relation mappings
+2. Reads all files from `Aging_specific/` (Human parquets + `*_ortho_1_to_1.csv` species files)
+3. Maps every (head, relation, tail) triple to integer IDs → PyTorch tensor `[N, 3]`
+4. Deduplicates using bijective int64 encoding
+5. Saves full KG → `Aging_specific_1_to_1_KG.pt`
+6. **Splits 80/10/10** with seed=42:
+   - `Aging_specific_1to1_KG_train_80.pt` / `.txt`
+   - `Aging_specific_1to1_KG_valid_10.pt` / `.txt`
+   - `Aging_specific_1to1_KG_test_10.pt` / `.txt` ← **this test set is reused for 1:1∪1:M**
+
+#### Run 2 — Aging 1:1∪1:M KG (build + subtract 1:1 test)
+
+📄 **Script**: [Run_2_Aging_121_12M.py](file:///storage/Arushi/090526_EvoAge/kg_formation/DOCUMENTATION/final_kg_building_06/building_aging_kg_new_02/Run_2_Aging_121_12M.py)
+
+**What it does:**
+1. Builds the Aging 1:1∪1:M KG tensor from `Aging_specific/` (Human + `*_ortho_1_to_one2one_plus_one2many.csv`)
+2. Loads the **1:1 test set** (`Aging_specific_1to1_KG_test_10.pt`)
+3. **Subtracts** the test triples from the 1:1∪1:M KG
+4. Splits the remaining triples 90/10 → train/valid
+5. Saves:
+   - `Aging_specific_121_12M_KG_train_90.pt` / `.txt`
+   - `Aging_specific_121_12M_KG_valid_10.pt` / `.txt`
+   - Test set = `Aging_specific_1to1_KG_test_10.pt` (same file, reused)
+
+---
+
+### 4.2. Build Biomedical KGs
+
+#### Run 1 — Biomedical 1:1 KG (build + 80/10/10 split)
+
+📄 **Script**: [Run_1_Biomedical_1_to_1.py](file:///storage/Arushi/090526_EvoAge/kg_formation/DOCUMENTATION/final_kg_building_06/building_biomedical_kg_new_03/Run_1_Biomedical_1_to_1.py)
+
+**Same pattern as Aging Run 1**, but reads from `Biomedical/` (Human + species 1:1 files).
+
+#### Run 2 — Biomedical 1:1∪1:M KG (build + subtract 1:1 test)
+
+📄 **Script**: [Run_2_Biomedical_121_12M.py](file:///storage/Arushi/090526_EvoAge/kg_formation/DOCUMENTATION/final_kg_building_06/building_biomedical_kg_new_03/Run_2_Biomedical_121_12M.py)
+
+**Same pattern as Aging Run 2** — subtracts Biomedical 1:1 test, splits remaining 90/10.
+
+---
+
+### 4.3. Build EvoAge KGs
+
+#### Run 1 — EvoAge 1:1 KG (build + derive test from Aging ∪ Biomedical tests)
+
+📄 **Script**: [Run_1_EvoAge_1_to_1.py](file:///storage/Arushi/090526_EvoAge/kg_formation/DOCUMENTATION/final_kg_building_06/building_evoage_kg_new_04/Run_1_EvoAge_1_to_1.py)
+
+**This is the most complex split.** The EvoAge KG is the union of ALL data, so its test set must be derived from the Aging and Biomedical test sets:
+
+1. Builds the EvoAge 1:1 KG tensor from ALL generalised/ Human files + all species `*_ortho_1_to_1.csv` + species connection parquets
+2. Loads both **Aging 1:1 test** and **Biomedical 1:1 test**
+3. **Unions** them → `AB_test` (deduplicated)
+4. **Subtracts** AB_test from the full EvoAge KG (chunked, RAM-safe with 50M-row chunks)
+   - Triples found in EvoAge that match AB_test → **EvoAge test set**
+   - Remaining triples → train + valid pool
+5. Shuffles remaining with seed=42, splits 90/10 → train/valid
+6. **Asserts `train + valid + test == N_full`** (exact sum check)
+7. Saves:
+   - `EvoAge_1to1_KG_train_90.pt` / `.txt`
+   - `EvoAge_1to1_KG_valid_10.pt` / `.txt`
+   - `EvoAge_1to1_KG_test.pt` / `.txt`
+
+> [!NOTE]
+> Some AB_test triples may NOT be found in the EvoAge KG (if deduplication at the triple level removed them). These are logged as `AB NOT in EvoAge (dropped)` and excluded from the EvoAge test set.
+
+#### Run 2 — EvoAge 1:1∪1:M KG (subtract 1:1 test, split remaining)
+
+📄 **Script**: [Run_2_EvoAge_121_12M.py](file:///storage/Arushi/090526_EvoAge/kg_formation/DOCUMENTATION/final_kg_building_06/building_evoage_kg_new_04/Run_2_EvoAge_121_12M.py)
+
+**What it does:**
+1. Loads the EvoAge 1:1∪1:M full KG (`EvoAge_121_12M_to_many_KG.pt`)
+2. Loads the **EvoAge 1:1 test** (`EvoAge_1to1_KG_test.pt`)
+3. Subtracts test triples from the 1:1∪1:M KG (chunked)
+4. Splits remaining 90/10 (stochastic per-row assignment with seed=42)
+5. Saves:
+   - `EvoAge_121_12M_KG_train_90.pt` / `.txt`
+   - `EvoAge_121_12M_KG_valid_10.pt` / `.txt`
+   - Test set = `EvoAge_1to1_KG_test.pt` / `.txt` (same file, reused)
+
+Also generates final training-format files:
+- `entities_final.dict` — tab-separated `MappedID → Node` mapping
+- `relation_final.dict` — tab-separated `MappedID → Relation` mapping
+
+---
+
+## 5. Split Summary Table
+
+| KG Variant | Split | Source of test set | Split ratio |
+|---|---|---|---|
+| **Aging 1:1** | 80/10/10 random | Self (random split) | 80 train / 10 valid / 10 test |
+| **Aging 1:1∪1:M** | Subtract 1:1 test → 90/10 | Aging 1:1 test | 90 train / 10 valid / test from 1:1 |
+| **Biomedical 1:1** | 80/10/10 random | Self (random split) | 80 train / 10 valid / 10 test |
+| **Biomedical 1:1∪1:M** | Subtract 1:1 test → 90/10 | Biomedical 1:1 test | 90 train / 10 valid / test from 1:1 |
+| **EvoAge 1:1** | Subtract AB_test → 90/10 | Union(Aging 1:1 test, Biomed 1:1 test) | 90 train / 10 valid / AB test |
+| **EvoAge 1:1∪1:M** | Subtract 1:1 test → 90/10 | EvoAge 1:1 test | 90 train / 10 valid / test from 1:1 |
+
+---
+
+## 6. Output Directory Structure
+
 ```
-
-### **Part 4 — Concatenate, dedup via bijective integer encoding, save**
-
-```python
-mapped_triples = torch.stack([
-    torch.cat(head_index_list, dim=0),
-    torch.cat(edge_type_list,  dim=0),
-    torch.cat(tail_index_list, dim=0),
-], dim=1)
-```
-
-**Deduplication** uses bijective packing:
-
-```python
-H, R, T = int(mt[:, 0].max()) + 1, int(mt[:, 1].max()) + 1, int(mt[:, 2].max()) + 1
-INT64_MAX = (1 << 63) - 1
-
-fits = (H - 1) * (R * T) + (R - 1) * T + (T - 1) <= INT64_MAX
-
-if fits:
-    enc  = mt[:, 0] * (R * T) + mt[:, 1] * T + mt[:, 2]
-    enc  = torch.unique(enc)
-    tail = enc % T
-    rel  = (enc // T) % R
-    head = enc // (T * R)
-    mapped_triples = torch.stack([head, rel, tail], dim=1)
-else:
-    mapped_triples = torch.unique(mapped_triples, dim=0)
+final_kg_building_2/
+│
+├── building_aging_kg_new/
+│   └── Store_House/
+│       ├── Aging_specific_1_to_1_KG.pt              ← full 1:1 KG
+│       ├── Aging_specific_1to1_KG_train_80.pt|.txt  ← 1:1 train
+│       ├── Aging_specific_1to1_KG_valid_10.pt|.txt  ← 1:1 valid
+│       ├── Aging_specific_1to1_KG_test_10.pt|.txt   ← 1:1 test (REUSED)
+│       ├── Aging_specific_121_12M_KG.pt              ← full 1:1∪1:M KG
+│       ├── Aging_specific_121_12M_KG_train_90.pt|.txt
+│       ├── Aging_specific_121_12M_KG_valid_10.pt|.txt
+│
+├── building_biomedical_kg_new/
+│   └── Store_House/
+│       ├── Biomedical_1_to_1_KG.pt                   ← full 1:1 KG
+│       ├── Biomedical_1to1_KG_train_80.pt|.txt
+│       ├── Biomedical_1to1_KG_valid_10.pt|.txt
+│       ├── Biomedical_1to1_KG_test_10.pt|.txt        ← 1:1 test (REUSED)
+│       ├── Biomedical_121_12M_KG.pt                   ← full 1:1∪1:M KG
+│       ├── Biomedical_121_12M_KG_train_90.txt
+│       ├── Biomedical_121_12M_KG_valid_10.txt
+│
+├── building_evoage_kg_new/
+│   └── Store_House/
+│       ├── node_id_mapping_EvoAge_121_12M.pkl         ← GLOBAL node mapping
+│       ├── relation_id_EvoAge_EvoAge_121_12M.csv      ← GLOBAL relation mapping
+│       ├── EvoAge_1_to_1_KG.pt                        ← full 1:1 KG
+│       ├── EvoAge_1to1_KG_train_90.pt|.txt
+│       ├── EvoAge_1to1_KG_valid_10.pt|.txt
+│       ├── EvoAge_1to1_KG_test.pt|.txt                ← derived from Aging∪Biomed test
+│       ├── EvoAge_121_12M_to_many_KG.pt               ← full 1:1∪1:M KG
+│       ├── EvoAge_121_12M_KG_train_90.pt|.txt
+│       ├── EvoAge_121_12M_KG_valid_10.pt|.txt
+│       ├── entities_final.dict
+│       └── relation_final.dict
 ```
 
 ---
 
-## **7.4 Train/Valid/Test Splitting — Three Different Strategies**
+## 7. Technical Implementation Details
 
-### **7.4.1 Aging (1-to-1) and Biomedical (1-to-1) — independent 80/10/10**
+### Bijective int64 encoding for deduplication
 
-```python
-SEED = 42
-generator = torch.Generator()
-generator.manual_seed(SEED)
-perm     = torch.randperm(N, generator=generator)
-shuffled = mapped_triples[perm]
+Rather than using `torch.unique(dim=0)` (O(N²) memory for large tensors), the pipeline encodes each `(head, relation, tail)` triple as a single `int64`:
 
-n_train = int(N * 0.80)
-n_valid = int(N * 0.10)
-n_test  = N - n_train - n_valid
-
-train, valid, test = shuffled[:n_train], shuffled[n_train:n_train+n_valid], shuffled[n_train+n_valid:]
+```
+encoded = head × (R × T) + relation × T + tail
 ```
 
-### **7.4.2 EvoAge (1-to-1) — AB_test construction, then leakage-free 90/10**
+where R = max_relation_id + 1, T = max_tail_id + 1. This reduces dedup to `torch.unique()` on a 1-D tensor — orders of magnitude faster for billion-scale KGs. An overflow check ensures this fits within int64 range.
 
-1. **Combines** Aging and Biomedical 1-to-1 test sets into a single **AB_test**
-2. **Removes** AB_test triples from EvoAge 1-to-1 KG
-3. **Splits** the remainder 90/10 into train/valid
-4. **AB_test** itself becomes the EvoAge test set
+### Chunked subtract for RAM safety
 
-```python
-AB_test = torch.cat([aging_test, biomedical_test], dim=0)
-# dedup
-AB_enc = encode(AB_test)
-sort_idx = AB_enc.argsort()
-AB_sorted_enc, AB_sorted_triples = AB_enc[sort_idx], AB_test[sort_idx]
-unique_mask = torch.ones_like(AB_sorted_enc, dtype=torch.bool)
-unique_mask[1:] = AB_sorted_enc[1:] != AB_sorted_enc[:-1]
-AB_test_unique = AB_sorted_triples[unique_mask]
-```
+The EvoAge KG has ~1.2B+ triples. Subtracting the test set uses a **sorted-searchsorted** approach:
+1. Sort the (small) test keys once
+2. Stream the (large) KG in 50M-row chunks
+3. For each chunk: `searchsorted` + equality check → boolean mask
+4. Accumulate kept/removed parts without holding the full tensor
 
-Subtract via binary search (`searchsorted`):
+### Reproducibility
 
-```python
-CHUNK = 50_000_000
-ab_sorted, _ = torch.sort(encode(AB_test_unique))
-
-keep_parts, test_parts = [], []
-for s in range(0, N_full, CHUNK):
-    block = evoage_full[s:s+CHUNK]
-    keys  = encode(block)
-    pos   = torch.searchsorted(ab_sorted, keys).clamp_(max=ab_sorted.numel() - 1)
-    in_ab = ab_sorted[pos] == keys
-    test_parts.append(block[in_ab])
-    keep_parts.append(block[~in_ab])
-
-remaining   = concat_free(keep_parts)
-evoage_test = concat_free(test_parts)
-```
-
-The remaining pool is split 90/10:
-
-```python
-generator = torch.Generator().manual_seed(SEED)
-perm      = torch.randperm(N_remaining, generator=generator)
-shuffled  = remaining[perm]
-
-n_train = int(N_remaining * 0.90)
-train, valid = shuffled[:n_train], shuffled[n_train:]
-```
-
-### **7.4.3 Aging (121+12M) and Biomedical (121+12M) — remove-1to1-test, then 90/10**
-
-The 1-to-1 test set is removed from the 121+12M tensor, and the remainder is split 90/10 into train/valid (the 1-to-1 test set functions as the test set).
-
-```python
-test_1to1  = torch.load('Store_House/Aging_specific_1to1_KG_test_10.pt')
-kg_1tomany = torch.load('Store_House/Aging_specific_121_12M_KG.pt')
-
-test_set = set(map(tuple, test_1to1.tolist()))
-mask = [tuple(triple.tolist()) not in test_set for triple in kg_1tomany]
-kg_filtered = kg_1tomany[mask]
-
-train_idx, valid_idx = train_test_split(
-    list(range(len(kg_filtered))), test_size=0.10, random_state=42, shuffle=True)
-train_90, valid_10 = kg_filtered[train_idx], kg_filtered[valid_idx]
-```
-
-### **7.4.4 EvoAge (121+12M) — remove EvoAge-1to1-test, then 90/10**
-
-Same removal pattern, but using binary search at scale:
-
-```python
-test_keys, _ = torch.sort(encode(test))
-
-train_parts, valid_parts = [], []
-gen = torch.Generator().manual_seed(SEED)
-for s in range(0, N, CHUNK):
-    block = kg[s:s+CHUNK]
-    keys  = encode(block)
-    pos     = torch.searchsorted(test_keys, keys).clamp_(max=test_keys.numel()-1)
-    in_test = test_keys[pos] == keys
-    kept    = block[~in_test]
-
-    vmask = torch.rand(kept.shape[0], generator=gen) < 0.10
-    valid_parts.append(kept[vmask])
-    train_parts.append(kept[~vmask])
-```
+| Parameter | Value |
+|---|---|
+| Random seed | `42` (for `torch.manual_seed`, `np.random.seed`, `torch.Generator`) |
+| Split method | `torch.randperm` with fixed generator |
+| Ensembl release | e114 (inherited from Step 04) |
+| Output format | `.pt` (PyTorch tensor) + `.txt` (tab-separated integers, PyKEEN-compatible) |
 
 ---
 
-## **7.5 Test-Set Lineage Summary**
+## 8. Key Design Decisions
 
-The four KG variants' test sets form a strict lineage:
+1. **Single global mapping**: All 6 KGs share the same node/relation IDs, built from the largest KG (EvoAge 1:1∪1:M). This means Aging KG node 42 = Biomedical KG node 42 = EvoAge KG node 42.
 
-```
-Aging (1-to-1) test_10        ──┐
-                                 ├──► AB_test (deduped union) ──► EvoAge (1-to-1) test
-Biomedical (1-to-1) test_10   ──┘                                       │
-                                                                           │ (reused as-is)
-        Aging (1-to-1) test_10  ──► removed from Aging (121+12M)        │
-        Biomedical (1-to-1) test_10  ──► removed from Biomedical (121+12M)
-                                                                           ▼
-                                                           EvoAge (1-to-1) test
-                                                                   ──► removed from EvoAge (121+12M)
-```
+2. **Test set hierarchy**: Aging and Biomedical get their own 80/10/10 split. EvoAge's test set is the **union** of the Aging and Biomedical test sets (since EvoAge = Aging ∪ Biomedical ∪ generalised). This avoids generating a separate EvoAge test set that might overlap with already-evaluated Aging/Biomedical triples.
 
-This guarantees **any triple that is test data for Aging or Biomedical in any ortholog variant is also test data for EvoAge.**
+3. **1:1∪1:M gets 90/10 (no separate test)**: Since the 1:1 test set is subtracted first, the remaining pool only needs a train/valid split (90/10). The test set is always the 1:1 test — this is the whole point of the design.
+
+4. **Unmapped triples audited**: Any triple whose head/tail/relation is not in the global mapping is logged to `unmapped_triples_*.csv` for debugging, not silently dropped.
+
+5. **Sum-check assertion**: After splitting, the code asserts `len(train) + len(valid) + len(test) == len(full_KG)` to guarantee no triples are lost or duplicated.
 
 ---
 
-## **7.6 Output Inventory (Store_House/)**
+## 9. Next Step
 
-| File | Variant | Content |
-|---|---|---|
-| `node_id_mapping_EvoAge_121_12M.pkl` | global | Node string → integer ID |
-| `relation_id_EvoAge_EvoAge_121_12M.csv` | global | Relation string → integer ID |
-| `Aging_specific_1_to_1_KG.pt` | Aging 1-to-1 | Full deduped tensor |
-| `Aging_specific_1to1_KG_train_80.pt` / `_valid_10.pt` / `_test_10.pt` | Aging 1-to-1 | 80/10/10 split |
-| `Aging_specific_121_12M_KG.pt` | Aging 121+12M | Full deduped tensor |
-| `Aging_specific_121_12M_KG_train_90.pt` / `_valid_10.pt` | Aging 121+12M | 90/10 split (test = Aging 1-to-1 test) |
-| `Biomedical_1_to_1_KG.pt` | Biomedical 1-to-1 | Full deduped tensor |
-| `Biomedical_1to1_KG_train_80.pt` / `_valid_10.pt` / `_test_10.pt` | Biomedical 1-to-1 | 80/10/10 split |
-| `Biomedical_121_12M_KG.pt` | Biomedical 121+12M | Full deduped tensor |
-| `Biomedical_121_12M_KG_train_90.pt` / `_valid_10.pt` | Biomedical 121+12M | 90/10 split (test = Biomedical 1-to-1 test) |
-| `EvoAge_1_to_1_KG.pt` | EvoAge 1-to-1 | Full deduped tensor |
-| `EvoAge_1to1_KG_train_90.pt` / `_valid_10.pt` / `_test.pt` | EvoAge 1-to-1 | test = AB_test; 90/10 of remainder |
-| `EvoAge_121_12M_to_many_KG.pt` | EvoAge 121+12M | Full deduped tensor |
-| `EvoAge_121_12M_KG_train_90.pt` / `_valid_10.pt` | EvoAge 121+12M | 90/10 split (test = EvoAge 1-to-1 test) |
-| `entities_final.dict` | global | `MappedID \t Node` |
-| `relation_final.dict` | global | `MappedID \t Relation` |
-
-Every tensor twin is also written as a TSV file for training pipelines.
-
----
-
-## **Next Steps**
-
-1. ✅ **All four KG variants built and split?** → Proceed to DGL-KE / PyKEEN model training.
-2. **Re-running with a 6th species?** → Rebuild the global mapping first.
-3. **Auditing for test-set leakage?** → Verify using searchsorted membership check.
+→ **[Step 07 — Training](file:///storage/Arushi/090526_EvoAge/kg_formation/DOCUMENTATION/Training_07)**: Train KG embedding models (e.g., TransE, RotatE, ComplEx) on the train/valid/test splits using PyKEEN or equivalent frameworks.
