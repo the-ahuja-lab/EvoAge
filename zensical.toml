@@ -9,16 +9,21 @@ docs_dir = "docs"
 # Explicit navigation structure
 nav = [
     { "Home" = "index.md" },
-    { "Quick Start" = "quick-start.md" },
+    { "System Prerequisites" = "system-prerequisites.md" },
     { "Installation" = "installation.md" },
     { "Data Collection" = "data-collection.md" },
     { "Preprocessing" = "preprocessing.md" },
     { "Relation Processing" = "relation-processing.md" },
     { "Ortholog Mapping" = "ortholog-mapping.md" },
     { "KG Construction" = "kg-construction.md" },
-    { "Tensors & Splitting" = "kg-tensors-and-splitting.md" },
+    { "Splitting" = "kg-tensors-and-splitting.md" },
     { "Training & Evaluation" = "training.md" },
-    { "Other Analysis" = "other-analysis.md" }
+    { "Other Analysis" = [
+        { "Species Evaluation" = "other-analysis-1-species.md" },
+        { "Shuffled KG Baseline" = "other-analysis-2-shuffled.md" },
+        { "Aging-Specific Test Set" = "other-analysis-3-aging.md" }
+    ] },
+    { "Neo4j KG" = "neo4j-kg.md" }
 ]
 
 # Additional JavaScript for MathJax rendering support
