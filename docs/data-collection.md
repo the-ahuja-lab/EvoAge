@@ -5,7 +5,7 @@
 
 ## 1. Purpose
 
-This is the **first step** of the EvoAge Knowledge Graph (KG) construction pipeline. The goal is to collect, catalogue, and version-pin all raw data from **48+ external sources** that will feed into the KG. 
+This is the **first step** of the EvoAge Knowledge Graph (KG) construction pipeline. The goal is to collect, catalogue, and version-pin all raw data from **48+ external sources** that will feed into the KG. Every source is timestamped and version-locked to ensure reproducibility.
 ---
 
 ## 2. Overview
