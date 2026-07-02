@@ -4,7 +4,7 @@ site_description = "Multi-Species Aging Knowledge Graph Platform"
 site_url = "https://the-ahuja-lab.github.io/EvoAge/"
 site_author = "The Ahuja Lab"
 copyright = "Copyright &copy; 2026 The Ahuja Lab"
-docs_dir = "doc"
+docs_dir = "docs"
 
 # Explicit navigation structure
 nav = [
@@ -17,7 +17,8 @@ nav = [
     { "Ortholog Mapping" = "ortholog-mapping.md" },
     { "KG Construction" = "kg-construction.md" },
     { "Tensors & Splitting" = "kg-tensors-and-splitting.md" },
-    { "Structure" = "documentation-structure.md" }
+    { "Training & Evaluation" = "training.md" },
+    { "Other Analysis" = "other-analysis.md" }
 ]
 
 # Additional JavaScript for MathJax rendering support
