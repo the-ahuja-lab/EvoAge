@@ -1,4 +1,4 @@
-﻿# EvoAge: Multi-Species Aging Knowledge Graph Platform
+# EvoAge: Multi-Species Aging Knowledge Graph Platform
 
 **EvoAge** is a comprehensive knowledge graph (KG) integration platform combining 48+ biomedical databases into ~1 billion RDF triples across six species (Human, Mouse, Zebrafish, Drosophila, C. elegans, Yeast). EvoAge integrates aging-specific and biomedical context to enable predictive aging biology research through knowledge graph embeddings and machine learning.
 
@@ -121,17 +121,20 @@ See [Installation Guide](installation.md) for detailed setup.
 
 ## 📁 **Repository Structure**
 
-```
+```text
 evoage/
-├── data/                          # Raw data, processed KGs
-├── preprocessing/                 # Scripts: download, clean, standardize
-├── orthology/                     # Ensembl Compara mapping
-├── kg_construction/               # Merging, splitting, tensor building
-├── training/                      # DGL-KE training pipelines
-├── evaluation/                    # Edge prediction, cutoff calibration
-├── analysis/                      # Dashboards, visualizations
-├── notebooks/                     # Jupyter notebooks per source type
-└── doc/                           # This documentation
+├── data/                          # Raw data, processed KGs, tensors
+├── docs/                          # This documentation (Zensical)
+├── pipeline/                      # Step-by-step codebase
+│   ├── 01_data_collection/        # 48+ sources downloading
+│   ├── 02_data_processing/        # Per-source cleaning notebooks
+│   ├── 03_relation_merge/         # 60+ relation type reconciliations
+│   ├── 04_orthology_mapping/      # Human-centric Compara mappings
+│   ├── 05_kg_construction/        # Biomedical vs Aging KG splits
+│   ├── 06_tensor_building/        # Integer IDs and AB_test splits
+│   ├── 07_model_training/         # DGL-KE bash scripts
+│   └── 08_evaluation_analysis/    # Cross-species & 1% test metrics
+└── src/                           # Shared Python utilities
 ```
 
 ---
@@ -141,6 +144,7 @@ evoage/
 **Principal Investigator**: Gaurav Ahuja (IIIT-Delhi)  
 **Lead Developer**: Arushi Sharma  
 
+---
 
 **Last Updated**: June 2026  
 **Status**: Under review at Nature Communications
