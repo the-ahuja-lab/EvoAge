@@ -1,0 +1,10 @@
+📦 Entity emb shape: (45555533, 64)
+📦 Relation emb shape: (89, 64, 64) (R, d, d)
+🖥️ Device: cuda:1 | batch=16384 | rel_chunk=8192
+
+📊 Final Evaluation on test.txt (head, *, tail)
+Total Triples Evaluated: 118178414
+MRR     = 0.4826
+Hits@1  = 0.3960
+Hits@3  = 0.5116
+Hits@10 = 0.6537
