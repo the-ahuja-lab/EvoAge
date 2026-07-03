@@ -1,0 +1,1316 @@
++ source /home/arushis/miniconda3/etc/profile.d/conda.sh
+++ export CONDA_EXE=/home/arushis/miniconda3/bin/conda
+++ CONDA_EXE=/home/arushis/miniconda3/bin/conda
+++ export _CONDA_EXE=/home/arushis/miniconda3/bin/conda
+++ _CONDA_EXE=/home/arushis/miniconda3/bin/conda
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+++ export CONDA_PYTHON_EXE=/home/arushis/miniconda3/bin/python
+++ CONDA_PYTHON_EXE=/home/arushis/miniconda3/bin/python
+++ export _CONDA_ROOT=/home/arushis/miniconda3
+++ _CONDA_ROOT=/home/arushis/miniconda3
+++ '[' -z x ']'
++ conda activate dglke_env
++ local cmd=activate
++ case "$cmd" in
++ __conda_activate activate dglke_env
++ '[' -n '' ']'
++ local ask_conda
+++ PS1=
+++ __conda_exe shell.posix activate dglke_env
+++ '[' -n '' ']'
+++ /home/arushis/miniconda3/bin/conda shell.posix activate dglke_env
++ ask_conda='export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+PS1='\''(dglke_env) '\''
+export PATH='\''/home/arushis/.local/bin:/home/arushis/.local/bin:/home/arushis/miniconda3/envs/dglke_env/bin:/home/arushis/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/arushis/miniconda3/bin/conda'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(dglke_env) '\''
+export CONDA_EXE='\''/home/arushis/miniconda3/bin/conda'\''
+export _CONDA_EXE='\''/home/arushis/miniconda3/bin/conda'\''
+export CONDA_PYTHON_EXE='\''/home/arushis/miniconda3/bin/python'\''
+export _CONDA_ROOT='\''/home/arushis/miniconda3'\'''
++ eval 'export _CE_M='\'''\''
+export _CE_CONDA='\'''\''
+PS1='\''(dglke_env) '\''
+export PATH='\''/home/arushis/.local/bin:/home/arushis/.local/bin:/home/arushis/miniconda3/envs/dglke_env/bin:/home/arushis/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/arushis/miniconda3/bin/conda'\''
+export CONDA_SHLVL='\''2'\''
+export CONDA_PROMPT_MODIFIER='\''(dglke_env) '\''
+export CONDA_EXE='\''/home/arushis/miniconda3/bin/conda'\''
+export _CONDA_EXE='\''/home/arushis/miniconda3/bin/conda'\''
+export CONDA_PYTHON_EXE='\''/home/arushis/miniconda3/bin/python'\''
+export _CONDA_ROOT='\''/home/arushis/miniconda3'\'''
+++ export _CE_M=
+++ _CE_M=
+++ export _CE_CONDA=
+++ _CE_CONDA=
+++ PS1='(dglke_env) '
+++ export PATH=/home/arushis/.local/bin:/home/arushis/.local/bin:/home/arushis/miniconda3/envs/dglke_env/bin:/home/arushis/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/arushis/miniconda3/bin/conda
+++ PATH=/home/arushis/.local/bin:/home/arushis/.local/bin:/home/arushis/miniconda3/envs/dglke_env/bin:/home/arushis/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/arushis/miniconda3/bin/conda
+++ export CONDA_SHLVL=2
+++ CONDA_SHLVL=2
+++ export 'CONDA_PROMPT_MODIFIER=(dglke_env) '
+++ CONDA_PROMPT_MODIFIER='(dglke_env) '
+++ export CONDA_EXE=/home/arushis/miniconda3/bin/conda
+++ CONDA_EXE=/home/arushis/miniconda3/bin/conda
+++ export _CONDA_EXE=/home/arushis/miniconda3/bin/conda
+++ _CONDA_EXE=/home/arushis/miniconda3/bin/conda
+++ export CONDA_PYTHON_EXE=/home/arushis/miniconda3/bin/python
+++ CONDA_PYTHON_EXE=/home/arushis/miniconda3/bin/python
+++ export _CONDA_ROOT=/home/arushis/miniconda3
+++ _CONDA_ROOT=/home/arushis/miniconda3
++ __conda_hashr
++ '[' -n '' ']'
++ '[' -n '' ']'
++ hash -r
++ export DGLBACKEND=pytorch
++ DGLBACKEND=pytorch
++ export PYTHONUNBUFFERED=1
++ PYTHONUNBUFFERED=1
+++ nproc
++ TOTAL_CORES=32
++ NUM_PROC=17
++ DATA_PATH=/storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets
++ MODEL_PATH=/storage/Arushi/090526_EvoAge/kg_formation/training_3/EvoAge_121_12M/model_output/Rescal/RESCAL_Evoage_121_12M_1
++ LOG_FILE=/storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo 'Combined RESCAL eval log — started Wed Jul  1 05:18:22 PM IST 2026'
+++ date
++ echo '[Wed Jul  1 05:18:22 PM IST 2026] Running TESTING on CPU with 17 threads for 30 shuffled test sets...'
+[Wed Jul  1 05:18:22 PM IST 2026] Running TESTING on CPU with 17 threads for 30 shuffled test sets...
+++ seq -f %03g 0 29
++ for i in $(seq -f "%03g" 0 29)
++ SEED=0
++ TEST_FILE=shuffled_test_000_seed0.txt
++ echo ''
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 000 | SEED: 0 | START: Wed Jul  1 05:18:22 PM IST 2026 ====='
+===== SHUFFLE_ID: 000 | SEED: 0 | START: Wed Jul  1 05:18:22 PM IST 2026 =====
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
++ echo =====================================================
+=====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
++ stdbuf -o0 -e0 dglke_eval --model_name RESCAL --dataset Evoage_121_12M --data_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets --data_files entities_final.dict relation_final.dict EvoAge_121_12M_KG_train_90.txt EvoAge_121_12M_KG_valid_10.txt shuffled_test_000_seed0.txt --format udd_hrt --model_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/EvoAge_121_12M/model_output/Rescal/RESCAL_Evoage_121_12M_1 --hidden_dim 64 --gamma 12.0 --batch_size_eval 512 --neg_sample_size_eval 16 --num_proc 17 --num_thread 1
+Using backend: pytorch
+Reading train triples....
+Finished. Read 1007362063 train triples.
+Reading valid triples....
+Finished. Read 111917797 valid triples.
+Reading test triples....
+Finished. Read 118288053 test triples.
+/home/arushis/miniconda3/envs/dglke_env/lib/python3.7/site-packages/dgl/base.py:45: DGLWarning: multigraph will be deprecated.DGL will treat all graphs as multigraph in the future.
+  return warnings.warn(message, category=category, stacklevel=1)
+|valid|: 111917797
+|test|: 118288053
+-------------- Test result --------------
+Test average MRR: 0.5645463788345854
+Test average MR: 5.612053671668723
+Test average HITS@1: 0.46632876496694153
+Test average HITS@3: 0.5899780965607822
+Test average HITS@10: 0.759110605731669
+-----------------------------------------
+Test takes 1382.809 seconds
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 000 | END: Wed Jul  1 06:05:46 PM IST 2026 ====='
+===== SHUFFLE_ID: 000 | END: Wed Jul  1 06:05:46 PM IST 2026 =====
++ for i in $(seq -f "%03g" 0 29)
++ SEED=1
++ TEST_FILE=shuffled_test_001_seed1.txt
++ echo ''
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 001 | SEED: 1 | START: Wed Jul  1 06:05:46 PM IST 2026 ====='
+===== SHUFFLE_ID: 001 | SEED: 1 | START: Wed Jul  1 06:05:46 PM IST 2026 =====
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
++ echo =====================================================
+=====================================================
++ stdbuf -o0 -e0 dglke_eval --model_name RESCAL --dataset Evoage_121_12M --data_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets --data_files entities_final.dict relation_final.dict EvoAge_121_12M_KG_train_90.txt EvoAge_121_12M_KG_valid_10.txt shuffled_test_001_seed1.txt --format udd_hrt --model_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/EvoAge_121_12M/model_output/Rescal/RESCAL_Evoage_121_12M_1 --hidden_dim 64 --gamma 12.0 --batch_size_eval 512 --neg_sample_size_eval 16 --num_proc 17 --num_thread 1
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+Using backend: pytorch
+Reading train triples....
+Finished. Read 1007362063 train triples.
+Reading valid triples....
+Finished. Read 111917797 valid triples.
+Reading test triples....
+Finished. Read 118288053 test triples.
+/home/arushis/miniconda3/envs/dglke_env/lib/python3.7/site-packages/dgl/base.py:45: DGLWarning: multigraph will be deprecated.DGL will treat all graphs as multigraph in the future.
+  return warnings.warn(message, category=category, stacklevel=1)
+|valid|: 111917797
+|test|: 118288053
+-------------- Test result --------------
+Test average MRR: 0.5644784856086603
+Test average MR: 5.6112286680504155
+Test average HITS@1: 0.46619391962082846
+Test average HITS@3: 0.5899651112342011
+Test average HITS@10: 0.7592285219654915
+-----------------------------------------
+Test takes 1496.837 seconds
+++ date
++ echo '===== SHUFFLE_ID: 001 | END: Wed Jul  1 06:57:15 PM IST 2026 ====='
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+===== SHUFFLE_ID: 001 | END: Wed Jul  1 06:57:15 PM IST 2026 =====
++ for i in $(seq -f "%03g" 0 29)
++ SEED=2
++ TEST_FILE=shuffled_test_002_seed2.txt
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
++ echo ''
+
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
++ echo =====================================================
+=====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 002 | SEED: 2 | START: Wed Jul  1 06:57:15 PM IST 2026 ====='
+===== SHUFFLE_ID: 002 | SEED: 2 | START: Wed Jul  1 06:57:15 PM IST 2026 =====
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
++ echo =====================================================
+=====================================================
++ stdbuf -o0 -e0 dglke_eval --model_name RESCAL --dataset Evoage_121_12M --data_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets --data_files entities_final.dict relation_final.dict EvoAge_121_12M_KG_train_90.txt EvoAge_121_12M_KG_valid_10.txt shuffled_test_002_seed2.txt --format udd_hrt --model_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/EvoAge_121_12M/model_output/Rescal/RESCAL_Evoage_121_12M_1 --hidden_dim 64 --gamma 12.0 --batch_size_eval 512 --neg_sample_size_eval 16 --num_proc 17 --num_thread 1
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+Using backend: pytorch
+Reading train triples....
+Finished. Read 1007362063 train triples.
+Reading valid triples....
+Finished. Read 111917797 valid triples.
+Reading test triples....
+Finished. Read 118288053 test triples.
+/home/arushis/miniconda3/envs/dglke_env/lib/python3.7/site-packages/dgl/base.py:45: DGLWarning: multigraph will be deprecated.DGL will treat all graphs as multigraph in the future.
+  return warnings.warn(message, category=category, stacklevel=1)
+|valid|: 111917797
+|test|: 118288053
+-------------- Test result --------------
+Test average MRR: 0.5648020358466633
+Test average MR: 5.610226299750033
+Test average HITS@1: 0.4666462080141107
+Test average HITS@3: 0.5902088059112994
+Test average HITS@10: 0.7591825111322122
+-----------------------------------------
+Test takes 1647.929 seconds
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 002 | END: Wed Jul  1 07:56:19 PM IST 2026 ====='
+===== SHUFFLE_ID: 002 | END: Wed Jul  1 07:56:19 PM IST 2026 =====
++ for i in $(seq -f "%03g" 0 29)
++ SEED=3
++ TEST_FILE=shuffled_test_003_seed3.txt
++ echo ''
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 003 | SEED: 3 | START: Wed Jul  1 07:56:19 PM IST 2026 ====='
+===== SHUFFLE_ID: 003 | SEED: 3 | START: Wed Jul  1 07:56:19 PM IST 2026 =====
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
++ echo =====================================================
+=====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
++ stdbuf -o0 -e0 dglke_eval --model_name RESCAL --dataset Evoage_121_12M --data_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets --data_files entities_final.dict relation_final.dict EvoAge_121_12M_KG_train_90.txt EvoAge_121_12M_KG_valid_10.txt shuffled_test_003_seed3.txt --format udd_hrt --model_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/EvoAge_121_12M/model_output/Rescal/RESCAL_Evoage_121_12M_1 --hidden_dim 64 --gamma 12.0 --batch_size_eval 512 --neg_sample_size_eval 16 --num_proc 17 --num_thread 1
+Using backend: pytorch
+Reading train triples....
+Finished. Read 1007362063 train triples.
+Reading valid triples....
+Finished. Read 111917797 valid triples.
+Reading test triples....
+Finished. Read 118288053 test triples.
+/home/arushis/miniconda3/envs/dglke_env/lib/python3.7/site-packages/dgl/base.py:45: DGLWarning: multigraph will be deprecated.DGL will treat all graphs as multigraph in the future.
+  return warnings.warn(message, category=category, stacklevel=1)
+|valid|: 111917797
+|test|: 118288053
+-------------- Test result --------------
+Test average MRR: 0.5643543686023457
+Test average MR: 5.61307893759739
+Test average HITS@1: 0.4660789411480652
+Test average HITS@3: 0.5897866306256222
+Test average HITS@10: 0.7591030985897395
+-----------------------------------------
+Test takes 1602.594 seconds
+++ date
++ echo '===== SHUFFLE_ID: 003 | END: Wed Jul  1 08:52:40 PM IST 2026 ====='
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+===== SHUFFLE_ID: 003 | END: Wed Jul  1 08:52:40 PM IST 2026 =====
++ for i in $(seq -f "%03g" 0 29)
++ SEED=4
++ TEST_FILE=shuffled_test_004_seed4.txt
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
++ echo ''
+
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
+++ date
++ echo '===== SHUFFLE_ID: 004 | SEED: 4 | START: Wed Jul  1 08:52:40 PM IST 2026 ====='
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+===== SHUFFLE_ID: 004 | SEED: 4 | START: Wed Jul  1 08:52:40 PM IST 2026 =====
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
++ stdbuf -o0 -e0 dglke_eval --model_name RESCAL --dataset Evoage_121_12M --data_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets --data_files entities_final.dict relation_final.dict EvoAge_121_12M_KG_train_90.txt EvoAge_121_12M_KG_valid_10.txt shuffled_test_004_seed4.txt --format udd_hrt --model_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/EvoAge_121_12M/model_output/Rescal/RESCAL_Evoage_121_12M_1 --hidden_dim 64 --gamma 12.0 --batch_size_eval 512 --neg_sample_size_eval 16 --num_proc 17 --num_thread 1
+Using backend: pytorch
+Reading train triples....
+Finished. Read 1007362063 train triples.
+Reading valid triples....
+Finished. Read 111917797 valid triples.
+Reading test triples....
+Finished. Read 118288053 test triples.
+/home/arushis/miniconda3/envs/dglke_env/lib/python3.7/site-packages/dgl/base.py:45: DGLWarning: multigraph will be deprecated.DGL will treat all graphs as multigraph in the future.
+  return warnings.warn(message, category=category, stacklevel=1)
+|valid|: 111917797
+|test|: 118288053
+-------------- Test result --------------
+Test average MRR: 0.5645554563475763
+Test average MR: 5.612381255275289
+Test average HITS@1: 0.46636718411840455
+Test average HITS@3: 0.5899429575569191
+Test average HITS@10: 0.7590841996980912
+-----------------------------------------
+Test takes 1198.327 seconds
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 004 | END: Wed Jul  1 09:40:57 PM IST 2026 ====='
+===== SHUFFLE_ID: 004 | END: Wed Jul  1 09:40:57 PM IST 2026 =====
++ for i in $(seq -f "%03g" 0 29)
++ SEED=5
++ TEST_FILE=shuffled_test_005_seed5.txt
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
++ echo ''
+
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 005 | SEED: 5 | START: Wed Jul  1 09:40:57 PM IST 2026 ====='
+===== SHUFFLE_ID: 005 | SEED: 5 | START: Wed Jul  1 09:40:57 PM IST 2026 =====
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ stdbuf -o0 -e0 dglke_eval --model_name RESCAL --dataset Evoage_121_12M --data_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets --data_files entities_final.dict relation_final.dict EvoAge_121_12M_KG_train_90.txt EvoAge_121_12M_KG_valid_10.txt shuffled_test_005_seed5.txt --format udd_hrt --model_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/EvoAge_121_12M/model_output/Rescal/RESCAL_Evoage_121_12M_1 --hidden_dim 64 --gamma 12.0 --batch_size_eval 512 --neg_sample_size_eval 16 --num_proc 17 --num_thread 1
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+Using backend: pytorch
+Reading train triples....
+Finished. Read 1007362063 train triples.
+Reading valid triples....
+Finished. Read 111917797 valid triples.
+Reading test triples....
+Finished. Read 118288053 test triples.
+/home/arushis/miniconda3/envs/dglke_env/lib/python3.7/site-packages/dgl/base.py:45: DGLWarning: multigraph will be deprecated.DGL will treat all graphs as multigraph in the future.
+  return warnings.warn(message, category=category, stacklevel=1)
+|valid|: 111917797
+|test|: 118288053
+-------------- Test result --------------
+Test average MRR: 0.5647380017713148
+Test average MR: 5.610632294101415
+Test average HITS@1: 0.46658435863307796
+Test average HITS@3: 0.5901271572888261
+Test average HITS@10: 0.75917776421758
+-----------------------------------------
+Test takes 1274.320 seconds
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 005 | END: Wed Jul  1 10:37:45 PM IST 2026 ====='
+===== SHUFFLE_ID: 005 | END: Wed Jul  1 10:37:45 PM IST 2026 =====
++ for i in $(seq -f "%03g" 0 29)
++ SEED=6
++ TEST_FILE=shuffled_test_006_seed6.txt
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
++ echo ''
+
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 006 | SEED: 6 | START: Wed Jul  1 10:37:45 PM IST 2026 ====='
+===== SHUFFLE_ID: 006 | SEED: 6 | START: Wed Jul  1 10:37:45 PM IST 2026 =====
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ stdbuf -o0 -e0 dglke_eval --model_name RESCAL --dataset Evoage_121_12M --data_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets --data_files entities_final.dict relation_final.dict EvoAge_121_12M_KG_train_90.txt EvoAge_121_12M_KG_valid_10.txt shuffled_test_006_seed6.txt --format udd_hrt --model_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/EvoAge_121_12M/model_output/Rescal/RESCAL_Evoage_121_12M_1 --hidden_dim 64 --gamma 12.0 --batch_size_eval 512 --neg_sample_size_eval 16 --num_proc 17 --num_thread 1
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+Using backend: pytorch
+Reading train triples....
+Finished. Read 1007362063 train triples.
+Reading valid triples....
+Finished. Read 111917797 valid triples.
+Reading test triples....
+Finished. Read 118288053 test triples.
+/home/arushis/miniconda3/envs/dglke_env/lib/python3.7/site-packages/dgl/base.py:45: DGLWarning: multigraph will be deprecated.DGL will treat all graphs as multigraph in the future.
+  return warnings.warn(message, category=category, stacklevel=1)
+|valid|: 111917797
+|test|: 118288053
+-------------- Test result --------------
+Test average MRR: 0.5641626926951631
+Test average MR: 5.613815072886909
+Test average HITS@1: 0.4658446768953166
+Test average HITS@3: 0.589549935851134
+Test average HITS@10: 0.7591344206177228
+-----------------------------------------
+Test takes 1731.726 seconds
+++ date
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
++ echo '===== SHUFFLE_ID: 006 | END: Wed Jul  1 11:44:17 PM IST 2026 ====='
+===== SHUFFLE_ID: 006 | END: Wed Jul  1 11:44:17 PM IST 2026 =====
++ for i in $(seq -f "%03g" 0 29)
++ SEED=7
++ TEST_FILE=shuffled_test_007_seed7.txt
++ echo ''
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 007 | SEED: 7 | START: Wed Jul  1 11:44:17 PM IST 2026 ====='
+===== SHUFFLE_ID: 007 | SEED: 7 | START: Wed Jul  1 11:44:17 PM IST 2026 =====
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ stdbuf -o0 -e0 dglke_eval --model_name RESCAL --dataset Evoage_121_12M --data_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets --data_files entities_final.dict relation_final.dict EvoAge_121_12M_KG_train_90.txt EvoAge_121_12M_KG_valid_10.txt shuffled_test_007_seed7.txt --format udd_hrt --model_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/EvoAge_121_12M/model_output/Rescal/RESCAL_Evoage_121_12M_1 --hidden_dim 64 --gamma 12.0 --batch_size_eval 512 --neg_sample_size_eval 16 --num_proc 17 --num_thread 1
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+Using backend: pytorch
+Reading train triples....
+Finished. Read 1007362063 train triples.
+Reading valid triples....
+Finished. Read 111917797 valid triples.
+Reading test triples....
+Finished. Read 118288053 test triples.
+/home/arushis/miniconda3/envs/dglke_env/lib/python3.7/site-packages/dgl/base.py:45: DGLWarning: multigraph will be deprecated.DGL will treat all graphs as multigraph in the future.
+  return warnings.warn(message, category=category, stacklevel=1)
+|valid|: 111917797
+|test|: 118288053
+-------------- Test result --------------
+Test average MRR: 0.5642781544823398
+Test average MR: 5.613340132031014
+Test average HITS@1: 0.4659896458928494
+Test average HITS@3: 0.5896998757939986
+Test average HITS@10: 0.7591152385174544
+-----------------------------------------
+Test takes 1202.419 seconds
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 007 | END: Thu Jul  2 12:29:18 AM IST 2026 ====='
+===== SHUFFLE_ID: 007 | END: Thu Jul  2 12:29:18 AM IST 2026 =====
++ for i in $(seq -f "%03g" 0 29)
++ SEED=8
++ TEST_FILE=shuffled_test_008_seed8.txt
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
++ echo ''
+
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 008 | SEED: 8 | START: Thu Jul  2 12:29:18 AM IST 2026 ====='
+===== SHUFFLE_ID: 008 | SEED: 8 | START: Thu Jul  2 12:29:18 AM IST 2026 =====
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
++ stdbuf -o0 -e0 dglke_eval --model_name RESCAL --dataset Evoage_121_12M --data_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets --data_files entities_final.dict relation_final.dict EvoAge_121_12M_KG_train_90.txt EvoAge_121_12M_KG_valid_10.txt shuffled_test_008_seed8.txt --format udd_hrt --model_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/EvoAge_121_12M/model_output/Rescal/RESCAL_Evoage_121_12M_1 --hidden_dim 64 --gamma 12.0 --batch_size_eval 512 --neg_sample_size_eval 16 --num_proc 17 --num_thread 1
+Using backend: pytorch
+Reading train triples....
+Finished. Read 1007362063 train triples.
+Reading valid triples....
+Finished. Read 111917797 valid triples.
+Reading test triples....
+Finished. Read 118288053 test triples.
+/home/arushis/miniconda3/envs/dglke_env/lib/python3.7/site-packages/dgl/base.py:45: DGLWarning: multigraph will be deprecated.DGL will treat all graphs as multigraph in the future.
+  return warnings.warn(message, category=category, stacklevel=1)
+|valid|: 111917797
+|test|: 118288053
+-------------- Test result --------------
+Test average MRR: 0.5648115049659187
+Test average MR: 5.608470228771696
+Test average HITS@1: 0.4666010468066918
+Test average HITS@3: 0.5902707694211791
+Test average HITS@10: 0.7593582991454032
+-----------------------------------------
+Test takes 1370.635 seconds
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 008 | END: Thu Jul  2 01:17:17 AM IST 2026 ====='
+===== SHUFFLE_ID: 008 | END: Thu Jul  2 01:17:17 AM IST 2026 =====
++ for i in $(seq -f "%03g" 0 29)
++ SEED=9
++ TEST_FILE=shuffled_test_009_seed9.txt
++ echo ''
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 009 | SEED: 9 | START: Thu Jul  2 01:17:17 AM IST 2026 ====='
+===== SHUFFLE_ID: 009 | SEED: 9 | START: Thu Jul  2 01:17:17 AM IST 2026 =====
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ stdbuf -o0 -e0 dglke_eval --model_name RESCAL --dataset Evoage_121_12M --data_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets --data_files entities_final.dict relation_final.dict EvoAge_121_12M_KG_train_90.txt EvoAge_121_12M_KG_valid_10.txt shuffled_test_009_seed9.txt --format udd_hrt --model_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/EvoAge_121_12M/model_output/Rescal/RESCAL_Evoage_121_12M_1 --hidden_dim 64 --gamma 12.0 --batch_size_eval 512 --neg_sample_size_eval 16 --num_proc 17 --num_thread 1
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+Using backend: pytorch
+Reading train triples....
+Finished. Read 1007362063 train triples.
+Reading valid triples....
+Finished. Read 111917797 valid triples.
+Reading test triples....
+Finished. Read 118288053 test triples.
+/home/arushis/miniconda3/envs/dglke_env/lib/python3.7/site-packages/dgl/base.py:45: DGLWarning: multigraph will be deprecated.DGL will treat all graphs as multigraph in the future.
+  return warnings.warn(message, category=category, stacklevel=1)
+|valid|: 111917797
+|test|: 118288053
+-------------- Test result --------------
+Test average MRR: 0.5641975574022021
+Test average MR: 5.612836016460254
+Test average HITS@1: 0.4658466339936913
+Test average HITS@3: 0.5896641703728953
+Test average HITS@10: 0.759177316156181
+-----------------------------------------
+Test takes 1107.712 seconds
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 009 | END: Thu Jul  2 01:57:49 AM IST 2026 ====='
+===== SHUFFLE_ID: 009 | END: Thu Jul  2 01:57:49 AM IST 2026 =====
++ for i in $(seq -f "%03g" 0 29)
++ SEED=10
++ TEST_FILE=shuffled_test_010_seed10.txt
++ echo ''
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 010 | SEED: 10 | START: Thu Jul  2 01:57:49 AM IST 2026 ====='
+===== SHUFFLE_ID: 010 | SEED: 10 | START: Thu Jul  2 01:57:49 AM IST 2026 =====
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ stdbuf -o0 -e0 dglke_eval --model_name RESCAL --dataset Evoage_121_12M --data_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets --data_files entities_final.dict relation_final.dict EvoAge_121_12M_KG_train_90.txt EvoAge_121_12M_KG_valid_10.txt shuffled_test_010_seed10.txt --format udd_hrt --model_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/EvoAge_121_12M/model_output/Rescal/RESCAL_Evoage_121_12M_1 --hidden_dim 64 --gamma 12.0 --batch_size_eval 512 --neg_sample_size_eval 16 --num_proc 17 --num_thread 1
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+Using backend: pytorch
+Reading train triples....
+Finished. Read 1007362063 train triples.
+Reading valid triples....
+Finished. Read 111917797 valid triples.
+Reading test triples....
+Finished. Read 118288053 test triples.
+/home/arushis/miniconda3/envs/dglke_env/lib/python3.7/site-packages/dgl/base.py:45: DGLWarning: multigraph will be deprecated.DGL will treat all graphs as multigraph in the future.
+  return warnings.warn(message, category=category, stacklevel=1)
+|valid|: 111917797
+|test|: 118288053
+-------------- Test result --------------
+Test average MRR: 0.5645322993920768
+Test average MR: 5.610082793292538
+Test average HITS@1: 0.46622268431724234
+Test average HITS@3: 0.5900584009990586
+Test average HITS@10: 0.7592956212734818
+-----------------------------------------
+Test takes 1113.368 seconds
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 010 | END: Thu Jul  2 02:42:51 AM IST 2026 ====='
+===== SHUFFLE_ID: 010 | END: Thu Jul  2 02:42:51 AM IST 2026 =====
++ for i in $(seq -f "%03g" 0 29)
++ SEED=11
++ TEST_FILE=shuffled_test_011_seed11.txt
++ echo ''
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 011 | SEED: 11 | START: Thu Jul  2 02:42:51 AM IST 2026 ====='
+===== SHUFFLE_ID: 011 | SEED: 11 | START: Thu Jul  2 02:42:51 AM IST 2026 =====
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ stdbuf -o0 -e0 dglke_eval --model_name RESCAL --dataset Evoage_121_12M --data_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets --data_files entities_final.dict relation_final.dict EvoAge_121_12M_KG_train_90.txt EvoAge_121_12M_KG_valid_10.txt shuffled_test_011_seed11.txt --format udd_hrt --model_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/EvoAge_121_12M/model_output/Rescal/RESCAL_Evoage_121_12M_1 --hidden_dim 64 --gamma 12.0 --batch_size_eval 512 --neg_sample_size_eval 16 --num_proc 17 --num_thread 1
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+Using backend: pytorch
+Reading train triples....
+Finished. Read 1007362063 train triples.
+Reading valid triples....
+Finished. Read 111917797 valid triples.
+Reading test triples....
+Finished. Read 118288053 test triples.
+/home/arushis/miniconda3/envs/dglke_env/lib/python3.7/site-packages/dgl/base.py:45: DGLWarning: multigraph will be deprecated.DGL will treat all graphs as multigraph in the future.
+  return warnings.warn(message, category=category, stacklevel=1)
+|valid|: 111917797
+|test|: 118288053
+-------------- Test result --------------
+Test average MRR: 0.5647539808887038
+Test average MR: 5.609417595421861
+Test average HITS@1: 0.4665558813722785
+Test average HITS@3: 0.5901774289323898
+Test average HITS@10: 0.7592828599776004
+-----------------------------------------
+Test takes 1150.766 seconds
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 011 | END: Thu Jul  2 03:26:41 AM IST 2026 ====='
+===== SHUFFLE_ID: 011 | END: Thu Jul  2 03:26:41 AM IST 2026 =====
++ for i in $(seq -f "%03g" 0 29)
++ SEED=12
++ TEST_FILE=shuffled_test_012_seed12.txt
++ echo ''
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 012 | SEED: 12 | START: Thu Jul  2 03:26:41 AM IST 2026 ====='
+===== SHUFFLE_ID: 012 | SEED: 12 | START: Thu Jul  2 03:26:41 AM IST 2026 =====
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ stdbuf -o0 -e0 dglke_eval --model_name RESCAL --dataset Evoage_121_12M --data_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets --data_files entities_final.dict relation_final.dict EvoAge_121_12M_KG_train_90.txt EvoAge_121_12M_KG_valid_10.txt shuffled_test_012_seed12.txt --format udd_hrt --model_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/EvoAge_121_12M/model_output/Rescal/RESCAL_Evoage_121_12M_1 --hidden_dim 64 --gamma 12.0 --batch_size_eval 512 --neg_sample_size_eval 16 --num_proc 17 --num_thread 1
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+Using backend: pytorch
+Reading train triples....
+Finished. Read 1007362063 train triples.
+Reading valid triples....
+Finished. Read 111917797 valid triples.
+Reading test triples....
+Finished. Read 118288053 test triples.
+/home/arushis/miniconda3/envs/dglke_env/lib/python3.7/site-packages/dgl/base.py:45: DGLWarning: multigraph will be deprecated.DGL will treat all graphs as multigraph in the future.
+  return warnings.warn(message, category=category, stacklevel=1)
+|valid|: 111917797
+|test|: 118288053
+-------------- Test result --------------
+Test average MRR: 0.5648513035456739
+Test average MR: 5.608064986825304
+Test average HITS@1: 0.4666608334144916
+Test average HITS@3: 0.5903018758724516
+Test average HITS@10: 0.7593553317953837
+-----------------------------------------
+Test takes 1118.011 seconds
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 012 | END: Thu Jul  2 04:46:51 AM IST 2026 ====='
+===== SHUFFLE_ID: 012 | END: Thu Jul  2 04:46:51 AM IST 2026 =====
++ for i in $(seq -f "%03g" 0 29)
++ SEED=13
++ TEST_FILE=shuffled_test_013_seed13.txt
++ echo ''
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 013 | SEED: 13 | START: Thu Jul  2 04:46:51 AM IST 2026 ====='
+===== SHUFFLE_ID: 013 | SEED: 13 | START: Thu Jul  2 04:46:51 AM IST 2026 =====
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
++ stdbuf -o0 -e0 dglke_eval --model_name RESCAL --dataset Evoage_121_12M --data_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets --data_files entities_final.dict relation_final.dict EvoAge_121_12M_KG_train_90.txt EvoAge_121_12M_KG_valid_10.txt shuffled_test_013_seed13.txt --format udd_hrt --model_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/EvoAge_121_12M/model_output/Rescal/RESCAL_Evoage_121_12M_1 --hidden_dim 64 --gamma 12.0 --batch_size_eval 512 --neg_sample_size_eval 16 --num_proc 17 --num_thread 1
+Using backend: pytorch
+Reading train triples....
+Finished. Read 1007362063 train triples.
+Reading valid triples....
+Finished. Read 111917797 valid triples.
+Reading test triples....
+Finished. Read 118288053 test triples.
+/home/arushis/miniconda3/envs/dglke_env/lib/python3.7/site-packages/dgl/base.py:45: DGLWarning: multigraph will be deprecated.DGL will treat all graphs as multigraph in the future.
+  return warnings.warn(message, category=category, stacklevel=1)
+|valid|: 111917797
+|test|: 118288053
+-------------- Test result --------------
+Test average MRR: 0.5648049839613011
+Test average MR: 5.609474769747165
+Test average HITS@1: 0.4666498559102173
+Test average HITS@3: 0.5902077660706943
+Test average HITS@10: 0.7592443647402394
+-----------------------------------------
+Test takes 1124.792 seconds
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 013 | END: Thu Jul  2 06:06:06 AM IST 2026 ====='
+===== SHUFFLE_ID: 013 | END: Thu Jul  2 06:06:06 AM IST 2026 =====
++ for i in $(seq -f "%03g" 0 29)
++ SEED=14
++ TEST_FILE=shuffled_test_014_seed14.txt
++ echo ''
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 014 | SEED: 14 | START: Thu Jul  2 06:06:06 AM IST 2026 ====='
+===== SHUFFLE_ID: 014 | SEED: 14 | START: Thu Jul  2 06:06:06 AM IST 2026 =====
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ stdbuf -o0 -e0 dglke_eval --model_name RESCAL --dataset Evoage_121_12M --data_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets --data_files entities_final.dict relation_final.dict EvoAge_121_12M_KG_train_90.txt EvoAge_121_12M_KG_valid_10.txt shuffled_test_014_seed14.txt --format udd_hrt --model_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/EvoAge_121_12M/model_output/Rescal/RESCAL_Evoage_121_12M_1 --hidden_dim 64 --gamma 12.0 --batch_size_eval 512 --neg_sample_size_eval 16 --num_proc 17 --num_thread 1
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+Using backend: pytorch
+Reading train triples....
+Finished. Read 1007362063 train triples.
+Reading valid triples....
+Finished. Read 111917797 valid triples.
+Reading test triples....
+Finished. Read 118288053 test triples.
+/home/arushis/miniconda3/envs/dglke_env/lib/python3.7/site-packages/dgl/base.py:45: DGLWarning: multigraph will be deprecated.DGL will treat all graphs as multigraph in the future.
+  return warnings.warn(message, category=category, stacklevel=1)
+|valid|: 111917797
+|test|: 118288053
+-------------- Test result --------------
+Test average MRR: 0.564448060062808
+Test average MR: 5.612095945839014
+Test average HITS@1: 0.4661904069885405
+Test average HITS@3: 0.5898866370844695
+Test average HITS@10: 0.7591563671722829
+-----------------------------------------
+Test takes 1147.292 seconds
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 014 | END: Thu Jul  2 06:49:28 AM IST 2026 ====='
+===== SHUFFLE_ID: 014 | END: Thu Jul  2 06:49:28 AM IST 2026 =====
++ for i in $(seq -f "%03g" 0 29)
++ SEED=15
++ TEST_FILE=shuffled_test_015_seed15.txt
++ echo ''
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 015 | SEED: 15 | START: Thu Jul  2 06:49:28 AM IST 2026 ====='
+===== SHUFFLE_ID: 015 | SEED: 15 | START: Thu Jul  2 06:49:28 AM IST 2026 =====
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ stdbuf -o0 -e0 dglke_eval --model_name RESCAL --dataset Evoage_121_12M --data_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets --data_files entities_final.dict relation_final.dict EvoAge_121_12M_KG_train_90.txt EvoAge_121_12M_KG_valid_10.txt shuffled_test_015_seed15.txt --format udd_hrt --model_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/EvoAge_121_12M/model_output/Rescal/RESCAL_Evoage_121_12M_1 --hidden_dim 64 --gamma 12.0 --batch_size_eval 512 --neg_sample_size_eval 16 --num_proc 17 --num_thread 1
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+Using backend: pytorch
+Reading train triples....
+Finished. Read 1007362063 train triples.
+Reading valid triples....
+Finished. Read 111917797 valid triples.
+Reading test triples....
+Finished. Read 118288053 test triples.
+/home/arushis/miniconda3/envs/dglke_env/lib/python3.7/site-packages/dgl/base.py:45: DGLWarning: multigraph will be deprecated.DGL will treat all graphs as multigraph in the future.
+  return warnings.warn(message, category=category, stacklevel=1)
+|valid|: 111917797
+|test|: 118288053
+-------------- Test result --------------
+Test average MRR: 0.5642643023693916
+Test average MR: 5.6125021599941025
+Test average HITS@1: 0.46592164200807257
+Test average HITS@3: 0.5897322334355928
+Test average HITS@10: 0.7591982017351643
+-----------------------------------------
+Test takes 1124.959 seconds
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 015 | END: Thu Jul  2 07:30:00 AM IST 2026 ====='
+===== SHUFFLE_ID: 015 | END: Thu Jul  2 07:30:00 AM IST 2026 =====
++ for i in $(seq -f "%03g" 0 29)
++ SEED=16
++ TEST_FILE=shuffled_test_016_seed16.txt
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
++ echo ''
+
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 016 | SEED: 16 | START: Thu Jul  2 07:30:00 AM IST 2026 ====='
+===== SHUFFLE_ID: 016 | SEED: 16 | START: Thu Jul  2 07:30:00 AM IST 2026 =====
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ stdbuf -o0 -e0 dglke_eval --model_name RESCAL --dataset Evoage_121_12M --data_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets --data_files entities_final.dict relation_final.dict EvoAge_121_12M_KG_train_90.txt EvoAge_121_12M_KG_valid_10.txt shuffled_test_016_seed16.txt --format udd_hrt --model_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/EvoAge_121_12M/model_output/Rescal/RESCAL_Evoage_121_12M_1 --hidden_dim 64 --gamma 12.0 --batch_size_eval 512 --neg_sample_size_eval 16 --num_proc 17 --num_thread 1
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+Using backend: pytorch
+Reading train triples....
+Finished. Read 1007362063 train triples.
+Reading valid triples....
+Finished. Read 111917797 valid triples.
+Reading test triples....
+Finished. Read 118288053 test triples.
+/home/arushis/miniconda3/envs/dglke_env/lib/python3.7/site-packages/dgl/base.py:45: DGLWarning: multigraph will be deprecated.DGL will treat all graphs as multigraph in the future.
+  return warnings.warn(message, category=category, stacklevel=1)
+|valid|: 111917797
+|test|: 118288053
+-------------- Test result --------------
+Test average MRR: 0.5639677905304582
+Test average MR: 5.615770087353374
+Test average HITS@1: 0.46559176314358525
+Test average HITS@3: 0.5894044342523157
+Test average HITS@10: 0.7590094960273016
+-----------------------------------------
+Test takes 1144.567 seconds
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 016 | END: Thu Jul  2 08:10:43 AM IST 2026 ====='
+===== SHUFFLE_ID: 016 | END: Thu Jul  2 08:10:43 AM IST 2026 =====
++ for i in $(seq -f "%03g" 0 29)
++ SEED=17
++ TEST_FILE=shuffled_test_017_seed17.txt
++ echo ''
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 017 | SEED: 17 | START: Thu Jul  2 08:10:43 AM IST 2026 ====='
+===== SHUFFLE_ID: 017 | SEED: 17 | START: Thu Jul  2 08:10:43 AM IST 2026 =====
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
++ stdbuf -o0 -e0 dglke_eval --model_name RESCAL --dataset Evoage_121_12M --data_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets --data_files entities_final.dict relation_final.dict EvoAge_121_12M_KG_train_90.txt EvoAge_121_12M_KG_valid_10.txt shuffled_test_017_seed17.txt --format udd_hrt --model_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/EvoAge_121_12M/model_output/Rescal/RESCAL_Evoage_121_12M_1 --hidden_dim 64 --gamma 12.0 --batch_size_eval 512 --neg_sample_size_eval 16 --num_proc 17 --num_thread 1
+Using backend: pytorch
+Reading train triples....
+Finished. Read 1007362063 train triples.
+Reading valid triples....
+Finished. Read 111917797 valid triples.
+Reading test triples....
+Finished. Read 118288053 test triples.
+/home/arushis/miniconda3/envs/dglke_env/lib/python3.7/site-packages/dgl/base.py:45: DGLWarning: multigraph will be deprecated.DGL will treat all graphs as multigraph in the future.
+  return warnings.warn(message, category=category, stacklevel=1)
+|valid|: 111917797
+|test|: 118288053
+-------------- Test result --------------
+Test average MRR: 0.5642145362953916
+Test average MR: 5.614244755314515
+Test average HITS@1: 0.46591604124058567
+Test average HITS@3: 0.5896241280556097
+Test average HITS@10: 0.7590686950828897
+-----------------------------------------
+Test takes 1165.404 seconds
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 017 | END: Thu Jul  2 08:51:55 AM IST 2026 ====='
+===== SHUFFLE_ID: 017 | END: Thu Jul  2 08:51:55 AM IST 2026 =====
++ for i in $(seq -f "%03g" 0 29)
++ SEED=18
++ TEST_FILE=shuffled_test_018_seed18.txt
++ echo ''
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 018 | SEED: 18 | START: Thu Jul  2 08:51:55 AM IST 2026 ====='
+===== SHUFFLE_ID: 018 | SEED: 18 | START: Thu Jul  2 08:51:55 AM IST 2026 =====
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ stdbuf -o0 -e0 dglke_eval --model_name RESCAL --dataset Evoage_121_12M --data_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets --data_files entities_final.dict relation_final.dict EvoAge_121_12M_KG_train_90.txt EvoAge_121_12M_KG_valid_10.txt shuffled_test_018_seed18.txt --format udd_hrt --model_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/EvoAge_121_12M/model_output/Rescal/RESCAL_Evoage_121_12M_1 --hidden_dim 64 --gamma 12.0 --batch_size_eval 512 --neg_sample_size_eval 16 --num_proc 17 --num_thread 1
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+Using backend: pytorch
+Reading train triples....
+Finished. Read 1007362063 train triples.
+Reading valid triples....
+Finished. Read 111917797 valid triples.
+Reading test triples....
+Finished. Read 118288053 test triples.
+/home/arushis/miniconda3/envs/dglke_env/lib/python3.7/site-packages/dgl/base.py:45: DGLWarning: multigraph will be deprecated.DGL will treat all graphs as multigraph in the future.
+  return warnings.warn(message, category=category, stacklevel=1)
+|valid|: 111917797
+|test|: 118288053
+-------------- Test result --------------
+Test average MRR: 0.5647535289515573
+Test average MR: 5.608575459795535
+Test average HITS@1: 0.46651559811631604
+Test average HITS@3: 0.5902344679938752
+Test average HITS@10: 0.7593664826064256
+-----------------------------------------
+Test takes 1143.358 seconds
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 018 | END: Thu Jul  2 09:32:29 AM IST 2026 ====='
+===== SHUFFLE_ID: 018 | END: Thu Jul  2 09:32:29 AM IST 2026 =====
++ for i in $(seq -f "%03g" 0 29)
++ SEED=19
++ TEST_FILE=shuffled_test_019_seed19.txt
++ echo ''
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 019 | SEED: 19 | START: Thu Jul  2 09:32:29 AM IST 2026 ====='
+===== SHUFFLE_ID: 019 | SEED: 19 | START: Thu Jul  2 09:32:29 AM IST 2026 =====
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
++ stdbuf -o0 -e0 dglke_eval --model_name RESCAL --dataset Evoage_121_12M --data_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets --data_files entities_final.dict relation_final.dict EvoAge_121_12M_KG_train_90.txt EvoAge_121_12M_KG_valid_10.txt shuffled_test_019_seed19.txt --format udd_hrt --model_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/EvoAge_121_12M/model_output/Rescal/RESCAL_Evoage_121_12M_1 --hidden_dim 64 --gamma 12.0 --batch_size_eval 512 --neg_sample_size_eval 16 --num_proc 17 --num_thread 1
+Using backend: pytorch
+Reading train triples....
+Finished. Read 1007362063 train triples.
+Reading valid triples....
+Finished. Read 111917797 valid triples.
+Reading test triples....
+Finished. Read 118288053 test triples.
+/home/arushis/miniconda3/envs/dglke_env/lib/python3.7/site-packages/dgl/base.py:45: DGLWarning: multigraph will be deprecated.DGL will treat all graphs as multigraph in the future.
+  return warnings.warn(message, category=category, stacklevel=1)
+|valid|: 111917797
+|test|: 118288053
+-------------- Test result --------------
+Test average MRR: 0.5640283381532718
+Test average MR: 5.613947365128446
+Test average HITS@1: 0.46564480346843484
+Test average HITS@3: 0.5894687521980371
+Test average HITS@10: 0.759169804787257
+-----------------------------------------
+Test takes 1088.715 seconds
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 019 | END: Thu Jul  2 10:17:44 AM IST 2026 ====='
+===== SHUFFLE_ID: 019 | END: Thu Jul  2 10:17:44 AM IST 2026 =====
++ for i in $(seq -f "%03g" 0 29)
++ SEED=20
++ TEST_FILE=shuffled_test_020_seed20.txt
++ echo ''
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 020 | SEED: 20 | START: Thu Jul  2 10:17:44 AM IST 2026 ====='
+===== SHUFFLE_ID: 020 | SEED: 20 | START: Thu Jul  2 10:17:44 AM IST 2026 =====
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
++ stdbuf -o0 -e0 dglke_eval --model_name RESCAL --dataset Evoage_121_12M --data_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets --data_files entities_final.dict relation_final.dict EvoAge_121_12M_KG_train_90.txt EvoAge_121_12M_KG_valid_10.txt shuffled_test_020_seed20.txt --format udd_hrt --model_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/EvoAge_121_12M/model_output/Rescal/RESCAL_Evoage_121_12M_1 --hidden_dim 64 --gamma 12.0 --batch_size_eval 512 --neg_sample_size_eval 16 --num_proc 17 --num_thread 1
+Using backend: pytorch
+Reading train triples....
+Finished. Read 1007362063 train triples.
+Reading valid triples....
+Finished. Read 111917797 valid triples.
+Reading test triples....
+Finished. Read 118288053 test triples.
+/home/arushis/miniconda3/envs/dglke_env/lib/python3.7/site-packages/dgl/base.py:45: DGLWarning: multigraph will be deprecated.DGL will treat all graphs as multigraph in the future.
+  return warnings.warn(message, category=category, stacklevel=1)
+|valid|: 111917797
+|test|: 118288053
+-------------- Test result --------------
+Test average MRR: 0.5644559129421631
+Test average MR: 5.611133966469452
+Test average HITS@1: 0.4661621706664178
+Test average HITS@3: 0.5899169995847401
+Test average HITS@10: 0.7592522776736247
+-----------------------------------------
+Test takes 1082.465 seconds
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 020 | END: Thu Jul  2 10:57:45 AM IST 2026 ====='
+===== SHUFFLE_ID: 020 | END: Thu Jul  2 10:57:45 AM IST 2026 =====
++ for i in $(seq -f "%03g" 0 29)
++ SEED=21
++ TEST_FILE=shuffled_test_021_seed21.txt
++ echo ''
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 021 | SEED: 21 | START: Thu Jul  2 10:57:45 AM IST 2026 ====='
+===== SHUFFLE_ID: 021 | SEED: 21 | START: Thu Jul  2 10:57:45 AM IST 2026 =====
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ stdbuf -o0 -e0 dglke_eval --model_name RESCAL --dataset Evoage_121_12M --data_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets --data_files entities_final.dict relation_final.dict EvoAge_121_12M_KG_train_90.txt EvoAge_121_12M_KG_valid_10.txt shuffled_test_021_seed21.txt --format udd_hrt --model_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/EvoAge_121_12M/model_output/Rescal/RESCAL_Evoage_121_12M_1 --hidden_dim 64 --gamma 12.0 --batch_size_eval 512 --neg_sample_size_eval 16 --num_proc 17 --num_thread 1
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+Using backend: pytorch
+Reading train triples....
+Finished. Read 1007362063 train triples.
+Reading valid triples....
+Finished. Read 111917797 valid triples.
+Reading test triples....
+Finished. Read 118288053 test triples.
+/home/arushis/miniconda3/envs/dglke_env/lib/python3.7/site-packages/dgl/base.py:45: DGLWarning: multigraph will be deprecated.DGL will treat all graphs as multigraph in the future.
+  return warnings.warn(message, category=category, stacklevel=1)
+|valid|: 111917797
+|test|: 118288053
+-------------- Test result --------------
+Test average MRR: 0.5645127137740857
+Test average MR: 5.611547865300231
+Test average HITS@1: 0.4662826357778211
+Test average HITS@3: 0.589928843622852
+Test average HITS@10: 0.759183622831721
+-----------------------------------------
+Test takes 1121.381 seconds
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 021 | END: Thu Jul  2 11:39:33 AM IST 2026 ====='
+===== SHUFFLE_ID: 021 | END: Thu Jul  2 11:39:33 AM IST 2026 =====
++ for i in $(seq -f "%03g" 0 29)
++ SEED=22
++ TEST_FILE=shuffled_test_022_seed22.txt
++ echo ''
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 022 | SEED: 22 | START: Thu Jul  2 11:39:33 AM IST 2026 ====='
+===== SHUFFLE_ID: 022 | SEED: 22 | START: Thu Jul  2 11:39:33 AM IST 2026 =====
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ stdbuf -o0 -e0 dglke_eval --model_name RESCAL --dataset Evoage_121_12M --data_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets --data_files entities_final.dict relation_final.dict EvoAge_121_12M_KG_train_90.txt EvoAge_121_12M_KG_valid_10.txt shuffled_test_022_seed22.txt --format udd_hrt --model_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/EvoAge_121_12M/model_output/Rescal/RESCAL_Evoage_121_12M_1 --hidden_dim 64 --gamma 12.0 --batch_size_eval 512 --neg_sample_size_eval 16 --num_proc 17 --num_thread 1
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+Using backend: pytorch
+Reading train triples....
+Finished. Read 1007362063 train triples.
+Reading valid triples....
+Finished. Read 111917797 valid triples.
+Reading test triples....
+Finished. Read 118288053 test triples.
+/home/arushis/miniconda3/envs/dglke_env/lib/python3.7/site-packages/dgl/base.py:45: DGLWarning: multigraph will be deprecated.DGL will treat all graphs as multigraph in the future.
+  return warnings.warn(message, category=category, stacklevel=1)
+|valid|: 111917797
+|test|: 118288053
+-------------- Test result --------------
+Test average MRR: 0.5649610588761973
+Test average MR: 5.606431464866576
+Test average HITS@1: 0.4667359471037311
+Test average HITS@3: 0.5905070753121889
+Test average HITS@10: 0.759472964820586
+-----------------------------------------
+Test takes 1098.710 seconds
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 022 | END: Thu Jul  2 12:37:43 PM IST 2026 ====='
+===== SHUFFLE_ID: 022 | END: Thu Jul  2 12:37:43 PM IST 2026 =====
++ for i in $(seq -f "%03g" 0 29)
++ SEED=23
++ TEST_FILE=shuffled_test_023_seed23.txt
++ echo ''
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 023 | SEED: 23 | START: Thu Jul  2 12:37:43 PM IST 2026 ====='
+===== SHUFFLE_ID: 023 | SEED: 23 | START: Thu Jul  2 12:37:43 PM IST 2026 =====
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ stdbuf -o0 -e0 dglke_eval --model_name RESCAL --dataset Evoage_121_12M --data_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets --data_files entities_final.dict relation_final.dict EvoAge_121_12M_KG_train_90.txt EvoAge_121_12M_KG_valid_10.txt shuffled_test_023_seed23.txt --format udd_hrt --model_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/EvoAge_121_12M/model_output/Rescal/RESCAL_Evoage_121_12M_1 --hidden_dim 64 --gamma 12.0 --batch_size_eval 512 --neg_sample_size_eval 16 --num_proc 17 --num_thread 1
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+Using backend: pytorch
+Reading train triples....
+Finished. Read 1007362063 train triples.
+Reading valid triples....
+Finished. Read 111917797 valid triples.
+Reading test triples....
+Finished. Read 118288053 test triples.
+/home/arushis/miniconda3/envs/dglke_env/lib/python3.7/site-packages/dgl/base.py:45: DGLWarning: multigraph will be deprecated.DGL will treat all graphs as multigraph in the future.
+  return warnings.warn(message, category=category, stacklevel=1)
+|valid|: 111917797
+|test|: 118288053
+-------------- Test result --------------
+Test average MRR: 0.5645580665088001
+Test average MR: 5.611115760804874
+Test average HITS@1: 0.46633412479575165
+Test average HITS@3: 0.5899794914689109
+Test average HITS@10: 0.75920986401252
+-----------------------------------------
+Test takes 1609.413 seconds
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 023 | END: Thu Jul  2 02:16:37 PM IST 2026 ====='
+===== SHUFFLE_ID: 023 | END: Thu Jul  2 02:16:37 PM IST 2026 =====
++ for i in $(seq -f "%03g" 0 29)
++ SEED=24
++ TEST_FILE=shuffled_test_024_seed24.txt
++ echo ''
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 024 | SEED: 24 | START: Thu Jul  2 02:16:37 PM IST 2026 ====='
+===== SHUFFLE_ID: 024 | SEED: 24 | START: Thu Jul  2 02:16:37 PM IST 2026 =====
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ stdbuf -o0 -e0 dglke_eval --model_name RESCAL --dataset Evoage_121_12M --data_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets --data_files entities_final.dict relation_final.dict EvoAge_121_12M_KG_train_90.txt EvoAge_121_12M_KG_valid_10.txt shuffled_test_024_seed24.txt --format udd_hrt --model_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/EvoAge_121_12M/model_output/Rescal/RESCAL_Evoage_121_12M_1 --hidden_dim 64 --gamma 12.0 --batch_size_eval 512 --neg_sample_size_eval 16 --num_proc 17 --num_thread 1
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+Using backend: pytorch
+Reading train triples....
+Finished. Read 1007362063 train triples.
+Reading valid triples....
+Finished. Read 111917797 valid triples.
+Reading test triples....
+Finished. Read 118288053 test triples.
+/home/arushis/miniconda3/envs/dglke_env/lib/python3.7/site-packages/dgl/base.py:45: DGLWarning: multigraph will be deprecated.DGL will treat all graphs as multigraph in the future.
+  return warnings.warn(message, category=category, stacklevel=1)
+|valid|: 111917797
+|test|: 118288053
+-------------- Test result --------------
+Test average MRR: 0.5645339513558327
+Test average MR: 5.610665454871932
+Test average HITS@1: 0.46626527128511447
+Test average HITS@3: 0.5899874593532225
+Test average HITS@10: 0.7592512547409969
+-----------------------------------------
+Test takes 1119.068 seconds
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 024 | END: Thu Jul  2 03:08:25 PM IST 2026 ====='
+===== SHUFFLE_ID: 024 | END: Thu Jul  2 03:08:25 PM IST 2026 =====
++ for i in $(seq -f "%03g" 0 29)
++ SEED=25
++ TEST_FILE=shuffled_test_025_seed25.txt
++ echo ''
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 025 | SEED: 25 | START: Thu Jul  2 03:08:25 PM IST 2026 ====='
+===== SHUFFLE_ID: 025 | SEED: 25 | START: Thu Jul  2 03:08:25 PM IST 2026 =====
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ stdbuf -o0 -e0 dglke_eval --model_name RESCAL --dataset Evoage_121_12M --data_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets --data_files entities_final.dict relation_final.dict EvoAge_121_12M_KG_train_90.txt EvoAge_121_12M_KG_valid_10.txt shuffled_test_025_seed25.txt --format udd_hrt --model_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/EvoAge_121_12M/model_output/Rescal/RESCAL_Evoage_121_12M_1 --hidden_dim 64 --gamma 12.0 --batch_size_eval 512 --neg_sample_size_eval 16 --num_proc 17 --num_thread 1
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+Using backend: pytorch
+Reading train triples....
+Finished. Read 1007362063 train triples.
+Reading valid triples....
+Finished. Read 111917797 valid triples.
+Reading test triples....
+Finished. Read 118288053 test triples.
+/home/arushis/miniconda3/envs/dglke_env/lib/python3.7/site-packages/dgl/base.py:45: DGLWarning: multigraph will be deprecated.DGL will treat all graphs as multigraph in the future.
+  return warnings.warn(message, category=category, stacklevel=1)
+|valid|: 111917797
+|test|: 118288053
+-------------- Test result --------------
+Test average MRR: 0.5644976155419145
+Test average MR: 5.611546073054636
+Test average HITS@1: 0.4662532877561897
+Test average HITS@3: 0.589913985737783
+Test average HITS@10: 0.7592041702511578
+-----------------------------------------
+Test takes 1112.604 seconds
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 025 | END: Thu Jul  2 03:52:38 PM IST 2026 ====='
+===== SHUFFLE_ID: 025 | END: Thu Jul  2 03:52:38 PM IST 2026 =====
++ for i in $(seq -f "%03g" 0 29)
++ SEED=26
++ TEST_FILE=shuffled_test_026_seed26.txt
++ echo ''
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 026 | SEED: 26 | START: Thu Jul  2 03:52:38 PM IST 2026 ====='
+===== SHUFFLE_ID: 026 | SEED: 26 | START: Thu Jul  2 03:52:38 PM IST 2026 =====
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ stdbuf -o0 -e0 dglke_eval --model_name RESCAL --dataset Evoage_121_12M --data_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets --data_files entities_final.dict relation_final.dict EvoAge_121_12M_KG_train_90.txt EvoAge_121_12M_KG_valid_10.txt shuffled_test_026_seed26.txt --format udd_hrt --model_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/EvoAge_121_12M/model_output/Rescal/RESCAL_Evoage_121_12M_1 --hidden_dim 64 --gamma 12.0 --batch_size_eval 512 --neg_sample_size_eval 16 --num_proc 17 --num_thread 1
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+Using backend: pytorch
+Reading train triples....
+Finished. Read 1007362063 train triples.
+Reading valid triples....
+Finished. Read 111917797 valid triples.
+Reading test triples....
+Finished. Read 118288053 test triples.
+/home/arushis/miniconda3/envs/dglke_env/lib/python3.7/site-packages/dgl/base.py:45: DGLWarning: multigraph will be deprecated.DGL will treat all graphs as multigraph in the future.
+  return warnings.warn(message, category=category, stacklevel=1)
+|valid|: 111917797
+|test|: 118288053
+-------------- Test result --------------
+Test average MRR: 0.5643555969163265
+Test average MR: 5.613851408130167
+Test average HITS@1: 0.46611443944644637
+Test average HITS@3: 0.5897284164597131
+Test average HITS@10: 0.7590243158694218
+-----------------------------------------
+Test takes 1106.854 seconds
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 026 | END: Thu Jul  2 04:33:35 PM IST 2026 ====='
+===== SHUFFLE_ID: 026 | END: Thu Jul  2 04:33:35 PM IST 2026 =====
++ for i in $(seq -f "%03g" 0 29)
++ SEED=27
++ TEST_FILE=shuffled_test_027_seed27.txt
++ echo ''
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
++ echo =====================================================
+=====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 027 | SEED: 27 | START: Thu Jul  2 04:33:35 PM IST 2026 ====='
+===== SHUFFLE_ID: 027 | SEED: 27 | START: Thu Jul  2 04:33:35 PM IST 2026 =====
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ stdbuf -o0 -e0 dglke_eval --model_name RESCAL --dataset Evoage_121_12M --data_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets --data_files entities_final.dict relation_final.dict EvoAge_121_12M_KG_train_90.txt EvoAge_121_12M_KG_valid_10.txt shuffled_test_027_seed27.txt --format udd_hrt --model_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/EvoAge_121_12M/model_output/Rescal/RESCAL_Evoage_121_12M_1 --hidden_dim 64 --gamma 12.0 --batch_size_eval 512 --neg_sample_size_eval 16 --num_proc 17 --num_thread 1
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+Using backend: pytorch
+Reading train triples....
+Finished. Read 1007362063 train triples.
+Reading valid triples....
+Finished. Read 111917797 valid triples.
+Reading test triples....
+Finished. Read 118288053 test triples.
+/home/arushis/miniconda3/envs/dglke_env/lib/python3.7/site-packages/dgl/base.py:45: DGLWarning: multigraph will be deprecated.DGL will treat all graphs as multigraph in the future.
+  return warnings.warn(message, category=category, stacklevel=1)
+|valid|: 111917797
+|test|: 118288053
+-------------- Test result --------------
+Test average MRR: 0.5642461447868639
+Test average MR: 5.613900014337965
+Test average HITS@1: 0.4659597948588928
+Test average HITS@3: 0.589652795531154
+Test average HITS@10: 0.7590773857832316
+-----------------------------------------
+Test takes 1091.608 seconds
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 027 | END: Thu Jul  2 05:14:43 PM IST 2026 ====='
+===== SHUFFLE_ID: 027 | END: Thu Jul  2 05:14:43 PM IST 2026 =====
++ for i in $(seq -f "%03g" 0 29)
++ SEED=28
++ TEST_FILE=shuffled_test_028_seed28.txt
++ echo ''
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 028 | SEED: 28 | START: Thu Jul  2 05:14:43 PM IST 2026 ====='
+===== SHUFFLE_ID: 028 | SEED: 28 | START: Thu Jul  2 05:14:43 PM IST 2026 =====
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ stdbuf -o0 -e0 dglke_eval --model_name RESCAL --dataset Evoage_121_12M --data_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets --data_files entities_final.dict relation_final.dict EvoAge_121_12M_KG_train_90.txt EvoAge_121_12M_KG_valid_10.txt shuffled_test_028_seed28.txt --format udd_hrt --model_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/EvoAge_121_12M/model_output/Rescal/RESCAL_Evoage_121_12M_1 --hidden_dim 64 --gamma 12.0 --batch_size_eval 512 --neg_sample_size_eval 16 --num_proc 17 --num_thread 1
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+Using backend: pytorch
+Reading train triples....
+Finished. Read 1007362063 train triples.
+Reading valid triples....
+Finished. Read 111917797 valid triples.
+Reading test triples....
+Finished. Read 118288053 test triples.
+/home/arushis/miniconda3/envs/dglke_env/lib/python3.7/site-packages/dgl/base.py:45: DGLWarning: multigraph will be deprecated.DGL will treat all graphs as multigraph in the future.
+  return warnings.warn(message, category=category, stacklevel=1)
+|valid|: 111917797
+|test|: 118288053
+-------------- Test result --------------
+Test average MRR: 0.5646388021702814
+Test average MR: 5.61091665669096
+Test average HITS@1: 0.4664503671398195
+Test average HITS@3: 0.5900492875992837
+Test average HITS@10: 0.7592116731660932
+-----------------------------------------
+Test takes 1098.143 seconds
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 028 | END: Thu Jul  2 06:00:14 PM IST 2026 ====='
+===== SHUFFLE_ID: 028 | END: Thu Jul  2 06:00:14 PM IST 2026 =====
++ for i in $(seq -f "%03g" 0 29)
++ SEED=29
++ TEST_FILE=shuffled_test_029_seed29.txt
++ echo ''
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 029 | SEED: 29 | START: Thu Jul  2 06:00:14 PM IST 2026 ====='
+===== SHUFFLE_ID: 029 | SEED: 29 | START: Thu Jul  2 06:00:14 PM IST 2026 =====
++ echo =====================================================
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+=====================================================
++ stdbuf -o0 -e0 dglke_eval --model_name RESCAL --dataset Evoage_121_12M --data_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets --data_files entities_final.dict relation_final.dict EvoAge_121_12M_KG_train_90.txt EvoAge_121_12M_KG_valid_10.txt shuffled_test_029_seed29.txt --format udd_hrt --model_path /storage/Arushi/090526_EvoAge/kg_formation/training_3/EvoAge_121_12M/model_output/Rescal/RESCAL_Evoage_121_12M_1 --hidden_dim 64 --gamma 12.0 --batch_size_eval 512 --neg_sample_size_eval 16 --num_proc 17 --num_thread 1
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+Using backend: pytorch
+Reading train triples....
+Finished. Read 1007362063 train triples.
+Reading valid triples....
+Finished. Read 111917797 valid triples.
+Reading test triples....
+Finished. Read 118288053 test triples.
+/home/arushis/miniconda3/envs/dglke_env/lib/python3.7/site-packages/dgl/base.py:45: DGLWarning: multigraph will be deprecated.DGL will treat all graphs as multigraph in the future.
+  return warnings.warn(message, category=category, stacklevel=1)
+|valid|: 111917797
+|test|: 118288053
+-------------- Test result --------------
+Test average MRR: 0.5641726037922774
+Test average MR: 5.612660317213944
+Test average HITS@1: 0.46577806369167424
+Test average HITS@3: 0.589672294655997
+Test average HITS@10: 0.7592168850501018
+-----------------------------------------
+Test takes 1094.099 seconds
++ tee -a /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log
+++ date
++ echo '===== SHUFFLE_ID: 029 | END: Thu Jul  2 06:42:57 PM IST 2026 ====='
+===== SHUFFLE_ID: 029 | END: Thu Jul  2 06:42:57 PM IST 2026 =====
+++ date
++ echo '[Thu Jul  2 06:42:57 PM IST 2026] All 30 shuffle evaluations complete. Combined log at: /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log'
+[Thu Jul  2 06:42:57 PM IST 2026] All 30 shuffle evaluations complete. Combined log at: /storage/Arushi/090526_EvoAge/kg_formation/training_3/Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/rescal_eval_all_shuffles.log

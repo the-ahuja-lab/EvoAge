@@ -1,0 +1,86 @@
+[Wed Jul  1 03:18:22 PM IST 2026] Running TESTING only on CPU with 22 threads...
+[Wed Jul  1 03:18:22 PM IST 2026] Starting EvoAge_1to1
+Using backend: pytorch
+Reading train triples....
+Finished. Read 1000441937 train triples.
+Reading valid triples....
+Finished. Read 111160216 valid triples.
+Reading test triples....
+Finished. Read 148311 test triples.
+/home/arushis/miniconda3/envs/dglke_env/lib/python3.7/site-packages/dgl/base.py:45: DGLWarning: multigraph will be deprecated.DGL will treat all graphs as multigraph in the future.
+  return warnings.warn(message, category=category, stacklevel=1)
+|valid|: 111160216
+|test|: 148311
+-------------- Test result --------------
+Test average MRR: 0.89170989778254
+Test average MR: 1.5173937390734267
+Test average HITS@1: 0.8446685150786714
+Test average HITS@3: 0.9195087139423077
+Test average HITS@10: 0.996547885708042
+-----------------------------------------
+Test takes 22.571 seconds
+[Wed Jul  1 03:41:59 PM IST 2026] Finished EvoAge_1to1
+[Wed Jul  1 03:41:59 PM IST 2026] Starting Aging_1to1
+Using backend: pytorch
+Reading train triples....
+Finished. Read 1186478 train triples.
+Reading valid triples....
+Finished. Read 148309 valid triples.
+Reading test triples....
+Finished. Read 148311 test triples.
+/home/arushis/miniconda3/envs/dglke_env/lib/python3.7/site-packages/dgl/base.py:45: DGLWarning: multigraph will be deprecated.DGL will treat all graphs as multigraph in the future.
+  return warnings.warn(message, category=category, stacklevel=1)
+|valid|: 148309
+|test|: 148311
+-------------- Test result --------------
+Test average MRR: 0.8552911044052934
+Test average MR: 2.6891458151223775
+Test average HITS@1: 0.8272679468968531
+Test average HITS@3: 0.8596276770104895
+Test average HITS@10: 0.9059870793269231
+-----------------------------------------
+Test takes 2.624 seconds
+[Wed Jul  1 03:43:46 PM IST 2026] Finished Aging_1to1
+[Wed Jul  1 03:43:46 PM IST 2026] Starting EvoAge_121_12M
+Using backend: pytorch
+Reading train triples....
+Finished. Read 1007362063 train triples.
+Reading valid triples....
+Finished. Read 111917797 valid triples.
+Reading test triples....
+Finished. Read 148311 test triples.
+/home/arushis/miniconda3/envs/dglke_env/lib/python3.7/site-packages/dgl/base.py:45: DGLWarning: multigraph will be deprecated.DGL will treat all graphs as multigraph in the future.
+  return warnings.warn(message, category=category, stacklevel=1)
+|valid|: 111917797
+|test|: 148311
+-------------- Test result --------------
+Test average MRR: 0.890245682845268
+Test average MR: 1.5192751584353146
+Test average HITS@1: 0.8421758905157343
+Test average HITS@3: 0.9190443345716783
+Test average HITS@10: 0.9966981260926573
+-----------------------------------------
+Test takes 14.625 seconds
+[Wed Jul  1 04:05:19 PM IST 2026] Finished EvoAge_121_12M
+[Wed Jul  1 04:05:19 PM IST 2026] Starting Aging_121_12M
+Using backend: pytorch
+Reading train triples....
+Finished. Read 1201900 train triples.
+Reading valid triples....
+Finished. Read 133545 valid triples.
+Reading test triples....
+Finished. Read 148311 test triples.
+/home/arushis/miniconda3/envs/dglke_env/lib/python3.7/site-packages/dgl/base.py:45: DGLWarning: multigraph will be deprecated.DGL will treat all graphs as multigraph in the future.
+  return warnings.warn(message, category=category, stacklevel=1)
+|valid|: 133545
+|test|: 148311
+-------------- Test result --------------
+Test average MRR: 0.8580386102994979
+Test average MR: 2.6405089051573425
+Test average HITS@1: 0.8298971536276224
+Test average HITS@3: 0.8630046711101399
+Test average HITS@10: 0.9089304250437062
+-----------------------------------------
+Test takes 2.951 seconds
+[Wed Jul  1 04:06:59 PM IST 2026] Finished Aging_121_12M
+[Wed Jul  1 04:06:59 PM IST 2026] All evaluations complete. Logs in ./eval_logs/
