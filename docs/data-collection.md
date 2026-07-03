@@ -1,4 +1,4 @@
-# 01 — Data Collection
+# Data Collection
 
 > 📂 **Source Code & Notebooks:** [pipeline/01_data_collection](https://github.com/the-ahuja-lab/EvoAge/tree/main/pipeline/01_data_collection)
 
