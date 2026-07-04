@@ -23,6 +23,7 @@ kg_formation/data_collection/<source_name>/
 ```
 
 Plus shared reference/mapping dictionaries:
+
 - **NCBI gene_info** — GeneID ↔ Symbol ↔ Synonyms (per species)
 - **PubChem CID-Synonym** — compound name → PubChem CID
 - **ChEBI** — ChEBI ID mappings

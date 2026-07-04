@@ -73,7 +73,7 @@ Trained via DGL-KE utilizing the [Run2_per_Rescal_64.sh] script:
 Executed via the [Run3_Rescal_64_testing.sh]script using CPU-parallel threads (`dglke_eval`).
 
 #### 1.4.3. Relation / Edge Type Prediction Evaluation
-Executed via the [Run4_per_rescal_edge_type_metrics.py] script. It evaluates the rank of the true relation out of all 89 candidate relations in a chunked manner on the GPU.
+Executed via the [Run4_per_rescal_edge_type_metrics.py](https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/08_evaluation_analysis/building_evoage_with_1_percent_species_testsplit/Training/Run4_per_rescal_edge_type_metrics.py) script. It evaluates the rank of the true relation out of all 89 candidate relations in a chunked manner on the GPU.
 
 ---
 
@@ -119,7 +119,7 @@ shuffled_kg_testset/
 
 ### 2.3. Shuffled Test Set Generation Logic
 
-The shuffled test sets are created using the script [Run1_make_shuffled_KG.py](file:///storage/Arushi/090526_EvoAge/kg_formation/DOCUMENTATION/Other_Analysis_08/shuffled_kg_testset/Run1_make_shuffled_KG.py):
+The shuffled test sets are created using the script [Run1_make_shuffled_KG.py](https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/08_evaluation_analysis/shuffled_kg_testset/Run1_make_shuffled_KG.py):
 1. **Source Dataset**: Loads the original test set: `EvoAge_1to1_KG_test.txt` (containing $N$ triples).
 2. **Independent Shuffling**: The head and tail entity columns are independently and randomly permuted (using 30 different random seeds, 0 to 29), while keeping the relation column fixed.
 3. **Collision Checking & Deduplication**: To ensure validity as negative samples, the script checks if any shuffled triple exists in the original test set. If a collision is detected, the colliding indices are iteratively reshuffled until a collision-free shuffled test set is generated.
@@ -133,7 +133,7 @@ The evaluation of the trained RESCAL model against the shuffled test sets is per
 - **Model**: RESCAL (64-dimensional embeddings, trained on `Evoage_121_12M` dataset).
 - **Execution**: Runs CPU-based link prediction evaluation (`dglke_eval`) sequentially across all 30 shuffled test sets with 17 threads.
 - **Negative Sampling**: Employs a negative sample size of 16 during evaluation.
-- **Log Parsing**: The python script [Run3_testing_log_to_csv.py]extracts the test metrics (MRR, MR, HITS@1, HITS@3, HITS@10) from the log file and saves them to `rescal_shuffled_metrics.csv`.
+- **Log Parsing**: The python script [Run3_testing_log_to_csv.py](https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/08_evaluation_analysis/shuffled_kg_testset/Run3_testing_log_to_csv.py)extracts the test metrics (MRR, MR, HITS@1, HITS@3, HITS@10) from the log file and saves them to `rescal_shuffled_metrics.csv`.
 
 
 
@@ -175,7 +175,7 @@ Agingonly_testing_data/
   4. **Aging 1:1∪1:M** (trained on `Aging_specific_121_12M_KG_train_90.txt` + `valid_10.txt`)
 - **Shared Test Set**: `Aging_specific_1to1_KG_test_10.txt` (148,311 triples).
 - **Parameters**: Hidden dimension of 64, gamma margin of 12.0, evaluated via CPU link prediction with 22 threads, using 16 negative samples.
-- **Log compiler script**: [Aging_testing_data_on_allKG_compling.py] extracts the test metrics from the log files and outputs a compiled CSV summary.
+- **Log compiler script**: [Aging_testing_data_on_allKG_compling.py](https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/08_evaluation_analysis/Agingonly_testing_data/Aging_testing_data_on_allKG_compling.py) extracts the test metrics from the log files and outputs a compiled CSV summary.
 
 
 ---

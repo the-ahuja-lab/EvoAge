@@ -1,4 +1,4 @@
-﻿# 03 — Relation-Wise Merge & Standardisation
+# 03 — Relation-Wise Merge & Standardisation
 
 > 📂 **Source Code & Notebooks:** [pipeline/03_relation_merge](https://github.com/the-ahuja-lab/EvoAge/tree/main/pipeline/03_relation_merge)
 
@@ -91,7 +91,7 @@ After all relation-wise merges are complete, two Python scripts are run sequenti
 
 ### 6.1 Run1: Label Standardisation
 
-📄 **`Run1_Standardize_labels.py`**
+[Run1_Standardize_labels.py](https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/03_relation_merge/Run1_Standardize_labels.py)
 
 **What it does:** Fixes typos and inconsistencies in ID-source labels (`head_id_is`, `tail_id_is`) and relation names across all merged files.
 
@@ -122,6 +122,7 @@ After all relation-wise merges are complete, two Python scripts are run sequenti
 | `Anatomy_CellularComponent` | `AnatomicalEntity_CellularComponent` |
 
 **Configuration:**
+
 - Scans all `.csv` and `.parquet` files under the generalised folder
 - Excludes `OTHER_SPECIES/` by default (configurable via `INCLUDE_OTHER_SPECIES` flag)
 - Skips `.ipynb_checkpoints` and files starting with `_`
@@ -131,15 +132,16 @@ After all relation-wise merges are complete, two Python scripts are run sequenti
 ---
 
 ### 6.2 Run2: KG-Type Check & Species Column Addition
-
-📄 **`Run2_check_humanKG_filesand_kg_type_and_add_species_col.py`**
+[Run2_check_humanKG_filesand_kg_type_and_add_species_col.py](https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/03_relation_merge/Run2_check_humanKG_filesand_kg_type_and_add_species_col.py)
 
 **What it does:** Scans all Human KG files (excluding `OTHER_SPECIES/`) and:
+
 1. **Checks** if each file has a `kg_type` column (reports which files have it and which don't)
 2. **Records** the unique `kg_type` values per file (e.g., `Aging`, `Biomedical`)
 3. **Adds** `head_species` and `tail_species` columns set to `'Homo sapiens'` for all Human files (only if not already present)
 
 **Output:**
+
 - Modified files saved in place (species columns added)
 - Summary report saved to `_KG_TYPE_CHECK.csv` with columns:
   - `file`: relative path
@@ -148,6 +150,7 @@ After all relation-wise merges are complete, two Python scripts are run sequenti
   - `species_cols_added`: whether species columns were newly added
 
 ---
+
 
 ## 7. Execution Order
 
@@ -194,6 +197,7 @@ Step 02 outputs (per-source files)
 ## 9. Key Design Decisions
 
 - **One notebook per relation pair**: Keeps merging logic modular — each relation type may have source-specific quirks in column naming or ID formats.
+
 - **Species separation**: Human data is the primary KG; other species are processed separately and later integrated via orthology mapping (Step 04).
 - **Post-merge standardisation**: Run1 and Run2 are run *after* all merges are complete to catch inconsistencies introduced by different notebook authors or source conventions.
 - **`kg_type` tagging**: Every triple carries an `Aging` or `Biomedical` tag, enabling downstream splitting into KG variants.

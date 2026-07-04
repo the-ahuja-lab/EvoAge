@@ -102,9 +102,10 @@ graph TD
 
 ### 4.0. Pre-step — Build Global Mappings (node IDs + relation IDs)
 
-📄 **Script**: [01.py](file:///storage/Arushi/090526_EvoAge/kg_formation/DOCUMENTATION/final_kg_building_06/01.py)
+📄 **Script**: [making_global_mapping.py](https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/06_tensor_building/making_global_mapping.py)
 
 **What it does:**
+
 - Reads **all** source files (Human + all species + species connections) for the EvoAge 1:1∪1:M KG (the largest superset)
 - Extracts every unique `head` and `tail` value → builds a global `node → integer` mapping
 - Extracts every unique `relation` value → builds a `relation → integer` mapping
@@ -123,9 +124,10 @@ graph TD
 
 #### Run 1 — Aging 1:1 KG (build + 80/10/10 split)
 
-📄 **Script**: [Run_1_Aging_1_to_1.py](file:///storage/Arushi/090526_EvoAge/kg_formation/DOCUMENTATION/final_kg_building_06/building_aging_kg_new_02/Run_1_Aging_1_to_1.py)
+📄 **Script**: [Run_1_Aging_1_to_1.py](https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/06_tensor_building/building_aging_kg_new/Run_1_Aging_1_to_1.py)
 
 **What it does:**
+
 1. Loads the global node + relation mappings
 2. Reads all files from `Aging_specific/` (Human parquets + `*_ortho_1_to_1.csv` species files)
 3. Maps every (head, relation, tail) triple to integer IDs → PyTorch tensor `[N, 3]`
@@ -138,9 +140,10 @@ graph TD
 
 #### Run 2 — Aging 1:1∪1:M KG (build + subtract 1:1 test)
 
-📄 **Script**: [Run_2_Aging_121_12M.py](file:///storage/Arushi/090526_EvoAge/kg_formation/DOCUMENTATION/final_kg_building_06/building_aging_kg_new_02/Run_2_Aging_121_12M.py)
+📄 **Script**: [Run_2_Aging_121_12M.py](https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/06_tensor_building/building_aging_kg_new/Run_2_Aging_121_12M.py)
 
 **What it does:**
+
 1. Builds the Aging 1:1∪1:M KG tensor from `Aging_specific/` (Human + `*_ortho_1_to_one2one_plus_one2many.csv`)
 2. Loads the **1:1 test set** (`Aging_specific_1to1_KG_test_10.pt`)
 3. **Subtracts** the test triples from the 1:1∪1:M KG
@@ -156,13 +159,13 @@ graph TD
 
 #### Run 1 — Biomedical 1:1 KG (build + 80/10/10 split)
 
-📄 **Script**: [Run_1_Biomedical_1_to_1.py](file:///storage/Arushi/090526_EvoAge/kg_formation/DOCUMENTATION/final_kg_building_06/building_biomedical_kg_new_03/Run_1_Biomedical_1_to_1.py)
+📄 **Script**: [Run_1_Biomedical_1_to_1.py](https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/06_tensor_building/building_biomedical_kg_new/Run_1_Biomedical_1_to_1.py)
 
 **Same pattern as Aging Run 1**, but reads from `Biomedical/` (Human + species 1:1 files).
 
 #### Run 2 — Biomedical 1:1∪1:M KG (build + subtract 1:1 test)
 
-📄 **Script**: [Run_2_Biomedical_121_12M.py](file:///storage/Arushi/090526_EvoAge/kg_formation/DOCUMENTATION/final_kg_building_06/building_biomedical_kg_new_03/Run_2_Biomedical_121_12M.py)
+📄 **Script**: [Run_2_Biomedical_121_12M.py](https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/06_tensor_building/building_biomedical_kg_new/Run_2_Biomedical_121_12M.py)
 
 **Same pattern as Aging Run 2** — subtracts Biomedical 1:1 test, splits remaining 90/10.
 
@@ -172,7 +175,7 @@ graph TD
 
 #### Run 1 — EvoAge 1:1 KG (build + derive test from Aging ∪ Biomedical tests)
 
-📄 **Script**: [Run_1_EvoAge_1_to_1.py](file:///storage/Arushi/090526_EvoAge/kg_formation/DOCUMENTATION/final_kg_building_06/building_evoage_kg_new_04/Run_1_EvoAge_1_to_1.py)
+📄 **Script**: [Run_1_EvoAge_1_to_1.py](https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/06_tensor_building/building_evoage_kg_new/Run_1_EvoAge_1_to_1.py)
 
 **This is the most complex split.** The EvoAge KG is the union of ALL data, so its test set must be derived from the Aging and Biomedical test sets:
 
@@ -194,9 +197,10 @@ graph TD
 
 #### Run 2 — EvoAge 1:1∪1:M KG (subtract 1:1 test, split remaining)
 
-📄 **Script**: [Run_2_EvoAge_121_12M.py](file:///storage/Arushi/090526_EvoAge/kg_formation/DOCUMENTATION/final_kg_building_06/building_evoage_kg_new_04/Run_2_EvoAge_121_12M.py)
+📄 **Script**: [Run_2_EvoAge_121_12M.py](https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/06_tensor_building/building_evoage_kg_new/Run_2_EvoAge_121_12M.py)
 
 **What it does:**
+
 1. Loads the EvoAge 1:1∪1:M full KG (`EvoAge_121_12M_to_many_KG.pt`)
 2. Loads the **EvoAge 1:1 test** (`EvoAge_1to1_KG_test.pt`)
 3. Subtracts test triples from the 1:1∪1:M KG (chunked)
@@ -314,4 +318,4 @@ The EvoAge KG has ~1.2B+ triples. Subtracting the test set uses a **sorted-searc
 
 ## 9. Next Step
 
-→ **[Step 07 — Training](file:///storage/Arushi/090526_EvoAge/kg_formation/DOCUMENTATION/Training_07)**: Train KG embedding models (e.g., TransE, RotatE, ComplEx) on the train/valid/test splits using PyKEEN or equivalent frameworks.
+→ **[Step 07 — Training](training.md)**: Train KG embedding models (e.g., TransE, RotatE, ComplEx) on the train/valid/test splits using PyKEEN or equivalent frameworks.

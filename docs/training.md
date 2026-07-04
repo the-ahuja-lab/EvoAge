@@ -7,6 +7,7 @@
 This is **Step 7** of the EvoAge Knowledge Graph (KG) construction pipeline. The goal is to train Knowledge Graph Embedding (KGE) models to learn vector representations for entities (nodes) and relations across each of the KG configurations. 
 
 This step focuses on:
+
 1. **Selecting the Best KGE Algorithm**: Benchmarking 6 models (TransE, RotatE, ComplEx, SimplE, DistMult, and RESCAL) on the unified `EvoAge_1:1∪1:M` KG.
 2. **Quantifying the Benefits of Orthology and EvoAge Combination**: Training the selected model (RESCAL) on all 6 KGs to measure the impact of 1:1∪1:M ortholog mappings and the union of Aging and Biomedical KGs.
 
@@ -61,11 +62,13 @@ max_step = (No of epoch * trainingtriple count) / batch_size
 Two distinct evaluation methodologies were implemented to benchmark model performance:
 
 ### Task A: Link Prediction (`dglke_eval`)
+
 - **Query Type**: Head prediction `(?, r, t)` and Tail prediction `(h, r, ?)`.
 - **Methodology**: For each validation or test triple, 16 negative entities are sampled. The model ranks the ground-truth entity against the negatives.
 - **Metrics**: Hits@1, Hits@3, Hits@10, Mean Rank (MR), and Mean Reciprocal Rank (MRR).
 
 ### Task B: Relation Prediction / Edge Type Prediction (Custom PyTorch Scripts)
+
 - **Query Type**: Relation type prediction `(h, ?, t)`.
 - **Methodology**: For every test triple, scores are computed for **all 89 relation types** in the ontology. The correct relation is ranked against the other 88 classes.
 - **Metrics**: Hits@1, Hits@3, Hits@10, and MRR.

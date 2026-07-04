@@ -1,15 +1,9 @@
-# Species Evaluation
+# Analysis 1: Species Evaluation
 
-> 📂 **Source Code & Notebooks:** [pipeline/08_evaluation_analysis](https://github.com/the-ahuja-lab/EvoAge/tree/main/pipeline/08_evaluation_analysis)
+> 📂 **Source Code & Notebooks:** [pipeline/08_evaluation_analysis/building_evoage_with_1_percent_species_testsplit/Training](https://github.com/the-ahuja-lab/EvoAge/tree/main/pipeline/08_evaluation_analysis/building_evoage_with_1_percent_species_testsplit/Training)
 
-This document details supplementary evaluation analyses for the EvoAge knowledge graph model, consisting of three parts:
-1. **Analysis 1**: Granular 1% species-specific and cross-species evaluation analysis.
-2. **Analysis 2**: Shuffled KG test set baseline (null hypothesis) evaluation.
-3. **Analysis 3**: Evaluation of KGs on Aging-specific test set.
 
----
-
-## Analysis 1: — Granular 1% Species & Cross-Species Evaluation
+## Granular 1% Species & Cross-Species Evaluation
 
 ### 1.1. Purpose
 
@@ -42,12 +36,14 @@ The evaluation dataset is divided into two primary categories:
 
 #### 1.3.1. Species-Specific 1% Test Sets (Within-Species Biology)
 For each individual species (Human, Yeast, C. elegans, Drosophila, Zebrafish, Mouse):
+
 1. **Filter Non-Human Nodes**: Human genes mapped via orthology are separated from species-specific nodes (e.g., phenotypes, cell components, chemicals). An upper bound threshold representing human nodes is defined (e.g. `3,062,099` for Yeast). Triples where **both** head and tail are species-specific (IDs $\ge \text{threshold}$) are selected.
 2. **1% Sampling**: Exactly 1% of the total triples of the species' subgraph are randomly sampled from these eligible triples.
 3. **Training Exclusions**: The sampled triples are subtracted from the species subgraph to avoid leakage.
 
 #### 1.3.2. Cross-Species 1% Test Set (Cross-Species Interactions)
 To evaluate the model's accuracy on relationships bridging human genes and other species' entities:
+
 1. **Size Balancing**: The total size of the cross-species test set is balanced to match the human 1% test set size.
 2. **Sampling Filter**: Triples are sampled where one node (head/tail) is a human gene mapping to that species (using mapped gene lists) and the other node (tail/head) is a species-specific entity within that species' ID range.
 3. **Training Exclusions**: The sampled triples are removed from the training pool.
@@ -63,6 +59,7 @@ To evaluate the model's accuracy on relationships bridging human genes and other
 
 #### 1.4.1. Model Training
 Trained via DGL-KE utilizing the [Run2_per_Rescal_64.sh] script:
+
 - **Model**: RESCAL (64-dimensional embeddings)
 - **Batch Size**: 2048
 - **LR**: 0.01 
@@ -70,10 +67,10 @@ Trained via DGL-KE utilizing the [Run2_per_Rescal_64.sh] script:
   $$\text{max\_step} = \frac{10 \text{ epochs} \times 1,094,669,926 \text{ training triples}}{2048 \text{ batch size}}$$
 
 #### 1.4.2. Link Prediction Evaluation
-Executed via the [Run3_Rescal_64_testing.sh]script using CPU-parallel threads (`dglke_eval`).
+Executed via the [Run3_Rescal_64_testing.sh](https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/08_evaluation_analysis/building_evoage_with_1_percent_species_testsplit/Training/Run3_Rescal_64_testing.sh) script using CPU-parallel threads (`dglke_eval`).
 
 #### 1.4.3. Relation / Edge Type Prediction Evaluation
-Executed via the [Run4_per_rescal_edge_type_metrics.py] script. It evaluates the rank of the true relation out of all 89 candidate relations in a chunked manner on the GPU.
+Executed via the [Run4_per_rescal_edge_type_metrics.py](https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/08_evaluation_analysis/building_evoage_with_1_percent_species_testsplit/Training/Run4_per_rescal_edge_type_metrics.py) script. It evaluates the rank of the true relation out of all 89 candidate relations in a chunked manner on the GPU.
 
 ---
 

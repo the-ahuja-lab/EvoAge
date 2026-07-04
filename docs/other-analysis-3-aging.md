@@ -1,6 +1,7 @@
-# Aging-Specific Test Set
+# Analysis 3: Aging-Specific Test Set
+> 📂 **Source Code & Notebooks:** [pipeline/08_evaluation_analysis/Agingonly_testing_data](https://github.com/the-ahuja-lab/EvoAge/tree/main/pipeline/08_evaluation_analysis/Agingonly_testing_data)
 
-## Analysis 3: Evaluation of KGs on Aging-Specific Test Set
+## Evaluation of KGs on Aging-Specific Test Set
 
 ### 3.1. Purpose
 
@@ -11,7 +12,7 @@ The purpose of this analysis is to evaluate how integrating aging-specific data 
 ### 3.2. Pipeline Overview
 
 All pipeline components for this analysis are structured under:
-📂 `Agingonly_testing_data/`
+📂 [Agingonly_testing_data/](https://github.com/the-ahuja-lab/EvoAge/tree/main/pipeline/08_evaluation_analysis/Agingonly_testing_data)
 
 ```
 Agingonly_testing_data/
@@ -32,4 +33,4 @@ Agingonly_testing_data/
   4. **Aging 1:1∪1:M** (trained on `Aging_specific_121_12M_KG_train_90.txt` + `valid_10.txt`)
 - **Shared Test Set**: `Aging_specific_1to1_KG_test_10.txt` (148,311 triples).
 - **Parameters**: Hidden dimension of 64, gamma margin of 12.0, evaluated via CPU link prediction with 22 threads, using 16 negative samples.
-- **Log compiler script**: [Aging_testing_data_on_allKG_compling.py] extracts the test metrics from the log files and outputs a compiled CSV summary.
+- **Log compiler script**: [Aging_testing_data_on_allKG_compling.py](https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/08_evaluation_analysis/Agingonly_testing_data/Aging_testing_data_on_allKG_compling.py) extracts the test metrics from the log files and outputs a compiled CSV summary.

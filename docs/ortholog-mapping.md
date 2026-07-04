@@ -43,7 +43,7 @@ The pipeline consists of **5 sequential runs**, each implemented as a standalone
 
 ### Run 1 — Collect unique Gene nodes per species
 
-📄 **Script**: [Run_1_collecting_all_species_Unique_gene.py](orthology_mapping_04/Run_1_collecting_all_species_Unique_gene.py)
+📄 **Script**: [Run_1_collecting_all_species_Unique_gene.py](https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/04_orthology_mapping/Run_1_collecting_all_species_Unique_gene.py)
 
 **What it does:**
 - Scans all processed triple CSVs under `processed_data_relation_wise_merge/generalised/OTHER_SPECIES/{Species}/`
@@ -67,7 +67,7 @@ The pipeline consists of **5 sequential runs**, each implemented as a standalone
 
 ### Run 2 — Query Ensembl BioMart for human orthologs
 
-📄 **Script**: [Run_2_Final_map_orthologs_to_human_desc.R](orthology_mapping_04/Run_2_Final_map_orthologs_to_human_desc.R)
+📄 **Script**: [Run_2_Final_map_orthologs_to_human_desc.R](https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/04_orthology_mapping/Run_2_Final_map_orthologs_to_human_desc.R)
 
 **What it does:**
 - For each species, reads the unique-gene CSV from Run 1
@@ -101,9 +101,10 @@ orthology_type, orthology_confidence, perc_id
 
 ### Run 3 — Build the 1:1 ortholog KG
 
-📄 **Script**: [Run_3_1to1_converting.py]
+📄 **Script**: [Run_3_1to1_converting.py](https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/04_orthology_mapping/Run_3_1to1_converting.py)
 
 **What it does:**
+
 - Reads the `{Species}_byType_ortholog_one2one.csv` from Run 2
 - Builds lookup dictionaries: `input_gene (uppercased) → human_symbol`, `→ human_description`, `→ ortholog_info`
 - Iterates over each species' processed triple CSVs (original, pre-mapping)
@@ -124,9 +125,10 @@ orthology_type, orthology_confidence, perc_id
 
 ### Run 4 — Merge 1:1 and 1:Many ortholog tables
 
-📄 **Script**: [Run_4_merge_121_12M_tomake_121PLUS12M.py]
+📄 **Script**: [Run_4_merge_121_12M_tomake_121PLUS12M.py](https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/04_orthology_mapping/Run_4_merge_121_12M_tomake_121PLUS12M.py)
 
 **What it does:**
+
 - For each species, concatenates:
   - `{Species}_byType_ortholog_one2one.csv` (from Run 2)
   - `{Species}_byType_ortholog_one2many.csv` (from Run 2)
@@ -141,9 +143,10 @@ orthology_type, orthology_confidence, perc_id
 
 ### Run 5 — Build the 1:1 ∪ 1:Many (1:1+1:M) ortholog KG
 
-📄 **Script**: [Run_5_1toM_121_converting.py]
+📄 **Script**: [Run_5_1toM_121_converting.py](https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/04_orthology_mapping/Run_5_1toM_121_converting.py)
 
 **What it does:**
+
 - Reads the merged `{Species}_byType_ortholog_one2one_plus_one2many.csv` from Run 4
 - Builds lookup dictionaries: `input_gene (uppercased) → [list of human_symbols]`
 - Iterates over each species' processed triple CSVs

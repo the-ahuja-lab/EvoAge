@@ -45,7 +45,23 @@ This table is kept in sync with the manuscript's Supplementary Table.
 
 ---
 
-## 4. Where Raw Data Lives
+## 4.1 Downloading the Raw Data
+
+The complete raw data collected for EvoAge is hosted on Hugging Face at:
+> 📦 **Dataset Link:** [kg_formation/data_collection/](https://huggingface.co/datasets/gauravahuja77/EvoAge/tree/main/kg_formation/data_collection)
+
+**How to download:**
+You can easily download these raw datasets directly from the Hugging Face repository using `git lfs` (Large File Storage) by cloning the dataset repo: 
+```bash
+git clone git@hf.co:datasets/gauravahuja77/EvoAge
+```
+ Alternatively, you can download individual files directly through your web browser by navigating to the link above.
+
+
+
+---
+
+## 4.2 Where Raw Data Lives
 
 The actual downloaded raw data is stored in the working directory:
 

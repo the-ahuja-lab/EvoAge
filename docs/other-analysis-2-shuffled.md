@@ -1,6 +1,8 @@
-# Shuffled KG Baseline
+# Analysis 2: Shuffled KG Baseline
 
-## Analysis 2: Shuffled KG Test Set Baseline / Null Hypothesis Evaluation
+> 📂 **Source Code & Notebooks:** [pipeline/08_evaluation_analysis/shuffled_kg_testset](https://github.com/the-ahuja-lab/EvoAge/tree/main/pipeline/08_evaluation_analysis/shuffled_kg_testset)
+
+## Shuffled KG Test Set Baseline / Null Hypothesis Evaluation
 
 ### 2.1. Purpose
 
@@ -11,7 +13,8 @@ The purpose of this analysis is to establish baseline performance metrics (a nul
 ### 2.2. Pipeline Overview
 
 All pipeline components for this analysis are structured under:
-📂 `/storage/Arushi/090526_EvoAge/kg_formation/DOCUMENTATION/Other_Analysis_08/shuffled_kg_testset/`
+
+📂 [`pipeline/08_evaluation_analysis/shuffled_kg_testset/`](https://github.com/the-ahuja-lab/EvoAge/tree/main/pipeline/08_evaluation_analysis/shuffled_kg_testset)
 
 ```
 shuffled_kg_testset/
@@ -27,7 +30,8 @@ shuffled_kg_testset/
 
 ### 2.3. Shuffled Test Set Generation Logic
 
-The shuffled test sets are created using the script [Run1_make_shuffled_KG.py](file:///storage/Arushi/090526_EvoAge/kg_formation/DOCUMENTATION/Other_Analysis_08/shuffled_kg_testset/Run1_make_shuffled_KG.py):
+The shuffled test sets are created using the script [Run1_make_shuffled_KG.py](https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/08_evaluation_analysis/shuffled_kg_testset/Run1_make_shuffled_KG.py):
+
 1. **Source Dataset**: Loads the original test set: `EvoAge_1to1_KG_test.txt` (containing $N$ triples).
 2. **Independent Shuffling**: The head and tail entity columns are independently and randomly permuted (using 30 different random seeds, 0 to 29), while keeping the relation column fixed.
 3. **Collision Checking & Deduplication**: To ensure validity as negative samples, the script checks if any shuffled triple exists in the original test set. If a collision is detected, the colliding indices are iteratively reshuffled until a collision-free shuffled test set is generated.
@@ -37,11 +41,12 @@ The shuffled test sets are created using the script [Run1_make_shuffled_KG.py](f
 
 ### 2.4. Evaluation Setup
 
-The evaluation of the trained RESCAL model against the shuffled test sets is performed via [run_rescal_eval_all_shuffles.sh]:
+The evaluation of the trained RESCAL model against the shuffled test sets is performed via [run_rescal_eval_all_shuffles.sh](https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/08_evaluation_analysis/shuffled_kg_testset/Run2_Testing/run_rescal_eval_all_shuffles.sh):
+
 - **Model**: RESCAL (64-dimensional embeddings, trained on `Evoage_121_12M` dataset).
 - **Execution**: Runs CPU-based link prediction evaluation (`dglke_eval`) sequentially across all 30 shuffled test sets with 17 threads.
 - **Negative Sampling**: Employs a negative sample size of 16 during evaluation.
-- **Log Parsing**: The python script [Run3_testing_log_to_csv.py]extracts the test metrics (MRR, MR, HITS@1, HITS@3, HITS@10) from the log file and saves them to `rescal_shuffled_metrics.csv`.
+- **Log Parsing**: The python script [Run3_testing_log_to_csv.py](https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/08_evaluation_analysis/shuffled_kg_testset/Run3_testing_log_to_csv.py) extracts the test metrics (MRR, MR, HITS@1, HITS@3, HITS@10) from the log file and saves them to `rescal_shuffled_metrics.csv`.
 
 
 

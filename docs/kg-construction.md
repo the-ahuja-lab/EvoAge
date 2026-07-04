@@ -36,9 +36,10 @@ Every triple file from Step 02/03 carries a `kg_type` column with one of these v
 
 ### Run 1 — Split Human data by `kg_type`
 
-📄 **Script**: [Run1_split_kg_by_type_human.py]
+📄 **Script**: [Run1_split_kg_by_type_human.py](https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/05_kg_construction/Run_4_making_species_associatedwith_connection/Run1_split_kg_by_type_human.py)
 
 **What it does:**
+
 - Reads all CSV/Parquet files under `processed_data_relation_wise_merge/generalised/` (excluding `OTHER_SPECIES/`)
 - For each file, classifies every row by its `kg_type` value into Aging and/or Biomedical
 - Saves Aging rows to `Aging_specific/Human/{relation_folder}/` (as Parquet)
@@ -58,9 +59,10 @@ Every triple file from Step 02/03 carries a `kg_type` column with one of these v
 
 ### Run 2 — Split 1:1 ortholog files by `kg_type` (other species)
 
-📄 **Script**: [Run2_split_1to1_kg_by_type_otherspecies.py]
+📄 **Script**: [Run2_split_1to1_kg_by_type_otherspecies.py](https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/05_kg_construction/Run_4_making_species_associatedwith_connection/Run2_split_1to1_kg_by_type_otherspecies.py)
 
 **What it does:**
+
 - For each species, reads only `*_ortho_1_to_1.csv` files (produced by Step 04, Run 3)
 - Splits rows by `kg_type` into Aging / Biomedical using the same classification logic as Run 1
 - Saves to `Aging_specific/{Species}/{relation}/` and `Biomedical/{Species}/{relation}/` as CSV
@@ -72,9 +74,10 @@ Every triple file from Step 02/03 carries a `kg_type` column with one of these v
 
 ### Run 3 — Split 1:1∪1:M ortholog files by `kg_type` (other species)
 
-📄 **Script**: [Run3_split_12M_121_comb_kg_by_type_otherspecies.py]
+📄 **Script**: [Run3_split_12M_121_comb_kg_by_type_otherspecies.py](https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/05_kg_construction/Run_4_making_species_associatedwith_connection/Run3_split_12M_121_comb_kg_by_type_otherspecies.py)
 
 **What it does:**
+
 - Identical logic to Run 2, but reads `*_ortho_1_to_one2one_plus_one2many.csv` files (produced by Step 04, Run 5)
 - Produces the Aging/Biomedical split for the broader ortholog mapping
 **Log file:** `_OTHER_SPECIES_KG_SPLIT_LOG.csv`
@@ -87,9 +90,10 @@ This run creates a new relation type: **`Species_AssociatedWith`**, which connec
 
 #### Run 4.1 — Species triples for the 1:1 ortholog KG
 
-📄 **Script**: [Run_4.1_make_species_triples_1_to_1.py]
+📄 **Script**: [Run_4.1_make_species_triples_1_to_1.py](https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/05_kg_construction/Run_4_making_species_associatedwith_connection/Run_4.1_1_to_1_ortholog/Run_4.1_make_species_triples_1_to_1.py)
 
 **What it does:**
+
 - Reads **all** Human generalised files + all `*_ortho_1_to_1.csv` files from other species
 - For each file, extracts `head_species → Species_AssociatedWith → head` and `tail_species → Species_AssociatedWith → tail` triples
 - Deduplicates across all files
@@ -99,9 +103,10 @@ This run creates a new relation type: **`Species_AssociatedWith`**, which connec
 
 #### Run 4.2 — Species triples for the 1:1∪1:M ortholog KG
 
-📄 **Script**: [Run_4.2_make_species_triples_combined121_12M.py]
+📄 **Script**: [Run_4.2_make_species_triples_combined121_12M.py](https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/05_kg_construction/Run_4_making_species_associatedwith_connection/Run_4.2_one2one_plus_one2many_ortholog/Run_4.2_make_species_triples_combined121_12M.py)
 
 **What it does:**
+
 - Same logic as Run 4.1, but reads `*_ortho_1_to_one2one_plus_one2many.csv` for other species
 - Produces species triples for the broader 1:1∪1:M KG
 

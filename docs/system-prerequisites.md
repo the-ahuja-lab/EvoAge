@@ -35,5 +35,6 @@ The raw data collected from 48+ external databases, together with the intermedia
 
 ### 2.4. Operating System Environment
 The pipeline relies on DGL, PyTorch, and CUDA drivers configured for Linux environments. The recommended systems are:
+
 - **Ubuntu 20.04+ LTS** for local high-performance workstations.
 - **RedHat Enterprise Linux (RHEL)** for execution on university or enterprise HPC cluster nodes.

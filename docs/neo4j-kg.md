@@ -8,6 +8,7 @@ This document describes how the EvoAge Neo4j graph was built, loaded, and mainta
 EvoAge is a multi-species aging knowledge graph integrating **48+ biomedical source databases** (DRKG, PrimeKG, Hetionet, Monarch, CKG, STRING, miRTarBase, DrugAge, GenAge, CellAge, AgingBank, AgeXtend, Aging Atlas, and others) across six species: **Human, Mouse, Zebrafish, Drosophila, *C. elegans*, and Yeast**.
 
 At current scale, the graph contains:
+
 - **~45M nodes**
 - **~1.2B+ relationships**
 - **16 node labels**
@@ -43,6 +44,7 @@ The graph is served by Neo4j (with the APOC plugin) running as a systemd service
 ### 2.2 Relationship types (~85)
 
 Relationships fall into two broad categories:
+
 - **Causal**: e.g. `Inhibits`, `Promotes`
 - **Associative**: e.g. `PositivelyAssociatedWithAging`, `NegativelyAssociatedWithAging`
 
@@ -259,6 +261,7 @@ EOF
 ```
 
 Design notes:
+
 - The `MERGE` clause lives in its own `.cypher` file (`$MERGE_FILE`) rather than being typed inline as a shell string — this avoids quote-escaping headaches for anything beyond a trivial one-line `MERGE`.
 - `CSV_BASE` is fixed per batch of files (e.g. one base dir per species or per data drop), so callers only pass the filename, not the full path — this cut down on path-typo errors across dozens of relation files.
 - The heredoc (`<<EOF ... EOF`) feeds the assembled Cypher directly to `cypher-shell` on stdin, avoiding an extra intermediate `.cypher` file per run.

@@ -38,18 +38,19 @@ sudo apt install -y neo4j
 neo4j --version
 ```
 ##### Set initial password BEFORE first start
-```
+```bash
 sudo neo4j-admin dbms set-initial-password <SET_YOUR_NEO4J_PASSWORD>
 ```
 
 ##### Start Neo4j
-```
+```bash
 sudo systemctl start neo4j
 sudo systemctl status neo4j
 ```
 
 ##### Test login
-```
+
+```cypher
 cypher-shell -u neo4j -p <'YOUR_NEO4J_PASSWORD'> "SHOW DATABASES;"
 ```
 ---
