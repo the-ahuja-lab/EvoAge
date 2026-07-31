@@ -1,0 +1,56 @@
+repos:
+  - repo: local
+    hooks:
+      - id: poetry-lock
+        name: Update poetry.lock
+        entry: poetry lock
+        language: system
+        pass_filenames: false
+        stages: [pre-commit]
+
+      - id: update-requirements
+        name: Update requirements.txt from poetry.lock
+        entry: poetry export --without-hashes -f requirements.txt -o requirements.txt
+        language: system
+        pass_filenames: false
+        stages: [pre-commit]
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    # Ruff version.
+    rev: v0.11.5
+    hooks:
+      # Run the linter.
+      - id: ruff
+        name: "Ruff Linter"
+        description: "Run ruff linter on Python files"
+        args: [ --fix, --verbose ]
+        types: [python]
+        # Only run on tracked files to avoid checking large directories
+        stages: [pre-commit]
+      # Run the formatter.
+      - id: ruff-format
+        name: "Ruff Formatter"
+        description: "Format Python files using ruff"
+        args: [ --verbose ]
+        types: [python]
+        # You can exclude specific directories
+        exclude: ^(venv/|docs/)
+        # Only run on tracked files to avoid checking large directories
+        stages: [pre-commit]
+
+  # You can add other useful hooks too:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+        name: "Trim trailing whitespace"
+        description: "Removes trailing whitespace from files"
+      - id: end-of-file-fixer
+        name: "End of file fixer"
+        description: "Makes sure files end with a newline"
+      - id: check-yaml
+        name: "Check YAML"
+        description: "Validates YAML syntax"
+      - id: check-toml
+        name: "Check TOML"
+        description: "Validates TOML syntax"
