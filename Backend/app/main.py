@@ -1,0 +1,118 @@
+import logging
+from contextlib import asynccontextmanager
+import uvicorn
+import redis.asyncio as redis
+from fastapi import Depends, FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi_limiter import FastAPILimiter
+from fastapi_limiter.depends import RateLimiter
+
+from app import (
+    auth_routes,
+    demo_routes,
+    model_routes,
+    routes,
+    user_routes,
+    utils_routes,
+    hypothesis_routes,
+)
+from app.utils.environment import CONFIG
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Startup logic
+    redis_host = CONFIG.REDIS.HOST
+    redis_port = CONFIG.REDIS.PORT
+    redis_user = CONFIG.REDIS.USERNAME
+    redis_password = CONFIG.REDIS.PASSWORD
+
+    if redis_user and redis_password:
+        redis_url = f"redis://{redis_user}:{redis_password}@{redis_host}:{redis_port}"
+    elif redis_password:  # Redis 7+ supports password-only auth
+        redis_url = f"redis://:{redis_password}@{redis_host}:{redis_port}"
+    else:
+        redis_url = f"redis://{redis_host}:{redis_port}"
+
+    redis_connection = redis.from_url(redis_url, encoding="utf-8")
+    await FastAPILimiter.init(redis_connection)
+
+    # Pre-warm the hypothesis pipeline's Neo4j driver + edge tensor at boot, same
+    # idea as the RESCAL model warm-up in model_routes.py -- both are already
+    # written as "load once into a module global", this just moves WHEN that
+    # first load happens from "on the first hypothesis request" to "at startup",
+    # so no user-facing request ever pays that cost.
+    startup_logger = logging.getLogger("uvicorn.error")
+    try:
+        hypothesis_routes._get_driver()
+        hypothesis_routes._get_graph()
+        startup_logger.info("Hypothesis pipeline: Neo4j + edge tensor pre-warmed")
+    except Exception as e:
+        startup_logger.error(f"Hypothesis pipeline pre-warm failed: {e}")
+
+    yield
+    # Shutdown logic (if any) can go here
+
+
+app = FastAPI(
+    title="Evo-KG API",
+    description="API for interacting with the Evo-KG knowledge graph using Neo4j",
+    lifespan=lifespan,
+)
+
+# ✅ define logger BEFORE using it
+logger = logging.getLogger("uvicorn.error")
+
+app.include_router(routes.router)
+app.include_router(auth_routes.router)
+app.include_router(user_routes.router)
+app.include_router(utils_routes.router)
+app.include_router(demo_routes.router) # Completely for testing purposes
+
+try:
+    app.include_router(hypothesis_routes.router)
+    logger.info("Hypothesis Routes included Successfully")
+except Exception as e:
+    logger.error(f"Error including Hypothesis routes: {e}")
+
+try:
+    app.include_router(model_routes.router)
+    logger.info("Model Routes included Successfully")
+except Exception as e:
+    logger.error(f"Error including Model Routes: {e}")
+
+# Allow CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+@app.get("/", dependencies=[Depends(RateLimiter(times=10, minutes=1))])
+async def read_root():
+    return {
+        "message": "Welcome to the Evo-KG API. Visit /docs for the API documentation.",
+    }
+
+
+if __name__ == "__main__":
+    # Ensure this runs from the project root (d:\neo4j-fastapi)
+    # Use command: python -m app.main
+    # Explanation:
+    # `python`: Invokes the Python interpreter.
+    # `-m`: Tells Python to load and run a module as a script.
+    # `app.main`: Specifies the module to run (looks for `app/__main__.py` or `app/main.py`).
+    # This approach ensures that Python adds the project root directory (`d:\neo4j-fastapi`)
+    # to the system path, allowing absolute imports within the `app` package (like `from app import routes`)
+    # to work correctly, regardless of where the command is run from (as long as `d:\neo4j-fastapi` is accessible).
+    # It executes the code within the `if __name__ == "__main__":` block below.
+    uvicorn.run(
+        "app.main:app",
+        host=CONFIG.UVICORN.HOST,
+        port=CONFIG.UVICORN.PORT,
+        workers=CONFIG.UVICORN.WORKERS,
+        reload=CONFIG.UVICORN.RELOAD_ON_CHANGE,
+    )
