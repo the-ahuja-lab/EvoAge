@@ -7,16 +7,16 @@ EvoAge is a comprehensive computational framework designed to accelerate discove
 - Age-related diseases  
 - Cross-species comparative research  
 
-It achieves this through a unified **1.04 billion–triples multi-species Knowledge Graph (KG)** built from **48 integrated public biomedical datasets**.
+It achieves this through a unified **1.2 billion–triples multi-species Knowledge Graph (KG)** built from **51 integrated public biomedical datasets**.
 
 ---
 
 ### Key Features
 
 #### 🧬 Multi-Species Knowledge Graph
-- Integrates 48 heterogeneous biomedical datasets.
-- Contains **1.04 billion triples**.
-- Reconciles **80,000+ genes** using a **human-centric orthology framework**.
+- Integrates 13 aging-focused resources, 37 general biomedical resources
+- Contains **1.2 billion triples**.
+- Reconciles **90,000+ genes** using a **human-centric orthology framework**.
 
 #### 🔮 AI & Machine Learning Integration
 - Operationalized using **Knowledge Graph Embedding (KGE)** models.
@@ -25,14 +25,10 @@ It achieves this through a unified **1.04 billion–triples multi-species Knowle
   - Hypothesis testing  
   - Biological plausibility assessment  
 
-#### 📈 Performance Highlights
-- Significantly outperforms general-purpose LLMs in evaluating biological plausibility.
-- Enables high-confidence predictions across species.
-
 ---
 
 ### Summary
-EvoAge provides a robust, AI-driven platform integrating massive biomedical knowledge with cutting-edge ML techniques, enabling transformative insights into aging and age-related diseases.
+EvoAge is an end-to-end framework that bridges multi-species knowledge integration and graph representation learning, powered by a multi-agent hypothesis engine to evaluate complex biological queries with Knowledge Graph–derived evidence.
 
 ---
 
@@ -44,7 +40,7 @@ The EvoAGE repository is organized into three primary functional components:
 |-------------------|-------------|
 | **Backend**       | Contains the core EvoAGE server logic. Handles API requests, manages interactions with Neo4j and Redis, and orchestrates Knowledge Graph Embedding (KGE) and LLM-based query workflows. |
 | **Frontend**      | The user-facing application (Streamlit). Provides an interactive interface for natural-language querying, visualization of predictions, and exploration of the EvoAGE Knowledge Graph. |
-| **EvoAGE_Training** | Includes all scripts, configurations, and utilities required for training, validating, and optimizing KGE models. Refer to the `README.md` inside this folder for detailed instructions. |
+| **pipeline**      | Includes all scripts, configurations, and utilities required for building the Knowledge Graph, training, validating, and optimizing KGE models, and experiments. Refer to the `README.md` inside this folder for detailed instructions. |
 
 
 
@@ -104,7 +100,7 @@ cypher-shell -u neo4j -p <'YOUR_NEO4J_PASSWORD'> "SHOW DATABASES;"
 
 ##### 1.2 Restore Database from a .dump File
 
-Neo4j must be stopped before restoring. You can get EvoAge_neo4j.dump file from https://zenodo.org/records/17711174
+Neo4j must be stopped before restoring. You can get EvoAge_neo4j.dump file from https://huggingface.co/datasets/gauravahuja77/EvoAge/tree/main
 
 ```
 sudo systemctl stop neo4j
