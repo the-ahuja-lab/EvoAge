@@ -409,7 +409,10 @@ hf download google/medgemma-27b-text-it \
 
 #### SGLang Server Setup & Deployment
 
-The script `run_medgemma.sh` configures the execution environment, sets up cache paths, activates the required Conda environment, and launches the MedGemma model using **SGLang** as a background service.
+Then run `run_medgemma.sh` which configures the execution environment, sets up log paths, activates the required Conda environment, and launches the MedGemma model using **SGLang** as a background service.
+```
+./run_medgemma.sh
+```
 
 #### What the Shell Script Does:
 
