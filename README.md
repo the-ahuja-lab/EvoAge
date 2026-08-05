@@ -1,7 +1,7 @@
 # Cross-Species Aging Knowledge Integration into Agentic AI Platform Uncovers Conserved Mechanisms
 
 
-### Overview
+### overview
 EvoAge is a comprehensive computational framework designed to accelerate discovery in:
 - Aging biology  
 - Age-related diseases  
