@@ -8,6 +8,9 @@ from fastapi import APIRouter, Depends, HTTPException, Query
 from app.utils.database import Neo4jConnection, get_neo4j_connection
 from app.utils.schema import (
     EntityRelationshipsResponse,
+    KGAggregateResponse,
+    KGStatisticsResponse,
+    RankedEntity,
     NodeConnection,
     NodeProperties,
     RelatedEntity,
@@ -588,6 +591,200 @@ async def get_entity_relationships(
         total_relationships=total_count,
         related_entities=related_entities,
     )
+
+@router.get(
+    "/kg_aggregate",
+    response_model=KGAggregateResponse,
+    description=(
+        "Rank entities by how many neighbours of a given type they have, computed "
+        "across the ENTIRE graph. Use for 'which disease has the most associated "
+        "genes', 'top 10 genes by number of biological processes', or 'how many "
+        "genes are associated with <entity>' (set entity_name and limit=1)."
+    ),
+    summary="Rank entities by neighbour count",
+    response_description="Entities ordered by neighbour count, highest first",
+    operation_id="get_kg_aggregate",
+)
+async def get_kg_aggregate(
+    source_label: str = Query(
+        ...,
+        description="Label of the entities being ranked (e.g. Disease, Gene, Protein)",
+    ),
+    target_label: Optional[str] = Query(
+        None,
+        description="Label of the neighbours being counted (e.g. Gene, BiologicalProcess)",
+    ),
+    rel_type: Optional[str] = Query(
+        None,
+        description="Restrict to one relationship type (e.g. Disease_Gene). Omit to count across all.",
+    ),
+    entity_name: Optional[str] = Query(
+        None,
+        description="Restrict to entities whose name contains this text, e.g. 'cellular senescence'",
+    ),
+    direction: str = Query(
+        "out",
+        pattern="^(out|in|both)$",
+        description=(
+            "Relationship direction from the ranked entity: 'out' (default), 'in', "
+            "or 'both'. Use 'both' only with an explicit rel_type -- it is far slower."
+        ),
+    ),
+    limit: int = Query(10, ge=1, le=100, description="How many entities to return"),
+    db: Neo4jConnection = Depends(get_neo4j_connection),
+):
+    """Rank source_label entities by their number of target_label neighbours.
+
+    This is a genuine aggregation over the graph, unlike the sampling endpoints.
+    It is therefore materially more expensive: ranking Disease by Gene traverses
+    ~13M relationships and takes ~17s. Aggregating over the PMID_* relationship
+    types (up to 300M edges) is far slower and should be avoided.
+    """
+    rel_pattern = f":`{rel_type}`" if rel_type else ""
+    target_pattern = f":`{target_label}`" if target_label else ""
+    where = "WHERE s.name_lower CONTAINS toLower($entity_name)" if entity_name else ""
+
+    # Direction matters enormously here. An undirected pattern expands every
+    # edge incident to the source label -- including PMID_* types with up to
+    # 300M edges -- before filtering on the target label. Measured on
+    # Disease/Gene: 731s undirected vs 17s directed, for identical results.
+    left, right = ("-", "->") if direction == "out" else (
+        ("<-", "-") if direction == "in" else ("-", "-")
+    )
+
+    query = f"""
+        MATCH (s:`{source_label}`){left}[r{rel_pattern}]{right}(t{target_pattern})
+        {where}
+        WITH s, count(DISTINCT t) AS neighbour_count
+        RETURN s.name AS name, s.id AS id, neighbour_count AS count
+        ORDER BY neighbour_count DESC
+        LIMIT $limit
+    """
+
+    try:
+        records = db.query(query, parameters={"limit": limit, "entity_name": entity_name})
+    except Exception as exc:  # noqa: BLE001 -- surface bad labels as a 400, not a 500
+        raise HTTPException(
+            status_code=400,
+            detail=f"Aggregation failed. Check the label and relationship names. ({exc})",
+        )
+
+    if not records:
+        raise HTTPException(
+            status_code=404,
+            detail=(
+                f"No '{source_label}' entities found"
+                + (f" matching '{entity_name}'" if entity_name else "")
+                + (f" connected to '{target_label}'" if target_label else "")
+            ),
+        )
+
+    logger.info(
+        "kg_aggregate: %s -> %s (rel=%s, name=%s) returned %d rows",
+        source_label, target_label, rel_type, entity_name, len(records),
+    )
+
+    return KGAggregateResponse(
+        source_label=source_label,
+        target_label=target_label,
+        relationship_type=rel_type,
+        total_ranked=len(records),
+        results=[
+            RankedEntity(name=r["name"], id=r["id"], count=int(r["count"]))
+            for r in records
+        ],
+    )
+
+
+@router.get(
+    "/kg_statistics",
+    response_model=KGStatisticsResponse,
+    description=(
+        "Count what the knowledge graph contains: total nodes and relationships, "
+        "how many node labels and relationship types exist, and the count for each "
+        "individual label and relationship type. Optionally filter to one label "
+        "and/or one relationship type."
+    ),
+    summary="Knowledge graph counts and statistics",
+    response_description="Returns totals plus per-label and per-relationship-type counts",
+    operation_id="get_kg_statistics",
+)
+async def get_kg_statistics(
+    label: Optional[str] = Query(
+        None,
+        description="Restrict node_counts to this label (e.g. Gene, Disease, Protein). Omit for all labels.",
+    ),
+    rel_type: Optional[str] = Query(
+        None,
+        description="Restrict relationship_counts to this type (e.g. Gene_Disease). Omit for all types.",
+    ),
+    db: Neo4jConnection = Depends(get_neo4j_connection),
+):
+    """Return node/relationship counts for the knowledge graph.
+
+    Uses apoc.meta.stats(), which reads Neo4j's internal count store rather than
+    scanning. This matters here: the graph holds ~45M nodes and ~1.2B
+    relationships, so a `MATCH (n) RETURN count(n)` would take minutes, while
+    this returns in milliseconds.
+    """
+    result = db.query(
+        "CALL apoc.meta.stats() YIELD nodeCount, relCount, labels, relTypesCount "
+        "RETURN nodeCount, relCount, labels, relTypesCount"
+    )
+
+    if not result:
+        raise HTTPException(
+            status_code=503,
+            detail="Could not read graph statistics. Check that the APOC plugin is installed.",
+        )
+
+    record = result[0]
+    node_counts = {k: int(v) for k, v in (record["labels"] or {}).items()}
+    relationship_counts = {k: int(v) for k, v in (record["relTypesCount"] or {}).items()}
+
+    # Label and type totals are reported before filtering, so the caller still
+    # learns how many exist overall even when asking about a single one.
+    node_label_count = len(node_counts)
+    relationship_type_count = len(relationship_counts)
+
+    if label:
+        matched = {k: v for k, v in node_counts.items() if k.lower() == label.lower()}
+        if not matched:
+            raise HTTPException(
+                status_code=404,
+                detail=f"No node label '{label}' in the knowledge graph. Available: {sorted(node_counts)}",
+            )
+        node_counts = matched
+        # Asking about one label should not return all 89 relationship counts;
+        # drop the other dimension unless it was asked for explicitly.
+        if not rel_type:
+            relationship_counts = {}
+
+    if rel_type:
+        matched = {k: v for k, v in relationship_counts.items() if k.lower() == rel_type.lower()}
+        if not matched:
+            raise HTTPException(
+                status_code=404,
+                detail=f"No relationship type '{rel_type}' in the knowledge graph.",
+            )
+        relationship_counts = matched
+        if not label:
+            node_counts = {}
+
+    logger.info(
+        "kg_statistics: %s nodes, %s relationships (label=%s, rel_type=%s)",
+        record["nodeCount"], record["relCount"], label, rel_type,
+    )
+
+    return KGStatisticsResponse(
+        total_nodes=int(record["nodeCount"]),
+        total_relationships=int(record["relCount"]),
+        node_label_count=node_label_count,
+        relationship_type_count=relationship_type_count,
+        node_counts=node_counts,
+        relationship_counts=relationship_counts,
+    )
+
 
 ## 120726
 @router.get(

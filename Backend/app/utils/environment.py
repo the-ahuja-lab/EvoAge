@@ -1,4 +1,5 @@
 # Packages and functions for loading environment variables
+import os
 from typing import Optional
 
 from dotenv import find_dotenv, load_dotenv
@@ -79,15 +80,22 @@ class MailConfig(BaseSettings):
 #     class Config:
 #         env_prefix = "ADMIN_"
 
+# Root of the model artifacts. Defaults to where the Dockerfile places
+# Backend/, so a container needs no path variables at all; a host checkout
+# overrides it from .env, where the paths are absolute host paths.
+# Override the whole tree at once with DGL_BASE_DIR.
+DGL_BASE = os.getenv("DGL_BASE_DIR", "/app/backend/DGL-EvoKG")
+
+
 class DGLConfig(BaseSettings):
-    # Required (no defaults → must be in .env)
-    NODE_MAPPINGS_PATH: str
-    MODEL_PATH: str
-    ENT_DICT_PATH: str
-    REL_DICT_PATH: str
-    DGLKE_INPUT_DIR: str
-    DGLKE_DUMMY_HEAD_LIST: str
-    DGLKE_DUMMY_REL_LIST: str
+    # Defaults resolve inside the container; .env overrides them on a host.
+    NODE_MAPPINGS_PATH: str = f"{DGL_BASE}/Node_Mapping/node_id_mapping_EvoAge_121_12M.pkl"
+    MODEL_PATH: str = f"{DGL_BASE}/Model/RESCAL_Evoage_121_12M_0"
+    ENT_DICT_PATH: str = f"{DGL_BASE}/Model/entities_final_Ntype_updated.dict"
+    REL_DICT_PATH: str = f"{DGL_BASE}/Model/relation_final.dict"
+    DGLKE_INPUT_DIR: str = f"{DGL_BASE}/Input"
+    DGLKE_DUMMY_HEAD_LIST: str = f"{DGL_BASE}/Dummy_Input/head.list"
+    DGLKE_DUMMY_REL_LIST: str = f"{DGL_BASE}/Dummy_Input/rel.list"
 
     # Optional (recommended)
     DGLKE_DEVICE: int = 0
@@ -98,19 +106,20 @@ class DGLConfig(BaseSettings):
         # extra = "ignore"  # (optional) ignore unexpected vars
 
 class HypothesisConfig(BaseSettings):
-    INPUT_DIR_HYPOTHESIS: str = "/app/backend/DGL-EvoKG/HypothesisTesting/InputHypothesis"
+    # Same convention as DGLConfig: defaults resolve inside the container,
+    # .env overrides them on a host checkout.
+    INPUT_DIR_HYPOTHESIS: str = f"{DGL_BASE}/HypothesisTesting/InputHypothesis"
     API_BASE: str = "http://localhost:1026"
     DEFAULT_ENTITY_PROP: str = "id"
-    CUTOFF_FILE_NAME: str
-    HYPOTHESIS_ENT_DICT_PATH: str
-    HYPOTHESIS_TRIPLE_OUTPUT_DIR: str
-    EDGE_TENSOR_PATH: str
+    CUTOFF_FILE_NAME: str = f"{DGL_BASE}/HypothesisTesting/Cutoff/relation_cutoff_summary.csv"
+    HYPOTHESIS_ENT_DICT_PATH: str = f"{DGL_BASE}/HypothesisTesting/Model/entities_final_Ntype_updated.dict"
+    HYPOTHESIS_TRIPLE_OUTPUT_DIR: str = f"{DGL_BASE}/HypothesisTesting/JSONResult"
+    EDGE_TENSOR_PATH: str = f"{DGL_BASE}/HypothesisTesting/Model/EvoAge_121_12M_to_many_KG.pt"
     # Single-row CSV of RESCAL score percentiles (p0..p100) over ALL ground-truth
-    # triples in the graph -- not per-relation like CUTOFF_FILE_NAME. Defaults to
-    # the file living alongside relation_cutoff_summary.csv in the same Cutoff/ dir.
+    # triples in the graph -- not per-relation like CUTOFF_FILE_NAME. Lives
+    # alongside relation_cutoff_summary.csv in the same Cutoff/ dir.
     GLOBAL_SCORE_PERCENTILES_FILE: str = (
-        "/storage/Arushi/EvoAge-backend_3/Backend/DGL-EvoKG/HypothesisTesting/"
-        "Cutoff/GLOBAL_GT_score_percentiles.csv"
+        f"{DGL_BASE}/HypothesisTesting/Cutoff/GLOBAL_GT_score_percentiles.csv"
     )
     class Config:
         env_prefix = ""   # read env vars exactly as named in .env
@@ -127,14 +136,14 @@ class GoogleGeminiConfig(BaseSettings):
     GEMINI_MODEL: str = "gemini-1.5-flash"
 
     # LLM backend switch for the hypothesis pipeline: "gemini" (default) or
-    # "medgemma" -- routes every filter/agent/judge call to whichever is set,
-    # without touching the Gemini code path at all.
+    # "medgemma" -- routes every filter/agent/judge call to whichever is set.
     USE: str = "gemini"
     MEDGEMMA_BASE_URL: str = "http://localhost:30001/v1"
     MEDGEMMA_MODEL: str = "medgemma-27b-local"
 
     class Config:
         env_prefix = ""   # read env vars exactly as named in .env
+
 
 class CONFIG:
     UVICORN = UvicornConfig()

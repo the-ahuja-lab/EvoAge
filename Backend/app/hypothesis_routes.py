@@ -16,7 +16,6 @@ STATE DISCIPLINE (the thing that makes this different from the notebook):
 
 from __future__ import annotations
 
-import asyncio
 import csv
 import json
 import logging
@@ -32,7 +31,6 @@ from threading import Lock
 from typing import Any, Dict, List, Optional, Tuple
 from neo4j import GraphDatabase
 
-import httpx
 import numpy as np
 import pandas as pd
 import requests
@@ -83,7 +81,6 @@ OUTPUT_DIR               = Path(CONFIG.HYPOTHESIS.HYPOTHESIS_TRIPLE_OUTPUT_DIR)
 API_BASE            = CONFIG.HYPOTHESIS.API_BASE
 DEFAULT_ENTITY_PROP = CONFIG.HYPOTHESIS.DEFAULT_ENTITY_PROP
 SEARCH_URL = f"{API_BASE}/search_biological_entities"
-CHECK_URL  = f"{API_BASE}/check_relationship"
 
 NEO4J_URI  = CONFIG.NEO4J.URI
 NEO4J_AUTH = (CONFIG.NEO4J.USERNAME, CONFIG.NEO4J.PASSWORD)
@@ -97,9 +94,7 @@ _KEY_CYCLE = cycle(ALL_KEYS)
 _KEY_LOCK = Lock()
 
 # LLM backend switch -- CONFIG.GEMINI.USE = "gemini" (default) or "medgemma".
-# Set USE=medgemma in .env to route every filter/agent/judge call to a locally
-# hosted MedGemma (or any OpenAI-compatible server) instead, with zero changes
-# to the Gemini code path itself.
+# Set USE=medgemma in .env to route filter/agent/judge calls.
 LLM_PROVIDER = CONFIG.GEMINI.USE
 MEDGEMMA_BASE_URL = CONFIG.GEMINI.MEDGEMMA_BASE_URL
 MEDGEMMA_MODEL = CONFIG.GEMINI.MEDGEMMA_MODEL
@@ -129,8 +124,7 @@ def get_next_key() -> str:
 
 def _gemini(system_prompt: str, payload: str, temperature: float = 0.0,
            schema: Optional[type] = None, max_tokens: int = 3072) -> Dict[str, Any]:
-    """Dispatches to Gemini or MedGemma per CONFIG.GEMINI.USE. `schema` and
-    `max_tokens` only affect the MedGemma path -- Gemini ignores both."""
+    """Dispatches to Gemini or MedGemma per CONFIG.GEMINI.USE."""
     return call_llm_json(
         provider=LLM_PROVIDER,
         system_prompt=system_prompt, payload_text=payload,
@@ -139,6 +133,7 @@ def _gemini(system_prompt: str, payload: str, temperature: float = 0.0,
         medgemma_base_url=MEDGEMMA_BASE_URL, medgemma_model=MEDGEMMA_MODEL,
         temperature=temperature, schema=schema, max_tokens=max_tokens,
     )
+
 
 
 # =============================================================================
@@ -652,69 +647,80 @@ def collapse_signed_variants(scored_rows):
 
 
 # =============================================================================
-# 3 · SIGN-AWARE in-KG CHECK  (async, pair-deduped)
+# 3 · SIGN-AWARE in-KG CHECK  (direct cypher, pair-deduped)
 # =============================================================================
 
-async def _check_one(ac, head_type, head_id, tail_type, tail_id,
-                     prop=DEFAULT_ENTITY_PROP, timeout=20.0):
-    ht, tt = canon_label(head_type), canon_label(tail_type)
-    params = {
-        "entity1_type": ht, "entity1_property_name": prop,
-        "entity1_property_value": str(head_id),
-        "entity2_type": tt, "entity2_property_name": prop,
-        "entity2_property_value": str(tail_id),
-    }
-    key = (str(head_id), str(tail_id), f"{ht}_{tt}".lower())
-    try:
-        r = await ac.get(CHECK_URL, params=params, timeout=timeout)
-        if r.status_code == 200:
-            d = r.json() or {}
-            types = d.get("relationship_types")
-            if types is None:                       # old backend: single arbitrary type
-                rt = d.get("relationship_type")
-                types = [rt] if rt else []
-            return key, {"kg_rel_types": [str(x) for x in types if x],
-                         "check_failed": False}
-    except Exception:
-        pass
-    # Fail-closed BUT FLAGGED. An empty list from a network error looks identical to
-    # "no edge exists" -> would fabricate a novel finding. Never let that happen silently.
-    return key, {"kg_rel_types": [], "check_failed": True}
+def _safe_prop(prop: str) -> str:
+    """Guard against Cypher injection -- property names cannot be parameterised."""
+    if not re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", str(prop)):
+        raise ValueError(f"Refusing unsafe property name: {prop}")
+    return str(prop)
 
 
-async def _check_all(triples, max_concurrency: int = 60):
-    # The endpoint takes no relation param, so every relation variant between the same
-    # two nodes sends a byte-identical request. Collapse to unique pairs first.
+def _check_relationships(triples, prop: str = DEFAULT_ENTITY_PROP):
+    """Sign-aware in-KG check, asked of Neo4j directly.
+
+    Byte-identical question to GET /check_relationship (which the chatbot still
+    uses for a single A-B lookup) -- same Cypher, both bound by the `id` index --
+    but asked in-process over ONE reused session instead of over HTTP.
+
+    The pipeline used to fan out one HTTP GET per pair back into our OWN uvicorn.
+    That endpoint is `async def` wrapped around the BLOCKING neo4j driver, so each
+    request held the event loop for its entire query; a few hundred of them
+    serialised onto a single thread and blew the 20s client timeout. That is why a
+    300-pair hypothesis came back as a wall of 6_CHECK_FAILED while a 65-triple
+    one passed clean -- the cliff was the timeout, never Neo4j, which answers each
+    of these pairs in ~2-4ms. Removing the HTTP hop removes the only thing that
+    could time out, so this stays correct at 10 pairs and at 300.
+
+    Kept as one query per pair on purpose: batching them into a single UNWIND
+    measured ~2000x SLOWER (93s for 41 pairs vs 172ms), because the planner will
+    not use the `id` index for a property compared against an UNWIND row.
+
+    Returns {(head_id, tail_id, "headlabel_taillabel"): {kg_rel_types, check_failed}}.
+    """
+    # The check takes no relation param, so every relation variant between the same
+    # two nodes asks the identical question. Collapse to unique pairs first.
     unique_pairs = {}
     for t in triples:
         ht, tt = canon_label(t["head_type"]), canon_label(t["tail_type"])
         key = (str(t["head_id"]), str(t["tail_id"]), f"{ht}_{tt}".lower())
         if key not in unique_pairs:
-            unique_pairs[key] = (t["head_type"], t["head_id"],
-                                 t["tail_type"], t["tail_id"])
+            unique_pairs[key] = (ht, tt, str(t["head_id"]), str(t["tail_id"]))
 
     logger.info("KG check: %d triples -> %d unique pairs", len(triples), len(unique_pairs))
 
-    lim = asyncio.Semaphore(max_concurrency)
-    limits = httpx.Limits(max_connections=max_concurrency,
-                          max_keepalive_connections=max_concurrency)
-    async with httpx.AsyncClient(limits=limits, timeout=20.0) as ac:
-        async def task(args):
-            async with lim:
-                return await _check_one(ac, *args)
-        results = await asyncio.gather(*[task(a) for a in unique_pairs.values()])
-    return dict(results)
+    p = _safe_prop(prop)
+    out = {key: {"kg_rel_types": [], "check_failed": False} for key in unique_pairs}
+    t0 = time.time()
 
+    # One session for the whole sweep -- per-pair sessions would add a round trip
+    # of setup to every check for no benefit.
+    with _get_driver().session() as sess:
+        for key, (ht, tt, h_id, t_id) in unique_pairs.items():
+            try:
+                q = f"""
+                MATCH (e1:`{safe_label(ht)}`)-[r]-(e2:`{safe_label(tt)}`)
+                WHERE e1.`{p}` = $h AND e2.`{p}` = $t
+                RETURN collect(DISTINCT type(r)) AS rel_types
+                """
+                rows = [r.data() for r in sess.run(q, h=h_id, t=t_id)]
+            except Exception as e:
+                # Fail-closed BUT FLAGGED. An empty list from a failed query looks
+                # identical to "no edge exists" -> would fabricate a novel finding.
+                # Never let that happen silently.
+                logger.warning("KG check failed for %s/%s %s-%s (%s): %s",
+                               ht, tt, h_id, t_id, type(e).__name__, e)
+                out[key]["check_failed"] = True
+                continue
 
-def _check_relationships(triples, max_concurrency: int = 60):
-    try:
-        return asyncio.run(_check_all(triples, max_concurrency))
-    except RuntimeError:                    # already inside a loop
-        loop = asyncio.new_event_loop()
-        try:
-            return loop.run_until_complete(_check_all(triples, max_concurrency))
-        finally:
-            loop.close()
+            # collect() always yields exactly one row -- an empty list when there
+            # is no edge, which is a genuine "no edge", not a failure.
+            types = (rows[0].get("rel_types") if rows else []) or []
+            out[key]["kg_rel_types"] = [str(x) for x in types if x]
+
+    logger.info("KG check: %d pairs resolved in %.2fs", len(unique_pairs), time.time() - t0)
+    return out
 
 
 def _bucket_name(r: dict) -> str:
@@ -748,11 +754,11 @@ def attach_kg_state(rows_collapsed, triples):
         type_index[(str(t["head_id"]), str(t["relation"]), str(t["tail_id"]))] = (
             canon_label(t["head_type"]), canon_label(t["tail_type"]))
 
-    kg_map = _check_relationships(triples, max_concurrency=60)
+    kg_map = _check_relationships(triples)
 
     n_failed = sum(1 for v in kg_map.values() if v.get("check_failed"))
     if n_failed:
-        logger.warning("%d KG checks failed (network/HTTP) -- flagged, excluded from novel",
+        logger.warning("%d KG checks failed (cypher) -- flagged, excluded from novel",
                        n_failed)
 
     for r in rows_collapsed:

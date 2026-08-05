@@ -55,3 +55,40 @@ class EntityRelationshipsResponse(BaseModel):
 class RelationCheckResponse(BaseModel):
     exists: bool
     relationship_type: Optional[str] = None
+
+
+class RankedEntity(BaseModel):
+    name: Optional[str] = None
+    id: Optional[str] = None
+    count: int
+
+
+class KGAggregateResponse(BaseModel):
+    """Ranked neighbour counts, computed over the whole graph.
+
+    Exists so that "which X has the most Y" and "how many Y does X have" are
+    answered by an aggregation in the database rather than by sampling a few
+    nodes and comparing them, which silently returns the maximum of the sample
+    instead of the maximum of the graph.
+    """
+
+    source_label: str
+    target_label: Optional[str] = None
+    relationship_type: Optional[str] = None
+    total_ranked: int
+    results: List[RankedEntity]
+
+
+class KGStatisticsResponse(BaseModel):
+    """Counts of what the knowledge graph contains.
+
+    Populated from the Neo4j count store, so it is accurate and cheap to compute
+    regardless of graph size.
+    """
+
+    total_nodes: int
+    total_relationships: int
+    node_label_count: int
+    relationship_type_count: int
+    node_counts: Dict[str, int]
+    relationship_counts: Dict[str, int]

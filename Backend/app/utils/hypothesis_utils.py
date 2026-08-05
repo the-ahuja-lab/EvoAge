@@ -381,6 +381,19 @@ def _get_openai_client(base_url: str) -> "OpenAI":
     return _OPENAI_CLIENTS[base_url]
 
 
+def extract_json_payload(s: str) -> str:
+    """Strips <think> tags, markdown code fences, and isolates JSON objects/arrays."""
+    s = (s or "").strip()
+    s = re.sub(r"<think>[\s\S]*?</think>", "", s, flags=re.IGNORECASE).strip()
+    s = strip_code_fences(s).strip()
+    if s.startswith("{") or s.startswith("["):
+        return s
+    match = re.search(r"(\{[\s\S]*\}|\[[\s\S]*\])", s)
+    if match:
+        return match.group(1).strip()
+    return s
+
+
 def call_medgemma_json(
     system_prompt: str,
     payload_text: str,
@@ -393,7 +406,7 @@ def call_medgemma_json(
 ) -> Dict[str, Any]:
     """Same call contract as call_gemini_json: returns the parsed dict, or
     {"_error"/"_parse_error": ...} -- never raises. `schema` (a pydantic model)
-    enables SGLang/vLLM-style constrained JSON decoding when supported."""
+    enables SGLang/vLLM/OpenAI-style constrained JSON decoding when supported."""
     client = _get_openai_client(base_url)
     kwargs = dict(
         model=model_name,
@@ -414,17 +427,24 @@ def call_medgemma_json(
     for _ in range(max(1, retries)):
         try:
             resp = client.chat.completions.create(**kwargs)
-            raw = strip_code_fences(resp.choices[0].message.content or "")
-            # NOT try_parse_json here -- it swallows every exception internally
-            # (returns None on any failure), which throws away exactly the
-            # json.JSONDecodeError detail needed to tell "truncated mid-object"
-            # (generation hit max_tokens before the JSON closed) apart from
-            # "didn't attempt JSON at all". Calling json.loads directly keeps
-            # that error live for the except clause below.
+            msg = resp.choices[0].message
+            raw = getattr(msg, "content", None) or getattr(msg, "reasoning_content", None) or getattr(msg, "reasoning", None) or ""
+            raw = extract_json_payload(raw)
+
+            if not raw and "response_format" in kwargs:
+                # API proxy (e.g. OpenCode AI) may drop content when response_format is passed; retry without it
+                kwargs_no_fmt = {k: v for k, v in kwargs.items() if k != "response_format"}
+                resp = client.chat.completions.create(**kwargs_no_fmt)
+                msg = resp.choices[0].message
+                raw = getattr(msg, "content", None) or getattr(msg, "reasoning_content", None) or getattr(msg, "reasoning", None) or ""
+                raw = extract_json_payload(raw)
+
             if not (raw.startswith("{") or raw.startswith("[")):
                 return {"_parse_error": "model did not return JSON", "raw_text": raw[:2000]}
             parsed = json.loads(raw)
             return parsed
+
+
         except openai.BadRequestError as e:
             # malformed request (bad schema, model rejects a param) -- retrying won't help
             return {"_error": f"400: {str(e)[:300]}"}
@@ -438,7 +458,7 @@ def call_medgemma_json(
                    "raw_text": raw[-3000:], "raw_text_len": len(raw)}
         except Exception as e:
             last_err = e
-            logger.warning("medgemma call failed (%s); retrying", type(e).__name__)
+            logger.warning("local/openai llm call failed (%s); retrying", type(e).__name__)
             time.sleep(1.0)
             continue
     return {"_error": str(last_err)}
@@ -457,15 +477,15 @@ def call_llm_json(
     schema: Optional[type] = None,
     max_tokens: int = 3072,
 ) -> Dict[str, Any]:
-    """Dispatch to whichever LLM backend CONFIG.GEMINI.USE selects. Callers pass
-    both providers' settings; only the active one is actually used. `max_tokens`
-    only affects the MedGemma path -- Gemini has no output cap set here."""
-    if str(provider).strip().lower() == "medgemma":
+    """Dispatch to whichever LLM backend CONFIG.GEMINI.USE selects ("gemini" or "medgemma")."""
+    p = str(provider).strip().lower()
+    if p == "medgemma":
         return call_medgemma_json(system_prompt, payload_text, medgemma_base_url,
                                   medgemma_model, temperature=temperature, schema=schema,
                                   max_tokens=max_tokens)
     return call_gemini_json(system_prompt, payload_text, key_provider, n_keys,
                             gemini_model, temperature=temperature)
+
 
 
 _ID_RE = re.compile(r'\bE\d{3,4}\b')   # E### / E#### ; won't match E2F1 or vitamin E
