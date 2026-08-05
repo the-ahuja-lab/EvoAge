@@ -302,7 +302,7 @@ http://localhost:8501
 If hosting on a remote machine, replace `localhost` with your server’s public IP.
 
 ---
-## 4. Backend Setup (FastAPI + Gunicorn + DGL-KE)
+## 4. Backend Setup (FastAPI + Gunicorn + DGL-KE+ medgemma)
 
 The EvoAge backend provides REST APIs for querying the Knowledge Graph, running inference using trained KGE models, and interfacing with the frontend.
 
@@ -374,3 +374,54 @@ http://localhost:1026
 Or via remote server:
 ```bash
 http://<SERVER_IP>:1026
+```
+
+---
+
+### 4.6 Running MedGemma Model
+
+The EvoAge backend uses MedGemma, you can download the **MedGemma** 27B model from Hugging Face and deploy it locally using **SGLang**.Create a dedicated Conda environment for serving LLMs with SGLang.
+
+
+```bash
+# Create and activate a new Conda environment
+conda create -n sglang python=3.11 -y
+conda activate sglang
+
+# Upgrade pip
+pip install --upgrade pip
+
+# Install a fixed SGLang version
+pip install "sglang[all]==0.5.15.post1"
+
+```
+---
+#### Model Download Setup
+
+```bash
+hf download google/medgemma-27b-text-it \
+  --local-dir ./medgemma-27b-local \
+  --token YOUR_HF_READ_TOKEN \
+  --max-workers 4
+```
+
+---
+
+#### SGLang Server Setup & Deployment
+
+The script `run_medgemma.sh` configures the execution environment, sets up cache paths, activates the required Conda environment, and launches the MedGemma model using **SGLang** as a background service.
+
+#### What the Shell Script Does:
+
+1. **Environment Setup:** Sets temporary directory variables (`TMPDIR`, `TEMP`, `TMP`), CUDA/Triton/Torch cache paths, and library path exports to avoid disk space issues and caching conflicts.
+2. **Conda Activation:** Initializes Conda and activates the target environment (`sglang`).
+3. **Log Directory Creation:** Automatically creates a `logs/` directory in the current working script location.
+4. **Server Launch via SGLang:**
+* Launches `sglang.launch_server` in the background using `nohup`.
+* Binds to host `0.0.0.0` on port `30001`.
+* Allocates `90%` static GPU memory (`--mem-fraction-static 0.9`).
+* Sets a maximum context length of `32,000` tokens and a chunked prefill size of `2,048`.
+* Configures the schedule policy to `lpm` (Longest Prefix Match).
+* Redirects stdout and stderr outputs to `logs/medgemma_port30001.log`.
+
+
