@@ -1,0 +1,16 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+444679,chemicalentity_protein,P25340,-0.2531181871891022,-0.3552259656009227,ACCEPT,ergosterol,Delta(24(24(1)))-sterol reductase ERG4 {ECO:0000303|PubMed:8125337},[],False,False,False,False,
+P25340,protein_cellularcomponent,GO:0016020,-1.190434217453003,-0.143767219171222,REJECT,Delta(24(24(1)))-sterol reductase ERG4 {ECO:0000303|PubMed:8125337},membrane,[],False,False,False,False,
+P25340,protein_cellularcomponent,GO:0048475,-2.7180228233337402,-0.143767219171222,REJECT,Delta(24(24(1)))-sterol reductase ERG4 {ECO:0000303|PubMed:8125337},coated membrane,[],False,False,False,False,
+P25340,protein_cellularcomponent,GO:0055036,-0.8794159889221191,-0.143767219171222,REJECT,Delta(24(24(1)))-sterol reductase ERG4 {ECO:0000303|PubMed:8125337},virion membrane,[],False,False,False,False,
+P25340,protein_cellularcomponent,GO:0085039,-0.5898043513298035,-0.143767219171222,REJECT,Delta(24(24(1)))-sterol reductase ERG4 {ECO:0000303|PubMed:8125337},hyphal membrane,[],False,False,False,False,
+GO:0016020,cellularcomponent_chemicalentity,444679,-0.2548925578594208,-0.1936719522778712,REJECT,membrane,ergosterol,[],False,False,False,False,
+GO:0016020,cellularcomponent_cellularcomponent,GO:0048475,-2.830221546901157e-06,-0.0349261329401597,ACCEPT,membrane,coated membrane,['CellularComponent_CellularComponent'],False,True,True,False,CellularComponent_CellularComponent
+GO:0016020,cellularcomponent_cellularcomponent,GO:0055036,-0.07336404174566269,-0.0349261329401597,REJECT,membrane,virion membrane,['CellularComponent_CellularComponent'],False,True,True,False,CellularComponent_CellularComponent
+GO:0016020,cellularcomponent_cellularcomponent,GO:0085039,-0.11789511144161224,-0.0349261329401597,REJECT,membrane,hyphal membrane,[],False,False,False,False,
+GO:0048475,cellularcomponent_chemicalentity,444679,-0.1622328758239746,-0.1936719522778712,ACCEPT,coated membrane,ergosterol,[],False,False,False,False,
+GO:0048475,cellularcomponent_cellularcomponent,GO:0055036,-0.06509959697723389,-0.0349261329401597,REJECT,coated membrane,virion membrane,[],False,False,False,False,
+GO:0048475,cellularcomponent_cellularcomponent,GO:0085039,-0.08915561437606812,-0.0349261329401597,REJECT,coated membrane,hyphal membrane,[],False,False,False,False,
+GO:0055036,cellularcomponent_chemicalentity,444679,-0.8845759630203247,-0.1936719522778712,REJECT,virion membrane,ergosterol,[],False,False,False,False,
+GO:0055036,cellularcomponent_cellularcomponent,GO:0085039,-0.7972045540809631,-0.0349261329401597,REJECT,virion membrane,hyphal membrane,[],False,False,False,False,
+GO:0085039,cellularcomponent_chemicalentity,444679,-1.0818474292755127,-0.1936719522778712,REJECT,hyphal membrane,ergosterol,[],False,False,False,False,

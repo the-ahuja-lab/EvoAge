@@ -1,0 +1,8 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type,n_variants_considered,variant_scores
+YIR031C,gene_protein,Q10663,-0.1355418562889099,-0.0280984394514378,REJECT,malate synthase DAL7,Malate synthase,[],False,False,False,False,,,
+YIR031C,gene_protein,D4GTL2,-0.07888174057006836,-0.0280984394514378,REJECT,malate synthase DAL7,Malate synthase,[],False,False,False,False,,,
+YIR031C,gene_biologicalprocess,GO:0070370,-0.06342393159866333,-0.0356325677219588,REJECT,malate synthase DAL7,cellular heat acclimation,[],False,False,False,False,,,
+YIR031C,gene_positivelyassociatedwith_biologicalprocess,GO:0070370,-0.40156593918800354,-0.0730086550790463,REJECT,malate synthase DAL7,cellular heat acclimation,[],False,False,False,False,,5.0,"{'gene_inhibits_biologicalprocess': -0.4574, 'gene_promotes_biologicalprocess': -0.409, 'gene_negativelyassociatedwith_biologicalprocess': -0.6479, 'gene_positivelyassociatedwith_biologicalprocess': -0.4016, 'gene_notassociatedwith_biologicalprocess': -0.4524}"
+Q10663,protein_protein,D4GTL2,-0.7121164798736572,-0.2036837140803804,REJECT,Malate synthase,Malate synthase,[],False,False,False,False,,,
+Q10663,protein_biologicalprocess,GO:0070370,-0.18918955326080322,-0.5776643345681309,ACCEPT,Malate synthase,cellular heat acclimation,[],False,False,False,False,,,
+D4GTL2,protein_biologicalprocess,GO:0070370,-0.28541916608810425,-0.5776643345681309,ACCEPT,Malate synthase,cellular heat acclimation,[],False,False,False,False,,,

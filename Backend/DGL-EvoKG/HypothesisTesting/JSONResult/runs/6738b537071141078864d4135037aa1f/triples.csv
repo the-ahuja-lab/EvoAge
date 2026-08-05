@@ -1,0 +1,7 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+YNR072W,gene_protein,P53631,-0.16732624173164368,-0.0280984394514378,REJECT,hexose transporter HXT17,Hexose transporter HXT17,[],False,False,False,False,
+YNR072W,gene_molecularfunction,GO:0015166,-0.04290149360895157,-0.0286995250249342,REJECT,hexose transporter HXT17,polyol transmembrane transporter activity,[],False,False,False,False,
+YNR072W,gene_phenotype,increased pulse pressure,-0.09631823003292084,-0.0347684314162952,REJECT,hexose transporter HXT17,increased pulse pressure,[],False,False,False,False,
+P53631,protein_molecularfunction,GO:0015166,-0.7105134129524231,-0.5690634813738988,REJECT,Hexose transporter HXT17,polyol transmembrane transporter activity,[],False,False,False,False,
+P53631,protein_phenotype,increased pulse pressure,-0.6699488162994385,-0.0497034494975703,REJECT,Hexose transporter HXT17,increased pulse pressure,[],False,False,False,False,
+increased pulse pressure,phenotype_molecularfunction,GO:0015166,-0.4402802586555481,-0.4457983972888497,ACCEPT,increased pulse pressure,polyol transmembrane transporter activity,[],False,False,False,False,

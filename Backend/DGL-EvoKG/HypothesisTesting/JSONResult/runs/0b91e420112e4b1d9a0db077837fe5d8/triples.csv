@@ -1,0 +1,16 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+GO:0006970,biologicalprocess_biologicalprocess,GO:0071470,-0.0016205357387661934,-0.0422867482620858,ACCEPT,response to osmotic stress,cellular response to osmotic stress,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess
+GO:0006970,biologicalprocess_biologicalprocess,GO:0006730,-0.0007155046914704144,-0.0422867482620858,ACCEPT,response to osmotic stress,one-carbon metabolic process,[],False,False,False,False,
+GO:0006970,biologicalprocess_biologicalprocess,GO:0018885,-0.024646325036883354,-0.0422867482620858,ACCEPT,response to osmotic stress,carbon tetrachloride metabolic process,[],False,False,False,False,
+GO:0006970,biologicalprocess_protein,D3VVE9,-0.19637660682201385,-0.4342587681103441,ACCEPT,response to osmotic stress,Truncated tumor suppressor protein P16 {ECO:0000313|EMBL:ACY78326.1},[],False,False,False,False,
+GO:0006970,biologicalprocess_protein,Q5STF9,-0.6551001667976379,-0.4342587681103441,REJECT,response to osmotic stress,Ribonuclease P protein subunit p21,[],False,False,False,False,
+GO:0071470,biologicalprocess_biologicalprocess,GO:0006730,-0.0026289960369467735,-0.0422867482620858,ACCEPT,cellular response to osmotic stress,one-carbon metabolic process,[],False,False,False,False,
+GO:0071470,biologicalprocess_biologicalprocess,GO:0018885,-0.048922035843133926,-0.0422867482620858,REJECT,cellular response to osmotic stress,carbon tetrachloride metabolic process,[],False,False,False,False,
+GO:0071470,biologicalprocess_protein,D3VVE9,-0.31212759017944336,-0.4342587681103441,ACCEPT,cellular response to osmotic stress,Truncated tumor suppressor protein P16 {ECO:0000313|EMBL:ACY78326.1},[],False,False,False,False,
+GO:0071470,biologicalprocess_protein,Q5STF9,-0.7320581078529358,-0.4342587681103441,REJECT,cellular response to osmotic stress,Ribonuclease P protein subunit p21,[],False,False,False,False,
+GO:0006730,biologicalprocess_biologicalprocess,GO:0018885,-0.03358922898769379,-0.0422867482620858,ACCEPT,one-carbon metabolic process,carbon tetrachloride metabolic process,[],False,False,False,False,
+GO:0006730,biologicalprocess_protein,D3VVE9,-0.2646288573741913,-0.4342587681103441,ACCEPT,one-carbon metabolic process,Truncated tumor suppressor protein P16 {ECO:0000313|EMBL:ACY78326.1},[],False,False,False,False,
+GO:0006730,biologicalprocess_protein,Q5STF9,-0.7455799579620361,-0.4342587681103441,REJECT,one-carbon metabolic process,Ribonuclease P protein subunit p21,[],False,False,False,False,
+GO:0018885,biologicalprocess_protein,D3VVE9,-0.5669475197792053,-0.4342587681103441,REJECT,carbon tetrachloride metabolic process,Truncated tumor suppressor protein P16 {ECO:0000313|EMBL:ACY78326.1},[],False,False,False,False,
+GO:0018885,biologicalprocess_protein,Q5STF9,-0.6273398995399475,-0.4342587681103441,REJECT,carbon tetrachloride metabolic process,Ribonuclease P protein subunit p21,[],False,False,False,False,
+D3VVE9,protein_protein,Q5STF9,-3.9700655937194824,-0.2036837140803804,REJECT,Truncated tumor suppressor protein P16 {ECO:0000313|EMBL:ACY78326.1},Ribonuclease P protein subunit p21,[],False,False,False,False,

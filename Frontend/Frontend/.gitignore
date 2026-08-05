@@ -1,0 +1,20 @@
+# --- Python & Cache ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# --- Environment & Config Secrets ---
+.env
+
+# --- Logs ---
+*.log
+FE.log
+
+# --- Tooling & Notebook Checkpoints ---
+.ipynb_checkpoints/
+.streamlit/
+.devcontainer/
+
+# --- Backup Files ---
+*__Old.py

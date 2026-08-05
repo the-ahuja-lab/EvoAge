@@ -1,0 +1,46 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+Q54S77,protein_protein,Q6CM12,-0.612543523311615,-0.2036837140803804,REJECT,Probable serine/threonine-protein kinase vps15,Vacuolar protein-sorting protein BRO1,[],False,False,False,False,
+Q54S77,protein_protein,O13783,-0.8821548223495483,-0.2036837140803804,REJECT,Probable serine/threonine-protein kinase vps15,Vacuolar protein-sorting protein bro1,[],False,False,False,False,
+Q54S77,protein_protein,Q9BRG1,-2.4398539066314697,-0.2036837140803804,REJECT,Probable serine/threonine-protein kinase vps15,Vacuolar protein-sorting-associated protein 25,[],False,False,False,False,
+Q54S77,protein_protein,O82775,-0.8454029560089111,-0.2036837140803804,REJECT,Probable serine/threonine-protein kinase vps15,ATG8-interacting protein 1 {ECO:0000303|PubMed:22253227},[],False,False,False,False,
+CG15523,gene_protein,Q54S77,-0.22363527119159698,-0.0280984394514378,REJECT,Vacuolar protein sorting 13B,Probable serine/threonine-protein kinase vps15,[],False,False,False,False,
+CG15523,gene_gene,VPS45,-0.26676681637763977,-0.071739344080056,REJECT,Vacuolar protein sorting 13B,vacuolar protein sorting 45 homolog,['Gene_Gene'],False,True,True,False,Gene_Gene
+CG15523,gene_gene,VPS72,-0.28345364332199097,-0.071739344080056,REJECT,Vacuolar protein sorting 13B,vacuolar protein sorting 72 homolog,[],False,False,False,False,
+CG15523,gene_gene,VPS25,-0.2954389452934265,-0.071739344080056,REJECT,Vacuolar protein sorting 13B,vacuolar protein sorting 25 homolog,[],False,False,False,False,
+CG15523,gene_gene,VPS36,-0.2868698537349701,-0.071739344080056,REJECT,Vacuolar protein sorting 13B,vacuolar protein sorting 36 homolog,[],False,False,False,False,
+CG15523,gene_protein,Q6CM12,-0.22061294317245483,-0.0280984394514378,REJECT,Vacuolar protein sorting 13B,Vacuolar protein-sorting protein BRO1,[],False,False,False,False,
+CG15523,gene_protein,O13783,-0.27680447697639465,-0.0280984394514378,REJECT,Vacuolar protein sorting 13B,Vacuolar protein-sorting protein bro1,[],False,False,False,False,
+CG15523,gene_protein,Q9BRG1,-0.16693337261676788,-0.0280984394514378,REJECT,Vacuolar protein sorting 13B,Vacuolar protein-sorting-associated protein 25,[],False,False,False,False,
+CG15523,gene_protein,O82775,-0.17590048909187317,-0.0280984394514378,REJECT,Vacuolar protein sorting 13B,ATG8-interacting protein 1 {ECO:0000303|PubMed:22253227},[],False,False,False,False,
+VPS45,gene_protein,Q54S77,-0.04243450611829758,-0.0280984394514378,REJECT,vacuolar protein sorting 45 homolog,Probable serine/threonine-protein kinase vps15,[],False,False,False,False,
+VPS45,gene_gene,VPS72,-0.021508153527975082,-0.071739344080056,ACCEPT,vacuolar protein sorting 45 homolog,vacuolar protein sorting 72 homolog,['Gene_Gene'],False,True,True,False,Gene_Gene
+VPS45,gene_gene,VPS25,-0.02205323986709118,-0.071739344080056,ACCEPT,vacuolar protein sorting 45 homolog,vacuolar protein sorting 25 homolog,['Gene_Gene'],False,True,True,False,Gene_Gene
+VPS45,gene_gene,VPS36,-0.021463777869939804,-0.071739344080056,ACCEPT,vacuolar protein sorting 45 homolog,vacuolar protein sorting 36 homolog,['Gene_Gene'],False,True,True,False,Gene_Gene
+VPS45,gene_protein,Q6CM12,-0.03363073244690895,-0.0280984394514378,REJECT,vacuolar protein sorting 45 homolog,Vacuolar protein-sorting protein BRO1,[],False,False,False,False,
+VPS45,gene_protein,O13783,-0.05128464102745056,-0.0280984394514378,REJECT,vacuolar protein sorting 45 homolog,Vacuolar protein-sorting protein bro1,[],False,False,False,False,
+VPS45,gene_protein,Q9BRG1,-0.01725882478058338,-0.0280984394514378,ACCEPT,vacuolar protein sorting 45 homolog,Vacuolar protein-sorting-associated protein 25,[],False,False,False,False,
+VPS45,gene_protein,O82775,-0.03199879825115204,-0.0280984394514378,REJECT,vacuolar protein sorting 45 homolog,ATG8-interacting protein 1 {ECO:0000303|PubMed:22253227},[],False,False,False,False,
+VPS72,gene_protein,Q54S77,-0.03528895229101181,-0.0280984394514378,REJECT,vacuolar protein sorting 72 homolog,Probable serine/threonine-protein kinase vps15,[],False,False,False,False,
+VPS72,gene_gene,VPS25,-0.013217372819781303,-0.071739344080056,ACCEPT,vacuolar protein sorting 72 homolog,vacuolar protein sorting 25 homolog,['Gene_Gene'],False,True,True,False,Gene_Gene
+VPS72,gene_gene,VPS36,-0.01298084668815136,-0.071739344080056,ACCEPT,vacuolar protein sorting 72 homolog,vacuolar protein sorting 36 homolog,[],False,False,False,False,
+VPS72,gene_protein,Q6CM12,-0.026860272511839867,-0.0280984394514378,ACCEPT,vacuolar protein sorting 72 homolog,Vacuolar protein-sorting protein BRO1,[],False,False,False,False,
+VPS72,gene_protein,O13783,-0.04147373512387276,-0.0280984394514378,REJECT,vacuolar protein sorting 72 homolog,Vacuolar protein-sorting protein bro1,[],False,False,False,False,
+VPS72,gene_protein,Q9BRG1,-0.014030907303094864,-0.0280984394514378,ACCEPT,vacuolar protein sorting 72 homolog,Vacuolar protein-sorting-associated protein 25,[],False,False,False,False,
+VPS72,gene_protein,O82775,-0.028019554913043976,-0.0280984394514378,ACCEPT,vacuolar protein sorting 72 homolog,ATG8-interacting protein 1 {ECO:0000303|PubMed:22253227},[],False,False,False,False,
+VPS25,gene_protein,Q54S77,-0.03421148285269737,-0.0280984394514378,REJECT,vacuolar protein sorting 25 homolog,Probable serine/threonine-protein kinase vps15,[],False,False,False,False,
+VPS25,gene_gene,VPS36,-0.01563211716711521,-0.071739344080056,ACCEPT,vacuolar protein sorting 25 homolog,vacuolar protein sorting 36 homolog,['Gene_Gene'],False,True,True,False,Gene_Gene
+VPS25,gene_protein,Q6CM12,-0.025332750752568245,-0.0280984394514378,ACCEPT,vacuolar protein sorting 25 homolog,Vacuolar protein-sorting protein BRO1,[],False,False,False,False,
+VPS25,gene_protein,O13783,-0.03884974122047424,-0.0280984394514378,REJECT,vacuolar protein sorting 25 homolog,Vacuolar protein-sorting protein bro1,[],False,False,False,False,
+VPS25,gene_protein,Q9BRG1,-0.013013753108680248,-0.0280984394514378,ACCEPT,vacuolar protein sorting 25 homolog,Vacuolar protein-sorting-associated protein 25,['Gene_Protein'],False,True,True,False,Gene_Protein
+VPS25,gene_protein,O82775,-0.027442503720521927,-0.0280984394514378,ACCEPT,vacuolar protein sorting 25 homolog,ATG8-interacting protein 1 {ECO:0000303|PubMed:22253227},[],False,False,False,False,
+VPS36,gene_protein,Q54S77,-0.04121732711791992,-0.0280984394514378,REJECT,vacuolar protein sorting 36 homolog,Probable serine/threonine-protein kinase vps15,[],False,False,False,False,
+VPS36,gene_protein,Q6CM12,-0.031599365174770355,-0.0280984394514378,REJECT,vacuolar protein sorting 36 homolog,Vacuolar protein-sorting protein BRO1,[],False,False,False,False,
+VPS36,gene_protein,O13783,-0.04941945895552635,-0.0280984394514378,REJECT,vacuolar protein sorting 36 homolog,Vacuolar protein-sorting protein bro1,[],False,False,False,False,
+VPS36,gene_protein,Q9BRG1,-0.017765101045370102,-0.0280984394514378,ACCEPT,vacuolar protein sorting 36 homolog,Vacuolar protein-sorting-associated protein 25,[],False,False,False,False,
+VPS36,gene_protein,O82775,-0.031030703336000443,-0.0280984394514378,REJECT,vacuolar protein sorting 36 homolog,ATG8-interacting protein 1 {ECO:0000303|PubMed:22253227},[],False,False,False,False,
+Q6CM12,protein_protein,O13783,-1.2528150081634521,-0.2036837140803804,REJECT,Vacuolar protein-sorting protein BRO1,Vacuolar protein-sorting protein bro1,[],False,False,False,False,
+Q6CM12,protein_protein,Q9BRG1,-3.8982388973236084,-0.2036837140803804,REJECT,Vacuolar protein-sorting protein BRO1,Vacuolar protein-sorting-associated protein 25,[],False,False,False,False,
+Q6CM12,protein_protein,O82775,-1.2203723192214966,-0.2036837140803804,REJECT,Vacuolar protein-sorting protein BRO1,ATG8-interacting protein 1 {ECO:0000303|PubMed:22253227},[],False,False,False,False,
+O13783,protein_protein,Q9BRG1,-1.7551745176315308,-0.2036837140803804,REJECT,Vacuolar protein-sorting protein bro1,Vacuolar protein-sorting-associated protein 25,[],False,False,False,False,
+O13783,protein_protein,O82775,-0.7418074607849121,-0.2036837140803804,REJECT,Vacuolar protein-sorting protein bro1,ATG8-interacting protein 1 {ECO:0000303|PubMed:22253227},[],False,False,False,False,
+Q9BRG1,protein_protein,O82775,-0.20818693935871124,-0.2036837140803804,REJECT,Vacuolar protein-sorting-associated protein 25,ATG8-interacting protein 1 {ECO:0000303|PubMed:22253227},[],False,False,False,False,

@@ -1,0 +1,4 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+GO:0090403,biologicalprocess_protein,D3VVE9,-0.38888129591941833,-0.4342587681103441,ACCEPT,oxidative stress-induced premature senescence,Truncated tumor suppressor protein P16 {ECO:0000313|EMBL:ACY78326.1},[],False,False,False,False,
+GO:0090403,biologicalprocess_protein,Q5STF9,-0.7496299147605896,-0.4342587681103441,REJECT,oxidative stress-induced premature senescence,Ribonuclease P protein subunit p21,[],False,False,False,False,
+D3VVE9,protein_protein,Q5STF9,-3.9700655937194824,-0.2036837140803804,REJECT,Truncated tumor suppressor protein P16 {ECO:0000313|EMBL:ACY78326.1},Ribonuclease P protein subunit p21,[],False,False,False,False,

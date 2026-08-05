@@ -1,0 +1,7 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+KEGG:map00400,pathway_pathway,hsa00400,-2.177962064743042,-0.0291625673052831,REJECT,"Phenylalanine, tyrosine and tryptophan biosynthesis","Phenylalanine, tyrosine and tryptophan biosynthesis",[],False,False,False,False,
+DB09393,chemicalentity_pathway,KEGG:map00400,-0.8290679454803467,-0.3200630854546729,REJECT,Amino acids,"Phenylalanine, tyrosine and tryptophan biosynthesis",[],False,False,False,False,
+DB09393,chemicalentity_pathway,hsa00400,-0.5690736174583435,-0.3200630854546729,REJECT,Amino acids,"Phenylalanine, tyrosine and tryptophan biosynthesis",[],False,False,False,False,
+DB09393,chemicalentity_chemicalentity,9886134,-1.181616187095642,-0.2425281074611494,REJECT,Amino acids,2-amino-3-methylbutanoic acid;2-amino-3-methylpentanoic acid;2-amino-4-methylpentanoic acid,[],False,False,False,False,
+9886134,chemicalentity_pathway,KEGG:map00400,-0.39427700638771057,-0.3200630854546729,REJECT,2-amino-3-methylbutanoic acid;2-amino-3-methylpentanoic acid;2-amino-4-methylpentanoic acid,"Phenylalanine, tyrosine and tryptophan biosynthesis",[],False,False,False,False,
+9886134,chemicalentity_pathway,hsa00400,-0.18498925864696503,-0.3200630854546729,ACCEPT,2-amino-3-methylbutanoic acid;2-amino-3-methylpentanoic acid;2-amino-4-methylpentanoic acid,"Phenylalanine, tyrosine and tryptophan biosynthesis",[],False,False,False,False,

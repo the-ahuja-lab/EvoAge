@@ -1,0 +1,7 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+PRDM16-DT,gene_gene,prdm16,-0.5968881845474243,-0.071739344080056,REJECT,PRDM16 divergent transcript,PR domain containing 16,[],False,False,False,False,
+PRDM16-DT,gene_gene,PRDM16,-0.6465645432472229,-0.071739344080056,REJECT,PRDM16 divergent transcript,PR/SET domain 16,[],False,False,False,False,
+PRDM16-DT,gene_protein,M5EFF5,-0.3652046024799347,-0.0280984394514378,REJECT,PRDM16 divergent transcript,Alternative protein PRDM16 {ECO:0000313|EMBL:CCQ43680.1},[],False,False,False,False,
+prdm16,gene_gene,PRDM16,-0.8953765034675598,-0.071739344080056,REJECT,PR domain containing 16,PR/SET domain 16,[],False,False,False,False,
+prdm16,gene_protein,M5EFF5,-0.5412533283233643,-0.0280984394514378,REJECT,PR domain containing 16,Alternative protein PRDM16 {ECO:0000313|EMBL:CCQ43680.1},[],False,False,False,False,
+PRDM16,gene_protein,M5EFF5,-0.07417792081832886,-0.0280984394514378,REJECT,PR/SET domain 16,Alternative protein PRDM16 {ECO:0000313|EMBL:CCQ43680.1},[],False,False,False,False,

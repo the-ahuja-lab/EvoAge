@@ -1,0 +1,7 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+107,chemicalentity_protein,E5RK50,-0.20533597469329834,-0.3552259656009227,ACCEPT,3-phenylpropanoic acid,NF-kappaB repressing factor {ECO:0000313|EMBL:ABM55378.1},[],False,False,False,False,
+107,chemicalentity_pathway,R-HSA-2559582,-0.0055422428995370865,-0.3200630854546729,ACCEPT,3-phenylpropanoic acid,Senescence-Associated Secretory Phenotype (SASP),[],False,False,False,False,
+107,chemicalentity_protein,P54379,-0.6088258028030396,-0.3552259656009227,REJECT,3-phenylpropanoic acid,Sigma-G-dependent sporulation-specific SASP protein,[],False,False,False,False,
+E5RK50,protein_pathway,R-HSA-2559582,-0.9972226619720459,-0.0332625891724323,REJECT,NF-kappaB repressing factor {ECO:0000313|EMBL:ABM55378.1},Senescence-Associated Secretory Phenotype (SASP),[],False,False,False,False,
+E5RK50,protein_protein,P54379,-0.40280598402023315,-0.2036837140803804,REJECT,NF-kappaB repressing factor {ECO:0000313|EMBL:ABM55378.1},Sigma-G-dependent sporulation-specific SASP protein,[],False,False,False,False,
+P54379,protein_pathway,R-HSA-2559582,-2.377398729324341,-0.0332625891724323,REJECT,Sigma-G-dependent sporulation-specific SASP protein,Senescence-Associated Secretory Phenotype (SASP),[],False,False,False,False,

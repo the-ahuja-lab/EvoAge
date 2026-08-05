@@ -1,0 +1,22 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+GO:0071433,biologicalprocess_biologicalprocess,GO:0042545,-0.7625385522842407,-0.0422867482620858,REJECT,cell wall repair,cell wall modification,[],False,False,False,False,
+GO:0071433,biologicalprocess_biologicalprocess,GO:0052386,-0.5266207456588745,-0.0422867482620858,REJECT,cell wall repair,cell wall thickening,[],False,False,False,False,
+GO:0071433,biologicalprocess_biologicalprocess,GO:0044277,-0.7571698427200317,-0.0422867482620858,REJECT,cell wall repair,cell wall disassembly,[],False,False,False,False,
+GO:0071433,biologicalprocess_biologicalprocess,GO:0071555,-1.1187589168548584,-0.0422867482620858,REJECT,cell wall repair,cell wall organization,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess
+GO:0071433,biologicalprocess_biologicalprocess,GO:1903137,-0.8004758358001709,-0.0422867482620858,REJECT,cell wall repair,regulation of cell wall integrity MAPK cascade,[],False,False,False,False,
+GO:0071433,biologicalprocess_biologicalprocess,GO:0070370,-1.0294620990753174,-0.0422867482620858,REJECT,cell wall repair,cellular heat acclimation,[],False,False,False,False,
+GO:0042545,biologicalprocess_biologicalprocess,GO:0052386,-0.08808743208646774,-0.0422867482620858,REJECT,cell wall modification,cell wall thickening,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess
+GO:0042545,biologicalprocess_biologicalprocess,GO:0044277,-0.15832939743995667,-0.0422867482620858,REJECT,cell wall modification,cell wall disassembly,[],False,False,False,False,
+GO:0042545,biologicalprocess_biologicalprocess,GO:0071555,-0.02966233715415001,-0.0422867482620858,ACCEPT,cell wall modification,cell wall organization,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess
+GO:0042545,biologicalprocess_biologicalprocess,GO:1903137,-0.12850074470043182,-0.0422867482620858,REJECT,cell wall modification,regulation of cell wall integrity MAPK cascade,[],False,False,False,False,
+GO:0042545,biologicalprocess_biologicalprocess,GO:0070370,-0.07178936898708344,-0.0422867482620858,REJECT,cell wall modification,cellular heat acclimation,[],False,False,False,False,
+GO:0052386,biologicalprocess_biologicalprocess,GO:0044277,-2.112879753112793,-0.0422867482620858,REJECT,cell wall thickening,cell wall disassembly,[],False,False,False,False,
+GO:0052386,biologicalprocess_biologicalprocess,GO:0071555,-5.2463603019714355,-0.0422867482620858,REJECT,cell wall thickening,cell wall organization,[],False,False,False,False,
+GO:0052386,biologicalprocess_biologicalprocess,GO:1903137,-2.528752088546753,-0.0422867482620858,REJECT,cell wall thickening,regulation of cell wall integrity MAPK cascade,[],False,False,False,False,
+GO:0052386,biologicalprocess_biologicalprocess,GO:0070370,-4.013126850128174,-0.0422867482620858,REJECT,cell wall thickening,cellular heat acclimation,[],False,False,False,False,
+GO:0044277,biologicalprocess_biologicalprocess,GO:0071555,-0.9815816879272461,-0.0422867482620858,REJECT,cell wall disassembly,cell wall organization,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess
+GO:0044277,biologicalprocess_biologicalprocess,GO:1903137,-0.7590892314910889,-0.0422867482620858,REJECT,cell wall disassembly,regulation of cell wall integrity MAPK cascade,[],False,False,False,False,
+GO:0044277,biologicalprocess_biologicalprocess,GO:0070370,-0.9464391469955444,-0.0422867482620858,REJECT,cell wall disassembly,cellular heat acclimation,[],False,False,False,False,
+GO:0071555,biologicalprocess_biologicalprocess,GO:1903137,-0.010907706804573536,-0.0422867482620858,ACCEPT,cell wall organization,regulation of cell wall integrity MAPK cascade,[],False,False,False,False,
+GO:0071555,biologicalprocess_biologicalprocess,GO:0070370,-0.0016400560270994902,-0.0422867482620858,ACCEPT,cell wall organization,cellular heat acclimation,[],False,False,False,False,
+GO:1903137,biologicalprocess_biologicalprocess,GO:0070370,-0.38444116711616516,-0.0422867482620858,REJECT,regulation of cell wall integrity MAPK cascade,cellular heat acclimation,[],False,False,False,False,

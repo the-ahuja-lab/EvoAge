@@ -1,0 +1,11 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+104745,chemicalentity_protein,Q5RCB7,-0.7226588726043701,-0.3552259656009227,REJECT,propionate,SIN3-HDAC complex-associated factor,[],False,False,False,False,
+104745,chemicalentity_protein,E5RK50,-0.6673358082771301,-0.3552259656009227,REJECT,propionate,NF-kappaB repressing factor {ECO:0000313|EMBL:ABM55378.1},[],False,False,False,False,
+104745,chemicalentity_pathway,R-HSA-2559582,-0.17794525623321533,-0.3200630854546729,ACCEPT,propionate,Senescence-Associated Secretory Phenotype (SASP),[],False,False,False,False,
+104745,chemicalentity_protein,P54379,-0.8943853378295898,-0.3552259656009227,REJECT,propionate,Sigma-G-dependent sporulation-specific SASP protein,[],False,False,False,False,
+Q5RCB7,protein_protein,E5RK50,-1.2742584943771362,-0.2036837140803804,REJECT,SIN3-HDAC complex-associated factor,NF-kappaB repressing factor {ECO:0000313|EMBL:ABM55378.1},[],False,False,False,False,
+Q5RCB7,protein_pathway,R-HSA-2559582,-1.468338966369629,-0.0332625891724323,REJECT,SIN3-HDAC complex-associated factor,Senescence-Associated Secretory Phenotype (SASP),[],False,False,False,False,
+Q5RCB7,protein_protein,P54379,-0.5578463673591614,-0.2036837140803804,REJECT,SIN3-HDAC complex-associated factor,Sigma-G-dependent sporulation-specific SASP protein,[],False,False,False,False,
+E5RK50,protein_pathway,R-HSA-2559582,-0.9972226619720459,-0.0332625891724323,REJECT,NF-kappaB repressing factor {ECO:0000313|EMBL:ABM55378.1},Senescence-Associated Secretory Phenotype (SASP),[],False,False,False,False,
+E5RK50,protein_protein,P54379,-0.40280598402023315,-0.2036837140803804,REJECT,NF-kappaB repressing factor {ECO:0000313|EMBL:ABM55378.1},Sigma-G-dependent sporulation-specific SASP protein,[],False,False,False,False,
+P54379,protein_pathway,R-HSA-2559582,-2.377398729324341,-0.0332625891724323,REJECT,Sigma-G-dependent sporulation-specific SASP protein,Senescence-Associated Secretory Phenotype (SASP),[],False,False,False,False,

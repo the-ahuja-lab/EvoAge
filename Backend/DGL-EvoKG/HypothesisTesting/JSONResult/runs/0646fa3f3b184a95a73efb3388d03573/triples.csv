@@ -1,0 +1,16 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+PR:000022358,protein_protein,Q0WAG2,-0.8244582414627075,-0.2036837140803804,REJECT,adenylate cyclase,Adenylate cyclase,[],False,False,False,False,
+PR:000022358,protein_protein,P00936,-1.235228180885315,-0.2036837140803804,REJECT,adenylate cyclase,Adenylate cyclase,[],False,False,False,False,
+PR:000022358,protein_protein,P0A1A7,-1.3149733543395996,-0.2036837140803804,REJECT,adenylate cyclase,Adenylate cyclase,[],False,False,False,False,
+PR:000022358,protein_protein,P14605,-1.6906437873840332,-0.2036837140803804,REJECT,adenylate cyclase,Adenylate cyclase,[],False,False,False,False,
+PR:000022358,protein_biologicalprocess,GO:0033554,-3.606588125228882,-0.5776643345681309,REJECT,adenylate cyclase,cellular response to stress,[],False,False,False,False,
+Q0WAG2,protein_protein,P00936,-0.9863476753234863,-0.2036837140803804,REJECT,Adenylate cyclase,Adenylate cyclase,[],False,False,False,False,
+Q0WAG2,protein_protein,P0A1A7,-1.0297300815582275,-0.2036837140803804,REJECT,Adenylate cyclase,Adenylate cyclase,[],False,False,False,False,
+Q0WAG2,protein_protein,P14605,-1.3718169927597046,-0.2036837140803804,REJECT,Adenylate cyclase,Adenylate cyclase,[],False,False,False,False,
+Q0WAG2,protein_biologicalprocess,GO:0033554,-1.8348348140716553,-0.5776643345681309,REJECT,Adenylate cyclase,cellular response to stress,[],False,False,False,False,
+P00936,protein_protein,P0A1A7,-0.8468590974807739,-0.2036837140803804,REJECT,Adenylate cyclase,Adenylate cyclase,['Protein_Protein'],False,True,True,False,Protein_Protein
+P00936,protein_protein,P14605,-1.0736258029937744,-0.2036837140803804,REJECT,Adenylate cyclase,Adenylate cyclase,[],False,False,False,False,
+P00936,protein_biologicalprocess,GO:0033554,-0.5778148770332336,-0.5776643345681309,REJECT,Adenylate cyclase,cellular response to stress,[],False,False,False,False,
+P0A1A7,protein_protein,P14605,-1.1115193367004395,-0.2036837140803804,REJECT,Adenylate cyclase,Adenylate cyclase,[],False,False,False,False,
+P0A1A7,protein_biologicalprocess,GO:0033554,-0.4408859312534332,-0.5776643345681309,ACCEPT,Adenylate cyclase,cellular response to stress,[],False,False,False,False,
+P14605,protein_biologicalprocess,GO:0033554,-0.05943067744374275,-0.5776643345681309,ACCEPT,Adenylate cyclase,cellular response to stress,[],False,False,False,False,

@@ -1,0 +1,7 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+Q12119,protein_biologicalprocess,GO:0055085,-0.1268032044172287,-0.5776643345681309,ACCEPT,Purine-cytosine permease FCY22,transmembrane transport,[],False,False,False,False,
+Q12119,protein_biologicalprocess,GO:0045117,-0.13594280183315277,-0.5776643345681309,ACCEPT,Purine-cytosine permease FCY22,azole transmembrane transport,[],False,False,False,False,
+Q12119,protein_biologicalprocess,GO:1902341,-0.5416603684425354,-0.5776643345681309,ACCEPT,Purine-cytosine permease FCY22,xylitol transmembrane transport,[],False,False,False,False,
+GO:0055085,biologicalprocess_biologicalprocess,GO:0045117,-0.00012958473234903067,-0.0422867482620858,ACCEPT,transmembrane transport,azole transmembrane transport,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess
+GO:0055085,biologicalprocess_biologicalprocess,GO:1902341,-0.0027550773229449987,-0.0422867482620858,ACCEPT,transmembrane transport,xylitol transmembrane transport,[],False,False,False,False,
+GO:0045117,biologicalprocess_biologicalprocess,GO:1902341,-0.08284720033407211,-0.0422867482620858,REJECT,azole transmembrane transport,xylitol transmembrane transport,[],False,False,False,False,

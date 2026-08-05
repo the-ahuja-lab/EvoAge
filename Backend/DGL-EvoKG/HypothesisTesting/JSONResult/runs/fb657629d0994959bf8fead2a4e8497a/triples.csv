@@ -1,0 +1,11 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+849,chemicalentity_disease,D018901,-0.42064186930656433,-0.5678040704453142,ACCEPT,pipecolic acid,Peroxisomal Disorders,[],False,False,False,False,
+849,chemicalentity_disease,C536664,-0.3532956540584564,-0.5678040704453142,ACCEPT,pipecolic acid,Peroxisome biogenesis disorders,[],False,False,False,False,
+849,chemicalentity_disease,DOID:0080377,-0.0764247253537178,-0.5678040704453142,ACCEPT,pipecolic acid,peroxisomal biogenesis disorder,[],False,False,False,False,
+849,chemicalentity_protein,Q5STF9,-0.09518738090991974,-0.3552259656009227,ACCEPT,pipecolic acid,Ribonuclease P protein subunit p21,[],False,False,False,False,
+D018901,disease_disease,C536664,-0.4707261919975281,-0.0380433396478325,REJECT,Peroxisomal Disorders,Peroxisome biogenesis disorders,[],False,False,False,False,
+D018901,disease_disease,DOID:0080377,-0.3508651554584503,-0.0380433396478325,REJECT,Peroxisomal Disorders,peroxisomal biogenesis disorder,[],False,False,False,False,
+C536664,disease_disease,DOID:0080377,-0.1190652921795845,-0.0380433396478325,REJECT,Peroxisome biogenesis disorders,peroxisomal biogenesis disorder,[],False,False,False,False,
+Q5STF9,protein_disease,D018901,-0.2793518900871277,-0.1452060252739286,REJECT,Ribonuclease P protein subunit p21,Peroxisomal Disorders,[],False,False,False,False,
+Q5STF9,protein_disease,C536664,-0.24327895045280457,-0.1452060252739286,REJECT,Ribonuclease P protein subunit p21,Peroxisome biogenesis disorders,[],False,False,False,False,
+Q5STF9,protein_disease,DOID:0080377,-0.06657279282808304,-0.1452060252739286,ACCEPT,Ribonuclease P protein subunit p21,peroxisomal biogenesis disorder,[],False,False,False,False,

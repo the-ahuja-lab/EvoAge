@@ -1,0 +1,11 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+GO:0008484,molecularfunction_molecularfunction,GO:0050398,-0.19332623481750488,-0.0413108806514266,REJECT,sulfuric ester hydrolase activity,wax-ester hydrolase activity,[],False,False,False,False,
+GO:0008484,molecularfunction_molecularfunction,GO:0042578,-0.0652460902929306,-0.0413108806514266,REJECT,sulfuric ester hydrolase activity,phosphoric ester hydrolase activity,[],False,False,False,False,
+GO:0008484,molecularfunction_molecularfunction,GO:0052689,-0.054133929312229156,-0.0413108806514266,REJECT,sulfuric ester hydrolase activity,carboxylic ester hydrolase activity,[],False,False,False,False,
+GO:0008484,molecularfunction_biologicalprocess,GO:0009453,-0.1759825050830841,-0.0147993624499696,REJECT,sulfuric ester hydrolase activity,energy taxis,[],False,False,False,False,
+GO:0050398,molecularfunction_molecularfunction,GO:0042578,-0.6518505811691284,-0.0413108806514266,REJECT,wax-ester hydrolase activity,phosphoric ester hydrolase activity,[],False,False,False,False,
+GO:0050398,molecularfunction_molecularfunction,GO:0052689,-0.5208150744438171,-0.0413108806514266,REJECT,wax-ester hydrolase activity,carboxylic ester hydrolase activity,['MolecularFunction_MolecularFunction'],False,True,True,False,MolecularFunction_MolecularFunction
+GO:0050398,molecularfunction_biologicalprocess,GO:0009453,-0.4453734755516052,-0.0147993624499696,REJECT,wax-ester hydrolase activity,energy taxis,[],False,False,False,False,
+GO:0042578,molecularfunction_molecularfunction,GO:0052689,-0.08435821533203125,-0.0413108806514266,REJECT,phosphoric ester hydrolase activity,carboxylic ester hydrolase activity,[],False,False,False,False,
+GO:0042578,molecularfunction_biologicalprocess,GO:0009453,-0.2082333117723465,-0.0147993624499696,REJECT,phosphoric ester hydrolase activity,energy taxis,[],False,False,False,False,
+GO:0052689,molecularfunction_biologicalprocess,GO:0009453,-0.2992827892303467,-0.0147993624499696,REJECT,carboxylic ester hydrolase activity,energy taxis,[],False,False,False,False,

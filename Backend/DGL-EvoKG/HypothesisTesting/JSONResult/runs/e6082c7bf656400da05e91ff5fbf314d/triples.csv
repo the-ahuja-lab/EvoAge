@@ -1,0 +1,16 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+P38156,protein_biologicalprocess,GO:0055085,-0.44226130843162537,-0.5776643345681309,ACCEPT,Maltose permease MAL31,transmembrane transport,[],False,False,False,False,
+P38156,protein_biologicalprocess,GO:0045117,-0.38701537251472473,-0.5776643345681309,ACCEPT,Maltose permease MAL31,azole transmembrane transport,[],False,False,False,False,
+P38156,protein_biologicalprocess,GO:1902341,-0.8283382654190063,-0.5776643345681309,REJECT,Maltose permease MAL31,xylitol transmembrane transport,[],False,False,False,False,
+P38156,protein_biologicalprocess,GO:0006884,-0.5035830736160278,-0.5776643345681309,ACCEPT,Maltose permease MAL31,cell volume homeostasis,[],False,False,False,False,
+P38156,protein_phenotype,wild-type,-0.8988610506057739,-0.0497034494975703,REJECT,Maltose permease MAL31,wild-type,[],False,False,False,False,
+GO:0055085,biologicalprocess_biologicalprocess,GO:0045117,-0.00012958473234903067,-0.0422867482620858,ACCEPT,transmembrane transport,azole transmembrane transport,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess
+GO:0055085,biologicalprocess_biologicalprocess,GO:1902341,-0.0027550773229449987,-0.0422867482620858,ACCEPT,transmembrane transport,xylitol transmembrane transport,[],False,False,False,False,
+GO:0055085,biologicalprocess_biologicalprocess,GO:0006884,-0.00014784911763854325,-0.0422867482620858,ACCEPT,transmembrane transport,cell volume homeostasis,[],False,False,False,False,
+GO:0045117,biologicalprocess_biologicalprocess,GO:1902341,-0.08284720033407211,-0.0422867482620858,REJECT,azole transmembrane transport,xylitol transmembrane transport,[],False,False,False,False,
+GO:0045117,biologicalprocess_biologicalprocess,GO:0006884,-0.028854040428996086,-0.0422867482620858,ACCEPT,azole transmembrane transport,cell volume homeostasis,[],False,False,False,False,
+GO:1902341,biologicalprocess_biologicalprocess,GO:0006884,-0.17030486464500427,-0.0422867482620858,REJECT,xylitol transmembrane transport,cell volume homeostasis,[],False,False,False,False,
+wild-type,phenotype_biologicalprocess,GO:0055085,-0.12070068717002869,-0.607891854730636,ACCEPT,wild-type,transmembrane transport,[],False,False,False,False,
+wild-type,phenotype_biologicalprocess,GO:0045117,-0.4403432607650757,-0.607891854730636,ACCEPT,wild-type,azole transmembrane transport,[],False,False,False,False,
+wild-type,phenotype_biologicalprocess,GO:1902341,-0.7906064391136169,-0.607891854730636,REJECT,wild-type,xylitol transmembrane transport,[],False,False,False,False,
+wild-type,phenotype_biologicalprocess,GO:0006884,-0.21826982498168945,-0.607891854730636,ACCEPT,wild-type,cell volume homeostasis,[],False,False,False,False,

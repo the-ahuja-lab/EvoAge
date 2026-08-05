@@ -1,0 +1,16 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+P38067,protein_protein,P94428,-0.7932685613632202,-0.2036837140803804,REJECT,Succinate-semialdehyde dehydrogenase [NADP(+)],Succinate-semialdehyde dehydrogenase [NADP(+)],['Protein_Protein'],False,True,True,False,Protein_Protein
+P38067,protein_protein,O32507,-0.6352358460426331,-0.2036837140803804,REJECT,Succinate-semialdehyde dehydrogenase [NADP(+)],Succinate-semialdehyde dehydrogenase [NADP(+)],[],False,False,False,False,
+P38067,protein_protein,O69497,-0.6128908395767212,-0.2036837140803804,REJECT,Succinate-semialdehyde dehydrogenase [NADP(+)],Succinate-semialdehyde dehydrogenase [NADP(+)],[],False,False,False,False,
+P38067,protein_protein,Q73TP5,-0.6140222549438477,-0.2036837140803804,REJECT,Succinate-semialdehyde dehydrogenase [NADP(+)],Succinate-semialdehyde dehydrogenase [NADP(+)],[],False,False,False,False,
+P94428,protein_protein,O32507,-0.5926008820533752,-0.2036837140803804,REJECT,Succinate-semialdehyde dehydrogenase [NADP(+)],Succinate-semialdehyde dehydrogenase [NADP(+)],[],False,False,False,False,
+P94428,protein_protein,O69497,-0.5706907510757446,-0.2036837140803804,REJECT,Succinate-semialdehyde dehydrogenase [NADP(+)],Succinate-semialdehyde dehydrogenase [NADP(+)],[],False,False,False,False,
+P94428,protein_protein,Q73TP5,-0.5673977136611938,-0.2036837140803804,REJECT,Succinate-semialdehyde dehydrogenase [NADP(+)],Succinate-semialdehyde dehydrogenase [NADP(+)],[],False,False,False,False,
+O32507,protein_protein,O69497,-0.617226779460907,-0.2036837140803804,REJECT,Succinate-semialdehyde dehydrogenase [NADP(+)],Succinate-semialdehyde dehydrogenase [NADP(+)],[],False,False,False,False,
+O32507,protein_protein,Q73TP5,-0.6124579310417175,-0.2036837140803804,REJECT,Succinate-semialdehyde dehydrogenase [NADP(+)],Succinate-semialdehyde dehydrogenase [NADP(+)],[],False,False,False,False,
+O69497,protein_protein,Q73TP5,-0.5976850986480713,-0.2036837140803804,REJECT,Succinate-semialdehyde dehydrogenase [NADP(+)],Succinate-semialdehyde dehydrogenase [NADP(+)],[],False,False,False,False,
+ALDH5A1,gene_protein,P38067,-0.06983648240566254,-0.0280984394514378,REJECT,aldehyde dehydrogenase 5 family member A1,Succinate-semialdehyde dehydrogenase [NADP(+)],[],False,False,False,False,
+ALDH5A1,gene_protein,P94428,-0.028754975646734238,-0.0280984394514378,REJECT,aldehyde dehydrogenase 5 family member A1,Succinate-semialdehyde dehydrogenase [NADP(+)],[],False,False,False,False,
+ALDH5A1,gene_protein,O32507,-0.03808663412928581,-0.0280984394514378,REJECT,aldehyde dehydrogenase 5 family member A1,Succinate-semialdehyde dehydrogenase [NADP(+)],[],False,False,False,False,
+ALDH5A1,gene_protein,O69497,-0.024054786190390587,-0.0280984394514378,ACCEPT,aldehyde dehydrogenase 5 family member A1,Succinate-semialdehyde dehydrogenase [NADP(+)],[],False,False,False,False,
+ALDH5A1,gene_protein,Q73TP5,-0.024829067289829254,-0.0280984394514378,ACCEPT,aldehyde dehydrogenase 5 family member A1,Succinate-semialdehyde dehydrogenase [NADP(+)],[],False,False,False,False,

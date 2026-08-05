@@ -1,0 +1,7 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+Q6FJH4,protein_biologicalprocess,GO:0055085,-0.35017889738082886,-0.5776643345681309,ACCEPT,Multidrug transporter DTR1 {ECO:0000303|PubMed:29184852},transmembrane transport,[],False,False,False,False,
+Q6FJH4,protein_biologicalprocess,GO:0045117,-0.3197404146194458,-0.5776643345681309,ACCEPT,Multidrug transporter DTR1 {ECO:0000303|PubMed:29184852},azole transmembrane transport,[],False,False,False,False,
+Q6FJH4,protein_biologicalprocess,GO:0051673,-0.3946256935596466,-0.5776643345681309,ACCEPT,Multidrug transporter DTR1 {ECO:0000303|PubMed:29184852},disruption of plasma membrane integrity in another organism,[],False,False,False,False,
+GO:0055085,biologicalprocess_biologicalprocess,GO:0045117,-0.00012958473234903067,-0.0422867482620858,ACCEPT,transmembrane transport,azole transmembrane transport,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess
+GO:0055085,biologicalprocess_biologicalprocess,GO:0051673,-0.00048557439004071057,-0.0422867482620858,ACCEPT,transmembrane transport,disruption of plasma membrane integrity in another organism,[],False,False,False,False,
+GO:0045117,biologicalprocess_biologicalprocess,GO:0051673,-0.04217489808797836,-0.0422867482620858,ACCEPT,azole transmembrane transport,disruption of plasma membrane integrity in another organism,[],False,False,False,False,

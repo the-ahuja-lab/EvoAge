@@ -1,0 +1,12 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type,n_variants_considered,variant_scores
+Q8H118,protein_cellularcomponent,GO:0072379,-2.4549591541290283,-0.143767219171222,REJECT,Probable methyltransferase PMT1,ER membrane insertion complex,[],False,False,False,False,,,
+Q8H118,protein_biologicalprocess,GO:0070370,-0.4113253653049469,-0.5776643345681309,ACCEPT,Probable methyltransferase PMT1,cellular heat acclimation,[],False,False,False,False,,,
+Q8H118,protein_phenotype,metabolic acidosis,-0.9167509078979492,-0.0497034494975703,REJECT,Probable methyltransferase PMT1,metabolic acidosis,[],False,False,False,False,,,
+YDL095W,gene_protein,Q8H118,-0.10743150860071182,-0.0280984394514378,REJECT,dolichyl-phosphate-mannose-protein mannosyltransferase PMT1,Probable methyltransferase PMT1,[],False,False,False,False,,,
+YDL095W,gene_cellularcomponent,GO:0072379,-0.020781749859452248,-0.0358198597771757,ACCEPT,dolichyl-phosphate-mannose-protein mannosyltransferase PMT1,ER membrane insertion complex,[],False,False,False,False,,,
+YDL095W,gene_biologicalprocess,GO:0070370,-0.04709552600979805,-0.0356325677219588,REJECT,dolichyl-phosphate-mannose-protein mannosyltransferase PMT1,cellular heat acclimation,[],False,False,False,False,,,
+YDL095W,gene_notassociatedwith_biologicalprocess,GO:0070370,-0.35056379437446594,-0.1941926147433079,REJECT,dolichyl-phosphate-mannose-protein mannosyltransferase PMT1,cellular heat acclimation,[],False,False,False,False,,5.0,"{'gene_inhibits_biologicalprocess': -0.4634, 'gene_promotes_biologicalprocess': -0.4013, 'gene_negativelyassociatedwith_biologicalprocess': -0.477, 'gene_positivelyassociatedwith_biologicalprocess': -0.4707, 'gene_notassociatedwith_biologicalprocess': -0.3506}"
+YDL095W,gene_phenotype,metabolic acidosis,-0.06568940728902817,-0.0347684314162952,REJECT,dolichyl-phosphate-mannose-protein mannosyltransferase PMT1,metabolic acidosis,[],False,False,False,False,,,
+GO:0070370,biologicalprocess_cellularcomponent,GO:0072379,-0.008530735038220882,-0.3461928175792534,ACCEPT,cellular heat acclimation,ER membrane insertion complex,[],False,False,False,False,,,
+metabolic acidosis,phenotype_cellularcomponent,GO:0072379,-0.19101224839687347,-0.6698990933960958,ACCEPT,metabolic acidosis,ER membrane insertion complex,[],False,False,False,False,,,
+metabolic acidosis,phenotype_biologicalprocess,GO:0070370,-0.2059263437986374,-0.607891854730636,ACCEPT,metabolic acidosis,cellular heat acclimation,[],False,False,False,False,,,

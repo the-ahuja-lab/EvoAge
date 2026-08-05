@@ -1,0 +1,22 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+YBR126C,gene_gene,YMR261C,-0.09098424762487411,-0.071739344080056,REJECT,"alpha,alpha-trehalose-phosphate synthase (UDP-forming) TPS1",trehalose 6-phosphate synthase/phosphatase complex subunit,['Gene_Gene'],False,True,True,False,Gene_Gene
+YBR126C,gene_gene,YML100W,-0.07737816870212555,-0.071739344080056,REJECT,"alpha,alpha-trehalose-phosphate synthase (UDP-forming) TPS1",trehalose 6-phosphate synthase/phosphatase complex subunit,['Gene_Gene'],False,True,True,False,Gene_Gene
+YBR126C,gene_chemicalentity,5957,-0.031728316098451614,-0.0285922419958417,REJECT,"alpha,alpha-trehalose-phosphate synthase (UDP-forming) TPS1",ATP,['ChemicalEntity_Gene'],False,True,True,False,ChemicalEntity_Gene
+YBR126C,gene_chemicalentity,5461108,-0.018847085535526276,-0.0285922419958417,ACCEPT,"alpha,alpha-trehalose-phosphate synthase (UDP-forming) TPS1",ATP(4-),[],False,False,False,False,
+YBR126C,gene_chemicalentity,5486828,-0.04016760736703873,-0.0285922419958417,REJECT,"alpha,alpha-trehalose-phosphate synthase (UDP-forming) TPS1",[[(2R)-2-[(1R)-1-(6-aminopurin-9-yl)-2-oxoethoxy]-3-oxopropoxy]-hydroxyphosphoryl] phosphono hydrogen phosphate,[],False,False,False,False,
+YBR126C,gene_pathway,R-HSA-71387,-0.06413023918867111,-0.0346968297443117,REJECT,"alpha,alpha-trehalose-phosphate synthase (UDP-forming) TPS1",Metabolism of carbohydrates,[],False,False,False,False,
+YMR261C,gene_gene,YML100W,-0.2128550261259079,-0.071739344080056,REJECT,trehalose 6-phosphate synthase/phosphatase complex subunit,trehalose 6-phosphate synthase/phosphatase complex subunit,['Gene_Gene'],False,True,True,False,Gene_Gene
+YMR261C,gene_chemicalentity,5957,-0.1555793136358261,-0.0285922419958417,REJECT,trehalose 6-phosphate synthase/phosphatase complex subunit,ATP,[],False,False,False,False,
+YMR261C,gene_chemicalentity,5461108,-0.08917906880378723,-0.0285922419958417,REJECT,trehalose 6-phosphate synthase/phosphatase complex subunit,ATP(4-),[],False,False,False,False,
+YMR261C,gene_chemicalentity,5486828,-0.1524616777896881,-0.0285922419958417,REJECT,trehalose 6-phosphate synthase/phosphatase complex subunit,[[(2R)-2-[(1R)-1-(6-aminopurin-9-yl)-2-oxoethoxy]-3-oxopropoxy]-hydroxyphosphoryl] phosphono hydrogen phosphate,[],False,False,False,False,
+YMR261C,gene_pathway,R-HSA-71387,-0.15198932588100433,-0.0346968297443117,REJECT,trehalose 6-phosphate synthase/phosphatase complex subunit,Metabolism of carbohydrates,[],False,False,False,False,
+YML100W,gene_chemicalentity,5957,-0.10414034128189087,-0.0285922419958417,REJECT,trehalose 6-phosphate synthase/phosphatase complex subunit,ATP,[],False,False,False,False,
+YML100W,gene_chemicalentity,5461108,-0.060456521809101105,-0.0285922419958417,REJECT,trehalose 6-phosphate synthase/phosphatase complex subunit,ATP(4-),[],False,False,False,False,
+YML100W,gene_chemicalentity,5486828,-0.10882622003555298,-0.0285922419958417,REJECT,trehalose 6-phosphate synthase/phosphatase complex subunit,[[(2R)-2-[(1R)-1-(6-aminopurin-9-yl)-2-oxoethoxy]-3-oxopropoxy]-hydroxyphosphoryl] phosphono hydrogen phosphate,[],False,False,False,False,
+YML100W,gene_pathway,R-HSA-71387,-0.12345822900533676,-0.0346968297443117,REJECT,trehalose 6-phosphate synthase/phosphatase complex subunit,Metabolism of carbohydrates,[],False,False,False,False,
+5957,chemicalentity_chemicalentity,5461108,-0.016916025429964066,-0.2425281074611494,ACCEPT,ATP,ATP(4-),[],False,False,False,False,
+5957,chemicalentity_chemicalentity,5486828,-0.029477844014763832,-0.2425281074611494,ACCEPT,ATP,[[(2R)-2-[(1R)-1-(6-aminopurin-9-yl)-2-oxoethoxy]-3-oxopropoxy]-hydroxyphosphoryl] phosphono hydrogen phosphate,[],False,False,False,False,
+5957,chemicalentity_pathway,R-HSA-71387,-0.01133979856967926,-0.3200630854546729,ACCEPT,ATP,Metabolism of carbohydrates,[],False,False,False,False,
+5461108,chemicalentity_chemicalentity,5486828,-0.306315153837204,-0.2425281074611494,REJECT,ATP(4-),[[(2R)-2-[(1R)-1-(6-aminopurin-9-yl)-2-oxoethoxy]-3-oxopropoxy]-hydroxyphosphoryl] phosphono hydrogen phosphate,[],False,False,False,False,
+5461108,chemicalentity_pathway,R-HSA-71387,-0.02180502563714981,-0.3200630854546729,ACCEPT,ATP(4-),Metabolism of carbohydrates,[],False,False,False,False,
+5486828,chemicalentity_pathway,R-HSA-71387,-0.20702430605888367,-0.3200630854546729,ACCEPT,[[(2R)-2-[(1R)-1-(6-aminopurin-9-yl)-2-oxoethoxy]-3-oxopropoxy]-hydroxyphosphoryl] phosphono hydrogen phosphate,Metabolism of carbohydrates,[],False,False,False,False,

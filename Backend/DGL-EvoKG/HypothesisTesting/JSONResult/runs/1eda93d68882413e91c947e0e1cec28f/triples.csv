@@ -1,0 +1,11 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+44629726,chemicalentity_chemicalentity,13964934,-1.5201406478881836,-0.2425281074611494,REJECT,gibberellin A4(1-),gibberellin A4 methyl ester,[],False,False,False,False,
+44629726,chemicalentity_protein,D3VVE9,-1.2328606843948364,-0.3552259656009227,REJECT,gibberellin A4(1-),Truncated tumor suppressor protein P16 {ECO:0000313|EMBL:ACY78326.1},[],False,False,False,False,
+44629726,chemicalentity_protein,Q5STF9,-1.2960749864578247,-0.3552259656009227,REJECT,gibberellin A4(1-),Ribonuclease P protein subunit p21,[],False,False,False,False,
+44629726,chemicalentity_pathway,R-HSA-2559582,-1.1308095455169678,-0.3200630854546729,REJECT,gibberellin A4(1-),Senescence-Associated Secretory Phenotype (SASP),[],False,False,False,False,
+13964934,chemicalentity_protein,D3VVE9,-1.0538409948349,-0.3552259656009227,REJECT,gibberellin A4 methyl ester,Truncated tumor suppressor protein P16 {ECO:0000313|EMBL:ACY78326.1},[],False,False,False,False,
+13964934,chemicalentity_protein,Q5STF9,-0.07015745341777802,-0.3552259656009227,ACCEPT,gibberellin A4 methyl ester,Ribonuclease P protein subunit p21,[],False,False,False,False,
+13964934,chemicalentity_pathway,R-HSA-2559582,-0.1626300811767578,-0.3200630854546729,ACCEPT,gibberellin A4 methyl ester,Senescence-Associated Secretory Phenotype (SASP),[],False,False,False,False,
+D3VVE9,protein_protein,Q5STF9,-3.9700655937194824,-0.2036837140803804,REJECT,Truncated tumor suppressor protein P16 {ECO:0000313|EMBL:ACY78326.1},Ribonuclease P protein subunit p21,[],False,False,False,False,
+D3VVE9,protein_pathway,R-HSA-2559582,-3.49981689453125,-0.0332625891724323,REJECT,Truncated tumor suppressor protein P16 {ECO:0000313|EMBL:ACY78326.1},Senescence-Associated Secretory Phenotype (SASP),[],False,False,False,False,
+Q5STF9,protein_pathway,R-HSA-2559582,-0.05157822370529175,-0.0332625891724323,REJECT,Ribonuclease P protein subunit p21,Senescence-Associated Secretory Phenotype (SASP),[],False,False,False,False,

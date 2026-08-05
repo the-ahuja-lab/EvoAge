@@ -1,0 +1,22 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+Q09758,protein_cellularcomponent,GO:0005886,-0.7665777206420898,-0.143767219171222,REJECT,Membrane-bound O-acyltransferase gup1,plasma membrane,['Protein_CellularComponent'],False,True,True,False,Protein_CellularComponent
+Q09758,protein_cellularcomponent,GO:0044853,-2.6660475730895996,-0.143767219171222,REJECT,Membrane-bound O-acyltransferase gup1,plasma membrane raft,[],False,False,False,False,
+Q09758,protein_cellularcomponent,GO:0097524,-1.9898319244384766,-0.143767219171222,REJECT,Membrane-bound O-acyltransferase gup1,sperm plasma membrane,[],False,False,False,False,
+Q09758,protein_cellularcomponent,GO:0009925,-2.1249547004699707,-0.143767219171222,REJECT,Membrane-bound O-acyltransferase gup1,basal plasma membrane,[],False,False,False,False,
+Q09758,protein_cellularcomponent,GO:0016324,-1.3399497270584106,-0.143767219171222,REJECT,Membrane-bound O-acyltransferase gup1,apical plasma membrane,[],False,False,False,False,
+Q09758,protein_biologicalprocess,GO:0030258,-0.262412428855896,-0.5776643345681309,ACCEPT,Membrane-bound O-acyltransferase gup1,lipid modification,[],False,False,False,False,
+GO:0005886,cellularcomponent_cellularcomponent,GO:0044853,-3.4593060149745725e-07,-0.0349261329401597,ACCEPT,plasma membrane,plasma membrane raft,[],False,False,False,False,
+GO:0005886,cellularcomponent_cellularcomponent,GO:0097524,-9.545809689370799e-07,-0.0349261329401597,ACCEPT,plasma membrane,sperm plasma membrane,['CellularComponent_CellularComponent'],False,True,True,False,CellularComponent_CellularComponent
+GO:0005886,cellularcomponent_cellularcomponent,GO:0009925,-8.754449822845345e-07,-0.0349261329401597,ACCEPT,plasma membrane,basal plasma membrane,[],False,False,False,False,
+GO:0005886,cellularcomponent_cellularcomponent,GO:0016324,-1.0500350526854163e-06,-0.0349261329401597,ACCEPT,plasma membrane,apical plasma membrane,[],False,False,False,False,
+GO:0044853,cellularcomponent_cellularcomponent,GO:0097524,-3.855938120977953e-05,-0.0349261329401597,ACCEPT,plasma membrane raft,sperm plasma membrane,[],False,False,False,False,
+GO:0044853,cellularcomponent_cellularcomponent,GO:0009925,-3.978692620876245e-05,-0.0349261329401597,ACCEPT,plasma membrane raft,basal plasma membrane,[],False,False,False,False,
+GO:0044853,cellularcomponent_cellularcomponent,GO:0016324,-3.971277692471631e-05,-0.0349261329401597,ACCEPT,plasma membrane raft,apical plasma membrane,[],False,False,False,False,
+GO:0097524,cellularcomponent_cellularcomponent,GO:0009925,-3.248047869419679e-05,-0.0349261329401597,ACCEPT,sperm plasma membrane,basal plasma membrane,[],False,False,False,False,
+GO:0097524,cellularcomponent_cellularcomponent,GO:0016324,-3.214609751012176e-05,-0.0349261329401597,ACCEPT,sperm plasma membrane,apical plasma membrane,[],False,False,False,False,
+GO:0009925,cellularcomponent_cellularcomponent,GO:0016324,-3.612239379435778e-05,-0.0349261329401597,ACCEPT,basal plasma membrane,apical plasma membrane,[],False,False,False,False,
+GO:0030258,biologicalprocess_cellularcomponent,GO:0005886,-0.0017812285805121064,-0.3461928175792534,ACCEPT,lipid modification,plasma membrane,[],False,False,False,False,
+GO:0030258,biologicalprocess_cellularcomponent,GO:0044853,-0.0008586272597312927,-0.3461928175792534,ACCEPT,lipid modification,plasma membrane raft,[],False,False,False,False,
+GO:0030258,biologicalprocess_cellularcomponent,GO:0097524,-0.002107884269207716,-0.3461928175792534,ACCEPT,lipid modification,sperm plasma membrane,[],False,False,False,False,
+GO:0030258,biologicalprocess_cellularcomponent,GO:0009925,-0.0016033881111070514,-0.3461928175792534,ACCEPT,lipid modification,basal plasma membrane,[],False,False,False,False,
+GO:0030258,biologicalprocess_cellularcomponent,GO:0016324,-0.002166121732443571,-0.3461928175792534,ACCEPT,lipid modification,apical plasma membrane,[],False,False,False,False,

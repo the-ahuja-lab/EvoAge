@@ -1,0 +1,7 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+107689,chemicalentity_chemicalentity,61503,-0.3985786437988281,-0.2425281074611494,REJECT,(2S)-2-hydroxypropanoic acid,(2R)-2-hydroxypropanoic acid,['ChemicalEntity_ChemicalEntity'],False,True,True,False,ChemicalEntity_ChemicalEntity
+107689,chemicalentity_pathway,R-HSA-2559582,-0.01942446455359459,-0.3200630854546729,ACCEPT,(2S)-2-hydroxypropanoic acid,Senescence-Associated Secretory Phenotype (SASP),[],False,False,False,False,
+107689,chemicalentity_protein,P54379,-0.6668906211853027,-0.3552259656009227,REJECT,(2S)-2-hydroxypropanoic acid,Sigma-G-dependent sporulation-specific SASP protein,[],False,False,False,False,
+61503,chemicalentity_pathway,R-HSA-2559582,-0.0019512135768309236,-0.3200630854546729,ACCEPT,(2R)-2-hydroxypropanoic acid,Senescence-Associated Secretory Phenotype (SASP),[],False,False,False,False,
+61503,chemicalentity_protein,P54379,-0.46930357813835144,-0.3552259656009227,REJECT,(2R)-2-hydroxypropanoic acid,Sigma-G-dependent sporulation-specific SASP protein,[],False,False,False,False,
+P54379,protein_pathway,R-HSA-2559582,-2.377398729324341,-0.0332625891724323,REJECT,Sigma-G-dependent sporulation-specific SASP protein,Senescence-Associated Secretory Phenotype (SASP),[],False,False,False,False,

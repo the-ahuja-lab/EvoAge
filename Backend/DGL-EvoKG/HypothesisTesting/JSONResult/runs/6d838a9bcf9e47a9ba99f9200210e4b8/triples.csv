@@ -1,0 +1,11 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+439242,chemicalentity_protein,P37198,-0.019701814278960228,-0.3552259656009227,ACCEPT,raffinose,Nuclear pore glycoprotein p62,[],False,False,False,False,
+439242,chemicalentity_protein,D3VVE9,-0.9796552658081055,-0.3552259656009227,REJECT,raffinose,Truncated tumor suppressor protein P16 {ECO:0000313|EMBL:ACY78326.1},[],False,False,False,False,
+439242,chemicalentity_protein,Q5STF9,-0.0645483136177063,-0.3552259656009227,ACCEPT,raffinose,Ribonuclease P protein subunit p21,[],False,False,False,False,
+P37198,protein_protein,D3VVE9,-0.3914874494075775,-0.2036837140803804,REJECT,Nuclear pore glycoprotein p62,Truncated tumor suppressor protein P16 {ECO:0000313|EMBL:ACY78326.1},[],False,False,False,False,
+P37198,protein_protein,Q5STF9,-0.05930908024311066,-0.2036837140803804,ACCEPT,Nuclear pore glycoprotein p62,Ribonuclease P protein subunit p21,[],False,False,False,False,
+P37198,protein_phenotype,ZP:0140680,-0.18142405152320862,-0.0497034494975703,REJECT,Nuclear pore glycoprotein p62,"stress-induced premature senescence increased occurrence, abnormal",[],False,False,False,False,
+D3VVE9,protein_protein,Q5STF9,-3.9700655937194824,-0.2036837140803804,REJECT,Truncated tumor suppressor protein P16 {ECO:0000313|EMBL:ACY78326.1},Ribonuclease P protein subunit p21,[],False,False,False,False,
+D3VVE9,protein_phenotype,ZP:0140680,-0.7707992792129517,-0.0497034494975703,REJECT,Truncated tumor suppressor protein P16 {ECO:0000313|EMBL:ACY78326.1},"stress-induced premature senescence increased occurrence, abnormal",[],False,False,False,False,
+Q5STF9,protein_phenotype,ZP:0140680,-0.29052841663360596,-0.0497034494975703,REJECT,Ribonuclease P protein subunit p21,"stress-induced premature senescence increased occurrence, abnormal",[],False,False,False,False,
+ZP:0140680,phenotype_chemicalentity,439242,-3.0587971210479736,-0.1369889979525682,REJECT,"stress-induced premature senescence increased occurrence, abnormal",raffinose,[],False,False,False,False,

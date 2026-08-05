@@ -1,0 +1,22 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+A2X8M8,protein_protein,Q5JWT2,-1.808313250541687,-0.2036837140803804,REJECT,Polyamine transporter PUT1,Probable proline oxidase 2 {ECO:0000256|ARBA:ARBA00042107},[],False,False,False,False,
+A2X8M8,protein_biologicalprocess,GO:0034605,-0.6529451608657837,-0.5776643345681309,REJECT,Polyamine transporter PUT1,cellular response to heat,[],False,False,False,False,
+A2X8M8,protein_biologicalprocess,GO:1900034,-1.000739574432373,-0.5776643345681309,REJECT,Polyamine transporter PUT1,regulation of cellular response to heat,[],False,False,False,False,
+A2X8M8,protein_biologicalprocess,GO:1900036,-0.88404381275177,-0.5776643345681309,REJECT,Polyamine transporter PUT1,positive regulation of cellular response to heat,[],False,False,False,False,
+A2X8M8,protein_biologicalprocess,GO:0006457,-0.5742867588996887,-0.5776643345681309,ACCEPT,Polyamine transporter PUT1,protein folding,[],False,False,False,False,
+A2X8M8,protein_biologicalprocess,GO:0006914,-0.6328021287918091,-0.5776643345681309,REJECT,Polyamine transporter PUT1,autophagy,[],False,False,False,False,
+Q5JWT2,protein_biologicalprocess,GO:0034605,-0.10982464253902435,-0.5776643345681309,ACCEPT,Probable proline oxidase 2 {ECO:0000256|ARBA:ARBA00042107},cellular response to heat,[],False,False,False,False,
+Q5JWT2,protein_biologicalprocess,GO:1900034,-0.3319307267665863,-0.5776643345681309,ACCEPT,Probable proline oxidase 2 {ECO:0000256|ARBA:ARBA00042107},regulation of cellular response to heat,[],False,False,False,False,
+Q5JWT2,protein_biologicalprocess,GO:1900036,-0.3209814727306366,-0.5776643345681309,ACCEPT,Probable proline oxidase 2 {ECO:0000256|ARBA:ARBA00042107},positive regulation of cellular response to heat,[],False,False,False,False,
+Q5JWT2,protein_biologicalprocess,GO:0006457,-0.0772172138094902,-0.5776643345681309,ACCEPT,Probable proline oxidase 2 {ECO:0000256|ARBA:ARBA00042107},protein folding,[],False,False,False,False,
+Q5JWT2,protein_biologicalprocess,GO:0006914,-0.0987846702337265,-0.5776643345681309,ACCEPT,Probable proline oxidase 2 {ECO:0000256|ARBA:ARBA00042107},autophagy,[],False,False,False,False,
+GO:0034605,biologicalprocess_biologicalprocess,GO:1900034,-0.0005104767042212188,-0.0422867482620858,ACCEPT,cellular response to heat,regulation of cellular response to heat,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess
+GO:0034605,biologicalprocess_biologicalprocess,GO:1900036,-0.0018405725713819265,-0.0422867482620858,ACCEPT,cellular response to heat,positive regulation of cellular response to heat,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess
+GO:0034605,biologicalprocess_biologicalprocess,GO:0006457,-0.00014188453496899456,-0.0422867482620858,ACCEPT,cellular response to heat,protein folding,[],False,False,False,False,
+GO:0034605,biologicalprocess_biologicalprocess,GO:0006914,-0.00011401609663153067,-0.0422867482620858,ACCEPT,cellular response to heat,autophagy,[],False,False,False,False,
+GO:1900034,biologicalprocess_biologicalprocess,GO:1900036,-0.00942373089492321,-0.0422867482620858,ACCEPT,regulation of cellular response to heat,positive regulation of cellular response to heat,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess
+GO:1900034,biologicalprocess_biologicalprocess,GO:0006457,-0.0015202908543869853,-0.0422867482620858,ACCEPT,regulation of cellular response to heat,protein folding,[],False,False,False,False,
+GO:1900034,biologicalprocess_biologicalprocess,GO:0006914,-0.0012428071349859238,-0.0422867482620858,ACCEPT,regulation of cellular response to heat,autophagy,[],False,False,False,False,
+GO:1900036,biologicalprocess_biologicalprocess,GO:0006457,-0.03777032345533371,-0.0422867482620858,ACCEPT,positive regulation of cellular response to heat,protein folding,[],False,False,False,False,
+GO:1900036,biologicalprocess_biologicalprocess,GO:0006914,-0.03180210664868355,-0.0422867482620858,ACCEPT,positive regulation of cellular response to heat,autophagy,[],False,False,False,False,
+GO:0006457,biologicalprocess_biologicalprocess,GO:0006914,-5.868519292562269e-05,-0.0422867482620858,ACCEPT,protein folding,autophagy,[],False,False,False,False,

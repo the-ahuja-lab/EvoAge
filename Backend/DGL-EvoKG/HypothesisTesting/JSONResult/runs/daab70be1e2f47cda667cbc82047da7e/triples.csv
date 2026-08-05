@@ -1,0 +1,5 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+GALK2,gene_pathway,R-HSA-110523,-0.020354894921183586,-0.0346968297443117,ACCEPT,galactokinase 2,TOR signaling pathway,[],False,False,False,False,
+GALK2,gene_pathway,hsa04010,-0.01031798217445612,-0.0346968297443117,ACCEPT,galactokinase 2,MAPK signaling pathway,[],False,False,False,False,
+GALK2,gene_phenotype,delayed hair regrowth,-0.015371480956673622,-0.0347684314162952,ACCEPT,galactokinase 2,delayed hair regrowth,[],False,False,False,False,
+R-HSA-110523,pathway_pathway,hsa04010,-0.8031864762306213,-0.0291625673052831,REJECT,TOR signaling pathway,MAPK signaling pathway,[],False,False,False,False,

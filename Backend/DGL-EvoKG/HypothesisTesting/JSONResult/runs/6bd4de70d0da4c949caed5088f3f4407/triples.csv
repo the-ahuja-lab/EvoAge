@@ -1,0 +1,22 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+139191468,chemicalentity_chemicalentity,798,-0.19328807294368744,-0.2425281074611494,ACCEPT,indole,1H-indole,['ChemicalEntity_ChemicalEntity'],False,True,True,False,ChemicalEntity_ChemicalEntity
+139191468,chemicalentity_protein,P27250,-0.2783738374710083,-0.3552259656009227,ACCEPT,indole,Aldehyde reductase Ahr,[],False,False,False,False,
+139191468,chemicalentity_protein,E5RK50,-0.32002294063568115,-0.3552259656009227,ACCEPT,indole,NF-kappaB repressing factor {ECO:0000313|EMBL:ABM55378.1},[],False,False,False,False,
+139191468,chemicalentity_pathway,R-HSA-2559582,-0.02112092636525631,-0.3200630854546729,ACCEPT,indole,Senescence-Associated Secretory Phenotype (SASP),[],False,False,False,False,
+139191468,chemicalentity_protein,P54379,-0.740123987197876,-0.3552259656009227,REJECT,indole,Sigma-G-dependent sporulation-specific SASP protein,[],False,False,False,False,
+139191468,chemicalentity_gene,AHR,-0.06164158508181572,-0.2458965898096785,ACCEPT,indole,aryl hydrocarbon receptor,['ChemicalEntity_Gene'],False,True,True,False,ChemicalEntity_Gene
+798,chemicalentity_protein,P27250,-0.16239294409751892,-0.3552259656009227,ACCEPT,1H-indole,Aldehyde reductase Ahr,[],False,False,False,False,
+798,chemicalentity_protein,E5RK50,-0.19982141256332397,-0.3552259656009227,ACCEPT,1H-indole,NF-kappaB repressing factor {ECO:0000313|EMBL:ABM55378.1},[],False,False,False,False,
+798,chemicalentity_pathway,R-HSA-2559582,-0.008315243758261204,-0.3200630854546729,ACCEPT,1H-indole,Senescence-Associated Secretory Phenotype (SASP),[],False,False,False,False,
+798,chemicalentity_protein,P54379,-0.5290684103965759,-0.3552259656009227,REJECT,1H-indole,Sigma-G-dependent sporulation-specific SASP protein,[],False,False,False,False,
+798,chemicalentity_gene,AHR,-0.014737274497747421,-0.2458965898096785,ACCEPT,1H-indole,aryl hydrocarbon receptor,['ChemicalEntity_Gene'],False,True,True,False,ChemicalEntity_Gene
+P27250,protein_protein,E5RK50,-1.293038249015808,-0.2036837140803804,REJECT,Aldehyde reductase Ahr,NF-kappaB repressing factor {ECO:0000313|EMBL:ABM55378.1},[],False,False,False,False,
+P27250,protein_pathway,R-HSA-2559582,-1.2953660488128662,-0.0332625891724323,REJECT,Aldehyde reductase Ahr,Senescence-Associated Secretory Phenotype (SASP),[],False,False,False,False,
+P27250,protein_protein,P54379,-0.43159690499305725,-0.2036837140803804,REJECT,Aldehyde reductase Ahr,Sigma-G-dependent sporulation-specific SASP protein,[],False,False,False,False,
+E5RK50,protein_pathway,R-HSA-2559582,-0.9972226619720459,-0.0332625891724323,REJECT,NF-kappaB repressing factor {ECO:0000313|EMBL:ABM55378.1},Senescence-Associated Secretory Phenotype (SASP),[],False,False,False,False,
+E5RK50,protein_protein,P54379,-0.40280598402023315,-0.2036837140803804,REJECT,NF-kappaB repressing factor {ECO:0000313|EMBL:ABM55378.1},Sigma-G-dependent sporulation-specific SASP protein,[],False,False,False,False,
+R-HSA-2559582,pathway_gene,AHR,-0.001268016523681581,-0.0605865656309756,ACCEPT,Senescence-Associated Secretory Phenotype (SASP),aryl hydrocarbon receptor,[],False,False,False,False,
+P54379,protein_pathway,R-HSA-2559582,-2.377398729324341,-0.0332625891724323,REJECT,Sigma-G-dependent sporulation-specific SASP protein,Senescence-Associated Secretory Phenotype (SASP),[],False,False,False,False,
+AHR,gene_protein,P27250,-0.006776751950383186,-0.0280984394514378,ACCEPT,aryl hydrocarbon receptor,Aldehyde reductase Ahr,[],False,False,False,False,
+AHR,gene_protein,E5RK50,-0.01195092499256134,-0.0280984394514378,ACCEPT,aryl hydrocarbon receptor,NF-kappaB repressing factor {ECO:0000313|EMBL:ABM55378.1},[],False,False,False,False,
+AHR,gene_protein,P54379,-0.02991740219295025,-0.0280984394514378,REJECT,aryl hydrocarbon receptor,Sigma-G-dependent sporulation-specific SASP protein,[],False,False,False,False,

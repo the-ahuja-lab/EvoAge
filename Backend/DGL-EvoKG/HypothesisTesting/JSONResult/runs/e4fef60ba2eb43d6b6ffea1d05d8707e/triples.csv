@@ -1,0 +1,15 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+GO:0004481,molecularfunction_biologicalprocess,GO:0009266,-0.03119378350675106,-0.0147993624499696,REJECT,methylene-fatty-acyl-phospholipid synthase activity,response to temperature stimulus,[],False,False,False,False,
+GO:0004481,molecularfunction_biologicalprocess,GO:0016048,-0.05821327492594719,-0.0147993624499696,REJECT,methylene-fatty-acyl-phospholipid synthase activity,detection of temperature stimulus,[],False,False,False,False,
+GO:0004481,molecularfunction_biologicalprocess,GO:0071502,-0.05448445305228233,-0.0147993624499696,REJECT,methylene-fatty-acyl-phospholipid synthase activity,cellular response to temperature stimulus,[],False,False,False,False,
+GO:0004481,molecularfunction_biologicalprocess,GO:0050951,-0.07613547146320343,-0.0147993624499696,REJECT,methylene-fatty-acyl-phospholipid synthase activity,sensory perception of temperature stimulus,[],False,False,False,False,
+GO:0009266,biologicalprocess_cellularcomponent,GO:0016020,-0.004175523295998573,-0.3461928175792534,ACCEPT,response to temperature stimulus,membrane,[],False,False,False,False,
+GO:0009266,biologicalprocess_biologicalprocess,GO:0016048,-0.012815235182642937,-0.0422867482620858,ACCEPT,response to temperature stimulus,detection of temperature stimulus,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess
+GO:0009266,biologicalprocess_biologicalprocess,GO:0071502,-0.017698802053928375,-0.0422867482620858,ACCEPT,response to temperature stimulus,cellular response to temperature stimulus,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess
+GO:0009266,biologicalprocess_biologicalprocess,GO:0050951,-0.017572535201907158,-0.0422867482620858,ACCEPT,response to temperature stimulus,sensory perception of temperature stimulus,[],False,False,False,False,
+GO:0016048,biologicalprocess_cellularcomponent,GO:0016020,-0.004661071114242077,-0.3461928175792534,ACCEPT,detection of temperature stimulus,membrane,[],False,False,False,False,
+GO:0016048,biologicalprocess_biologicalprocess,GO:0071502,-0.011965577490627766,-0.0422867482620858,ACCEPT,detection of temperature stimulus,cellular response to temperature stimulus,[],False,False,False,False,
+GO:0016048,biologicalprocess_biologicalprocess,GO:0050951,-0.012141738086938858,-0.0422867482620858,ACCEPT,detection of temperature stimulus,sensory perception of temperature stimulus,[],False,False,False,False,
+GO:0071502,biologicalprocess_cellularcomponent,GO:0016020,-0.011824007146060467,-0.3461928175792534,ACCEPT,cellular response to temperature stimulus,membrane,[],False,False,False,False,
+GO:0071502,biologicalprocess_biologicalprocess,GO:0050951,-0.033918049186468124,-0.0422867482620858,ACCEPT,cellular response to temperature stimulus,sensory perception of temperature stimulus,[],False,False,False,False,
+GO:0050951,biologicalprocess_cellularcomponent,GO:0016020,-0.013398531824350357,-0.3461928175792534,ACCEPT,sensory perception of temperature stimulus,membrane,[],False,False,False,False,

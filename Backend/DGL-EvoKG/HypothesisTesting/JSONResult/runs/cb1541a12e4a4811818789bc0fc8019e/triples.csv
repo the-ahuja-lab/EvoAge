@@ -1,0 +1,11 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+643757,chemicalentity_chemicalentity,444212,-0.4211322069168091,-0.2425281074611494,REJECT,"(Z)-prop-1-ene-1,2,3-tricarboxylic acid","(E)-prop-1-ene-1,2,3-tricarboxylic acid",[],False,False,False,False,
+643757,chemicalentity_protein,H9QEH5,-0.9579100608825684,-0.3552259656009227,REJECT,"(Z)-prop-1-ene-1,2,3-tricarboxylic acid",IkappaBalpha {ECO:0000313|EMBL:CAB65111.1},[],False,False,False,False,
+643757,chemicalentity_protein,E5RK50,-0.32496580481529236,-0.3552259656009227,ACCEPT,"(Z)-prop-1-ene-1,2,3-tricarboxylic acid",NF-kappaB repressing factor {ECO:0000313|EMBL:ABM55378.1},[],False,False,False,False,
+444212,chemicalentity_protein,H9QEH5,-1.022657871246338,-0.3552259656009227,REJECT,"(E)-prop-1-ene-1,2,3-tricarboxylic acid",IkappaBalpha {ECO:0000313|EMBL:CAB65111.1},[],False,False,False,False,
+444212,chemicalentity_protein,E5RK50,-0.3953627943992615,-0.3552259656009227,REJECT,"(E)-prop-1-ene-1,2,3-tricarboxylic acid",NF-kappaB repressing factor {ECO:0000313|EMBL:ABM55378.1},[],False,False,False,False,
+H9QEH5,protein_protein,E5RK50,-2.3649957180023193,-0.2036837140803804,REJECT,IkappaBalpha {ECO:0000313|EMBL:CAB65111.1},NF-kappaB repressing factor {ECO:0000313|EMBL:ABM55378.1},[],False,False,False,False,
+H9QEH5,protein_phenotype,HP:0012129,-2.004199504852295,-0.0497034494975703,REJECT,IkappaBalpha {ECO:0000313|EMBL:CAB65111.1},Abnormality of bone marrow stromal cells,[],False,False,False,False,
+E5RK50,protein_phenotype,HP:0012129,-0.7100976705551147,-0.0497034494975703,REJECT,NF-kappaB repressing factor {ECO:0000313|EMBL:ABM55378.1},Abnormality of bone marrow stromal cells,[],False,False,False,False,
+HP:0012129,phenotype_chemicalentity,643757,-0.7129543423652649,-0.1369889979525682,REJECT,Abnormality of bone marrow stromal cells,"(Z)-prop-1-ene-1,2,3-tricarboxylic acid",[],False,False,False,False,
+HP:0012129,phenotype_chemicalentity,444212,-0.7167010307312012,-0.1369889979525682,REJECT,Abnormality of bone marrow stromal cells,"(E)-prop-1-ene-1,2,3-tricarboxylic acid",[],False,False,False,False,

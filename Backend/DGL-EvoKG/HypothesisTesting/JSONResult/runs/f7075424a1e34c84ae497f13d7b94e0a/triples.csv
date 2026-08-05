@@ -1,0 +1,16 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+736715,chemicalentity_chemicalentity,5460052,-0.1952943354845047,-0.2425281074611494,ACCEPT,(E)-3-(1H-imidazol-5-yl)prop-2-enoic acid,(E)-3-(1H-imidazol-5-yl)prop-2-enoate,['ChemicalEntity_ChemicalEntity'],False,True,True,False,ChemicalEntity_ChemicalEntity
+736715,chemicalentity_chemicalentity,5461073,-0.15311171114444733,-0.2425281074611494,ACCEPT,(E)-3-(1H-imidazol-5-yl)prop-2-enoic acid,(Z)-3-(1H-imidazol-5-yl)prop-2-enoate,[],False,False,False,False,
+736715,chemicalentity_protein,Q5STF9,-0.041606783866882324,-0.3552259656009227,ACCEPT,(E)-3-(1H-imidazol-5-yl)prop-2-enoic acid,Ribonuclease P protein subunit p21,[],False,False,False,False,
+736715,chemicalentity_pathway,R-HSA-2559582,-0.011467516422271729,-0.3200630854546729,ACCEPT,(E)-3-(1H-imidazol-5-yl)prop-2-enoic acid,Senescence-Associated Secretory Phenotype (SASP),[],False,False,False,False,
+736715,chemicalentity_protein,P54379,-0.5660879015922546,-0.3552259656009227,REJECT,(E)-3-(1H-imidazol-5-yl)prop-2-enoic acid,Sigma-G-dependent sporulation-specific SASP protein,[],False,False,False,False,
+5460052,chemicalentity_chemicalentity,5461073,-1.019838809967041,-0.2425281074611494,REJECT,(E)-3-(1H-imidazol-5-yl)prop-2-enoate,(Z)-3-(1H-imidazol-5-yl)prop-2-enoate,[],False,False,False,False,
+5460052,chemicalentity_protein,Q5STF9,-1.0219844579696655,-0.3552259656009227,REJECT,(E)-3-(1H-imidazol-5-yl)prop-2-enoate,Ribonuclease P protein subunit p21,[],False,False,False,False,
+5460052,chemicalentity_pathway,R-HSA-2559582,-1.388465166091919,-0.3200630854546729,REJECT,(E)-3-(1H-imidazol-5-yl)prop-2-enoate,Senescence-Associated Secretory Phenotype (SASP),[],False,False,False,False,
+5460052,chemicalentity_protein,P54379,-1.1181498765945435,-0.3552259656009227,REJECT,(E)-3-(1H-imidazol-5-yl)prop-2-enoate,Sigma-G-dependent sporulation-specific SASP protein,[],False,False,False,False,
+5461073,chemicalentity_protein,Q5STF9,-1.112168312072754,-0.3552259656009227,REJECT,(Z)-3-(1H-imidazol-5-yl)prop-2-enoate,Ribonuclease P protein subunit p21,[],False,False,False,False,
+5461073,chemicalentity_pathway,R-HSA-2559582,-0.9744312763214111,-0.3200630854546729,REJECT,(Z)-3-(1H-imidazol-5-yl)prop-2-enoate,Senescence-Associated Secretory Phenotype (SASP),[],False,False,False,False,
+5461073,chemicalentity_protein,P54379,-1.2689722776412964,-0.3552259656009227,REJECT,(Z)-3-(1H-imidazol-5-yl)prop-2-enoate,Sigma-G-dependent sporulation-specific SASP protein,[],False,False,False,False,
+Q5STF9,protein_pathway,R-HSA-2559582,-0.05157822370529175,-0.0332625891724323,REJECT,Ribonuclease P protein subunit p21,Senescence-Associated Secretory Phenotype (SASP),[],False,False,False,False,
+Q5STF9,protein_protein,P54379,-0.28367477655410767,-0.2036837140803804,REJECT,Ribonuclease P protein subunit p21,Sigma-G-dependent sporulation-specific SASP protein,[],False,False,False,False,
+P54379,protein_pathway,R-HSA-2559582,-2.377398729324341,-0.0332625891724323,REJECT,Sigma-G-dependent sporulation-specific SASP protein,Senescence-Associated Secretory Phenotype (SASP),[],False,False,False,False,

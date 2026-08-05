@@ -1,0 +1,11 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+O94717,protein_biologicalprocess,GO:0051673,-0.14498887956142426,-0.5776643345681309,ACCEPT,RNA-silencing factor ers1,disruption of plasma membrane integrity in another organism,[],False,False,False,False,
+O94717,protein_biologicalprocess,GO:0030258,-0.1104811504483223,-0.5776643345681309,ACCEPT,RNA-silencing factor ers1,lipid modification,[],False,False,False,False,
+O94717,protein_biologicalprocess,GO:0009266,-0.11324413120746613,-0.5776643345681309,ACCEPT,RNA-silencing factor ers1,response to temperature stimulus,[],False,False,False,False,
+O94717,protein_biologicalprocess,GO:0071502,-0.19154515862464905,-0.5776643345681309,ACCEPT,RNA-silencing factor ers1,cellular response to temperature stimulus,[],False,False,False,False,
+GO:0051673,biologicalprocess_biologicalprocess,GO:0030258,-0.0065250215120613575,-0.0422867482620858,ACCEPT,disruption of plasma membrane integrity in another organism,lipid modification,[],False,False,False,False,
+GO:0051673,biologicalprocess_biologicalprocess,GO:0009266,-0.00626877136528492,-0.0422867482620858,ACCEPT,disruption of plasma membrane integrity in another organism,response to temperature stimulus,[],False,False,False,False,
+GO:0051673,biologicalprocess_biologicalprocess,GO:0071502,-0.025339771062135696,-0.0422867482620858,ACCEPT,disruption of plasma membrane integrity in another organism,cellular response to temperature stimulus,[],False,False,False,False,
+GO:0030258,biologicalprocess_biologicalprocess,GO:0009266,-0.001588007784448564,-0.0422867482620858,ACCEPT,lipid modification,response to temperature stimulus,[],False,False,False,False,
+GO:0030258,biologicalprocess_biologicalprocess,GO:0071502,-0.009524459950625896,-0.0422867482620858,ACCEPT,lipid modification,cellular response to temperature stimulus,[],False,False,False,False,
+GO:0009266,biologicalprocess_biologicalprocess,GO:0071502,-0.017698802053928375,-0.0422867482620858,ACCEPT,response to temperature stimulus,cellular response to temperature stimulus,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess

@@ -1,0 +1,3 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+brain inflammation,phenotype_protein,P54379,-1.4874577522277832,-0.3155417705896823,REJECT,brain inflammation,Sigma-G-dependent sporulation-specific SASP protein,[],False,False,False,False,
+P54379,protein_pathway,R-HSA-2559582,-2.377398729324341,-0.0332625891724323,REJECT,Sigma-G-dependent sporulation-specific SASP protein,Senescence-Associated Secretory Phenotype (SASP),[],False,False,False,False,

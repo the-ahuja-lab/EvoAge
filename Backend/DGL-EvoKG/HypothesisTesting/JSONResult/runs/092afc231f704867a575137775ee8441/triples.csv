@@ -1,0 +1,7 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+P0CR36,protein_molecularfunction,GO:0047560,-0.2440653294324875,-0.5690634813738988,ACCEPT,3-ketodihydrosphingosine reductase TSC10,3-dehydrosphinganine reductase activity,['Protein_MolecularFunction'],False,True,True,False,Protein_MolecularFunction
+P0CR36,protein_molecularfunction,GO:0102282,-0.5480344295501709,-0.5690634813738988,ACCEPT,3-ketodihydrosphingosine reductase TSC10,3-ketodihydrosphinganine (C18) reductase activity,[],False,False,False,False,
+KDSR,gene_protein,P0CR36,-0.025674540549516678,-0.0280984394514378,ACCEPT,3-ketodihydrosphingosine reductase,3-ketodihydrosphingosine reductase TSC10,[],False,False,False,False,
+KDSR,gene_molecularfunction,GO:0047560,-0.014146125875413418,-0.0286995250249342,ACCEPT,3-ketodihydrosphingosine reductase,3-dehydrosphinganine reductase activity,['Gene_MolecularFunction'],False,True,True,False,Gene_MolecularFunction
+KDSR,gene_molecularfunction,GO:0102282,-0.0366852730512619,-0.0286995250249342,REJECT,3-ketodihydrosphingosine reductase,3-ketodihydrosphinganine (C18) reductase activity,[],False,False,False,False,
+GO:0047560,molecularfunction_molecularfunction,GO:0102282,-0.16018173098564148,-0.0413108806514266,REJECT,3-dehydrosphinganine reductase activity,3-ketodihydrosphinganine (C18) reductase activity,[],False,False,False,False,

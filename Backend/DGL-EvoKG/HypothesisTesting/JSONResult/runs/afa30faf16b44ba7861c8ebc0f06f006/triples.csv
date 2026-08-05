@@ -1,0 +1,10 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+YOL061W,gene_phenotype,WBPhenotype:0001090,-0.021201571449637413,-0.0347684314162952,ACCEPT,ribose phosphate diphosphokinase subunit PRS5,thermotolerance reduced,[],False,False,False,False,
+YOL061W,gene_phenotype,WBPhenotype:0000295,-0.03757937625050545,-0.0347684314162952,REJECT,ribose phosphate diphosphokinase subunit PRS5,thermotolerance increased,[],False,False,False,False,
+YOL061W,gene_phenotype,acquired thermotolerance: normal,-0.02822011150419712,-0.0347684314162952,ACCEPT,ribose phosphate diphosphokinase subunit PRS5,classical genetics_acquired thermotolerance: normal,[],False,False,False,False,
+YOL061W,gene_pathway,KEGG:map01100,-0.20874299108982086,-0.0346968297443117,REJECT,ribose phosphate diphosphokinase subunit PRS5,Metabolic pathways,[],False,False,False,False,
+YOL061W,gene_pathway,hsa01100,-0.016006527468562126,-0.0346968297443117,ACCEPT,ribose phosphate diphosphokinase subunit PRS5,Metabolic pathways,[],False,False,False,False,
+WBPhenotype:0001090,phenotype_phenotype,WBPhenotype:0000295,-0.25798627734184265,-0.150242852206178,REJECT,thermotolerance reduced,thermotolerance increased,[],False,False,False,False,
+WBPhenotype:0001090,phenotype_phenotype,acquired thermotolerance: normal,-0.3784370422363281,-0.150242852206178,REJECT,thermotolerance reduced,classical genetics_acquired thermotolerance: normal,[],False,False,False,False,
+WBPhenotype:0000295,phenotype_phenotype,acquired thermotolerance: normal,-2.045328140258789,-0.150242852206178,REJECT,thermotolerance increased,classical genetics_acquired thermotolerance: normal,[],False,False,False,False,
+KEGG:map01100,pathway_pathway,hsa01100,-2.9890096187591553,-0.0291625673052831,REJECT,Metabolic pathways,Metabolic pathways,[],False,False,False,False,

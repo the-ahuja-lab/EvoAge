@@ -1,0 +1,29 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+P77671,protein_protein,Q94AP0,-0.6374492645263672,-0.2036837140803804,REJECT,Allantoinase,Allantoinase,['Protein_Protein'],False,True,True,False,Protein_Protein
+P77671,protein_protein,P32375,-0.7077337503433228,-0.2036837140803804,REJECT,Allantoinase,Allantoinase,['Protein_Protein'],False,True,True,False,Protein_Protein
+P77671,protein_protein,B9FDB8,-0.7798657417297363,-0.2036837140803804,REJECT,Allantoinase,Probable allantoinase,[],False,False,False,False,
+P77671,protein_protein,Q54SV3,-0.5719850659370422,-0.2036837140803804,REJECT,Allantoinase,Probable allantoinase 1,['Protein_Protein'],False,True,True,False,Protein_Protein
+P77671,protein_biologicalprocess,GO:0033554,-0.13673526048660278,-0.5776643345681309,ACCEPT,Allantoinase,cellular response to stress,[],False,False,False,False,
+P77671,protein_biologicalprocess,GO:0080136,-0.4430132508277893,-0.5776643345681309,ACCEPT,Allantoinase,priming of cellular response to stress,[],False,False,False,False,
+P77671,protein_biologicalprocess,GO:0080135,-0.12242498248815536,-0.5776643345681309,ACCEPT,Allantoinase,regulation of cellular response to stress,[],False,False,False,False,
+Q94AP0,protein_protein,P32375,-0.8422709703445435,-0.2036837140803804,REJECT,Allantoinase,Allantoinase,['Protein_Protein'],False,True,True,False,Protein_Protein
+Q94AP0,protein_protein,B9FDB8,-0.9274477362632751,-0.2036837140803804,REJECT,Allantoinase,Probable allantoinase,[],False,False,False,False,
+Q94AP0,protein_protein,Q54SV3,-0.629850447177887,-0.2036837140803804,REJECT,Allantoinase,Probable allantoinase 1,['Protein_Protein'],False,True,True,False,Protein_Protein
+Q94AP0,protein_biologicalprocess,GO:0033554,-0.27349933981895447,-0.5776643345681309,ACCEPT,Allantoinase,cellular response to stress,[],False,False,False,False,
+Q94AP0,protein_biologicalprocess,GO:0080136,-0.6020602583885193,-0.5776643345681309,REJECT,Allantoinase,priming of cellular response to stress,[],False,False,False,False,
+Q94AP0,protein_biologicalprocess,GO:0080135,-0.23749388754367828,-0.5776643345681309,ACCEPT,Allantoinase,regulation of cellular response to stress,[],False,False,False,False,
+P32375,protein_protein,B9FDB8,-0.8359529972076416,-0.2036837140803804,REJECT,Allantoinase,Probable allantoinase,[],False,False,False,False,
+P32375,protein_protein,Q54SV3,-0.6231530904769897,-0.2036837140803804,REJECT,Allantoinase,Probable allantoinase 1,['Protein_Protein'],False,True,True,False,Protein_Protein
+P32375,protein_biologicalprocess,GO:0033554,-0.33035194873809814,-0.5776643345681309,ACCEPT,Allantoinase,cellular response to stress,[],False,False,False,False,
+P32375,protein_biologicalprocess,GO:0080136,-0.6282862424850464,-0.5776643345681309,REJECT,Allantoinase,priming of cellular response to stress,[],False,False,False,False,
+P32375,protein_biologicalprocess,GO:0080135,-0.2899055480957031,-0.5776643345681309,ACCEPT,Allantoinase,regulation of cellular response to stress,[],False,False,False,False,
+B9FDB8,protein_protein,Q54SV3,-0.6281697154045105,-0.2036837140803804,REJECT,Probable allantoinase,Probable allantoinase 1,[],False,False,False,False,
+B9FDB8,protein_biologicalprocess,GO:0033554,-0.3468393385410309,-0.5776643345681309,ACCEPT,Probable allantoinase,cellular response to stress,[],False,False,False,False,
+B9FDB8,protein_biologicalprocess,GO:0080136,-0.6140989065170288,-0.5776643345681309,REJECT,Probable allantoinase,priming of cellular response to stress,[],False,False,False,False,
+B9FDB8,protein_biologicalprocess,GO:0080135,-0.3170813322067261,-0.5776643345681309,ACCEPT,Probable allantoinase,regulation of cellular response to stress,[],False,False,False,False,
+Q54SV3,protein_biologicalprocess,GO:0033554,-0.6092261672019958,-0.5776643345681309,REJECT,Probable allantoinase 1,cellular response to stress,[],False,False,False,False,
+Q54SV3,protein_biologicalprocess,GO:0080136,-0.831894040107727,-0.5776643345681309,REJECT,Probable allantoinase 1,priming of cellular response to stress,[],False,False,False,False,
+Q54SV3,protein_biologicalprocess,GO:0080135,-0.5456908345222473,-0.5776643345681309,ACCEPT,Probable allantoinase 1,regulation of cellular response to stress,[],False,False,False,False,
+GO:0033554,biologicalprocess_biologicalprocess,GO:0080136,-0.016907548531889915,-0.0422867482620858,ACCEPT,cellular response to stress,priming of cellular response to stress,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess
+GO:0033554,biologicalprocess_biologicalprocess,GO:0080135,-0.0007648284663446248,-0.0422867482620858,ACCEPT,cellular response to stress,regulation of cellular response to stress,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess
+GO:0080136,biologicalprocess_biologicalprocess,GO:0080135,-0.1618594080209732,-0.0422867482620858,REJECT,priming of cellular response to stress,regulation of cellular response to stress,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess

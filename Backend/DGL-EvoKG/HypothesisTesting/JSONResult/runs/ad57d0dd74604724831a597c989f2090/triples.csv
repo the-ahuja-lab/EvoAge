@@ -1,0 +1,37 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+Q10366,protein_protein,P54677,-0.9296123385429382,-0.2036837140803804,REJECT,Phosphatidylinositol 4-kinase pik1,Phosphatidylinositol 4-kinase,[],False,False,False,False,
+Q10366,protein_protein,A4IID4,-0.7346670031547546,-0.2036837140803804,REJECT,Phosphatidylinositol 4-kinase pik1,Phosphatidylinositol 4-kinase beta,[],False,False,False,False,
+Q10366,protein_biologicalprocess,GO:0055088,-0.47293251752853394,-0.5776643345681309,ACCEPT,Phosphatidylinositol 4-kinase pik1,lipid homeostasis,[],False,False,False,False,
+Q10366,protein_cellularcomponent,GO:0016020,-1.1858980655670166,-0.143767219171222,REJECT,Phosphatidylinositol 4-kinase pik1,membrane,['Protein_CellularComponent'],False,True,True,False,Protein_CellularComponent
+Q10366,protein_biologicalprocess,GO:0034605,-0.43375837802886963,-0.5776643345681309,ACCEPT,Phosphatidylinositol 4-kinase pik1,cellular response to heat,[],False,False,False,False,
+Q10366,protein_biologicalprocess,GO:1900034,-0.6783774495124817,-0.5776643345681309,REJECT,Phosphatidylinositol 4-kinase pik1,regulation of cellular response to heat,[],False,False,False,False,
+Q10366,protein_biologicalprocess,GO:1900036,-0.636406660079956,-0.5776643345681309,REJECT,Phosphatidylinositol 4-kinase pik1,positive regulation of cellular response to heat,[],False,False,False,False,
+Q10366,protein_biologicalprocess,GO:1900035,-0.5610418915748596,-0.5776643345681309,ACCEPT,Phosphatidylinositol 4-kinase pik1,negative regulation of cellular response to heat,[],False,False,False,False,
+P54677,protein_protein,A4IID4,-0.4855268895626068,-0.2036837140803804,REJECT,Phosphatidylinositol 4-kinase,Phosphatidylinositol 4-kinase beta,[],False,False,False,False,
+P54677,protein_biologicalprocess,GO:0055088,-0.07790735363960266,-0.5776643345681309,ACCEPT,Phosphatidylinositol 4-kinase,lipid homeostasis,[],False,False,False,False,
+P54677,protein_cellularcomponent,GO:0016020,-0.6931856870651245,-0.143767219171222,REJECT,Phosphatidylinositol 4-kinase,membrane,['Protein_CellularComponent'],False,True,True,False,Protein_CellularComponent
+P54677,protein_biologicalprocess,GO:0034605,-0.05946986749768257,-0.5776643345681309,ACCEPT,Phosphatidylinositol 4-kinase,cellular response to heat,[],False,False,False,False,
+P54677,protein_biologicalprocess,GO:1900034,-0.16121959686279297,-0.5776643345681309,ACCEPT,Phosphatidylinositol 4-kinase,regulation of cellular response to heat,[],False,False,False,False,
+P54677,protein_biologicalprocess,GO:1900036,-0.19381366670131683,-0.5776643345681309,ACCEPT,Phosphatidylinositol 4-kinase,positive regulation of cellular response to heat,[],False,False,False,False,
+P54677,protein_biologicalprocess,GO:1900035,-0.1520024836063385,-0.5776643345681309,ACCEPT,Phosphatidylinositol 4-kinase,negative regulation of cellular response to heat,[],False,False,False,False,
+A4IID4,protein_biologicalprocess,GO:0055088,-0.38029199838638306,-0.5776643345681309,ACCEPT,Phosphatidylinositol 4-kinase beta,lipid homeostasis,[],False,False,False,False,
+A4IID4,protein_cellularcomponent,GO:0016020,-1.526929259300232,-0.143767219171222,REJECT,Phosphatidylinositol 4-kinase beta,membrane,[],False,False,False,False,
+A4IID4,protein_biologicalprocess,GO:0034605,-0.3335408568382263,-0.5776643345681309,ACCEPT,Phosphatidylinositol 4-kinase beta,cellular response to heat,[],False,False,False,False,
+A4IID4,protein_biologicalprocess,GO:1900034,-0.6157050728797913,-0.5776643345681309,REJECT,Phosphatidylinositol 4-kinase beta,regulation of cellular response to heat,[],False,False,False,False,
+A4IID4,protein_biologicalprocess,GO:1900036,-0.5914819240570068,-0.5776643345681309,REJECT,Phosphatidylinositol 4-kinase beta,positive regulation of cellular response to heat,[],False,False,False,False,
+A4IID4,protein_biologicalprocess,GO:1900035,-0.4984256327152252,-0.5776643345681309,ACCEPT,Phosphatidylinositol 4-kinase beta,negative regulation of cellular response to heat,[],False,False,False,False,
+GO:0055088,biologicalprocess_cellularcomponent,GO:0016020,-0.001386161893606186,-0.3461928175792534,ACCEPT,lipid homeostasis,membrane,[],False,False,False,False,
+GO:0055088,biologicalprocess_biologicalprocess,GO:0034605,-0.0012569546233862638,-0.0422867482620858,ACCEPT,lipid homeostasis,cellular response to heat,[],False,False,False,False,
+GO:0055088,biologicalprocess_biologicalprocess,GO:1900034,-0.0035129794850945473,-0.0422867482620858,ACCEPT,lipid homeostasis,regulation of cellular response to heat,[],False,False,False,False,
+GO:0055088,biologicalprocess_biologicalprocess,GO:1900036,-0.008648784831166267,-0.0422867482620858,ACCEPT,lipid homeostasis,positive regulation of cellular response to heat,[],False,False,False,False,
+GO:0055088,biologicalprocess_biologicalprocess,GO:1900035,-0.005037697497755289,-0.0422867482620858,ACCEPT,lipid homeostasis,negative regulation of cellular response to heat,[],False,False,False,False,
+GO:0034605,biologicalprocess_cellularcomponent,GO:0016020,-0.00032979910611175,-0.3461928175792534,ACCEPT,cellular response to heat,membrane,[],False,False,False,False,
+GO:0034605,biologicalprocess_biologicalprocess,GO:1900034,-0.0005104767042212188,-0.0422867482620858,ACCEPT,cellular response to heat,regulation of cellular response to heat,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess
+GO:0034605,biologicalprocess_biologicalprocess,GO:1900036,-0.0018405725713819265,-0.0422867482620858,ACCEPT,cellular response to heat,positive regulation of cellular response to heat,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess
+GO:0034605,biologicalprocess_biologicalprocess,GO:1900035,-0.0009414348169229925,-0.0422867482620858,ACCEPT,cellular response to heat,negative regulation of cellular response to heat,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess
+GO:1900034,biologicalprocess_cellularcomponent,GO:0016020,-0.0033083329908549786,-0.3461928175792534,ACCEPT,regulation of cellular response to heat,membrane,[],False,False,False,False,
+GO:1900034,biologicalprocess_biologicalprocess,GO:1900036,-0.00942373089492321,-0.0422867482620858,ACCEPT,regulation of cellular response to heat,positive regulation of cellular response to heat,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess
+GO:1900034,biologicalprocess_biologicalprocess,GO:1900035,-0.005663173273205757,-0.0422867482620858,ACCEPT,regulation of cellular response to heat,negative regulation of cellular response to heat,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess
+GO:1900036,biologicalprocess_cellularcomponent,GO:0016020,-0.03061594069004059,-0.3461928175792534,ACCEPT,positive regulation of cellular response to heat,membrane,[],False,False,False,False,
+GO:1900036,biologicalprocess_biologicalprocess,GO:1900035,-0.0590280182659626,-0.0422867482620858,REJECT,positive regulation of cellular response to heat,negative regulation of cellular response to heat,[],False,False,False,False,
+GO:1900035,biologicalprocess_cellularcomponent,GO:0016020,-0.02993079088628292,-0.3461928175792534,ACCEPT,negative regulation of cellular response to heat,membrane,[],False,False,False,False,

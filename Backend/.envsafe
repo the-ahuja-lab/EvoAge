@@ -1,0 +1,60 @@
+UVICORN_HOST                = localhost
+UVICORN_PORT                = 1026
+UVICORN_WORKERS             = 2
+UVICORN_RELOAD_ON_CHANGE    = True
+
+NEO4J_URI      = neo4j://192.168.3.153:3333
+NEO4J_USERNAME = neo4j
+NEO4J_PASSWORD = huihuihui
+
+REDIS_HOST      = 192.168.3.153
+REDIS_PORT      = 6379
+REDIS_USERNAME  = default
+REDIS_PASSWORD  = huihui987*
+
+FRONTEND_URL    = http://evoage.ahujalab.iiitd.edu.in:8501
+
+#JWT settings
+JWT_SECRET_KEY                  = huihuihui
+JWT_ALGORITHM                   = HS256
+JWT_ACCESS_TOKEN_EXPIRE_MINUTES = 30
+
+# Email Configuration (for sending notifications)
+MAIL_USERNAME           = arushis@iiitd.ac.in
+MAIL_PASSWORD           = caxpeeypiuonjzdi
+MAIL_FROM               = arushis@iiitd.ac.in
+MAIL_PORT               = 587
+MAIL_SERVER             = smtp.gmail.com
+MAIL_FROM_NAME          = Arushi Sharma [Project Lead - EvoAGE] # Optional: Change this to your application's name
+MAIL_STARTTLS           = True
+MAIL_SSL_TLS            = False
+MAIL_USE_CREDENTIALS    = True
+MAIL_VALIDATE_CERTS     = True
+MAIL_ADMIN_EMAIL        = arushis@iiitd.ac.in # Email address to receive admin notifications
+
+# DGL Configuration
+NODE_MAPPINGS_PATH = /storage/Arushi/EvoAge-backend/Backend/DGL-EvoKG/Node_Mapping/node_id_HYCDZM_SPECIES_KG_all.pkl
+MODEL_PATH         = /storage/Arushi/EvoAge-backend/Backend/DGL-EvoKG/Model/RotatE_wikimedia_128HidDim_emb/
+ENT_DICT_PATH      = /storage/Arushi/EvoAge-backend/Backend/DGL-EvoKG/Model/entities_FullEvoKG_Updated.dict
+REL_DICT_PATH      = /storage/Arushi/EvoAge-backend/Backend/DGL-EvoKG/Model/relation_FullEvoKG.dict
+
+DGLKE_INPUT_DIR         = /storage/Arushi/EvoAge-backend/Backend/DGL-EvoKG/Input
+DGLKE_DUMMY_HEAD_LIST   = /storage/Arushi/EvoAge-backend/Backend/DGL-EvoKG/Dummy_Input/head.list
+DGLKE_DUMMY_REL_LIST    = /storage/Arushi/EvoAge-backend/Backend/DGL-EvoKG/Dummy_Input/rel.list
+
+# DGL Configuration - Optional (recommended)
+DGLKE_DEVICE    = 1
+DGLKE_SFUNC     = logsigmoid
+
+# Hypothesis Testing Configuration
+INPUT_DIR_HYPOTHESIS     = /storage/Arushi/EvoAge-backend/Backend/DGL-EvoKG/HypothesisTesting/InputHypothesis
+API_BASE                 = http://192.168.3.153:1026
+DEFAULT_ENTITY_PROP      = id
+CUTOFF_FILE_NAME         = /storage/Arushi/EvoAge-backend/Backend/DGL-EvoKG/HypothesisTesting/Cutoff/relation_cutoff_summary.csv
+HYPOTHESIS_ENT_DICT_PATH = /storage/Arushi/EvoAge-backend/Backend/DGL-EvoKG/HypothesisTesting/Model/entities_FullEvoKG_fixed_space.dict
+HYPOTHESIS_TRIPLE_OUTPUT_DIR = /storage/Arushi/EvoAge-backend/Backend/DGL-EvoKG/HypothesisTesting/JSONResult
+
+
+# Gemini - Hypothesis
+GEMINI_API_KEY      = "AIzaSyB4iYbKlde_jWkYPotmIyIuwtBgXG1sJWE,AIzaSyCQzQIZMS9anAP9HAcMG6rDM-kGCilNFYY,AIzaSyBbOerTxjVgPSAp_G1xDlfaNLTRtm39kSI,AIzaSyDMjkDtGD5MIDYY6zOMB-P9Jemuu2dEWWk,AIzaSyCUkmYTp--9Gj1mxoFyiZy_zLBmbnOWXk0,AIzaSyBtjKlT4Lh45qbdACqoU5GaV71Ir8-Q4v4"
+GEMINI_MODEL       = "gemini-2.5-flash-lite"

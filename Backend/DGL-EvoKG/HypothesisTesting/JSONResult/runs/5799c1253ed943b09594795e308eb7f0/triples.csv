@@ -1,0 +1,22 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+857,chemicalentity_pathway,R-HSA-165159,-0.052311502397060394,-0.3200630854546729,ACCEPT,leucine,MTOR signalling,[],False,False,False,False,
+857,chemicalentity_pathway,R-MMU-165159,-0.10701437294483185,-0.3200630854546729,ACCEPT,leucine,MTOR signalling,[],False,False,False,False,
+857,chemicalentity_pathway,R-RNO-165159,-0.2672669291496277,-0.3200630854546729,ACCEPT,leucine,MTOR signalling,[],False,False,False,False,
+857,chemicalentity_gene,MTOR,-0.001524659339338541,-0.2458965898096785,ACCEPT,leucine,mechanistic target of rapamycin kinase,['ChemicalEntity_Gene'],False,True,True,False,ChemicalEntity_Gene
+857,chemicalentity_gene,P16,-0.75407874584198,-0.2458965898096785,REJECT,leucine,cyclin dependent kinase inhibitor 2A,[],False,False,False,False,
+857,chemicalentity_gene,P21,-0.7388156652450562,-0.2458965898096785,REJECT,leucine,neuronal vesicle trafficking associated 1,[],False,False,False,False,
+R-HSA-165159,pathway_pathway,R-MMU-165159,-0.02313750609755516,-0.0291625673052831,ACCEPT,MTOR signalling,MTOR signalling,[],False,False,False,False,
+R-HSA-165159,pathway_pathway,R-RNO-165159,-0.03901619464159012,-0.0291625673052831,REJECT,MTOR signalling,MTOR signalling,[],False,False,False,False,
+R-HSA-165159,pathway_gene,MTOR,-0.009911601431667805,-0.0605865656309756,ACCEPT,MTOR signalling,mechanistic target of rapamycin kinase,['Pathway_Gene'],False,True,True,False,Pathway_Gene
+R-HSA-165159,pathway_gene,P16,-1.3647139072418213,-0.0605865656309756,REJECT,MTOR signalling,cyclin dependent kinase inhibitor 2A,[],False,False,False,False,
+R-HSA-165159,pathway_gene,P21,-1.3079636096954346,-0.0605865656309756,REJECT,MTOR signalling,neuronal vesicle trafficking associated 1,[],False,False,False,False,
+R-MMU-165159,pathway_pathway,R-RNO-165159,-1.1729199886322021,-0.0291625673052831,REJECT,MTOR signalling,MTOR signalling,[],False,False,False,False,
+R-MMU-165159,pathway_gene,MTOR,-4.431916236877441,-0.0605865656309756,REJECT,MTOR signalling,mechanistic target of rapamycin kinase,[],False,False,False,False,
+R-MMU-165159,pathway_gene,P16,-2.424564838409424,-0.0605865656309756,REJECT,MTOR signalling,cyclin dependent kinase inhibitor 2A,[],False,False,False,False,
+R-MMU-165159,pathway_gene,P21,-2.3202569484710693,-0.0605865656309756,REJECT,MTOR signalling,neuronal vesicle trafficking associated 1,[],False,False,False,False,
+R-RNO-165159,pathway_gene,MTOR,-4.135402202606201,-0.0605865656309756,REJECT,MTOR signalling,mechanistic target of rapamycin kinase,[],False,False,False,False,
+R-RNO-165159,pathway_gene,P16,-2.203645706176758,-0.0605865656309756,REJECT,MTOR signalling,cyclin dependent kinase inhibitor 2A,[],False,False,False,False,
+R-RNO-165159,pathway_gene,P21,-2.1232964992523193,-0.0605865656309756,REJECT,MTOR signalling,neuronal vesicle trafficking associated 1,[],False,False,False,False,
+MTOR,gene_gene,P16,-0.22589397430419922,-0.071739344080056,REJECT,mechanistic target of rapamycin kinase,cyclin dependent kinase inhibitor 2A,[],False,False,False,False,
+MTOR,gene_gene,P21,-0.22501100599765778,-0.071739344080056,REJECT,mechanistic target of rapamycin kinase,neuronal vesicle trafficking associated 1,[],False,False,False,False,
+P16,gene_gene,P21,-1.0262815952301025,-0.071739344080056,REJECT,cyclin dependent kinase inhibitor 2A,neuronal vesicle trafficking associated 1,[],False,False,False,False,

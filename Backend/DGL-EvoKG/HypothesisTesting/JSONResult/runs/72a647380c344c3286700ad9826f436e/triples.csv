@@ -1,0 +1,22 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+Q12455,protein_protein,A1L596,-0.5388655066490173,-0.2036837140803804,REJECT,Spermine synthase SPE4,Spermine synthase,[],False,False,False,False,
+Q12455,protein_protein,Q3SZA5,-0.7484698295593262,-0.2036837140803804,REJECT,Spermine synthase SPE4,Spermine synthase,[],False,False,False,False,
+Q12455,protein_protein,Q94BN2,-0.7167673707008362,-0.2036837140803804,REJECT,Spermine synthase SPE4,Spermine synthase,[],False,False,False,False,
+Q12455,protein_biologicalprocess,GO:0009408,-0.18289893865585327,-0.5776643345681309,ACCEPT,Spermine synthase SPE4,response to heat,[],False,False,False,False,
+Q12455,protein_biologicalprocess,GO:0034605,-0.20910514891147614,-0.5776643345681309,ACCEPT,Spermine synthase SPE4,cellular response to heat,[],False,False,False,False,
+Q12455,protein_biologicalprocess,GO:1900034,-0.40711575746536255,-0.5776643345681309,ACCEPT,Spermine synthase SPE4,regulation of cellular response to heat,[],False,False,False,False,
+A1L596,protein_protein,Q3SZA5,-1.1869341135025024,-0.2036837140803804,REJECT,Spermine synthase,Spermine synthase,[],False,False,False,False,
+A1L596,protein_protein,Q94BN2,-1.3606575727462769,-0.2036837140803804,REJECT,Spermine synthase,Spermine synthase,[],False,False,False,False,
+A1L596,protein_biologicalprocess,GO:0009408,-2.3689162731170654,-0.5776643345681309,REJECT,Spermine synthase,response to heat,[],False,False,False,False,
+A1L596,protein_biologicalprocess,GO:0034605,-2.3252995014190674,-0.5776643345681309,REJECT,Spermine synthase,cellular response to heat,[],False,False,False,False,
+A1L596,protein_biologicalprocess,GO:1900034,-2.507444143295288,-0.5776643345681309,REJECT,Spermine synthase,regulation of cellular response to heat,[],False,False,False,False,
+Q3SZA5,protein_protein,Q94BN2,-0.8976803421974182,-0.2036837140803804,REJECT,Spermine synthase,Spermine synthase,[],False,False,False,False,
+Q3SZA5,protein_biologicalprocess,GO:0009408,-1.047516107559204,-0.5776643345681309,REJECT,Spermine synthase,response to heat,[],False,False,False,False,
+Q3SZA5,protein_biologicalprocess,GO:0034605,-1.090883731842041,-0.5776643345681309,REJECT,Spermine synthase,cellular response to heat,[],False,False,False,False,
+Q3SZA5,protein_biologicalprocess,GO:1900034,-1.3715492486953735,-0.5776643345681309,REJECT,Spermine synthase,regulation of cellular response to heat,[],False,False,False,False,
+Q94BN2,protein_biologicalprocess,GO:0009408,-0.10846557468175888,-0.5776643345681309,ACCEPT,Spermine synthase,response to heat,[],False,False,False,False,
+Q94BN2,protein_biologicalprocess,GO:0034605,-0.13560999929904938,-0.5776643345681309,ACCEPT,Spermine synthase,cellular response to heat,[],False,False,False,False,
+Q94BN2,protein_biologicalprocess,GO:1900034,-0.2996552586555481,-0.5776643345681309,ACCEPT,Spermine synthase,regulation of cellular response to heat,[],False,False,False,False,
+GO:0009408,biologicalprocess_biologicalprocess,GO:0034605,-9.490591764915735e-05,-0.0422867482620858,ACCEPT,response to heat,cellular response to heat,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess
+GO:0009408,biologicalprocess_biologicalprocess,GO:1900034,-0.00040423517930321395,-0.0422867482620858,ACCEPT,response to heat,regulation of cellular response to heat,[],False,False,False,False,
+GO:0034605,biologicalprocess_biologicalprocess,GO:1900034,-0.0005104767042212188,-0.0422867482620858,ACCEPT,cellular response to heat,regulation of cellular response to heat,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess

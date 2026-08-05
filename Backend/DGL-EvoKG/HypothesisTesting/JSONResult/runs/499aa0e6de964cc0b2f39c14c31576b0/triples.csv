@@ -1,0 +1,7 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+O14229,protein_cellularcomponent,GO:0044233,-2.420433282852173,-0.143767219171222,REJECT,Transcription factor tau subunit sfc1,mitochondria-associated endoplasmic reticulum membrane contact site,[],False,False,False,False,
+O14229,protein_phenotype,HP:0030401,-0.8253415822982788,-0.0497034494975703,REJECT,Transcription factor tau subunit sfc1,Abnormal platelet dense granule ATP/ADP ratio,[],False,False,False,False,
+O14229,protein_chemicalentity,10243408,-0.8404735326766968,-0.1571110372511136,REJECT,Transcription factor tau subunit sfc1,N-[3-(1H-imidazol-5-yl)propyl]-1H-benzimidazol-2-amine,[],False,False,False,False,
+GO:0044233,cellularcomponent_chemicalentity,10243408,-0.22419676184654236,-0.1936719522778712,REJECT,mitochondria-associated endoplasmic reticulum membrane contact site,N-[3-(1H-imidazol-5-yl)propyl]-1H-benzimidazol-2-amine,[],False,False,False,False,
+HP:0030401,phenotype_cellularcomponent,GO:0044233,-0.44998592138290405,-0.6698990933960958,ACCEPT,Abnormal platelet dense granule ATP/ADP ratio,mitochondria-associated endoplasmic reticulum membrane contact site,[],False,False,False,False,
+HP:0030401,phenotype_chemicalentity,10243408,-1.5029959678649902,-0.1369889979525682,REJECT,Abnormal platelet dense granule ATP/ADP ratio,N-[3-(1H-imidazol-5-yl)propyl]-1H-benzimidazol-2-amine,[],False,False,False,False,

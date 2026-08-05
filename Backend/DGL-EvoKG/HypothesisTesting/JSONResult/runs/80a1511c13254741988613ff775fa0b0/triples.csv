@@ -1,0 +1,7 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+B9DFI7,protein_phenotype,embryo phenotype,-0.9172085523605347,-0.0497034494975703,REJECT,Probable methyltransferase PMT2,embryo phenotype,[],False,False,False,False,
+B9DFI7,protein_phenotype,muscle phenotype,-0.6773176193237305,-0.0497034494975703,REJECT,Probable methyltransferase PMT2,muscle phenotype,[],False,False,False,False,
+POMT2,gene_protein,B9DFI7,-0.024161573499441147,-0.0280984394514378,ACCEPT,protein O-mannosyltransferase 2,Probable methyltransferase PMT2,[],False,False,False,False,
+POMT2,gene_phenotype,embryo phenotype,-0.03797804191708565,-0.0347684314162952,REJECT,protein O-mannosyltransferase 2,embryo phenotype,['Gene_Phenotype'],False,True,True,False,Gene_Phenotype
+POMT2,gene_phenotype,muscle phenotype,-0.015634367242455482,-0.0347684314162952,ACCEPT,protein O-mannosyltransferase 2,muscle phenotype,[],False,False,False,False,
+embryo phenotype,phenotype_phenotype,muscle phenotype,-2.5466511249542236,-0.150242852206178,REJECT,embryo phenotype,muscle phenotype,[],False,False,False,False,

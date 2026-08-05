@@ -1,0 +1,7 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+GO:1903137,biologicalprocess_biologicalprocess,GO:0052386,-0.29483118653297424,-0.0422867482620858,REJECT,regulation of cell wall integrity MAPK cascade,cell wall thickening,[],False,False,False,False,
+GO:1903137,biologicalprocess_biologicalprocess,GO:1990451,-0.3712206780910492,-0.0422867482620858,REJECT,regulation of cell wall integrity MAPK cascade,cellular stress response to acidic pH,[],False,False,False,False,
+GO:1903137,biologicalprocess_biologicalprocess,GO:0033554,-0.21753546595573425,-0.0422867482620858,REJECT,regulation of cell wall integrity MAPK cascade,cellular response to stress,[],False,False,False,False,
+GO:0052386,biologicalprocess_biologicalprocess,GO:1990451,-3.691662311553955,-0.0422867482620858,REJECT,cell wall thickening,cellular stress response to acidic pH,[],False,False,False,False,
+GO:0052386,biologicalprocess_biologicalprocess,GO:0033554,-5.004535675048828,-0.0422867482620858,REJECT,cell wall thickening,cellular response to stress,[],False,False,False,False,
+GO:1990451,biologicalprocess_biologicalprocess,GO:0033554,-0.013958596624433994,-0.0422867482620858,ACCEPT,cellular stress response to acidic pH,cellular response to stress,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess

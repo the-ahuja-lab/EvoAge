@@ -1,0 +1,16 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+GO:0048102,biologicalprocess_cellularcomponent,GO:0005774,-0.0060707260854542255,-0.3461928175792534,ACCEPT,autophagic cell death,vacuolar membrane,[],False,False,False,False,
+GO:0048102,biologicalprocess_biologicalprocess,GO:0007034,-0.020899243652820587,-0.0422867482620858,ACCEPT,autophagic cell death,vacuolar transport,[],False,False,False,False,
+GO:0048102,biologicalprocess_biologicalprocess,GO:0097350,-0.04280010610818863,-0.0422867482620858,REJECT,autophagic cell death,neutrophil clearance,[],False,False,False,False,
+GO:0048102,biologicalprocess_biologicalprocess,GO:0009408,-0.01315157487988472,-0.0422867482620858,ACCEPT,autophagic cell death,response to heat,[],False,False,False,False,
+GO:0048102,biologicalprocess_biologicalprocess,GO:0034605,-0.02036909945309162,-0.0422867482620858,ACCEPT,autophagic cell death,cellular response to heat,[],False,False,False,False,
+GO:0007034,biologicalprocess_cellularcomponent,GO:0005774,-0.00021087814820930362,-0.3461928175792534,ACCEPT,vacuolar transport,vacuolar membrane,[],False,False,False,False,
+GO:0007034,biologicalprocess_biologicalprocess,GO:0097350,-0.003970990888774395,-0.0422867482620858,ACCEPT,vacuolar transport,neutrophil clearance,[],False,False,False,False,
+GO:0007034,biologicalprocess_biologicalprocess,GO:0009408,-0.00041827934910543263,-0.0422867482620858,ACCEPT,vacuolar transport,response to heat,[],False,False,False,False,
+GO:0007034,biologicalprocess_biologicalprocess,GO:0034605,-0.0009327870793640614,-0.0422867482620858,ACCEPT,vacuolar transport,cellular response to heat,[],False,False,False,False,
+GO:0097350,biologicalprocess_cellularcomponent,GO:0005774,-0.0026281047612428665,-0.3461928175792534,ACCEPT,neutrophil clearance,vacuolar membrane,[],False,False,False,False,
+GO:0097350,biologicalprocess_biologicalprocess,GO:0009408,-0.005979720037430525,-0.0422867482620858,ACCEPT,neutrophil clearance,response to heat,[],False,False,False,False,
+GO:0097350,biologicalprocess_biologicalprocess,GO:0034605,-0.010401496663689613,-0.0422867482620858,ACCEPT,neutrophil clearance,cellular response to heat,[],False,False,False,False,
+GO:0009408,biologicalprocess_cellularcomponent,GO:0005774,-2.1389418179751374e-05,-0.3461928175792534,ACCEPT,response to heat,vacuolar membrane,[],False,False,False,False,
+GO:0009408,biologicalprocess_biologicalprocess,GO:0034605,-9.490591764915735e-05,-0.0422867482620858,ACCEPT,response to heat,cellular response to heat,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess
+GO:0034605,biologicalprocess_cellularcomponent,GO:0005774,-2.3824755771784112e-05,-0.3461928175792534,ACCEPT,cellular response to heat,vacuolar membrane,[],False,False,False,False,

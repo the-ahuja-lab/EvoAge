@@ -1,0 +1,11 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+Q08234,protein_molecularfunction,GO:0140359,-1.0548731088638306,-0.5690634813738988,REJECT,Uncharacterized ABC transporter ATP-binding protein/permease YOL075C,ABC-type transporter activity,['Protein_MolecularFunction'],False,True,True,False,Protein_MolecularFunction
+Q08234,protein_molecularfunction,GO:0015411,-1.0498491525650024,-0.5690634813738988,REJECT,Uncharacterized ABC transporter ATP-binding protein/permease YOL075C,ABC-type taurine transporter transporter activity,[],False,False,False,False,
+Q08234,protein_phenotype,abnormal taste sensitivity,-1.021809697151184,-0.0497034494975703,REJECT,Uncharacterized ABC transporter ATP-binding protein/permease YOL075C,abnormal taste sensitivity,[],False,False,False,False,
+Q08234,protein_phenotype,growth cone,-1.1582894325256348,-0.0497034494975703,REJECT,Uncharacterized ABC transporter ATP-binding protein/permease YOL075C,growth cone,[],False,False,False,False,
+GO:0140359,molecularfunction_molecularfunction,GO:0015411,-0.14685949683189392,-0.0413108806514266,REJECT,ABC-type transporter activity,ABC-type taurine transporter transporter activity,['MolecularFunction_MolecularFunction'],False,True,True,False,MolecularFunction_MolecularFunction
+abnormal taste sensitivity,phenotype_molecularfunction,GO:0140359,-0.526252806186676,-0.4457983972888497,REJECT,abnormal taste sensitivity,ABC-type transporter activity,[],False,False,False,False,
+abnormal taste sensitivity,phenotype_molecularfunction,GO:0015411,-0.7914461493492126,-0.4457983972888497,REJECT,abnormal taste sensitivity,ABC-type taurine transporter transporter activity,[],False,False,False,False,
+abnormal taste sensitivity,phenotype_phenotype,growth cone,-1.1021028757095337,-0.150242852206178,REJECT,abnormal taste sensitivity,growth cone,[],False,False,False,False,
+growth cone,phenotype_molecularfunction,GO:0140359,-0.5975227355957031,-0.4457983972888497,REJECT,growth cone,ABC-type transporter activity,[],False,False,False,False,
+growth cone,phenotype_molecularfunction,GO:0015411,-0.7364513874053955,-0.4457983972888497,REJECT,growth cone,ABC-type taurine transporter transporter activity,[],False,False,False,False,

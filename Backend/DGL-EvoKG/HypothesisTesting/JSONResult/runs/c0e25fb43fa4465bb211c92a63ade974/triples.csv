@@ -1,0 +1,11 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+P25360,protein_phenotype,WBPhenotype:0001090,-1.3722717761993408,-0.0497034494975703,REJECT,Inorganic phosphate transporter PHO87,thermotolerance reduced,[],False,False,False,False,
+P25360,protein_phenotype,WBPhenotype:0000295,-1.27383553981781,-0.0497034494975703,REJECT,Inorganic phosphate transporter PHO87,thermotolerance increased,[],False,False,False,False,
+P25360,protein_phenotype,acquired thermotolerance: normal,-0.8068382740020752,-0.0497034494975703,REJECT,Inorganic phosphate transporter PHO87,classical genetics_acquired thermotolerance: normal,[],False,False,False,False,
+P25360,protein_phenotype,WBPhenotype:0002138,-0.9906368255615234,-0.0497034494975703,REJECT,Inorganic phosphate transporter PHO87,acquired thermotolerance variant,[],False,False,False,False,
+WBPhenotype:0001090,phenotype_phenotype,WBPhenotype:0000295,-0.25798627734184265,-0.150242852206178,REJECT,thermotolerance reduced,thermotolerance increased,[],False,False,False,False,
+WBPhenotype:0001090,phenotype_phenotype,acquired thermotolerance: normal,-0.3784370422363281,-0.150242852206178,REJECT,thermotolerance reduced,classical genetics_acquired thermotolerance: normal,[],False,False,False,False,
+WBPhenotype:0001090,phenotype_phenotype,WBPhenotype:0002138,-0.2683075964450836,-0.150242852206178,REJECT,thermotolerance reduced,acquired thermotolerance variant,[],False,False,False,False,
+WBPhenotype:0000295,phenotype_phenotype,acquired thermotolerance: normal,-2.045328140258789,-0.150242852206178,REJECT,thermotolerance increased,classical genetics_acquired thermotolerance: normal,[],False,False,False,False,
+WBPhenotype:0000295,phenotype_phenotype,WBPhenotype:0002138,-1.207206130027771,-0.150242852206178,REJECT,thermotolerance increased,acquired thermotolerance variant,[],False,False,False,False,
+acquired thermotolerance: normal,phenotype_phenotype,WBPhenotype:0002138,-0.42652037739753723,-0.150242852206178,REJECT,classical genetics_acquired thermotolerance: normal,acquired thermotolerance variant,[],False,False,False,False,

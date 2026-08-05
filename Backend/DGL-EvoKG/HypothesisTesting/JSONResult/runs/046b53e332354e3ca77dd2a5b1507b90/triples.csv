@@ -1,0 +1,16 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+MAN2C1,gene_protein,Q9UT61,-0.044650495052337646,-0.0280984394514378,REJECT,mannosidase alpha class 2C member 1,Alpha-mannosidase,[],False,False,False,False,
+MAN2C1,gene_protein,P22855,-0.016633519902825356,-0.0280984394514378,ACCEPT,mannosidase alpha class 2C member 1,Alpha-mannosidase,[],False,False,False,False,
+MAN2C1,gene_protein,Q1ZXI8,-0.034258898347616196,-0.0280984394514378,REJECT,mannosidase alpha class 2C member 1,Alpha-mannosidase E,[],False,False,False,False,
+MAN2C1,gene_protein,O82775,-0.03198437765240669,-0.0280984394514378,REJECT,mannosidase alpha class 2C member 1,ATG8-interacting protein 1 {ECO:0000303|PubMed:22253227},[],False,False,False,False,
+MAN2C1,gene_gene,GABARAP,-0.014745033346116543,-0.071739344080056,ACCEPT,mannosidase alpha class 2C member 1,GABA type A receptor-associated protein,['Gene_Gene'],False,True,True,False,Gene_Gene
+Q9UT61,protein_protein,P22855,-0.9984979033470154,-0.2036837140803804,REJECT,Alpha-mannosidase,Alpha-mannosidase,['Protein_Protein'],False,True,True,False,Protein_Protein
+Q9UT61,protein_protein,Q1ZXI8,-0.8739810585975647,-0.2036837140803804,REJECT,Alpha-mannosidase,Alpha-mannosidase E,[],False,False,False,False,
+Q9UT61,protein_protein,O82775,-0.7973276376724243,-0.2036837140803804,REJECT,Alpha-mannosidase,ATG8-interacting protein 1 {ECO:0000303|PubMed:22253227},[],False,False,False,False,
+P22855,protein_protein,Q1ZXI8,-0.6588077545166016,-0.2036837140803804,REJECT,Alpha-mannosidase,Alpha-mannosidase E,[],False,False,False,False,
+P22855,protein_protein,O82775,-0.6077553033828735,-0.2036837140803804,REJECT,Alpha-mannosidase,ATG8-interacting protein 1 {ECO:0000303|PubMed:22253227},[],False,False,False,False,
+Q1ZXI8,protein_protein,O82775,-0.7522376775741577,-0.2036837140803804,REJECT,Alpha-mannosidase E,ATG8-interacting protein 1 {ECO:0000303|PubMed:22253227},[],False,False,False,False,
+GABARAP,gene_protein,Q9UT61,-0.024133330211043358,-0.0280984394514378,ACCEPT,GABA type A receptor-associated protein,Alpha-mannosidase,[],False,False,False,False,
+GABARAP,gene_protein,P22855,-0.00859353132545948,-0.0280984394514378,ACCEPT,GABA type A receptor-associated protein,Alpha-mannosidase,[],False,False,False,False,
+GABARAP,gene_protein,Q1ZXI8,-0.017852162942290306,-0.0280984394514378,ACCEPT,GABA type A receptor-associated protein,Alpha-mannosidase E,[],False,False,False,False,
+GABARAP,gene_protein,O82775,-0.019375193864107132,-0.0280984394514378,ACCEPT,GABA type A receptor-associated protein,ATG8-interacting protein 1 {ECO:0000303|PubMed:22253227},[],False,False,False,False,

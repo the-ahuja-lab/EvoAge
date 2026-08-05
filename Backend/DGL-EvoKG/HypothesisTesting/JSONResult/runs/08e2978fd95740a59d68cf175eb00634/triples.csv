@@ -1,0 +1,22 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+GO:0007036,biologicalprocess_biologicalprocess,GO:0097352,-1.48042631149292,-0.0422867482620858,REJECT,vacuolar calcium ion homeostasis,autophagosome maturation,[],False,False,False,False,
+GO:0007036,biologicalprocess_biologicalprocess,GO:0061906,-0.9228729009628296,-0.0422867482620858,REJECT,vacuolar calcium ion homeostasis,autophagosome localization,[],False,False,False,False,
+GO:0007036,biologicalprocess_biologicalprocess,GO:0000045,-1.5070725679397583,-0.0422867482620858,REJECT,vacuolar calcium ion homeostasis,autophagosome assembly,[],False,False,False,False,
+GO:0007036,biologicalprocess_biologicalprocess,GO:1905037,-1.0244144201278687,-0.0422867482620858,REJECT,vacuolar calcium ion homeostasis,autophagosome organization,[],False,False,False,False,
+GO:0007036,biologicalprocess_biologicalprocess,GO:0040007,-0.8789170980453491,-0.0422867482620858,REJECT,vacuolar calcium ion homeostasis,growth,[],False,False,False,False,
+GO:0007036,biologicalprocess_biologicalprocess,GO:0016049,-0.9832211136817932,-0.0422867482620858,REJECT,vacuolar calcium ion homeostasis,cell growth,[],False,False,False,False,
+GO:0097352,biologicalprocess_biologicalprocess,GO:0061906,-0.01147482544183731,-0.0422867482620858,ACCEPT,autophagosome maturation,autophagosome localization,[],False,False,False,False,
+GO:0097352,biologicalprocess_biologicalprocess,GO:0000045,-0.00029035905026830733,-0.0422867482620858,ACCEPT,autophagosome maturation,autophagosome assembly,[],False,False,False,False,
+GO:0097352,biologicalprocess_biologicalprocess,GO:1905037,-0.0023251152597367764,-0.0422867482620858,ACCEPT,autophagosome maturation,autophagosome organization,[],False,False,False,False,
+GO:0097352,biologicalprocess_biologicalprocess,GO:0040007,-0.00021687624393962324,-0.0422867482620858,ACCEPT,autophagosome maturation,growth,[],False,False,False,False,
+GO:0097352,biologicalprocess_biologicalprocess,GO:0016049,-0.00048230946413241327,-0.0422867482620858,ACCEPT,autophagosome maturation,cell growth,[],False,False,False,False,
+GO:0061906,biologicalprocess_biologicalprocess,GO:0000045,-0.3590892553329468,-0.0422867482620858,REJECT,autophagosome localization,autophagosome assembly,[],False,False,False,False,
+GO:0061906,biologicalprocess_biologicalprocess,GO:1905037,-0.3549298644065857,-0.0422867482620858,REJECT,autophagosome localization,autophagosome organization,[],False,False,False,False,
+GO:0061906,biologicalprocess_biologicalprocess,GO:0040007,-0.21561111509799957,-0.0422867482620858,REJECT,autophagosome localization,growth,[],False,False,False,False,
+GO:0061906,biologicalprocess_biologicalprocess,GO:0016049,-0.2704846262931824,-0.0422867482620858,REJECT,autophagosome localization,cell growth,[],False,False,False,False,
+GO:0000045,biologicalprocess_biologicalprocess,GO:1905037,-0.0013637434458360076,-0.0422867482620858,ACCEPT,autophagosome assembly,autophagosome organization,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess
+GO:0000045,biologicalprocess_biologicalprocess,GO:0040007,-0.00010082132212119177,-0.0422867482620858,ACCEPT,autophagosome assembly,growth,[],False,False,False,False,
+GO:0000045,biologicalprocess_biologicalprocess,GO:0016049,-0.000241641333559528,-0.0422867482620858,ACCEPT,autophagosome assembly,cell growth,[],False,False,False,False,
+GO:1905037,biologicalprocess_biologicalprocess,GO:0040007,-0.013985802419483662,-0.0422867482620858,ACCEPT,autophagosome organization,growth,[],False,False,False,False,
+GO:1905037,biologicalprocess_biologicalprocess,GO:0016049,-0.02270095981657505,-0.0422867482620858,ACCEPT,autophagosome organization,cell growth,[],False,False,False,False,
+GO:0040007,biologicalprocess_biologicalprocess,GO:0016049,-0.004773678723722696,-0.0422867482620858,ACCEPT,growth,cell growth,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess

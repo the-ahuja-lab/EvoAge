@@ -1,0 +1,16 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+YLR345W,gene_chemicalentity,5957,-0.06916706264019012,-0.0285922419958417,REJECT,"bifunctional fructose-2,6-bisphosphate 2-phosphatase/6-phosphofructo-2-kinase",ATP,['ChemicalEntity_Gene'],False,True,True,False,ChemicalEntity_Gene
+YLR345W,gene_phenotype,WBPhenotype:0001090,-0.031053801998496056,-0.0347684314162952,ACCEPT,"bifunctional fructose-2,6-bisphosphate 2-phosphatase/6-phosphofructo-2-kinase",thermotolerance reduced,[],False,False,False,False,
+YLR345W,gene_phenotype,WBPhenotype:0000295,-0.05240534618496895,-0.0347684314162952,REJECT,"bifunctional fructose-2,6-bisphosphate 2-phosphatase/6-phosphofructo-2-kinase",thermotolerance increased,[],False,False,False,False,
+YLR345W,gene_phenotype,WBPhenotype:0002138,-0.05454937368631363,-0.0347684314162952,REJECT,"bifunctional fructose-2,6-bisphosphate 2-phosphatase/6-phosphofructo-2-kinase",acquired thermotolerance variant,[],False,False,False,False,
+YLR345W,gene_phenotype,innate thermotolerance: decreased,-0.09900283813476562,-0.0347684314162952,REJECT,"bifunctional fructose-2,6-bisphosphate 2-phosphatase/6-phosphofructo-2-kinase","homozygous diploid, systematic mutation set_innate thermotolerance: decreased",[],False,False,False,False,
+WBPhenotype:0001090,phenotype_chemicalentity,5957,-0.8443560600280762,-0.1369889979525682,REJECT,thermotolerance reduced,ATP,[],False,False,False,False,
+WBPhenotype:0001090,phenotype_phenotype,WBPhenotype:0000295,-0.25798627734184265,-0.150242852206178,REJECT,thermotolerance reduced,thermotolerance increased,[],False,False,False,False,
+WBPhenotype:0001090,phenotype_phenotype,WBPhenotype:0002138,-0.2683075964450836,-0.150242852206178,REJECT,thermotolerance reduced,acquired thermotolerance variant,[],False,False,False,False,
+WBPhenotype:0001090,phenotype_phenotype,innate thermotolerance: decreased,-0.3629191517829895,-0.150242852206178,REJECT,thermotolerance reduced,"homozygous diploid, systematic mutation set_innate thermotolerance: decreased",[],False,False,False,False,
+WBPhenotype:0000295,phenotype_chemicalentity,5957,-3.2638614177703857,-0.1369889979525682,REJECT,thermotolerance increased,ATP,[],False,False,False,False,
+WBPhenotype:0000295,phenotype_phenotype,WBPhenotype:0002138,-1.207206130027771,-0.150242852206178,REJECT,thermotolerance increased,acquired thermotolerance variant,[],False,False,False,False,
+WBPhenotype:0000295,phenotype_phenotype,innate thermotolerance: decreased,-1.2291070222854614,-0.150242852206178,REJECT,thermotolerance increased,"homozygous diploid, systematic mutation set_innate thermotolerance: decreased",[],False,False,False,False,
+WBPhenotype:0002138,phenotype_chemicalentity,5957,-2.7919840812683105,-0.1369889979525682,REJECT,acquired thermotolerance variant,ATP,[],False,False,False,False,
+WBPhenotype:0002138,phenotype_phenotype,innate thermotolerance: decreased,-1.1630840301513672,-0.150242852206178,REJECT,acquired thermotolerance variant,"homozygous diploid, systematic mutation set_innate thermotolerance: decreased",[],False,False,False,False,
+innate thermotolerance: decreased,phenotype_chemicalentity,5957,-2.392080307006836,-0.1369889979525682,REJECT,"homozygous diploid, systematic mutation set_innate thermotolerance: decreased",ATP,[],False,False,False,False,

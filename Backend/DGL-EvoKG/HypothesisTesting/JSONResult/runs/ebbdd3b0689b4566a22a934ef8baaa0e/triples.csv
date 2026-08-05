@@ -1,0 +1,16 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+Q12040,protein_molecularfunction,GO:0019902,-0.5178179144859314,-0.5690634813738988,ACCEPT,Broad-specificity phosphatase YOR283W,phosphatase binding,[],False,False,False,False,
+Q12040,protein_molecularfunction,GO:0016791,-0.37808912992477417,-0.5690634813738988,ACCEPT,Broad-specificity phosphatase YOR283W,phosphatase activity,['Protein_MolecularFunction'],False,True,True,False,Protein_MolecularFunction
+Q12040,protein_biologicalprocess,GO:0071359,-0.6075722575187683,-0.5776643345681309,REJECT,Broad-specificity phosphatase YOR283W,cellular response to dsRNA,[],False,False,False,False,
+Q12040,protein_biologicalprocess,GO:0071362,-0.6258068680763245,-0.5776643345681309,REJECT,Broad-specificity phosphatase YOR283W,cellular response to ether,[],False,False,False,False,
+Q12040,protein_biologicalprocess,GO:1990786,-0.7024340629577637,-0.5776643345681309,REJECT,Broad-specificity phosphatase YOR283W,cellular response to dsDNA,[],False,False,False,False,
+GO:0019902,molecularfunction_molecularfunction,GO:0016791,-0.006725568789988756,-0.0413108806514266,ACCEPT,phosphatase binding,phosphatase activity,[],False,False,False,False,
+GO:0019902,molecularfunction_biologicalprocess,GO:0071359,-0.06846810132265091,-0.0147993624499696,REJECT,phosphatase binding,cellular response to dsRNA,[],False,False,False,False,
+GO:0019902,molecularfunction_biologicalprocess,GO:0071362,-0.10974045842885971,-0.0147993624499696,REJECT,phosphatase binding,cellular response to ether,[],False,False,False,False,
+GO:0019902,molecularfunction_biologicalprocess,GO:1990786,-0.06592141836881638,-0.0147993624499696,REJECT,phosphatase binding,cellular response to dsDNA,[],False,False,False,False,
+GO:0016791,molecularfunction_biologicalprocess,GO:0071359,-0.0006703311228193343,-0.0147993624499696,ACCEPT,phosphatase activity,cellular response to dsRNA,[],False,False,False,False,
+GO:0016791,molecularfunction_biologicalprocess,GO:0071362,-0.0020501979161053896,-0.0147993624499696,ACCEPT,phosphatase activity,cellular response to ether,[],False,False,False,False,
+GO:0016791,molecularfunction_biologicalprocess,GO:1990786,-0.0011760592460632324,-0.0147993624499696,ACCEPT,phosphatase activity,cellular response to dsDNA,[],False,False,False,False,
+GO:0071359,biologicalprocess_biologicalprocess,GO:0071362,-0.09785214066505432,-0.0422867482620858,REJECT,cellular response to dsRNA,cellular response to ether,[],False,False,False,False,
+GO:0071359,biologicalprocess_biologicalprocess,GO:1990786,-0.1386687308549881,-0.0422867482620858,REJECT,cellular response to dsRNA,cellular response to dsDNA,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess
+GO:0071362,biologicalprocess_biologicalprocess,GO:1990786,-0.3398117125034332,-0.0422867482620858,REJECT,cellular response to ether,cellular response to dsDNA,[],False,False,False,False,

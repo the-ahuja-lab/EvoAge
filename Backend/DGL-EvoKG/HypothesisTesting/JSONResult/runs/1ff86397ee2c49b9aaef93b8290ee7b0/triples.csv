@@ -1,0 +1,49 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+D2JYH5,protein_tissue,BTO:0000452,-0.009042586199939251,-0.1523438805787957,ACCEPT,Collagen alpha-1(III) chain,fibroblast,['Protein_Tissue'],False,True,True,False,Protein_Tissue
+D2JYH5,protein_tissue,BTO:0000764,-0.014425254426896572,-0.1523438805787957,ACCEPT,Collagen alpha-1(III) chain,lung fibroblast,['Protein_Tissue'],False,True,True,False,Protein_Tissue
+D2JYH5,protein_tissue,BTO:0001255,-0.015535814687609673,-0.1523438805787957,ACCEPT,Collagen alpha-1(III) chain,skin fibroblast,['Protein_Tissue'],False,True,True,False,Protein_Tissue
+D2JYH5,protein_tissue,BTO:0004419,-0.01248255092650652,-0.1523438805787957,ACCEPT,Collagen alpha-1(III) chain,dermal fibroblast,['Protein_Tissue'],False,True,True,False,Protein_Tissue
+D2JYH5,protein_tissue,BTO:0004138,-0.009953626431524754,-0.1523438805787957,ACCEPT,Collagen alpha-1(III) chain,gingival fibroblast,['Protein_Tissue'],False,True,True,False,Protein_Tissue
+D2JYH5,protein_biologicalprocess,GO:0048144,-0.018767517060041428,-0.5776643345681309,ACCEPT,Collagen alpha-1(III) chain,fibroblast proliferation,[],False,False,False,False,
+D2JYH5,protein_biologicalprocess,GO:0006921,-0.013879543170332909,-0.5776643345681309,ACCEPT,Collagen alpha-1(III) chain,cellular component disassembly involved in execution phase of apoptosis,[],False,False,False,False,
+D2JYH5,protein_biologicalprocess,GO:0090398,-0.015082943253219128,-0.5776643345681309,ACCEPT,Collagen alpha-1(III) chain,cellular senescence,[],False,False,False,False,
+D2JYH5,protein_biologicalprocess,GO:2000774,-0.015222877264022827,-0.5776643345681309,ACCEPT,Collagen alpha-1(III) chain,positive regulation of cellular senescence,[],False,False,False,False,
+D2JYH5,protein_phenotype,impaired skin barrier function,-0.009236427024006844,-0.0497034494975703,ACCEPT,Collagen alpha-1(III) chain,impaired skin barrier function,[],False,False,False,False,
+D2JYH5,protein_phenotype,MP:0002796,-0.05962925776839256,-0.0497034494975703,REJECT,Collagen alpha-1(III) chain,impaired skin barrier function,[],False,False,False,False,
+D2JYH5,protein_phenotype,dermal hyperplasia,-0.06749178469181061,-0.0497034494975703,REJECT,Collagen alpha-1(III) chain,dermal hyperplasia,[],False,False,False,False,
+ZFA:0009026,anatomicalentity_anatomicalentity,ZFA:0005246,-1.2389463186264038,-0.267031084952043,REJECT,fibroblast,regeneration fibroblast,['AnatomicalEntity_AnatomicalEntity'],False,True,True,False,AnatomicalEntity_AnatomicalEntity
+ZFA:0009026,anatomicalentity_anatomicalentity,ZFA:0009296,-1.6316120624542236,-0.267031084952043,REJECT,fibroblast,perijunctional fibroblast,['AnatomicalEntity_AnatomicalEntity'],False,True,True,False,AnatomicalEntity_AnatomicalEntity
+ZFA:0009026,anatomicalentity_biologicalprocess,GO:0048144,-1.037978172302246,-0.3146286561727787,REJECT,fibroblast,fibroblast proliferation,[],False,False,False,False,
+ZFA:0009026,anatomicalentity_biologicalprocess,GO:0006921,-1.415906310081482,-0.3146286561727787,REJECT,fibroblast,cellular component disassembly involved in execution phase of apoptosis,[],False,False,False,False,
+ZFA:0009026,anatomicalentity_biologicalprocess,GO:0090398,-1.2415443658828735,-0.3146286561727787,REJECT,fibroblast,cellular senescence,[],False,False,False,False,
+ZFA:0009026,anatomicalentity_biologicalprocess,GO:2000774,-1.4442733526229858,-0.3146286561727787,REJECT,fibroblast,positive regulation of cellular senescence,[],False,False,False,False,
+ZFA:0005246,anatomicalentity_anatomicalentity,ZFA:0009296,-1.1912553310394287,-0.267031084952043,REJECT,regeneration fibroblast,perijunctional fibroblast,[],False,False,False,False,
+ZFA:0005246,anatomicalentity_biologicalprocess,GO:0048144,-0.6155076622962952,-0.3146286561727787,REJECT,regeneration fibroblast,fibroblast proliferation,[],False,False,False,False,
+ZFA:0005246,anatomicalentity_biologicalprocess,GO:0006921,-0.8390002250671387,-0.3146286561727787,REJECT,regeneration fibroblast,cellular component disassembly involved in execution phase of apoptosis,[],False,False,False,False,
+ZFA:0005246,anatomicalentity_biologicalprocess,GO:0090398,-0.7515045404434204,-0.3146286561727787,REJECT,regeneration fibroblast,cellular senescence,[],False,False,False,False,
+ZFA:0005246,anatomicalentity_biologicalprocess,GO:2000774,-0.8946113586425781,-0.3146286561727787,REJECT,regeneration fibroblast,positive regulation of cellular senescence,[],False,False,False,False,
+ZFA:0009296,anatomicalentity_biologicalprocess,GO:0048144,-0.6203615665435791,-0.3146286561727787,REJECT,perijunctional fibroblast,fibroblast proliferation,[],False,False,False,False,
+ZFA:0009296,anatomicalentity_biologicalprocess,GO:0006921,-0.844334602355957,-0.3146286561727787,REJECT,perijunctional fibroblast,cellular component disassembly involved in execution phase of apoptosis,[],False,False,False,False,
+ZFA:0009296,anatomicalentity_biologicalprocess,GO:0090398,-0.5981576442718506,-0.3146286561727787,REJECT,perijunctional fibroblast,cellular senescence,[],False,False,False,False,
+ZFA:0009296,anatomicalentity_biologicalprocess,GO:2000774,-0.9214097261428833,-0.3146286561727787,REJECT,perijunctional fibroblast,positive regulation of cellular senescence,[],False,False,False,False,
+GO:0048144,biologicalprocess_biologicalprocess,GO:0006921,-0.03070123866200447,-0.0422867482620858,ACCEPT,fibroblast proliferation,cellular component disassembly involved in execution phase of apoptosis,[],False,False,False,False,
+GO:0048144,biologicalprocess_biologicalprocess,GO:0090398,-0.12150173634290695,-0.0422867482620858,REJECT,fibroblast proliferation,cellular senescence,[],False,False,False,False,
+GO:0048144,biologicalprocess_biologicalprocess,GO:2000774,-0.05313817784190178,-0.0422867482620858,REJECT,fibroblast proliferation,positive regulation of cellular senescence,[],False,False,False,False,
+GO:0006921,biologicalprocess_biologicalprocess,GO:0090398,-0.06476148962974548,-0.0422867482620858,REJECT,cellular component disassembly involved in execution phase of apoptosis,cellular senescence,[],False,False,False,False,
+GO:0006921,biologicalprocess_biologicalprocess,GO:2000774,-0.024642059579491615,-0.0422867482620858,ACCEPT,cellular component disassembly involved in execution phase of apoptosis,positive regulation of cellular senescence,[],False,False,False,False,
+GO:0090398,biologicalprocess_biologicalprocess,GO:2000774,-0.001034979010000825,-0.0422867482620858,ACCEPT,cellular senescence,positive regulation of cellular senescence,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess
+impaired skin barrier function,phenotype_biologicalprocess,GO:0048144,-0.11894777417182922,-0.607891854730636,ACCEPT,impaired skin barrier function,fibroblast proliferation,[],False,False,False,False,
+impaired skin barrier function,phenotype_biologicalprocess,GO:0006921,-0.08094379305839539,-0.607891854730636,ACCEPT,impaired skin barrier function,cellular component disassembly involved in execution phase of apoptosis,[],False,False,False,False,
+impaired skin barrier function,phenotype_biologicalprocess,GO:0090398,-0.03155205398797989,-0.607891854730636,ACCEPT,impaired skin barrier function,cellular senescence,[],False,False,False,False,
+impaired skin barrier function,phenotype_biologicalprocess,GO:2000774,-0.052902594208717346,-0.607891854730636,ACCEPT,impaired skin barrier function,positive regulation of cellular senescence,[],False,False,False,False,
+impaired skin barrier function,phenotype_phenotype,MP:0002796,-0.11226678639650345,-0.150242852206178,ACCEPT,impaired skin barrier function,impaired skin barrier function,[],False,False,False,False,
+impaired skin barrier function,phenotype_phenotype,dermal hyperplasia,-0.14213554561138153,-0.150242852206178,ACCEPT,impaired skin barrier function,dermal hyperplasia,[],False,False,False,False,
+MP:0002796,phenotype_biologicalprocess,GO:0048144,-0.9499520063400269,-0.607891854730636,REJECT,impaired skin barrier function,fibroblast proliferation,[],False,False,False,False,
+MP:0002796,phenotype_biologicalprocess,GO:0006921,-0.919025719165802,-0.607891854730636,REJECT,impaired skin barrier function,cellular component disassembly involved in execution phase of apoptosis,[],False,False,False,False,
+MP:0002796,phenotype_biologicalprocess,GO:0090398,-0.38596341013908386,-0.607891854730636,ACCEPT,impaired skin barrier function,cellular senescence,[],False,False,False,False,
+MP:0002796,phenotype_biologicalprocess,GO:2000774,-0.7834352254867554,-0.607891854730636,REJECT,impaired skin barrier function,positive regulation of cellular senescence,[],False,False,False,False,
+MP:0002796,phenotype_phenotype,dermal hyperplasia,-1.6025923490524292,-0.150242852206178,REJECT,impaired skin barrier function,dermal hyperplasia,[],False,False,False,False,
+dermal hyperplasia,phenotype_biologicalprocess,GO:0048144,-0.718292236328125,-0.607891854730636,REJECT,dermal hyperplasia,fibroblast proliferation,[],False,False,False,False,
+dermal hyperplasia,phenotype_biologicalprocess,GO:0006921,-0.6901451945304871,-0.607891854730636,REJECT,dermal hyperplasia,cellular component disassembly involved in execution phase of apoptosis,[],False,False,False,False,
+dermal hyperplasia,phenotype_biologicalprocess,GO:0090398,-0.3410511612892151,-0.607891854730636,ACCEPT,dermal hyperplasia,cellular senescence,[],False,False,False,False,
+dermal hyperplasia,phenotype_biologicalprocess,GO:2000774,-0.5900276899337769,-0.607891854730636,ACCEPT,dermal hyperplasia,positive regulation of cellular senescence,[],False,False,False,False,

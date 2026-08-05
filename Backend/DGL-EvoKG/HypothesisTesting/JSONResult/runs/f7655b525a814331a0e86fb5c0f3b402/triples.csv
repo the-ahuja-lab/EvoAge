@@ -1,0 +1,17 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type,n_variants_considered,variant_scores
+P38298,protein_protein,O45145,-0.9328776597976685,-0.2036837140803804,REJECT,Alkaline ceramidase YPC1,Alkaline ceramidase,[],False,False,False,False,,,
+P38298,protein_protein,Q60WT2,-0.664282500743866,-0.2036837140803804,REJECT,Alkaline ceramidase YPC1,Alkaline ceramidase,[],False,False,False,False,,,
+P38298,protein_protein,Q9VIP7,-0.9201984405517578,-0.2036837140803804,REJECT,Alkaline ceramidase YPC1,Alkaline ceramidase,[],False,False,False,False,,,
+P38298,protein_biologicalprocess,GO:0070370,-0.25977450609207153,-0.5776643345681309,ACCEPT,Alkaline ceramidase YPC1,cellular heat acclimation,[],False,False,False,False,,,
+P38298,protein_chemicalentity,5957,-1.4376583099365234,-0.1571110372511136,REJECT,Alkaline ceramidase YPC1,ATP,[],False,False,False,False,,,
+O45145,protein_protein,Q60WT2,-0.5459494590759277,-0.2036837140803804,REJECT,Alkaline ceramidase,Alkaline ceramidase,[],False,False,False,False,,,
+O45145,protein_protein,Q9VIP7,-0.7773317098617554,-0.2036837140803804,REJECT,Alkaline ceramidase,Alkaline ceramidase,[],False,False,False,False,,,
+O45145,protein_biologicalprocess,GO:0070370,-0.15724442899227142,-0.5776643345681309,ACCEPT,Alkaline ceramidase,cellular heat acclimation,[],False,False,False,False,,,
+O45145,protein_chemicalentity,5957,-0.7667587399482727,-0.1571110372511136,REJECT,Alkaline ceramidase,ATP,[],False,False,False,False,,,
+Q60WT2,protein_protein,Q9VIP7,-1.047249674797058,-0.2036837140803804,REJECT,Alkaline ceramidase,Alkaline ceramidase,[],False,False,False,False,,,
+Q60WT2,protein_biologicalprocess,GO:0070370,-0.28633561730384827,-0.5776643345681309,ACCEPT,Alkaline ceramidase,cellular heat acclimation,[],False,False,False,False,,,
+Q60WT2,protein_chemicalentity,5957,-1.3696355819702148,-0.1571110372511136,REJECT,Alkaline ceramidase,ATP,[],False,False,False,False,,,
+Q9VIP7,protein_biologicalprocess,GO:0070370,-0.1979256570339203,-0.5776643345681309,ACCEPT,Alkaline ceramidase,cellular heat acclimation,[],False,False,False,False,,,
+Q9VIP7,protein_chemicalentity,5957,-0.9866293668746948,-0.1571110372511136,REJECT,Alkaline ceramidase,ATP,[],False,False,False,False,,,
+GO:0070370,biologicalprocess_chemicalentity,5957,-0.0145500423386693,-0.03613698155982,ACCEPT,cellular heat acclimation,ATP,[],False,False,False,False,,,
+5957,chemicalentity_inhibits_biologicalprocess,GO:0070370,-0.12818484008312225,-0.7050372264239742,ACCEPT,ATP,cellular heat acclimation,[],False,False,False,False,,6.0,"{'chemicalentity_negativelyassociatedwith_biologicalprocess': -0.2649, 'chemicalentity_noeffect_biologicalprocess': -0.9833, 'chemicalentity_notassociatedwith_biologicalprocess': -0.4294, 'chemicalentity_promotes_biologicalprocess': -0.3409, 'chemicalentity_inhibits_biologicalprocess': -0.1282, 'chemicalentity_positivelyassociatedwith_biologicalprocess': -0.3861}"

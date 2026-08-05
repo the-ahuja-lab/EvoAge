@@ -1,0 +1,29 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+P25360,protein_biologicalprocess,GO:0010286,-0.14957329630851746,-0.5776643345681309,ACCEPT,Inorganic phosphate transporter PHO87,heat acclimation,[],False,False,False,False,
+P25360,protein_biologicalprocess,GO:0070370,-0.1794489324092865,-0.5776643345681309,ACCEPT,Inorganic phosphate transporter PHO87,cellular heat acclimation,[],False,False,False,False,
+P25360,protein_biologicalprocess,GO:0055078,-0.16432414948940277,-0.5776643345681309,ACCEPT,Inorganic phosphate transporter PHO87,sodium ion homeostasis,[],False,False,False,False,
+P25360,protein_biologicalprocess,GO:0055070,-0.14691931009292603,-0.5776643345681309,ACCEPT,Inorganic phosphate transporter PHO87,copper ion homeostasis,[],False,False,False,False,
+P25360,protein_biologicalprocess,GO:0055074,-0.1709425449371338,-0.5776643345681309,ACCEPT,Inorganic phosphate transporter PHO87,calcium ion homeostasis,[],False,False,False,False,
+P25360,protein_biologicalprocess,GO:0055063,-0.42307528853416443,-0.5776643345681309,ACCEPT,Inorganic phosphate transporter PHO87,sulfate ion homeostasis,[],False,False,False,False,
+P25360,protein_biologicalprocess,GO:0055064,-0.21802599728107452,-0.5776643345681309,ACCEPT,Inorganic phosphate transporter PHO87,chloride ion homeostasis,[],False,False,False,False,
+GO:0010286,biologicalprocess_biologicalprocess,GO:0070370,-0.07091905921697617,-0.0422867482620858,REJECT,heat acclimation,cellular heat acclimation,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess
+GO:0010286,biologicalprocess_biologicalprocess,GO:0055078,-0.04587746039032936,-0.0422867482620858,REJECT,heat acclimation,sodium ion homeostasis,[],False,False,False,False,
+GO:0010286,biologicalprocess_biologicalprocess,GO:0055070,-0.0646170973777771,-0.0422867482620858,REJECT,heat acclimation,copper ion homeostasis,[],False,False,False,False,
+GO:0010286,biologicalprocess_biologicalprocess,GO:0055074,-0.0314771793782711,-0.0422867482620858,ACCEPT,heat acclimation,calcium ion homeostasis,[],False,False,False,False,
+GO:0010286,biologicalprocess_biologicalprocess,GO:0055063,-0.1074569895863533,-0.0422867482620858,REJECT,heat acclimation,sulfate ion homeostasis,[],False,False,False,False,
+GO:0010286,biologicalprocess_biologicalprocess,GO:0055064,-0.05462038889527321,-0.0422867482620858,REJECT,heat acclimation,chloride ion homeostasis,[],False,False,False,False,
+GO:0070370,biologicalprocess_biologicalprocess,GO:0055078,-0.019410109147429466,-0.0422867482620858,ACCEPT,cellular heat acclimation,sodium ion homeostasis,[],False,False,False,False,
+GO:0070370,biologicalprocess_biologicalprocess,GO:0055070,-0.031116604804992676,-0.0422867482620858,ACCEPT,cellular heat acclimation,copper ion homeostasis,[],False,False,False,False,
+GO:0070370,biologicalprocess_biologicalprocess,GO:0055074,-0.013119298964738846,-0.0422867482620858,ACCEPT,cellular heat acclimation,calcium ion homeostasis,[],False,False,False,False,
+GO:0070370,biologicalprocess_biologicalprocess,GO:0055063,-0.07040011137723923,-0.0422867482620858,REJECT,cellular heat acclimation,sulfate ion homeostasis,[],False,False,False,False,
+GO:0070370,biologicalprocess_biologicalprocess,GO:0055064,-0.026405593380331993,-0.0422867482620858,ACCEPT,cellular heat acclimation,chloride ion homeostasis,[],False,False,False,False,
+GO:0055078,biologicalprocess_biologicalprocess,GO:0055070,-0.00581161817535758,-0.0422867482620858,ACCEPT,sodium ion homeostasis,copper ion homeostasis,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess
+GO:0055078,biologicalprocess_biologicalprocess,GO:0055074,-0.0016706353053450584,-0.0422867482620858,ACCEPT,sodium ion homeostasis,calcium ion homeostasis,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess
+GO:0055078,biologicalprocess_biologicalprocess,GO:0055063,-0.02185824327170849,-0.0422867482620858,ACCEPT,sodium ion homeostasis,sulfate ion homeostasis,[],False,False,False,False,
+GO:0055078,biologicalprocess_biologicalprocess,GO:0055064,-0.004839122295379639,-0.0422867482620858,ACCEPT,sodium ion homeostasis,chloride ion homeostasis,[],False,False,False,False,
+GO:0055070,biologicalprocess_biologicalprocess,GO:0055074,-0.008594485931098461,-0.0422867482620858,ACCEPT,copper ion homeostasis,calcium ion homeostasis,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess
+GO:0055070,biologicalprocess_biologicalprocess,GO:0055063,-0.05453813448548317,-0.0422867482620858,REJECT,copper ion homeostasis,sulfate ion homeostasis,[],False,False,False,False,
+GO:0055070,biologicalprocess_biologicalprocess,GO:0055064,-0.0187371876090765,-0.0422867482620858,ACCEPT,copper ion homeostasis,chloride ion homeostasis,[],False,False,False,False,
+GO:0055074,biologicalprocess_biologicalprocess,GO:0055063,-0.023513007909059525,-0.0422867482620858,ACCEPT,calcium ion homeostasis,sulfate ion homeostasis,[],False,False,False,False,
+GO:0055074,biologicalprocess_biologicalprocess,GO:0055064,-0.005409450735896826,-0.0422867482620858,ACCEPT,calcium ion homeostasis,chloride ion homeostasis,[],False,False,False,False,
+GO:0055063,biologicalprocess_biologicalprocess,GO:0055064,-0.5165475606918335,-0.0422867482620858,REJECT,sulfate ion homeostasis,chloride ion homeostasis,[],False,False,False,False,

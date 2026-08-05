@@ -1,0 +1,11 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+7058172,chemicalentity_chemicalentity,12205340,-0.7049921751022339,-0.2425281074611494,REJECT,creatine zwitterion,2-[carbamimidoyl(trideuteriomethyl)amino]acetic acid,[],False,False,False,False,
+7058172,chemicalentity_chemicalentity,80116,-0.6873968243598938,-0.2425281074611494,REJECT,creatine zwitterion,2-[carbamimidoyl(methyl)amino]acetic acid;hydrate,[],False,False,False,False,
+7058172,chemicalentity_gene,P16,-1.1302568912506104,-0.2458965898096785,REJECT,creatine zwitterion,cyclin dependent kinase inhibitor 2A,[],False,False,False,False,
+7058172,chemicalentity_gene,P21,-1.0082199573516846,-0.2458965898096785,REJECT,creatine zwitterion,neuronal vesicle trafficking associated 1,[],False,False,False,False,
+12205340,chemicalentity_chemicalentity,80116,-0.6687954664230347,-0.2425281074611494,REJECT,2-[carbamimidoyl(trideuteriomethyl)amino]acetic acid,2-[carbamimidoyl(methyl)amino]acetic acid;hydrate,[],False,False,False,False,
+12205340,chemicalentity_gene,P16,-1.2125310897827148,-0.2458965898096785,REJECT,2-[carbamimidoyl(trideuteriomethyl)amino]acetic acid,cyclin dependent kinase inhibitor 2A,[],False,False,False,False,
+12205340,chemicalentity_gene,P21,-1.044898271560669,-0.2458965898096785,REJECT,2-[carbamimidoyl(trideuteriomethyl)amino]acetic acid,neuronal vesicle trafficking associated 1,[],False,False,False,False,
+80116,chemicalentity_gene,P16,-1.2916374206542969,-0.2458965898096785,REJECT,2-[carbamimidoyl(methyl)amino]acetic acid;hydrate,cyclin dependent kinase inhibitor 2A,[],False,False,False,False,
+80116,chemicalentity_gene,P21,-1.092350721359253,-0.2458965898096785,REJECT,2-[carbamimidoyl(methyl)amino]acetic acid;hydrate,neuronal vesicle trafficking associated 1,[],False,False,False,False,
+P16,gene_gene,P21,-1.0262815952301025,-0.071739344080056,REJECT,cyclin dependent kinase inhibitor 2A,neuronal vesicle trafficking associated 1,[],False,False,False,False,

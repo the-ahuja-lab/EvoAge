@@ -1,0 +1,18 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type,n_variants_considered,variant_scores
+NMRK1,gene_protein,P53915,-0.0846448689699173,-0.0280984394514378,REJECT,nicotinamide riboside kinase 1,Nicotinamide riboside kinase,[],False,False,False,False,,,
+NMRK1,gene_protein,P62511,-0.09955345094203949,-0.0280984394514378,REJECT,nicotinamide riboside kinase 1,Nicotinamide riboside kinase,[],False,False,False,False,,,
+NMRK1,gene_protein,Q9C0W1,-0.09784816950559616,-0.0280984394514378,REJECT,nicotinamide riboside kinase 1,Nicotinamide riboside kinase,[],False,False,False,False,,,
+NMRK1,gene_biologicalprocess,GO:0010286,-0.018429096788167953,-0.0356325677219588,ACCEPT,nicotinamide riboside kinase 1,heat acclimation,[],False,False,False,False,,,
+NMRK1,gene_positivelyassociatedwith_biologicalprocess,GO:0010286,-0.2762400805950165,-0.0730086550790463,REJECT,nicotinamide riboside kinase 1,heat acclimation,[],False,False,False,False,,5.0,"{'gene_inhibits_biologicalprocess': -0.2804, 'gene_promotes_biologicalprocess': -0.2775, 'gene_negativelyassociatedwith_biologicalprocess': -0.3546, 'gene_positivelyassociatedwith_biologicalprocess': -0.2762, 'gene_notassociatedwith_biologicalprocess': -0.3938}"
+NMRK1,gene_biologicalprocess,GO:0070370,-0.015791773796081543,-0.0356325677219588,ACCEPT,nicotinamide riboside kinase 1,cellular heat acclimation,[],False,False,False,False,,,
+NMRK1,gene_promotes_biologicalprocess,GO:0070370,-0.2363530695438385,-0.0617563253450388,REJECT,nicotinamide riboside kinase 1,cellular heat acclimation,[],False,False,False,False,,5.0,"{'gene_inhibits_biologicalprocess': -0.319, 'gene_promotes_biologicalprocess': -0.2364, 'gene_negativelyassociatedwith_biologicalprocess': -0.3883, 'gene_positivelyassociatedwith_biologicalprocess': -0.3727, 'gene_notassociatedwith_biologicalprocess': -0.3036}"
+P53915,protein_protein,P62511,-0.5238479375839233,-0.2036837140803804,REJECT,Nicotinamide riboside kinase,Nicotinamide riboside kinase,[],False,False,False,False,,,
+P53915,protein_protein,Q9C0W1,-0.6381935477256775,-0.2036837140803804,REJECT,Nicotinamide riboside kinase,Nicotinamide riboside kinase,['Protein_Protein'],False,True,True,False,Protein_Protein,,
+P53915,protein_biologicalprocess,GO:0010286,-0.5907772779464722,-0.5776643345681309,REJECT,Nicotinamide riboside kinase,heat acclimation,[],False,False,False,False,,,
+P53915,protein_biologicalprocess,GO:0070370,-0.6873226761817932,-0.5776643345681309,REJECT,Nicotinamide riboside kinase,cellular heat acclimation,[],False,False,False,False,,,
+P62511,protein_protein,Q9C0W1,-0.7313604950904846,-0.2036837140803804,REJECT,Nicotinamide riboside kinase,Nicotinamide riboside kinase,[],False,False,False,False,,,
+P62511,protein_biologicalprocess,GO:0010286,-1.1182012557983398,-0.5776643345681309,REJECT,Nicotinamide riboside kinase,heat acclimation,[],False,False,False,False,,,
+P62511,protein_biologicalprocess,GO:0070370,-1.2653400897979736,-0.5776643345681309,REJECT,Nicotinamide riboside kinase,cellular heat acclimation,[],False,False,False,False,,,
+Q9C0W1,protein_biologicalprocess,GO:0010286,-0.3936605155467987,-0.5776643345681309,ACCEPT,Nicotinamide riboside kinase,heat acclimation,[],False,False,False,False,,,
+Q9C0W1,protein_biologicalprocess,GO:0070370,-0.45785579085350037,-0.5776643345681309,ACCEPT,Nicotinamide riboside kinase,cellular heat acclimation,[],False,False,False,False,,,
+GO:0010286,biologicalprocess_biologicalprocess,GO:0070370,-0.07091905921697617,-0.0422867482620858,REJECT,heat acclimation,cellular heat acclimation,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess,,

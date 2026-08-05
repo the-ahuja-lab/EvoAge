@@ -1,0 +1,11 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+YMR243C,gene_protein,P20107,-0.01283690519630909,-0.0280984394514378,ACCEPT,Zn(2+) transporter ZRC1,Vacuolar zinc transporter ZRC1 {ECO:0000303|PubMed:9712830},[],False,False,False,False,
+YMR243C,gene_cellularcomponent,GO:0005774,-0.0032490179874002934,-0.0358198597771757,ACCEPT,Zn(2+) transporter ZRC1,vacuolar membrane,['Gene_CellularComponent'],False,True,True,False,Gene_CellularComponent
+YMR243C,gene_cellularcomponent,GO:0031164,-0.00629699369892478,-0.0358198597771757,ACCEPT,Zn(2+) transporter ZRC1,contractile vacuolar membrane,[],False,False,False,False,
+YMR243C,gene_cellularcomponent,GO:0020006,-0.1738438457250595,-0.0358198597771757,REJECT,Zn(2+) transporter ZRC1,symbiont-containing vacuolar membrane network,[],False,False,False,False,
+P20107,protein_cellularcomponent,GO:0005774,-1.1432147026062012,-0.143767219171222,REJECT,Vacuolar zinc transporter ZRC1 {ECO:0000303|PubMed:9712830},vacuolar membrane,[],False,False,False,False,
+P20107,protein_cellularcomponent,GO:0031164,-0.9319664239883423,-0.143767219171222,REJECT,Vacuolar zinc transporter ZRC1 {ECO:0000303|PubMed:9712830},contractile vacuolar membrane,[],False,False,False,False,
+P20107,protein_cellularcomponent,GO:0020006,-0.663163423538208,-0.143767219171222,REJECT,Vacuolar zinc transporter ZRC1 {ECO:0000303|PubMed:9712830},symbiont-containing vacuolar membrane network,[],False,False,False,False,
+GO:0005774,cellularcomponent_cellularcomponent,GO:0031164,-1.3693954315385781e-05,-0.0349261329401597,ACCEPT,vacuolar membrane,contractile vacuolar membrane,['CellularComponent_CellularComponent'],False,True,True,False,CellularComponent_CellularComponent
+GO:0005774,cellularcomponent_cellularcomponent,GO:0020006,-0.008570277132093906,-0.0349261329401597,ACCEPT,vacuolar membrane,symbiont-containing vacuolar membrane network,[],False,False,False,False,
+GO:0031164,cellularcomponent_cellularcomponent,GO:0020006,-0.029191825538873672,-0.0349261329401597,ACCEPT,contractile vacuolar membrane,symbiont-containing vacuolar membrane network,[],False,False,False,False,

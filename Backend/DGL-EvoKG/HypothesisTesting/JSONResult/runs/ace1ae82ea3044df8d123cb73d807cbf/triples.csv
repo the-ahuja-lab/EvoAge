@@ -1,0 +1,11 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+GLDC,gene_cellularcomponent,GO:1902793,-0.0037250027526170015,-0.0358198597771757,ACCEPT,glycine decarboxylase,glutamate decarboxylase complex,[],False,False,False,False,
+GLDC,gene_cellularcomponent,GO:0030700,-0.0037111572455614805,-0.0358198597771757,ACCEPT,glycine decarboxylase,glycine reductase complex,[],False,False,False,False,
+GLDC,gene_phenotype,HP:0030401,-0.022016305476427078,-0.0347684314162952,ACCEPT,glycine decarboxylase,Abnormal platelet dense granule ATP/ADP ratio,[],False,False,False,False,
+GLDC,gene_phenotype,abnormal heat stress response,-0.012746528722345829,-0.0347684314162952,ACCEPT,glycine decarboxylase,abnormal heat stress response,[],False,False,False,False,
+GO:1902793,cellularcomponent_cellularcomponent,GO:0030700,-8.435767813352868e-05,-0.0349261329401597,ACCEPT,glutamate decarboxylase complex,glycine reductase complex,[],False,False,False,False,
+HP:0030401,phenotype_cellularcomponent,GO:1902793,-0.5997200608253479,-0.6698990933960958,ACCEPT,Abnormal platelet dense granule ATP/ADP ratio,glutamate decarboxylase complex,[],False,False,False,False,
+HP:0030401,phenotype_cellularcomponent,GO:0030700,-0.844063937664032,-0.6698990933960958,REJECT,Abnormal platelet dense granule ATP/ADP ratio,glycine reductase complex,[],False,False,False,False,
+HP:0030401,phenotype_phenotype,abnormal heat stress response,-1.335623025894165,-0.150242852206178,REJECT,Abnormal platelet dense granule ATP/ADP ratio,abnormal heat stress response,[],False,False,False,False,
+abnormal heat stress response,phenotype_cellularcomponent,GO:1902793,-0.2496887594461441,-0.6698990933960958,ACCEPT,abnormal heat stress response,glutamate decarboxylase complex,[],False,False,False,False,
+abnormal heat stress response,phenotype_cellularcomponent,GO:0030700,-0.3883989751338959,-0.6698990933960958,ACCEPT,abnormal heat stress response,glycine reductase complex,[],False,False,False,False,

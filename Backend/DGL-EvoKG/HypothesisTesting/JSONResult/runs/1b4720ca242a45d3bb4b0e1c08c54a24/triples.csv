@@ -1,0 +1,17 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type,n_variants_considered,variant_scores
+GO:0000785,cellularcomponent_cellularcomponent,GO:0001739,-1.4824432582827285e-05,-0.0349261329401597,ACCEPT,chromatin,sex chromatin,[],False,False,False,False,,,
+GO:0000785,cellularcomponent_gene,Lus,-0.4423900842666626,-0.0325983804673724,REJECT,chromatin,lymphoid cytostasis suppressor,[],False,False,False,False,,,
+GO:0001739,cellularcomponent_gene,Lus,-0.6253522634506226,-0.0325983804673724,REJECT,sex chromatin,lymphoid cytostasis suppressor,[],False,False,False,False,,,
+GO:0007049,biologicalprocess_cellularcomponent,GO:0000785,-1.3829539057041984e-05,-0.3461928175792534,ACCEPT,cell cycle,chromatin,[],False,False,False,False,,,
+GO:0007049,biologicalprocess_cellularcomponent,GO:0001739,-0.00010411465336801484,-0.3461928175792534,ACCEPT,cell cycle,sex chromatin,[],False,False,False,False,,,
+GO:0007049,biologicalprocess_protein,D3VVE9,-0.11745556443929672,-0.4342587681103441,ACCEPT,cell cycle,Truncated tumor suppressor protein P16 {ECO:0000313|EMBL:ACY78326.1},[],False,False,False,False,,,
+GO:0007049,biologicalprocess_protein,Q5STF9,-0.6546854972839355,-0.4342587681103441,REJECT,cell cycle,Ribonuclease P protein subunit p21,[],False,False,False,False,,,
+GO:0007049,biologicalprocess_gene,Lus,-0.7197438478469849,-0.085789182677173,REJECT,cell cycle,lymphoid cytostasis suppressor,[],False,False,False,False,,,
+Lus,gene_promotes_biologicalprocess,GO:0007049,-1.8606326580047607,-0.0617563253450388,REJECT,lymphoid cytostasis suppressor,cell cycle,[],False,False,False,False,,5.0,"{'gene_inhibits_biologicalprocess': -1.9861, 'gene_promotes_biologicalprocess': -1.8606, 'gene_negativelyassociatedwith_biologicalprocess': -2.757, 'gene_positivelyassociatedwith_biologicalprocess': -1.9457, 'gene_notassociatedwith_biologicalprocess': -2.3788}"
+D3VVE9,protein_cellularcomponent,GO:0000785,-5.502102375030518,-0.143767219171222,REJECT,Truncated tumor suppressor protein P16 {ECO:0000313|EMBL:ACY78326.1},chromatin,[],False,False,False,False,,,
+D3VVE9,protein_cellularcomponent,GO:0001739,-4.8334550857543945,-0.143767219171222,REJECT,Truncated tumor suppressor protein P16 {ECO:0000313|EMBL:ACY78326.1},sex chromatin,[],False,False,False,False,,,
+D3VVE9,protein_protein,Q5STF9,-3.9700655937194824,-0.2036837140803804,REJECT,Truncated tumor suppressor protein P16 {ECO:0000313|EMBL:ACY78326.1},Ribonuclease P protein subunit p21,[],False,False,False,False,,,
+Q5STF9,protein_cellularcomponent,GO:0000785,-0.04405899718403816,-0.143767219171222,ACCEPT,Ribonuclease P protein subunit p21,chromatin,['Protein_CellularComponent'],False,True,True,False,Protein_CellularComponent,,
+Q5STF9,protein_cellularcomponent,GO:0001739,-0.05942825600504875,-0.143767219171222,ACCEPT,Ribonuclease P protein subunit p21,sex chromatin,[],False,False,False,False,,,
+Lus,gene_protein,D3VVE9,-1.8757940530776978,-0.0280984394514378,REJECT,lymphoid cytostasis suppressor,Truncated tumor suppressor protein P16 {ECO:0000313|EMBL:ACY78326.1},[],False,False,False,False,,,
+Lus,gene_protein,Q5STF9,-1.6941754817962646,-0.0280984394514378,REJECT,lymphoid cytostasis suppressor,Ribonuclease P protein subunit p21,[],False,False,False,False,,,

@@ -1,0 +1,11 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+64981,chemicalentity_protein,P37198,-0.056852735579013824,-0.3552259656009227,ACCEPT,"(3R,4R)-4-[(3,4-dimethoxyphenyl)methyl]-3-[(4-hydroxy-3-methoxyphenyl)methyl]oxolan-2-one",Nuclear pore glycoprotein p62,[],False,False,False,False,
+64981,chemicalentity_protein,D3VVE9,-1.0214407444000244,-0.3552259656009227,REJECT,"(3R,4R)-4-[(3,4-dimethoxyphenyl)methyl]-3-[(4-hydroxy-3-methoxyphenyl)methyl]oxolan-2-one",Truncated tumor suppressor protein P16 {ECO:0000313|EMBL:ACY78326.1},[],False,False,False,False,
+64981,chemicalentity_protein,Q5STF9,-0.17705678939819336,-0.3552259656009227,ACCEPT,"(3R,4R)-4-[(3,4-dimethoxyphenyl)methyl]-3-[(4-hydroxy-3-methoxyphenyl)methyl]oxolan-2-one",Ribonuclease P protein subunit p21,[],False,False,False,False,
+64981,chemicalentity_protein,P54379,-0.8003052473068237,-0.3552259656009227,REJECT,"(3R,4R)-4-[(3,4-dimethoxyphenyl)methyl]-3-[(4-hydroxy-3-methoxyphenyl)methyl]oxolan-2-one",Sigma-G-dependent sporulation-specific SASP protein,[],False,False,False,False,
+P37198,protein_protein,D3VVE9,-0.3914874494075775,-0.2036837140803804,REJECT,Nuclear pore glycoprotein p62,Truncated tumor suppressor protein P16 {ECO:0000313|EMBL:ACY78326.1},[],False,False,False,False,
+P37198,protein_protein,Q5STF9,-0.05930908024311066,-0.2036837140803804,ACCEPT,Nuclear pore glycoprotein p62,Ribonuclease P protein subunit p21,[],False,False,False,False,
+P37198,protein_protein,P54379,-0.21305526793003082,-0.2036837140803804,REJECT,Nuclear pore glycoprotein p62,Sigma-G-dependent sporulation-specific SASP protein,[],False,False,False,False,
+D3VVE9,protein_protein,Q5STF9,-3.9700655937194824,-0.2036837140803804,REJECT,Truncated tumor suppressor protein P16 {ECO:0000313|EMBL:ACY78326.1},Ribonuclease P protein subunit p21,[],False,False,False,False,
+D3VVE9,protein_protein,P54379,-0.6866602897644043,-0.2036837140803804,REJECT,Truncated tumor suppressor protein P16 {ECO:0000313|EMBL:ACY78326.1},Sigma-G-dependent sporulation-specific SASP protein,[],False,False,False,False,
+Q5STF9,protein_protein,P54379,-0.28367477655410767,-0.2036837140803804,REJECT,Ribonuclease P protein subunit p21,Sigma-G-dependent sporulation-specific SASP protein,[],False,False,False,False,

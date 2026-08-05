@@ -1,0 +1,18 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type,n_variants_considered,variant_scores
+P16,gene_protein,D3VVE9,-2.0753579139709473,-0.0280984394514378,REJECT,cyclin dependent kinase inhibitor 2A,Truncated tumor suppressor protein P16 {ECO:0000313|EMBL:ACY78326.1},[],False,False,False,False,,,
+P16,gene_biologicalprocess,GO:0006914,-3.1707100868225098,-0.0356325677219588,REJECT,cyclin dependent kinase inhibitor 2A,autophagy,[],False,False,False,False,,,
+P16,gene_positivelyassociatedwith_biologicalprocess,GO:0006914,-1.8804645538330078,-0.0730086550790463,REJECT,cyclin dependent kinase inhibitor 2A,autophagy,[],False,False,False,False,,5.0,"{'gene_inhibits_biologicalprocess': -2.3047, 'gene_promotes_biologicalprocess': -2.0905, 'gene_negativelyassociatedwith_biologicalprocess': -2.2504, 'gene_positivelyassociatedwith_biologicalprocess': -1.8805, 'gene_notassociatedwith_biologicalprocess': -2.3695}"
+P16,gene_tissue,BTO:0000763,-3.806976556777954,-0.0456591214389128,REJECT,cyclin dependent kinase inhibitor 2A,lung,[],False,False,False,False,,,
+P16,gene_tissue,BTO:0001643,-3.7334365844726562,-0.0456591214389128,REJECT,cyclin dependent kinase inhibitor 2A,lung bud,[],False,False,False,False,,,
+P16,gene_tissue,BTO:0001653,-3.4240496158599854,-0.0456591214389128,REJECT,cyclin dependent kinase inhibitor 2A,lung epithelium,[],False,False,False,False,,,
+P16,gene_tissue,BTO:0000764,-3.9053268432617188,-0.0456591214389128,REJECT,cyclin dependent kinase inhibitor 2A,lung fibroblast,[],False,False,False,False,,,
+P16,gene_disease,DOID:0050156,-4.288708686828613,-0.0375339126131901,REJECT,cyclin dependent kinase inhibitor 2A,Idiopathic Pulmonary Fibrosis,[],False,False,False,False,,,
+P16,gene_disease,C4721952,-2.5090718269348145,-0.0375339126131901,REJECT,cyclin dependent kinase inhibitor 2A,familial idiopathic pulmonary fibrosis,[],False,False,False,False,,,
+D3VVE9,protein_biologicalprocess,GO:0006914,-2.937518358230591,-0.5776643345681309,REJECT,Truncated tumor suppressor protein P16 {ECO:0000313|EMBL:ACY78326.1},autophagy,[],False,False,False,False,,,
+D3VVE9,protein_tissue,BTO:0000763,-6.031954288482666,-0.1523438805787957,REJECT,Truncated tumor suppressor protein P16 {ECO:0000313|EMBL:ACY78326.1},lung,[],False,False,False,False,,,
+D3VVE9,protein_tissue,BTO:0001643,-6.14457368850708,-0.1523438805787957,REJECT,Truncated tumor suppressor protein P16 {ECO:0000313|EMBL:ACY78326.1},lung bud,[],False,False,False,False,,,
+D3VVE9,protein_tissue,BTO:0001653,-5.1059250831604,-0.1523438805787957,REJECT,Truncated tumor suppressor protein P16 {ECO:0000313|EMBL:ACY78326.1},lung epithelium,[],False,False,False,False,,,
+D3VVE9,protein_tissue,BTO:0000764,-6.396092414855957,-0.1523438805787957,REJECT,Truncated tumor suppressor protein P16 {ECO:0000313|EMBL:ACY78326.1},lung fibroblast,[],False,False,False,False,,,
+D3VVE9,protein_disease,DOID:0050156,-6.688502311706543,-0.1452060252739286,REJECT,Truncated tumor suppressor protein P16 {ECO:0000313|EMBL:ACY78326.1},Idiopathic Pulmonary Fibrosis,[],False,False,False,False,,,
+D3VVE9,protein_disease,C4721952,-1.0504124164581299,-0.1452060252739286,REJECT,Truncated tumor suppressor protein P16 {ECO:0000313|EMBL:ACY78326.1},familial idiopathic pulmonary fibrosis,[],False,False,False,False,,,
+DOID:0050156,disease_disease,C4721952,-0.0012391277123242617,-0.0380433396478325,ACCEPT,Idiopathic Pulmonary Fibrosis,familial idiopathic pulmonary fibrosis,[],False,False,False,False,,,

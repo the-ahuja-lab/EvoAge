@@ -1,0 +1,7 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+9378,chemicalentity_chemicalentity,440177,-0.4538031220436096,-0.2425281074611494,REJECT,2-hydroxy-3-(4-hydroxyphenyl)propanoic acid,(2R)-2-hydroxy-3-(4-hydroxyphenyl)propanoic acid,['ChemicalEntity_ChemicalEntity'],False,True,True,False,ChemicalEntity_ChemicalEntity
+9378,chemicalentity_chemicalentity,9548632,-0.36750951409339905,-0.2425281074611494,REJECT,2-hydroxy-3-(4-hydroxyphenyl)propanoic acid,(R)-3-(4-hydroxyphenyl)lactate,[],False,False,False,False,
+9378,chemicalentity_pathway,R-HSA-2559582,-0.2999108135700226,-0.3200630854546729,ACCEPT,2-hydroxy-3-(4-hydroxyphenyl)propanoic acid,Senescence-Associated Secretory Phenotype (SASP),[],False,False,False,False,
+440177,chemicalentity_chemicalentity,9548632,-1.0101302862167358,-0.2425281074611494,REJECT,(2R)-2-hydroxy-3-(4-hydroxyphenyl)propanoic acid,(R)-3-(4-hydroxyphenyl)lactate,['ChemicalEntity_ChemicalEntity'],False,True,True,False,ChemicalEntity_ChemicalEntity
+440177,chemicalentity_pathway,R-HSA-2559582,-1.6105695962905884,-0.3200630854546729,REJECT,(2R)-2-hydroxy-3-(4-hydroxyphenyl)propanoic acid,Senescence-Associated Secretory Phenotype (SASP),[],False,False,False,False,
+9548632,chemicalentity_pathway,R-HSA-2559582,-1.975542664527893,-0.3200630854546729,REJECT,(R)-3-(4-hydroxyphenyl)lactate,Senescence-Associated Secretory Phenotype (SASP),[],False,False,False,False,

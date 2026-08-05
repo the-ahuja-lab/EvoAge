@@ -1,0 +1,2 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+3848,chemicalentity_pathway,R-HSA-2559582,-0.055951785296201706,-0.3200630854546729,ACCEPT,2-hydroxy-3-phenylpropanoic acid,Senescence-Associated Secretory Phenotype (SASP),[],False,False,False,False,

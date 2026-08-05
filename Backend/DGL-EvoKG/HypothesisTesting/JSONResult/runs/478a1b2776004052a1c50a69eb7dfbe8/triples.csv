@@ -1,0 +1,2 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+P54070,protein_molecularfunction,GO:0000031,-0.5675240755081177,-0.5690634813738988,ACCEPT,Mannosyltransferase KTR6,mannosylphosphate transferase activity,['Protein_MolecularFunction'],False,True,True,False,Protein_MolecularFunction

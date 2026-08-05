@@ -1,0 +1,11 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+Q6FXN3,protein_protein,Q6CHN5,-0.6036931276321411,-0.2036837140803804,REJECT,ADP-ribose 1''-phosphate phosphatase,ADP-ribose 1''-phosphate phosphatase,[],False,False,False,False,
+Q6FXN3,protein_biologicalprocess,GO:0006406,-0.7699602842330933,-0.5776643345681309,REJECT,ADP-ribose 1''-phosphate phosphatase,mRNA export from nucleus,[],False,False,False,False,
+Q6FXN3,protein_biologicalprocess,GO:0034063,-0.8891806602478027,-0.5776643345681309,REJECT,ADP-ribose 1''-phosphate phosphatase,stress granule assembly,[],False,False,False,False,
+Q6FXN3,protein_biologicalprocess,GO:0035617,-0.9958094358444214,-0.5776643345681309,REJECT,ADP-ribose 1''-phosphate phosphatase,stress granule disassembly,[],False,False,False,False,
+Q6CHN5,protein_biologicalprocess,GO:0006406,-0.7056555151939392,-0.5776643345681309,REJECT,ADP-ribose 1''-phosphate phosphatase,mRNA export from nucleus,[],False,False,False,False,
+Q6CHN5,protein_biologicalprocess,GO:0034063,-0.8135474324226379,-0.5776643345681309,REJECT,ADP-ribose 1''-phosphate phosphatase,stress granule assembly,[],False,False,False,False,
+Q6CHN5,protein_biologicalprocess,GO:0035617,-0.9372376203536987,-0.5776643345681309,REJECT,ADP-ribose 1''-phosphate phosphatase,stress granule disassembly,[],False,False,False,False,
+GO:0006406,biologicalprocess_biologicalprocess,GO:0034063,-0.0008150810608640313,-0.0422867482620858,ACCEPT,mRNA export from nucleus,stress granule assembly,[],False,False,False,False,
+GO:0006406,biologicalprocess_biologicalprocess,GO:0035617,-0.007900173775851727,-0.0422867482620858,ACCEPT,mRNA export from nucleus,stress granule disassembly,[],False,False,False,False,
+GO:0034063,biologicalprocess_biologicalprocess,GO:0035617,-0.01037247572094202,-0.0422867482620858,ACCEPT,stress granule assembly,stress granule disassembly,[],False,False,False,False,

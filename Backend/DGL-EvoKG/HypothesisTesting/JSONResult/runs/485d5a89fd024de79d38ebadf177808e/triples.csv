@@ -1,0 +1,11 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+780,chemicalentity_chemicalentity,75898,-0.11027491837739944,-0.2425281074611494,ACCEPT,"2-(2,5-dihydroxyphenyl)acetic acid",5-hydroxy-3H-1-benzofuran-2-one,[],False,False,False,False,
+780,chemicalentity_protein,D3VVE9,-0.8772022724151611,-0.3552259656009227,REJECT,"2-(2,5-dihydroxyphenyl)acetic acid",Truncated tumor suppressor protein P16 {ECO:0000313|EMBL:ACY78326.1},[],False,False,False,False,
+75898,chemicalentity_protein,D3VVE9,-1.1806037425994873,-0.3552259656009227,REJECT,5-hydroxy-3H-1-benzofuran-2-one,Truncated tumor suppressor protein P16 {ECO:0000313|EMBL:ACY78326.1},[],False,False,False,False,
+WBPhenotype:0002272,phenotype_chemicalentity,780,-2.1419894695281982,-0.1369889979525682,REJECT,protein carbonylation variant,"2-(2,5-dihydroxyphenyl)acetic acid",[],False,False,False,False,
+WBPhenotype:0002272,phenotype_chemicalentity,75898,-1.6145328283309937,-0.1369889979525682,REJECT,protein carbonylation variant,5-hydroxy-3H-1-benzofuran-2-one,[],False,False,False,False,
+WBPhenotype:0002272,phenotype_phenotype,WBPhenotype:0002359,-0.5999759435653687,-0.150242852206178,REJECT,protein carbonylation variant,protein carbonylation increased,[],False,False,False,False,
+WBPhenotype:0002272,phenotype_protein,D3VVE9,-2.112298011779785,-0.3155417705896823,REJECT,protein carbonylation variant,Truncated tumor suppressor protein P16 {ECO:0000313|EMBL:ACY78326.1},[],False,False,False,False,
+WBPhenotype:0002359,phenotype_chemicalentity,780,-2.817540407180786,-0.1369889979525682,REJECT,protein carbonylation increased,"2-(2,5-dihydroxyphenyl)acetic acid",[],False,False,False,False,
+WBPhenotype:0002359,phenotype_chemicalentity,75898,-1.890539526939392,-0.1369889979525682,REJECT,protein carbonylation increased,5-hydroxy-3H-1-benzofuran-2-one,[],False,False,False,False,
+WBPhenotype:0002359,phenotype_protein,D3VVE9,-2.174532175064087,-0.3155417705896823,REJECT,protein carbonylation increased,Truncated tumor suppressor protein P16 {ECO:0000313|EMBL:ACY78326.1},[],False,False,False,False,

@@ -1,0 +1,11 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+GO:0005618,cellularcomponent_cellularcomponent,GO:0044158,-0.3316918611526489,-0.0349261329401597,REJECT,cell wall,host cell wall,[],False,False,False,False,
+GO:0005618,cellularcomponent_cellularcomponent,GO:0030446,-4.154931957600638e-06,-0.0349261329401597,ACCEPT,cell wall,hyphal cell wall,[],False,False,False,False,
+GO:0005618,cellularcomponent_cellularcomponent,GO:0009530,-6.7340915848035365e-06,-0.0349261329401597,ACCEPT,cell wall,primary cell wall,[],False,False,False,False,
+GO:0005618,cellularcomponent_cellularcomponent,GO:0009531,-7.3697797233762685e-06,-0.0349261329401597,ACCEPT,cell wall,secondary cell wall,[],False,False,False,False,
+GO:0044158,cellularcomponent_cellularcomponent,GO:0030446,-3.9449095726013184,-0.0349261329401597,REJECT,host cell wall,hyphal cell wall,[],False,False,False,False,
+GO:0044158,cellularcomponent_cellularcomponent,GO:0009530,-3.829920768737793,-0.0349261329401597,REJECT,host cell wall,primary cell wall,[],False,False,False,False,
+GO:0044158,cellularcomponent_cellularcomponent,GO:0009531,-3.899345636367798,-0.0349261329401597,REJECT,host cell wall,secondary cell wall,[],False,False,False,False,
+GO:0030446,cellularcomponent_cellularcomponent,GO:0009530,-0.0001280946598853916,-0.0349261329401597,ACCEPT,hyphal cell wall,primary cell wall,[],False,False,False,False,
+GO:0030446,cellularcomponent_cellularcomponent,GO:0009531,-0.0001586208090884611,-0.0349261329401597,ACCEPT,hyphal cell wall,secondary cell wall,[],False,False,False,False,
+GO:0009530,cellularcomponent_cellularcomponent,GO:0009531,-4.440261182026006e-05,-0.0349261329401597,ACCEPT,primary cell wall,secondary cell wall,[],False,False,False,False,

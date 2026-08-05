@@ -1,0 +1,4 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+GO:0005774,cellularcomponent_cellularcomponent,GO:0031164,-1.3693954315385781e-05,-0.0349261329401597,ACCEPT,vacuolar membrane,contractile vacuolar membrane,['CellularComponent_CellularComponent'],False,True,True,False,CellularComponent_CellularComponent
+GO:0005774,cellularcomponent_cellularcomponent,GO:0020006,-0.008570277132093906,-0.0349261329401597,ACCEPT,vacuolar membrane,symbiont-containing vacuolar membrane network,[],False,False,False,False,
+GO:0031164,cellularcomponent_cellularcomponent,GO:0020006,-0.029191825538873672,-0.0349261329401597,ACCEPT,contractile vacuolar membrane,symbiont-containing vacuolar membrane network,[],False,False,False,False,

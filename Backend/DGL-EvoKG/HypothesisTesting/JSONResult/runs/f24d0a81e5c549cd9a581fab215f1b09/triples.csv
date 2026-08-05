@@ -1,0 +1,22 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+GO:0098754,biologicalprocess_biologicalprocess,GO:1990748,-0.0964595302939415,-0.0422867482620858,REJECT,detoxification,cellular detoxification,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess
+GO:0098754,biologicalprocess_biologicalprocess,GO:0034440,-0.1096736490726471,-0.0422867482620858,REJECT,detoxification,lipid oxidation,[],False,False,False,False,
+GO:0098754,biologicalprocess_biologicalprocess,GO:0040007,-0.053854167461395264,-0.0422867482620858,REJECT,detoxification,growth,[],False,False,False,False,
+GO:0098754,biologicalprocess_biologicalprocess,GO:0016049,-0.08227856457233429,-0.0422867482620858,REJECT,detoxification,cell growth,[],False,False,False,False,
+GO:0098754,biologicalprocess_biologicalprocess,GO:0010286,-0.12600639462471008,-0.0422867482620858,REJECT,detoxification,heat acclimation,[],False,False,False,False,
+GO:0098754,biologicalprocess_biologicalprocess,GO:0070370,-0.1524488478899002,-0.0422867482620858,REJECT,detoxification,cellular heat acclimation,[],False,False,False,False,
+GO:1990748,biologicalprocess_biologicalprocess,GO:0034440,-0.005444611422717571,-0.0422867482620858,ACCEPT,cellular detoxification,lipid oxidation,[],False,False,False,False,
+GO:1990748,biologicalprocess_biologicalprocess,GO:0040007,-0.0017331072594970465,-0.0422867482620858,ACCEPT,cellular detoxification,growth,[],False,False,False,False,
+GO:1990748,biologicalprocess_biologicalprocess,GO:0016049,-0.003373443614691496,-0.0422867482620858,ACCEPT,cellular detoxification,cell growth,[],False,False,False,False,
+GO:1990748,biologicalprocess_biologicalprocess,GO:0010286,-0.008621255867183208,-0.0422867482620858,ACCEPT,cellular detoxification,heat acclimation,[],False,False,False,False,
+GO:1990748,biologicalprocess_biologicalprocess,GO:0070370,-0.010449963621795177,-0.0422867482620858,ACCEPT,cellular detoxification,cellular heat acclimation,[],False,False,False,False,
+GO:0034440,biologicalprocess_biologicalprocess,GO:0040007,-0.004876359831541777,-0.0422867482620858,ACCEPT,lipid oxidation,growth,[],False,False,False,False,
+GO:0034440,biologicalprocess_biologicalprocess,GO:0016049,-0.008747925981879234,-0.0422867482620858,ACCEPT,lipid oxidation,cell growth,[],False,False,False,False,
+GO:0034440,biologicalprocess_biologicalprocess,GO:0010286,-0.019156819209456444,-0.0422867482620858,ACCEPT,lipid oxidation,heat acclimation,[],False,False,False,False,
+GO:0034440,biologicalprocess_biologicalprocess,GO:0070370,-0.02306363731622696,-0.0422867482620858,ACCEPT,lipid oxidation,cellular heat acclimation,[],False,False,False,False,
+GO:0040007,biologicalprocess_biologicalprocess,GO:0016049,-0.004773678723722696,-0.0422867482620858,ACCEPT,growth,cell growth,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess
+GO:0040007,biologicalprocess_biologicalprocess,GO:0010286,-0.01168977003544569,-0.0422867482620858,ACCEPT,growth,heat acclimation,[],False,False,False,False,
+GO:0040007,biologicalprocess_biologicalprocess,GO:0070370,-0.014190218411386013,-0.0422867482620858,ACCEPT,growth,cellular heat acclimation,[],False,False,False,False,
+GO:0016049,biologicalprocess_biologicalprocess,GO:0010286,-0.031476233154535294,-0.0422867482620858,ACCEPT,cell growth,heat acclimation,[],False,False,False,False,
+GO:0016049,biologicalprocess_biologicalprocess,GO:0070370,-0.037815019488334656,-0.0422867482620858,ACCEPT,cell growth,cellular heat acclimation,[],False,False,False,False,
+GO:0010286,biologicalprocess_biologicalprocess,GO:0070370,-0.07091905921697617,-0.0422867482620858,REJECT,heat acclimation,cellular heat acclimation,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess

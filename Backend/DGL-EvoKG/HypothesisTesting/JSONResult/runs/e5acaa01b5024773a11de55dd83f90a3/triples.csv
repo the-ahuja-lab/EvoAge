@@ -1,0 +1,8 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type,n_variants_considered,variant_scores
+P75959,protein_protein,P81799,-0.8269068598747253,-0.2036837140803804,REJECT,N-acetyl-D-glucosamine kinase,N-acetyl-D-glucosamine kinase,[],False,False,False,False,,,
+P75959,protein_chemicalentity,5957,-0.8725930452346802,-0.1571110372511136,REJECT,N-acetyl-D-glucosamine kinase,ATP,[],False,False,False,False,,,
+P75959,protein_biologicalprocess,GO:0140624,-1.3572657108306885,-0.5776643345681309,REJECT,N-acetyl-D-glucosamine kinase,EGAD pathway,[],False,False,False,False,,,
+P81799,protein_chemicalentity,5957,-1.0478651523590088,-0.1571110372511136,REJECT,N-acetyl-D-glucosamine kinase,ATP,[],False,False,False,False,,,
+P81799,protein_biologicalprocess,GO:0140624,-1.0676405429840088,-0.5776643345681309,REJECT,N-acetyl-D-glucosamine kinase,EGAD pathway,[],False,False,False,False,,,
+5957,chemicalentity_biologicalprocess,GO:0140624,-0.16696827113628387,-0.232143107153421,ACCEPT,ATP,EGAD pathway,[],False,False,False,False,,,
+5957,chemicalentity_positivelyassociatedwith_biologicalprocess,GO:0140624,-0.24175359308719635,-0.5654679724376828,ACCEPT,ATP,EGAD pathway,[],False,False,False,False,,6.0,"{'chemicalentity_negativelyassociatedwith_biologicalprocess': -0.2424, 'chemicalentity_noeffect_biologicalprocess': -1.6462, 'chemicalentity_notassociatedwith_biologicalprocess': -0.3393, 'chemicalentity_promotes_biologicalprocess': -1.1126, 'chemicalentity_inhibits_biologicalprocess': -0.7445, 'chemicalentity_positivelyassociatedwith_biologicalprocess': -0.2418}"

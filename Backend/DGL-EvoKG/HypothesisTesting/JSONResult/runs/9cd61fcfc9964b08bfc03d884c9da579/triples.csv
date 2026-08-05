@@ -1,0 +1,16 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+P37020,protein_cellularcomponent,GO:0005886,-1.303126573562622,-0.143767219171222,REJECT,GEF1 C-terminal,plasma membrane,['Protein_CellularComponent'],False,True,True,False,Protein_CellularComponent
+P37020,protein_phenotype,WBPhenotype:0001090,-1.3614487648010254,-0.0497034494975703,REJECT,GEF1 C-terminal,thermotolerance reduced,[],False,False,False,False,
+P37020,protein_phenotype,WBPhenotype:0000295,-1.1394550800323486,-0.0497034494975703,REJECT,GEF1 C-terminal,thermotolerance increased,[],False,False,False,False,
+P37020,protein_phenotype,acquired thermotolerance: normal,-0.7535004615783691,-0.0497034494975703,REJECT,GEF1 C-terminal,classical genetics_acquired thermotolerance: normal,[],False,False,False,False,
+P37020,protein_phenotype,WBPhenotype:0002138,-0.9096083045005798,-0.0497034494975703,REJECT,GEF1 C-terminal,acquired thermotolerance variant,[],False,False,False,False,
+WBPhenotype:0001090,phenotype_cellularcomponent,GO:0005886,-0.08750046789646149,-0.6698990933960958,ACCEPT,thermotolerance reduced,plasma membrane,[],False,False,False,False,
+WBPhenotype:0001090,phenotype_phenotype,WBPhenotype:0000295,-0.25798627734184265,-0.150242852206178,REJECT,thermotolerance reduced,thermotolerance increased,[],False,False,False,False,
+WBPhenotype:0001090,phenotype_phenotype,acquired thermotolerance: normal,-0.3784370422363281,-0.150242852206178,REJECT,thermotolerance reduced,classical genetics_acquired thermotolerance: normal,[],False,False,False,False,
+WBPhenotype:0001090,phenotype_phenotype,WBPhenotype:0002138,-0.2683075964450836,-0.150242852206178,REJECT,thermotolerance reduced,acquired thermotolerance variant,[],False,False,False,False,
+WBPhenotype:0000295,phenotype_cellularcomponent,GO:0005886,-0.2667335867881775,-0.6698990933960958,ACCEPT,thermotolerance increased,plasma membrane,[],False,False,False,False,
+WBPhenotype:0000295,phenotype_phenotype,acquired thermotolerance: normal,-2.045328140258789,-0.150242852206178,REJECT,thermotolerance increased,classical genetics_acquired thermotolerance: normal,[],False,False,False,False,
+WBPhenotype:0000295,phenotype_phenotype,WBPhenotype:0002138,-1.207206130027771,-0.150242852206178,REJECT,thermotolerance increased,acquired thermotolerance variant,[],False,False,False,False,
+acquired thermotolerance: normal,phenotype_cellularcomponent,GO:0005886,-0.17962828278541565,-0.6698990933960958,ACCEPT,classical genetics_acquired thermotolerance: normal,plasma membrane,[],False,False,False,False,
+acquired thermotolerance: normal,phenotype_phenotype,WBPhenotype:0002138,-0.42652037739753723,-0.150242852206178,REJECT,classical genetics_acquired thermotolerance: normal,acquired thermotolerance variant,[],False,False,False,False,
+WBPhenotype:0002138,phenotype_cellularcomponent,GO:0005886,-0.37234827876091003,-0.6698990933960958,ACCEPT,acquired thermotolerance variant,plasma membrane,[],False,False,False,False,

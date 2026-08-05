@@ -1,0 +1,11 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+P38925,protein_phenotype,abnormal redox activity,-0.7230198383331299,-0.0497034494975703,REJECT,Manganese transporter SMF1,abnormal redox activity,[],False,False,False,False,
+P38925,protein_phenotype,abnormal survival,-0.6151477694511414,-0.0497034494975703,REJECT,Manganese transporter SMF1,abnormal survival,[],False,False,False,False,
+YOL122C,gene_protein,P38925,-0.14670179784297943,-0.0280984394514378,REJECT,divalent metal ion transporter SMF1,Manganese transporter SMF1,[],False,False,False,False,
+YOL122C,gene_gene,YLR034C,-0.10139758139848709,-0.071739344080056,REJECT,divalent metal ion transporter SMF1,putative divalent metal ion transporter SMF3,['Gene_Gene'],False,True,True,False,Gene_Gene
+YOL122C,gene_phenotype,abnormal redox activity,-0.07858843356370926,-0.0347684314162952,REJECT,divalent metal ion transporter SMF1,abnormal redox activity,[],False,False,False,False,
+YOL122C,gene_phenotype,abnormal survival,-0.06309618800878525,-0.0347684314162952,REJECT,divalent metal ion transporter SMF1,abnormal survival,[],False,False,False,False,
+YLR034C,gene_protein,P38925,-0.0568547397851944,-0.0280984394514378,REJECT,putative divalent metal ion transporter SMF3,Manganese transporter SMF1,[],False,False,False,False,
+YLR034C,gene_phenotype,abnormal redox activity,-0.03625548258423805,-0.0347684314162952,REJECT,putative divalent metal ion transporter SMF3,abnormal redox activity,[],False,False,False,False,
+YLR034C,gene_phenotype,abnormal survival,-0.016475846990942955,-0.0347684314162952,ACCEPT,putative divalent metal ion transporter SMF3,abnormal survival,[],False,False,False,False,
+abnormal redox activity,phenotype_phenotype,abnormal survival,-2.7232367992401123,-0.150242852206178,REJECT,abnormal redox activity,abnormal survival,[],False,False,False,False,

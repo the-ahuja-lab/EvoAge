@@ -1,0 +1,11 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+GO:0000293,molecularfunction_molecularfunction,GO:0140618,-0.07410316169261932,-0.0413108806514266,REJECT,ferric-chelate reductase activity,ferric-chelate reductase (NADH) activity,['MolecularFunction_MolecularFunction'],False,True,True,False,MolecularFunction_MolecularFunction
+GO:0000293,molecularfunction_molecularfunction,GO:0052851,-0.06734523922204971,-0.0413108806514266,REJECT,ferric-chelate reductase activity,ferric-chelate reductase (NADPH) activity,['MolecularFunction_MolecularFunction'],False,True,True,False,MolecularFunction_MolecularFunction
+GO:0000293,molecularfunction_biologicalprocess,GO:0045454,-0.003707073861733079,-0.0147993624499696,ACCEPT,ferric-chelate reductase activity,cell redox homeostasis,[],False,False,False,False,
+GO:0000293,molecularfunction_biologicalprocess,GO:0099518,-0.013360139913856983,-0.0147993624499696,ACCEPT,ferric-chelate reductase activity,vesicle cytoskeletal trafficking,[],False,False,False,False,
+GO:0140618,molecularfunction_molecularfunction,GO:0052851,-0.4489322602748871,-0.0413108806514266,REJECT,ferric-chelate reductase (NADH) activity,ferric-chelate reductase (NADPH) activity,[],False,False,False,False,
+GO:0140618,molecularfunction_biologicalprocess,GO:0045454,-0.1297067105770111,-0.0147993624499696,REJECT,ferric-chelate reductase (NADH) activity,cell redox homeostasis,[],False,False,False,False,
+GO:0140618,molecularfunction_biologicalprocess,GO:0099518,-0.1921289563179016,-0.0147993624499696,REJECT,ferric-chelate reductase (NADH) activity,vesicle cytoskeletal trafficking,[],False,False,False,False,
+GO:0052851,molecularfunction_biologicalprocess,GO:0045454,-0.24637164175510406,-0.0147993624499696,REJECT,ferric-chelate reductase (NADPH) activity,cell redox homeostasis,[],False,False,False,False,
+GO:0052851,molecularfunction_biologicalprocess,GO:0099518,-0.26619455218315125,-0.0147993624499696,REJECT,ferric-chelate reductase (NADPH) activity,vesicle cytoskeletal trafficking,[],False,False,False,False,
+GO:0045454,biologicalprocess_biologicalprocess,GO:0099518,-0.0016015213914215565,-0.0422867482620858,ACCEPT,cell redox homeostasis,vesicle cytoskeletal trafficking,[],False,False,False,False,

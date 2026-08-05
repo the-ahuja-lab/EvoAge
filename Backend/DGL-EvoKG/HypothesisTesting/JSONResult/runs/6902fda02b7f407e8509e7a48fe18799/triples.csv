@@ -1,0 +1,12 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type,n_variants_considered,variant_scores
+Q08269,protein_phenotype,abnormal taste sensitivity,-0.5892999172210693,-0.0497034494975703,REJECT,Magnesium transporter ALR1,abnormal taste sensitivity,[],False,False,False,False,,,
+Q08269,protein_phenotype,growth cone,-0.681637704372406,-0.0497034494975703,REJECT,Magnesium transporter ALR1,growth cone,[],False,False,False,False,,,
+Q08269,protein_biologicalprocess,GO:0070370,-0.18084312975406647,-0.5776643345681309,ACCEPT,Magnesium transporter ALR1,cellular heat acclimation,[],False,False,False,False,,,
+YOL130W,gene_protein,Q08269,-0.04059538245201111,-0.0280984394514378,REJECT,Mg(2+) transporter ALR1,Magnesium transporter ALR1,[],False,False,False,False,,,
+YOL130W,gene_phenotype,abnormal taste sensitivity,-0.019956523552536964,-0.0347684314162952,ACCEPT,Mg(2+) transporter ALR1,abnormal taste sensitivity,[],False,False,False,False,,,
+YOL130W,gene_phenotype,growth cone,-0.02237236313521862,-0.0347684314162952,ACCEPT,Mg(2+) transporter ALR1,growth cone,[],False,False,False,False,,,
+YOL130W,gene_biologicalprocess,GO:0070370,-0.02135922946035862,-0.0356325677219588,ACCEPT,Mg(2+) transporter ALR1,cellular heat acclimation,[],False,False,False,False,,,
+YOL130W,gene_promotes_biologicalprocess,GO:0070370,-0.27375882863998413,-0.0617563253450388,REJECT,Mg(2+) transporter ALR1,cellular heat acclimation,[],False,False,False,False,,5.0,"{'gene_inhibits_biologicalprocess': -0.3782, 'gene_promotes_biologicalprocess': -0.2738, 'gene_negativelyassociatedwith_biologicalprocess': -0.4755, 'gene_positivelyassociatedwith_biologicalprocess': -0.3806, 'gene_notassociatedwith_biologicalprocess': -0.3532}"
+abnormal taste sensitivity,phenotype_phenotype,growth cone,-1.1021028757095337,-0.150242852206178,REJECT,abnormal taste sensitivity,growth cone,[],False,False,False,False,,,
+abnormal taste sensitivity,phenotype_biologicalprocess,GO:0070370,-0.4096843898296356,-0.607891854730636,ACCEPT,abnormal taste sensitivity,cellular heat acclimation,[],False,False,False,False,,,
+growth cone,phenotype_biologicalprocess,GO:0070370,-0.3330859839916229,-0.607891854730636,ACCEPT,growth cone,cellular heat acclimation,[],False,False,False,False,,,

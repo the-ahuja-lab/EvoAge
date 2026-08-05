@@ -1,0 +1,17 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type,n_variants_considered,variant_scores
+O95260,protein_protein,O95261,-0.12276633083820343,-0.2036837140803804,ACCEPT,Arginyl-tRNA--protein transferase 1,Arginyl-tRNA--protein transferase 1,[],False,False,False,False,,,
+O95260,protein_protein,Q8WW04,-0.11765874922275543,-0.2036837140803804,ACCEPT,Arginyl-tRNA--protein transferase 1,Arginyl-tRNA--protein transferase 1,[],False,False,False,False,,,
+O95260,protein_protein,Q9Z2A5,-0.25010380148887634,-0.2036837140803804,REJECT,Arginyl-tRNA--protein transferase 1,Arginyl-tRNA--protein transferase 1,['Protein_Protein'],False,True,True,False,Protein_Protein,,
+O95260,protein_biologicalprocess,GO:0070370,-0.009259836748242378,-0.5776643345681309,ACCEPT,Arginyl-tRNA--protein transferase 1,cellular heat acclimation,[],False,False,False,False,,,
+O95261,protein_protein,Q8WW04,-0.12275966256856918,-0.2036837140803804,ACCEPT,Arginyl-tRNA--protein transferase 1,Arginyl-tRNA--protein transferase 1,[],False,False,False,False,,,
+O95261,protein_protein,Q9Z2A5,-0.26663899421691895,-0.2036837140803804,REJECT,Arginyl-tRNA--protein transferase 1,Arginyl-tRNA--protein transferase 1,[],False,False,False,False,,,
+O95261,protein_biologicalprocess,GO:0070370,-0.02245952934026718,-0.5776643345681309,ACCEPT,Arginyl-tRNA--protein transferase 1,cellular heat acclimation,[],False,False,False,False,,,
+Q8WW04,protein_protein,Q9Z2A5,-0.2585345208644867,-0.2036837140803804,REJECT,Arginyl-tRNA--protein transferase 1,Arginyl-tRNA--protein transferase 1,[],False,False,False,False,,,
+Q8WW04,protein_biologicalprocess,GO:0070370,-0.00823760312050581,-0.5776643345681309,ACCEPT,Arginyl-tRNA--protein transferase 1,cellular heat acclimation,[],False,False,False,False,,,
+Q9Z2A5,protein_biologicalprocess,GO:0070370,-0.25566744804382324,-0.5776643345681309,ACCEPT,Arginyl-tRNA--protein transferase 1,cellular heat acclimation,[],False,False,False,False,,,
+ATE1,gene_protein,O95260,-0.008610350079834461,-0.0280984394514378,ACCEPT,arginyltransferase 1,Arginyl-tRNA--protein transferase 1,['Gene_Protein'],False,True,True,False,Gene_Protein,,
+ATE1,gene_protein,O95261,-0.026483898982405663,-0.0280984394514378,ACCEPT,arginyltransferase 1,Arginyl-tRNA--protein transferase 1,[],False,False,False,False,,,
+ATE1,gene_protein,Q8WW04,-0.026998890563845634,-0.0280984394514378,ACCEPT,arginyltransferase 1,Arginyl-tRNA--protein transferase 1,[],False,False,False,False,,,
+ATE1,gene_protein,Q9Z2A5,-0.06326533854007721,-0.0280984394514378,REJECT,arginyltransferase 1,Arginyl-tRNA--protein transferase 1,[],False,False,False,False,,,
+ATE1,gene_biologicalprocess,GO:0070370,-0.01447125244885683,-0.0356325677219588,ACCEPT,arginyltransferase 1,cellular heat acclimation,[],False,False,False,False,,,
+ATE1,gene_promotes_biologicalprocess,GO:0070370,-0.25374504923820496,-0.0617563253450388,REJECT,arginyltransferase 1,cellular heat acclimation,[],False,False,False,False,,5.0,"{'gene_inhibits_biologicalprocess': -0.269, 'gene_promotes_biologicalprocess': -0.2537, 'gene_negativelyassociatedwith_biologicalprocess': -0.43, 'gene_positivelyassociatedwith_biologicalprocess': -0.3319, 'gene_notassociatedwith_biologicalprocess': -0.3106}"

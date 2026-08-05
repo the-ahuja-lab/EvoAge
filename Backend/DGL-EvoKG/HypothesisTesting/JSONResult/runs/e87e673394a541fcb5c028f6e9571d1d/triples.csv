@@ -1,0 +1,7 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+abnormal redox activity,phenotype_cellularcomponent,GO:0099522,-1.2588027715682983,-0.6698990933960958,REJECT,abnormal redox activity,cytosolic region,[],False,False,False,False,
+abnormal redox activity,phenotype_cellularcomponent,GO:0005775,-1.1204310655593872,-0.6698990933960958,REJECT,abnormal redox activity,vacuolar lumen,[],False,False,False,False,
+abnormal redox activity,phenotype_cellularcomponent,GO:0005774,-0.8914666771888733,-0.6698990933960958,REJECT,abnormal redox activity,vacuolar membrane,[],False,False,False,False,
+GO:0099522,cellularcomponent_cellularcomponent,GO:0005775,-3.6176483263261616e-05,-0.0349261329401597,ACCEPT,cytosolic region,vacuolar lumen,[],False,False,False,False,
+GO:0099522,cellularcomponent_cellularcomponent,GO:0005774,-3.848979395115748e-05,-0.0349261329401597,ACCEPT,cytosolic region,vacuolar membrane,[],False,False,False,False,
+GO:0005775,cellularcomponent_cellularcomponent,GO:0005774,-3.3421401894884184e-05,-0.0349261329401597,ACCEPT,vacuolar lumen,vacuolar membrane,[],False,False,False,False,

@@ -1,0 +1,5 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type,n_variants_considered,variant_scores
+CAN1,gene_protein,P04817,-1.663303256034851,-0.0280984394514378,REJECT,arginine permease CAN1,Arginine permease CAN1,[],False,False,False,False,,,
+CAN1,gene_biologicalprocess,GO:0070370,-2.10191011428833,-0.0356325677219588,REJECT,arginine permease CAN1,cellular heat acclimation,[],False,False,False,False,,,
+CAN1,gene_positivelyassociatedwith_biologicalprocess,GO:0070370,-1.0128116607666016,-0.0730086550790463,REJECT,arginine permease CAN1,cellular heat acclimation,[],False,False,False,False,,5.0,"{'gene_inhibits_biologicalprocess': -2.0412, 'gene_promotes_biologicalprocess': -1.7498, 'gene_negativelyassociatedwith_biologicalprocess': -1.2928, 'gene_positivelyassociatedwith_biologicalprocess': -1.0128, 'gene_notassociatedwith_biologicalprocess': -1.3744}"
+P04817,protein_biologicalprocess,GO:0070370,-0.1580062061548233,-0.5776643345681309,ACCEPT,Arginine permease CAN1,cellular heat acclimation,[],False,False,False,False,,,

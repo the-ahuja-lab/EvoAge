@@ -1,0 +1,46 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+P19623,protein_protein,B1AKP9,-0.0899013876914978,-0.2036837140803804,ACCEPT,Spermidine synthase,Spermidine synthase,[],False,False,False,False,
+P19623,protein_protein,Q9XY92,-0.16821438074111938,-0.2036837140803804,ACCEPT,Spermidine synthase,Spermidine synthase,['Protein_Protein'],False,True,True,False,Protein_Protein
+P19623,protein_protein,Q9Y8H7,-0.24264106154441833,-0.2036837140803804,REJECT,Spermidine synthase,Spermidine synthase,[],False,False,False,False,
+P19623,protein_protein,O82147,-0.2287394106388092,-0.2036837140803804,REJECT,Spermidine synthase,Spermidine synthase,[],False,False,False,False,
+P19623,protein_protein,Q12074,-0.2690220773220062,-0.2036837140803804,REJECT,Spermidine synthase,Spermidine synthase SPE3 {ECO:0000303|PubMed:9073064},['Protein_Protein'],False,True,True,False,Protein_Protein
+P19623,protein_biologicalprocess,GO:0034605,-0.003021854907274246,-0.5776643345681309,ACCEPT,Spermidine synthase,cellular response to heat,[],False,False,False,False,
+P19623,protein_biologicalprocess,GO:1900034,-0.01194497849792242,-0.5776643345681309,ACCEPT,Spermidine synthase,regulation of cellular response to heat,[],False,False,False,False,
+P19623,protein_biologicalprocess,GO:1900036,-0.023785702884197235,-0.5776643345681309,ACCEPT,Spermidine synthase,positive regulation of cellular response to heat,[],False,False,False,False,
+P19623,protein_biologicalprocess,GO:1900035,-0.01851002313196659,-0.5776643345681309,ACCEPT,Spermidine synthase,negative regulation of cellular response to heat,[],False,False,False,False,
+B1AKP9,protein_protein,Q9XY92,-0.16073182225227356,-0.2036837140803804,ACCEPT,Spermidine synthase,Spermidine synthase,[],False,False,False,False,
+B1AKP9,protein_protein,Q9Y8H7,-0.24311743676662445,-0.2036837140803804,REJECT,Spermidine synthase,Spermidine synthase,[],False,False,False,False,
+B1AKP9,protein_protein,O82147,-0.23160000145435333,-0.2036837140803804,REJECT,Spermidine synthase,Spermidine synthase,[],False,False,False,False,
+B1AKP9,protein_protein,Q12074,-0.2632997930049896,-0.2036837140803804,REJECT,Spermidine synthase,Spermidine synthase SPE3 {ECO:0000303|PubMed:9073064},[],False,False,False,False,
+B1AKP9,protein_biologicalprocess,GO:0034605,-0.002067424124106765,-0.5776643345681309,ACCEPT,Spermidine synthase,cellular response to heat,[],False,False,False,False,
+B1AKP9,protein_biologicalprocess,GO:1900034,-0.009104443714022636,-0.5776643345681309,ACCEPT,Spermidine synthase,regulation of cellular response to heat,[],False,False,False,False,
+B1AKP9,protein_biologicalprocess,GO:1900036,-0.01868690364062786,-0.5776643345681309,ACCEPT,Spermidine synthase,positive regulation of cellular response to heat,[],False,False,False,False,
+B1AKP9,protein_biologicalprocess,GO:1900035,-0.014252771623432636,-0.5776643345681309,ACCEPT,Spermidine synthase,negative regulation of cellular response to heat,[],False,False,False,False,
+Q9XY92,protein_protein,Q9Y8H7,-0.53355872631073,-0.2036837140803804,REJECT,Spermidine synthase,Spermidine synthase,[],False,False,False,False,
+Q9XY92,protein_protein,O82147,-0.49472904205322266,-0.2036837140803804,REJECT,Spermidine synthase,Spermidine synthase,[],False,False,False,False,
+Q9XY92,protein_protein,Q12074,-0.709417462348938,-0.2036837140803804,REJECT,Spermidine synthase,Spermidine synthase SPE3 {ECO:0000303|PubMed:9073064},['Protein_Protein'],False,True,True,False,Protein_Protein
+Q9XY92,protein_biologicalprocess,GO:0034605,-0.32124999165534973,-0.5776643345681309,ACCEPT,Spermidine synthase,cellular response to heat,[],False,False,False,False,
+Q9XY92,protein_biologicalprocess,GO:1900034,-0.5671418905258179,-0.5776643345681309,ACCEPT,Spermidine synthase,regulation of cellular response to heat,[],False,False,False,False,
+Q9XY92,protein_biologicalprocess,GO:1900036,-0.5597437024116516,-0.5776643345681309,ACCEPT,Spermidine synthase,positive regulation of cellular response to heat,[],False,False,False,False,
+Q9XY92,protein_biologicalprocess,GO:1900035,-0.4702492356300354,-0.5776643345681309,ACCEPT,Spermidine synthase,negative regulation of cellular response to heat,[],False,False,False,False,
+Q9Y8H7,protein_protein,O82147,-0.6317694187164307,-0.2036837140803804,REJECT,Spermidine synthase,Spermidine synthase,[],False,False,False,False,
+Q9Y8H7,protein_protein,Q12074,-0.9188740253448486,-0.2036837140803804,REJECT,Spermidine synthase,Spermidine synthase SPE3 {ECO:0000303|PubMed:9073064},[],False,False,False,False,
+Q9Y8H7,protein_biologicalprocess,GO:0034605,-0.48582541942596436,-0.5776643345681309,ACCEPT,Spermidine synthase,cellular response to heat,[],False,False,False,False,
+Q9Y8H7,protein_biologicalprocess,GO:1900034,-0.8273033499717712,-0.5776643345681309,REJECT,Spermidine synthase,regulation of cellular response to heat,[],False,False,False,False,
+Q9Y8H7,protein_biologicalprocess,GO:1900036,-0.7417557239532471,-0.5776643345681309,REJECT,Spermidine synthase,positive regulation of cellular response to heat,[],False,False,False,False,
+Q9Y8H7,protein_biologicalprocess,GO:1900035,-0.6331259608268738,-0.5776643345681309,REJECT,Spermidine synthase,negative regulation of cellular response to heat,[],False,False,False,False,
+O82147,protein_protein,Q12074,-0.9384979009628296,-0.2036837140803804,REJECT,Spermidine synthase,Spermidine synthase SPE3 {ECO:0000303|PubMed:9073064},[],False,False,False,False,
+O82147,protein_biologicalprocess,GO:0034605,-0.6522552967071533,-0.5776643345681309,REJECT,Spermidine synthase,cellular response to heat,[],False,False,False,False,
+O82147,protein_biologicalprocess,GO:1900034,-1.0096964836120605,-0.5776643345681309,REJECT,Spermidine synthase,regulation of cellular response to heat,[],False,False,False,False,
+O82147,protein_biologicalprocess,GO:1900036,-0.86537766456604,-0.5776643345681309,REJECT,Spermidine synthase,positive regulation of cellular response to heat,[],False,False,False,False,
+O82147,protein_biologicalprocess,GO:1900035,-0.7535030245780945,-0.5776643345681309,REJECT,Spermidine synthase,negative regulation of cellular response to heat,[],False,False,False,False,
+Q12074,protein_biologicalprocess,GO:0034605,-0.4974571764469147,-0.5776643345681309,ACCEPT,Spermidine synthase SPE3 {ECO:0000303|PubMed:9073064},cellular response to heat,[],False,False,False,False,
+Q12074,protein_biologicalprocess,GO:1900034,-0.7649092078208923,-0.5776643345681309,REJECT,Spermidine synthase SPE3 {ECO:0000303|PubMed:9073064},regulation of cellular response to heat,[],False,False,False,False,
+Q12074,protein_biologicalprocess,GO:1900036,-0.701055109500885,-0.5776643345681309,REJECT,Spermidine synthase SPE3 {ECO:0000303|PubMed:9073064},positive regulation of cellular response to heat,[],False,False,False,False,
+Q12074,protein_biologicalprocess,GO:1900035,-0.6189455389976501,-0.5776643345681309,REJECT,Spermidine synthase SPE3 {ECO:0000303|PubMed:9073064},negative regulation of cellular response to heat,[],False,False,False,False,
+GO:0034605,biologicalprocess_biologicalprocess,GO:1900034,-0.0005104767042212188,-0.0422867482620858,ACCEPT,cellular response to heat,regulation of cellular response to heat,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess
+GO:0034605,biologicalprocess_biologicalprocess,GO:1900036,-0.0018405725713819265,-0.0422867482620858,ACCEPT,cellular response to heat,positive regulation of cellular response to heat,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess
+GO:0034605,biologicalprocess_biologicalprocess,GO:1900035,-0.0009414348169229925,-0.0422867482620858,ACCEPT,cellular response to heat,negative regulation of cellular response to heat,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess
+GO:1900034,biologicalprocess_biologicalprocess,GO:1900036,-0.00942373089492321,-0.0422867482620858,ACCEPT,regulation of cellular response to heat,positive regulation of cellular response to heat,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess
+GO:1900034,biologicalprocess_biologicalprocess,GO:1900035,-0.005663173273205757,-0.0422867482620858,ACCEPT,regulation of cellular response to heat,negative regulation of cellular response to heat,['BiologicalProcess_BiologicalProcess'],False,True,True,False,BiologicalProcess_BiologicalProcess
+GO:1900036,biologicalprocess_biologicalprocess,GO:1900035,-0.0590280182659626,-0.0422867482620858,REJECT,positive regulation of cellular response to heat,negative regulation of cellular response to heat,[],False,False,False,False,

@@ -1,0 +1,79 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+GDF15,gene_gene,gdf15,-0.027736259624361992,-0.071739344080056,ACCEPT,growth differentiation factor 15,Growth differentiation factor-15,[],False,False,False,False,
+GDF15,gene_gene,IGF1,-0.0125422989949584,-0.071739344080056,ACCEPT,growth differentiation factor 15,insulin like growth factor 1,['Gene_Gene'],False,True,True,False,Gene_Gene
+GDF15,gene_gene,il6,-0.020219946280121803,-0.071739344080056,ACCEPT,growth differentiation factor 15,"interleukin 6 (interferon, beta 2)",[],False,False,False,False,
+GDF15,gene_gene,IL6,-0.01210951991379261,-0.071739344080056,ACCEPT,growth differentiation factor 15,interleukin 6,['Gene_Gene'],False,True,True,False,Gene_Gene
+GDF15,gene_gene,TBK1,-0.015597809106111526,-0.071739344080056,ACCEPT,growth differentiation factor 15,TANK binding kinase 1,['Gene_Gene'],False,True,True,False,Gene_Gene
+GDF15,gene_gene,IRF3,-0.012589219026267529,-0.071739344080056,ACCEPT,growth differentiation factor 15,interferon regulatory factor 3,['Gene_Gene'],False,True,True,False,Gene_Gene
+GDF15,gene_gene,RELB,-0.015252931974828243,-0.071739344080056,ACCEPT,growth differentiation factor 15,"RELB proto-oncogene, NF-kB subunit",['Gene_Gene'],False,True,True,False,Gene_Gene
+GDF15,gene_gene,AKT,-0.2835419476032257,-0.071739344080056,REJECT,growth differentiation factor 15,AKT serine/threonine kinase 1,[],False,False,False,False,
+GDF15,gene_gene,CG4006,-0.06485860049724579,-0.071739344080056,ACCEPT,growth differentiation factor 15,Akt kinase,[],False,False,False,False,
+GDF15,gene_gene,akt-1,-0.2597152292728424,-0.071739344080056,REJECT,growth differentiation factor 15,Serine/threonine-protein kinase akt-1,[],False,False,False,False,
+GDF15,gene_protein,Q5RE48,-0.045647189021110535,-0.0280984394514378,REJECT,growth differentiation factor 15,AKT-interacting protein,[],False,False,False,False,
+GDF15,gene_gene,MAP2K1,-0.013168351724743843,-0.071739344080056,ACCEPT,growth differentiation factor 15,mitogen-activated protein kinase kinase 1,['Gene_Gene'],False,True,True,False,Gene_Gene
+gdf15,gene_gene,IGF1,-0.031503673642873764,-0.071739344080056,ACCEPT,Growth differentiation factor-15,insulin like growth factor 1,[],False,False,False,False,
+gdf15,gene_gene,il6,-0.04522886499762535,-0.071739344080056,ACCEPT,Growth differentiation factor-15,"interleukin 6 (interferon, beta 2)",[],False,False,False,False,
+gdf15,gene_gene,IL6,-0.03069024533033371,-0.071739344080056,ACCEPT,Growth differentiation factor-15,interleukin 6,[],False,False,False,False,
+gdf15,gene_gene,TBK1,-0.0369795598089695,-0.071739344080056,ACCEPT,Growth differentiation factor-15,TANK binding kinase 1,[],False,False,False,False,
+gdf15,gene_gene,IRF3,-0.03126140311360359,-0.071739344080056,ACCEPT,Growth differentiation factor-15,interferon regulatory factor 3,[],False,False,False,False,
+gdf15,gene_gene,RELB,-0.03645017743110657,-0.071739344080056,ACCEPT,Growth differentiation factor-15,"RELB proto-oncogene, NF-kB subunit",[],False,False,False,False,
+gdf15,gene_gene,AKT,-0.34109458327293396,-0.071739344080056,REJECT,Growth differentiation factor-15,AKT serine/threonine kinase 1,[],False,False,False,False,
+gdf15,gene_gene,CG4006,-0.11028958857059479,-0.071739344080056,REJECT,Growth differentiation factor-15,Akt kinase,[],False,False,False,False,
+gdf15,gene_gene,akt-1,-0.3132611811161041,-0.071739344080056,REJECT,Growth differentiation factor-15,Serine/threonine-protein kinase akt-1,[],False,False,False,False,
+gdf15,gene_protein,Q5RE48,-0.09484401345252991,-0.0280984394514378,REJECT,Growth differentiation factor-15,AKT-interacting protein,[],False,False,False,False,
+gdf15,gene_gene,MAP2K1,-0.032266028225421906,-0.071739344080056,ACCEPT,Growth differentiation factor-15,mitogen-activated protein kinase kinase 1,[],False,False,False,False,
+IGF1,gene_gene,il6,-0.00938891340047121,-0.071739344080056,ACCEPT,insulin like growth factor 1,"interleukin 6 (interferon, beta 2)",['Gene_Gene'],False,True,True,False,Gene_Gene
+IGF1,gene_gene,IL6,-0.00486951507627964,-0.071739344080056,ACCEPT,insulin like growth factor 1,interleukin 6,['Gene_Gene'],False,True,True,False,Gene_Gene
+IGF1,gene_gene,TBK1,-0.006701664999127388,-0.071739344080056,ACCEPT,insulin like growth factor 1,TANK binding kinase 1,['Gene_Gene'],False,True,True,False,Gene_Gene
+IGF1,gene_gene,IRF3,-0.0052774338982999325,-0.071739344080056,ACCEPT,insulin like growth factor 1,interferon regulatory factor 3,['Gene_Gene'],False,True,True,False,Gene_Gene
+IGF1,gene_gene,RELB,-0.006546337157487869,-0.071739344080056,ACCEPT,insulin like growth factor 1,"RELB proto-oncogene, NF-kB subunit",['Gene_Gene'],False,True,True,False,Gene_Gene
+IGF1,gene_gene,AKT,-0.251290887594223,-0.071739344080056,REJECT,insulin like growth factor 1,AKT serine/threonine kinase 1,[],False,False,False,False,
+IGF1,gene_gene,CG4006,-0.03984389826655388,-0.071739344080056,ACCEPT,insulin like growth factor 1,Akt kinase,[],False,False,False,False,
+IGF1,gene_gene,akt-1,-0.24077965319156647,-0.071739344080056,REJECT,insulin like growth factor 1,Serine/threonine-protein kinase akt-1,[],False,False,False,False,
+IGF1,gene_protein,Q5RE48,-0.040033865720033646,-0.0280984394514378,REJECT,insulin like growth factor 1,AKT-interacting protein,[],False,False,False,False,
+IGF1,gene_gene,MAP2K1,-0.00555654289200902,-0.071739344080056,ACCEPT,insulin like growth factor 1,mitogen-activated protein kinase kinase 1,['Gene_Gene'],False,True,True,False,Gene_Gene
+il6,gene_gene,IL6,-0.010698435828089714,-0.071739344080056,ACCEPT,"interleukin 6 (interferon, beta 2)",interleukin 6,[],False,False,False,False,
+il6,gene_gene,TBK1,-0.01389572024345398,-0.071739344080056,ACCEPT,"interleukin 6 (interferon, beta 2)",TANK binding kinase 1,[],False,False,False,False,
+il6,gene_gene,IRF3,-0.011311674490571022,-0.071739344080056,ACCEPT,"interleukin 6 (interferon, beta 2)",interferon regulatory factor 3,['Gene_Gene'],False,True,True,False,Gene_Gene
+il6,gene_gene,RELB,-0.013672653585672379,-0.071739344080056,ACCEPT,"interleukin 6 (interferon, beta 2)","RELB proto-oncogene, NF-kB subunit",[],False,False,False,False,
+il6,gene_gene,AKT,-0.2910359501838684,-0.071739344080056,REJECT,"interleukin 6 (interferon, beta 2)",AKT serine/threonine kinase 1,[],False,False,False,False,
+il6,gene_gene,CG4006,-0.06241118535399437,-0.071739344080056,ACCEPT,"interleukin 6 (interferon, beta 2)",Akt kinase,[],False,False,False,False,
+il6,gene_gene,akt-1,-0.27645036578178406,-0.071739344080056,REJECT,"interleukin 6 (interferon, beta 2)",Serine/threonine-protein kinase akt-1,[],False,False,False,False,
+il6,gene_protein,Q5RE48,-0.05793507397174835,-0.0280984394514378,REJECT,"interleukin 6 (interferon, beta 2)",AKT-interacting protein,[],False,False,False,False,
+il6,gene_gene,MAP2K1,-0.011841955594718456,-0.071739344080056,ACCEPT,"interleukin 6 (interferon, beta 2)",mitogen-activated protein kinase kinase 1,['Gene_Gene'],False,True,True,False,Gene_Gene
+IL6,gene_gene,TBK1,-0.00421815924346447,-0.071739344080056,ACCEPT,interleukin 6,TANK binding kinase 1,['Gene_Gene'],False,True,True,False,Gene_Gene
+IL6,gene_gene,IRF3,-0.0032669680658727884,-0.071739344080056,ACCEPT,interleukin 6,interferon regulatory factor 3,['Gene_Gene'],False,True,True,False,Gene_Gene
+IL6,gene_gene,RELB,-0.004115943796932697,-0.071739344080056,ACCEPT,interleukin 6,"RELB proto-oncogene, NF-kB subunit",['Gene_Gene'],False,True,True,False,Gene_Gene
+IL6,gene_gene,AKT,-0.23117592930793762,-0.071739344080056,REJECT,interleukin 6,AKT serine/threonine kinase 1,[],False,False,False,False,
+IL6,gene_gene,CG4006,-0.030194491147994995,-0.071739344080056,ACCEPT,interleukin 6,Akt kinase,[],False,False,False,False,
+IL6,gene_gene,akt-1,-0.22391465306282043,-0.071739344080056,REJECT,interleukin 6,Serine/threonine-protein kinase akt-1,[],False,False,False,False,
+IL6,gene_protein,Q5RE48,-0.03300493583083153,-0.0280984394514378,REJECT,interleukin 6,AKT-interacting protein,[],False,False,False,False,
+IL6,gene_gene,MAP2K1,-0.003454593475908041,-0.071739344080056,ACCEPT,interleukin 6,mitogen-activated protein kinase kinase 1,['Gene_Gene'],False,True,True,False,Gene_Gene
+TBK1,gene_gene,IRF3,-0.00578629644587636,-0.071739344080056,ACCEPT,TANK binding kinase 1,interferon regulatory factor 3,['Gene_Gene'],False,True,True,False,Gene_Gene
+TBK1,gene_gene,RELB,-0.007223768159747124,-0.071739344080056,ACCEPT,TANK binding kinase 1,"RELB proto-oncogene, NF-kB subunit",['Gene_Gene'],False,True,True,False,Gene_Gene
+TBK1,gene_gene,AKT,-0.2520678639411926,-0.071739344080056,REJECT,TANK binding kinase 1,AKT serine/threonine kinase 1,[],False,False,False,False,
+TBK1,gene_gene,CG4006,-0.041873153299093246,-0.071739344080056,ACCEPT,TANK binding kinase 1,Akt kinase,[],False,False,False,False,
+TBK1,gene_gene,akt-1,-0.2362084537744522,-0.071739344080056,REJECT,TANK binding kinase 1,Serine/threonine-protein kinase akt-1,[],False,False,False,False,
+TBK1,gene_protein,Q5RE48,-0.04159405454993248,-0.0280984394514378,REJECT,TANK binding kinase 1,AKT-interacting protein,[],False,False,False,False,
+TBK1,gene_gene,MAP2K1,-0.006100385449826717,-0.071739344080056,ACCEPT,TANK binding kinase 1,mitogen-activated protein kinase kinase 1,['Gene_Gene'],False,True,True,False,Gene_Gene
+IRF3,gene_gene,RELB,-0.008323492482304573,-0.071739344080056,ACCEPT,interferon regulatory factor 3,"RELB proto-oncogene, NF-kB subunit",['Gene_Gene'],False,True,True,False,Gene_Gene
+IRF3,gene_gene,AKT,-0.2615792155265808,-0.071739344080056,REJECT,interferon regulatory factor 3,AKT serine/threonine kinase 1,[],False,False,False,False,
+IRF3,gene_gene,CG4006,-0.04592852294445038,-0.071739344080056,ACCEPT,interferon regulatory factor 3,Akt kinase,[],False,False,False,False,
+IRF3,gene_gene,akt-1,-0.2471741884946823,-0.071739344080056,REJECT,interferon regulatory factor 3,Serine/threonine-protein kinase akt-1,[],False,False,False,False,
+IRF3,gene_protein,Q5RE48,-0.04313308373093605,-0.0280984394514378,REJECT,interferon regulatory factor 3,AKT-interacting protein,[],False,False,False,False,
+IRF3,gene_gene,MAP2K1,-0.007083023898303509,-0.071739344080056,ACCEPT,interferon regulatory factor 3,mitogen-activated protein kinase kinase 1,['Gene_Gene'],False,True,True,False,Gene_Gene
+RELB,gene_gene,AKT,-0.28678420186042786,-0.071739344080056,REJECT,"RELB proto-oncogene, NF-kB subunit",AKT serine/threonine kinase 1,[],False,False,False,False,
+RELB,gene_gene,CG4006,-0.06571469455957413,-0.071739344080056,ACCEPT,"RELB proto-oncogene, NF-kB subunit",Akt kinase,[],False,False,False,False,
+RELB,gene_gene,akt-1,-0.2629051208496094,-0.071739344080056,REJECT,"RELB proto-oncogene, NF-kB subunit",Serine/threonine-protein kinase akt-1,[],False,False,False,False,
+RELB,gene_protein,Q5RE48,-0.04892249032855034,-0.0280984394514378,REJECT,"RELB proto-oncogene, NF-kB subunit",AKT-interacting protein,[],False,False,False,False,
+RELB,gene_gene,MAP2K1,-0.013363361358642578,-0.071739344080056,ACCEPT,"RELB proto-oncogene, NF-kB subunit",mitogen-activated protein kinase kinase 1,['Gene_Gene'],False,True,True,False,Gene_Gene
+AKT,gene_gene,CG4006,-1.6875731945037842,-0.071739344080056,REJECT,AKT serine/threonine kinase 1,Akt kinase,[],False,False,False,False,
+AKT,gene_gene,akt-1,-0.7604038715362549,-0.071739344080056,REJECT,AKT serine/threonine kinase 1,Serine/threonine-protein kinase akt-1,[],False,False,False,False,
+AKT,gene_protein,Q5RE48,-0.9333951473236084,-0.0280984394514378,REJECT,AKT serine/threonine kinase 1,AKT-interacting protein,[],False,False,False,False,
+AKT,gene_gene,MAP2K1,-2.7159955501556396,-0.071739344080056,REJECT,AKT serine/threonine kinase 1,mitogen-activated protein kinase kinase 1,[],False,False,False,False,
+CG4006,gene_gene,akt-1,-0.449075311422348,-0.071739344080056,REJECT,Akt kinase,Serine/threonine-protein kinase akt-1,[],False,False,False,False,
+CG4006,gene_protein,Q5RE48,-0.21463608741760254,-0.0280984394514378,REJECT,Akt kinase,AKT-interacting protein,[],False,False,False,False,
+CG4006,gene_gene,MAP2K1,-0.2520159184932709,-0.071739344080056,REJECT,Akt kinase,mitogen-activated protein kinase kinase 1,['Gene_Gene'],False,True,True,False,Gene_Gene
+akt-1,gene_protein,Q5RE48,-1.1897631883621216,-0.0280984394514378,REJECT,Serine/threonine-protein kinase akt-1,AKT-interacting protein,[],False,False,False,False,
+akt-1,gene_gene,MAP2K1,-4.4465837478637695,-0.071739344080056,REJECT,Serine/threonine-protein kinase akt-1,mitogen-activated protein kinase kinase 1,[],False,False,False,False,
+MAP2K1,gene_protein,Q5RE48,-0.043137453496456146,-0.0280984394514378,REJECT,mitogen-activated protein kinase kinase 1,AKT-interacting protein,[],False,False,False,False,

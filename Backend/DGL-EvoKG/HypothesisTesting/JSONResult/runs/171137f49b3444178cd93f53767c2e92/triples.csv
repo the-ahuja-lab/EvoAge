@@ -1,0 +1,7 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+ISM1-AS1,gene_gene,ISM1,-1.552040457725525,-0.071739344080056,REJECT,ISM1 antisense RNA 1,isthmin 1,[],False,False,False,False,
+ISM1-AS1,gene_gene,IARS2,-1.6009200811386108,-0.071739344080056,REJECT,ISM1 antisense RNA 1,"isoleucyl-tRNA synthetase 2, mitochondrial",[],False,False,False,False,
+ISM1-AS1,gene_phenotype,HP:0030401,-0.59524005651474,-0.0347684314162952,REJECT,ISM1 antisense RNA 1,Abnormal platelet dense granule ATP/ADP ratio,[],False,False,False,False,
+ISM1,gene_gene,IARS2,-0.0226387120783329,-0.071739344080056,ACCEPT,isthmin 1,"isoleucyl-tRNA synthetase 2, mitochondrial",[],False,False,False,False,
+ISM1,gene_phenotype,HP:0030401,-0.030980965122580528,-0.0347684314162952,ACCEPT,isthmin 1,Abnormal platelet dense granule ATP/ADP ratio,[],False,False,False,False,
+IARS2,gene_phenotype,HP:0030401,-0.02237848937511444,-0.0347684314162952,ACCEPT,"isoleucyl-tRNA synthetase 2, mitochondrial",Abnormal platelet dense granule ATP/ADP ratio,[],False,False,False,False,

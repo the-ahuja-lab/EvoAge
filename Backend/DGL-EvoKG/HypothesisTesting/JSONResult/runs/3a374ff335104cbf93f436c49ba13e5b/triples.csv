@@ -1,0 +1,13 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type,n_variants_considered,variant_scores
+GO:1990143,cellularcomponent_gene,DCAKD,-0.08057696372270584,-0.0325983804673724,REJECT,CoA-synthesizing protein complex,dephospho-CoA kinase domain containing,['Gene_CellularComponent'],False,True,True,False,Gene_CellularComponent,,
+Q03941,protein_cellularcomponent,GO:1990143,-1.4902031421661377,-0.143767219171222,REJECT,Dephospho-CoA kinase CAB5,CoA-synthesizing protein complex,['Protein_CellularComponent'],False,True,True,False,Protein_CellularComponent,,
+Q03941,protein_pathway,R-HSA-110523,-0.7107111215591431,-0.0332625891724323,REJECT,Dephospho-CoA kinase CAB5,TOR signaling pathway,[],False,False,False,False,,,
+Q03941,protein_pathway,hsa04010,-1.438661813735962,-0.0332625891724323,REJECT,Dephospho-CoA kinase CAB5,MAPK signaling pathway,[],False,False,False,False,,,
+Q03941,protein_biologicalprocess,GO:0071502,-0.2782944440841675,-0.5776643345681309,ACCEPT,Dephospho-CoA kinase CAB5,cellular response to temperature stimulus,[],False,False,False,False,,,
+DCAKD,gene_protein,Q03941,-0.03179749473929405,-0.0280984394514378,REJECT,dephospho-CoA kinase domain containing,Dephospho-CoA kinase CAB5,[],False,False,False,False,,,
+DCAKD,gene_pathway,R-HSA-110523,-0.03319551423192024,-0.0346968297443117,ACCEPT,dephospho-CoA kinase domain containing,TOR signaling pathway,[],False,False,False,False,,,
+DCAKD,gene_pathway,hsa04010,-0.01679648645222187,-0.0346968297443117,ACCEPT,dephospho-CoA kinase domain containing,MAPK signaling pathway,[],False,False,False,False,,,
+DCAKD,gene_biologicalprocess,GO:0071502,-0.016490254551172256,-0.0356325677219588,ACCEPT,dephospho-CoA kinase domain containing,cellular response to temperature stimulus,[],False,False,False,False,,,
+DCAKD,gene_negativelyassociatedwith_biologicalprocess,GO:0071502,-0.12824459373950958,-0.1070524565571329,REJECT,dephospho-CoA kinase domain containing,cellular response to temperature stimulus,[],False,False,False,False,,5.0,"{'gene_inhibits_biologicalprocess': -0.1363, 'gene_promotes_biologicalprocess': -0.1347, 'gene_negativelyassociatedwith_biologicalprocess': -0.1282, 'gene_positivelyassociatedwith_biologicalprocess': -0.1315, 'gene_notassociatedwith_biologicalprocess': -0.1991}"
+R-HSA-110523,pathway_pathway,hsa04010,-0.8031864762306213,-0.0291625673052831,REJECT,TOR signaling pathway,MAPK signaling pathway,[],False,False,False,False,,,
+GO:0071502,biologicalprocess_cellularcomponent,GO:1990143,-0.0427510067820549,-0.3461928175792534,ACCEPT,cellular response to temperature stimulus,CoA-synthesizing protein complex,[],False,False,False,False,,,

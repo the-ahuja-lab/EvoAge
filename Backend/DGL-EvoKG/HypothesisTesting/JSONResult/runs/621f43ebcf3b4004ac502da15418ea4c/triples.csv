@@ -1,0 +1,11 @@
+head,rel,tail,score,cutoff,decision,head_name,tail_name,kg_rel_types,check_failed,kg_any_edge,in_KG,kg_sign_conflict,kg_rel_type
+389,chemicalentity_chemicalentity,6992102,-0.46939101815223694,-0.2425281074611494,REJECT,ornithine,N(2)-acetyl-L-ornithine zwitterion,[],False,False,False,False,
+389,chemicalentity_chemicalentity,10220941,-0.41475749015808105,-0.2425281074611494,REJECT,ornithine,"(2S)-2-aminobutanedioic acid;(2S)-2,5-diaminopentanoic acid",[],False,False,False,False,
+389,chemicalentity_gene,P16,-0.9188722372055054,-0.2458965898096785,REJECT,ornithine,cyclin dependent kinase inhibitor 2A,[],False,False,False,False,
+389,chemicalentity_gene,P21,-0.8580694198608398,-0.2458965898096785,REJECT,ornithine,neuronal vesicle trafficking associated 1,[],False,False,False,False,
+6992102,chemicalentity_chemicalentity,10220941,-0.6183472275733948,-0.2425281074611494,REJECT,N(2)-acetyl-L-ornithine zwitterion,"(2S)-2-aminobutanedioic acid;(2S)-2,5-diaminopentanoic acid",[],False,False,False,False,
+6992102,chemicalentity_gene,P16,-1.5162477493286133,-0.2458965898096785,REJECT,N(2)-acetyl-L-ornithine zwitterion,cyclin dependent kinase inhibitor 2A,[],False,False,False,False,
+6992102,chemicalentity_gene,P21,-1.2897651195526123,-0.2458965898096785,REJECT,N(2)-acetyl-L-ornithine zwitterion,neuronal vesicle trafficking associated 1,[],False,False,False,False,
+10220941,chemicalentity_gene,P16,-1.46522855758667,-0.2458965898096785,REJECT,"(2S)-2-aminobutanedioic acid;(2S)-2,5-diaminopentanoic acid",cyclin dependent kinase inhibitor 2A,[],False,False,False,False,
+10220941,chemicalentity_gene,P21,-1.230670690536499,-0.2458965898096785,REJECT,"(2S)-2-aminobutanedioic acid;(2S)-2,5-diaminopentanoic acid",neuronal vesicle trafficking associated 1,[],False,False,False,False,
+P16,gene_gene,P21,-1.0262815952301025,-0.071739344080056,REJECT,cyclin dependent kinase inhibitor 2A,neuronal vesicle trafficking associated 1,[],False,False,False,False,
