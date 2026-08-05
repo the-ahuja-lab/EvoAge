@@ -396,7 +396,7 @@ pip install "sglang[all]==0.5.15.post1"
 
 ```
 ---
-#### Model Download Setup
+#### Model Download
 
 ```bash
 hf download google/medgemma-27b-text-it \
