@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="420" viewBox="0 0 1180 420" role="img" aria-labelledby="title desc">
+  <title id="title">EvoAge setup command flow</title>
+  <desc id="desc">A six-step flow showing the commands and manual configuration step required to set up EvoAge.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#335c67"/>
+    </marker>
+    <style>
+      .bg { fill: #f7f9fb; }
+      .title { font: 700 30px Arial, Helvetica, sans-serif; fill: #17252a; }
+      .subtitle { font: 400 15px Arial, Helvetica, sans-serif; fill: #4a5560; }
+      .step { fill: #ffffff; stroke: #c8d3dc; stroke-width: 1.5; rx: 12; }
+      .manual { fill: #fff7e8; stroke: #d9a441; stroke-width: 1.5; rx: 12; }
+      .number { fill: #335c67; }
+      .numberText { font: 700 16px Arial, Helvetica, sans-serif; fill: #ffffff; text-anchor: middle; dominant-baseline: central; }
+      .label { font: 700 16px Arial, Helvetica, sans-serif; fill: #1f2933; }
+      .cmd { font: 700 15px "SFMono-Regular", Consolas, "Liberation Mono", monospace; fill: #243b53; }
+      .note { font: 400 13px Arial, Helvetica, sans-serif; fill: #52616b; }
+      .arrow { stroke: #335c67; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1180" height="420"/>
+  <text class="title" x="48" y="52">EvoAge Setup Flow</text>
+  <text class="subtitle" x="48" y="80">Run commands from the repository root. Fill the .env files once before service setup.</text>
+
+  <rect class="step" x="48" y="118" width="250" height="104" rx="12"/>
+  <circle class="number" cx="78" cy="146" r="16"/>
+  <text class="numberText" x="78" y="146">1</text>
+  <text class="label" x="104" y="145">Install app dependencies</text>
+  <text class="cmd" x="72" y="178">bash scripts/setup.sh --all</text>
+  <text class="note" x="72" y="202">Creates conda envs and .env files</text>
+
+  <path class="arrow" d="M298 170 H348"/>
+
+  <rect class="step" x="360" y="118" width="250" height="104" rx="12"/>
+  <circle class="number" cx="390" cy="146" r="16"/>
+  <text class="numberText" x="390" y="146">2</text>
+  <text class="label" x="416" y="145">Download graph dump</text>
+  <text class="cmd" x="384" y="174">bash scripts/</text>
+  <text class="cmd" x="384" y="194">download_neo4j_dump.sh</text>
+  <text class="note" x="384" y="212">Creates data/neo4j/neo4j.dump</text>
+
+  <path class="arrow" d="M610 170 H660"/>
+
+  <rect class="manual" x="672" y="118" width="250" height="104" rx="12"/>
+  <circle class="number" cx="702" cy="146" r="16"/>
+  <text class="numberText" x="702" y="146">3</text>
+  <text class="label" x="728" y="145">Fill all .env values</text>
+  <text class="cmd" x="696" y="176">Backend/.env</text>
+  <text class="cmd" x="696" y="196">Frontend/.env</text>
+  <text class="note" x="696" y="214">Services, paths, JWT, API keys</text>
+
+  <path class="arrow" d="M922 170 H930"/>
+
+  <rect class="step" x="934" y="118" width="198" height="104" rx="12"/>
+  <circle class="number" cx="964" cy="146" r="16"/>
+  <text class="numberText" x="964" y="146">4</text>
+  <text class="label" x="990" y="145">Set up services</text>
+  <text class="cmd" x="958" y="178">bash scripts/</text>
+  <text class="cmd" x="958" y="198">setup_services.sh</text>
+
+  <path class="arrow" d="M1032 222 V246 H485 V266" />
+
+  <rect class="step" x="360" y="270" width="250" height="104" rx="12"/>
+  <circle class="number" cx="390" cy="298" r="16"/>
+  <text class="numberText" x="390" y="298">5</text>
+  <text class="label" x="416" y="297">Verify setup</text>
+  <text class="cmd" x="384" y="330">bash scripts/setup.sh</text>
+  <text class="cmd" x="384" y="350">--check-only</text>
+
+  <path class="arrow" d="M610 322 H660"/>
+
+  <rect class="step" x="672" y="270" width="250" height="104" rx="12"/>
+  <circle class="number" cx="702" cy="298" r="16"/>
+  <text class="numberText" x="702" y="298">6</text>
+  <text class="label" x="728" y="297">Start EvoAge</text>
+  <text class="cmd" x="696" y="330">bash scripts/start_app.sh</text>
+  <text class="note" x="696" y="354">Backend 1026, frontend 8501</text>
+</svg>
