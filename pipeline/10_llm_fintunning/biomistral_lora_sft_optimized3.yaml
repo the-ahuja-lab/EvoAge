@@ -1,0 +1,55 @@
+### model
+model_name_or_path: BioMistral/BioMistral-7B
+trust_remote_code: true
+flash_attn: fa2
+use_unsloth: false
+
+### method
+stage: sft
+do_train: true
+finetuning_type: lora
+use_dora: true                # [ADDED] Decouples magnitude/direction. Crucial for advanced biomedical reasoning.
+lora_rank: 64                 # [CHANGED] Increased from 32 to 64 to capture complex multi-hop graph relationships.
+lora_alpha: 128               # [CHANGED] Scaled to 2x rank to ensure proper gradient flow.
+lora_dropout: 0.10
+lora_target: all              # [CHANGED] Targets ALL linear layers (Attention + MLPs). Vital for factual learning.
+
+### dataset
+dataset: biomedical_atomic_0, biomedical_atomic_1, biomedical_atomic_2, biomedical_aggregated_0, biomedical_aggregated_1, biomedical_aggregated_2, biomedical_multi_hop_0, biomedical_multi_hop_1, biomedical_multi_hop_2, biomedical_true_false_0, biomedical_true_false_1, biomedical_true_false_2
+template: mistral
+cutoff_len: 4096              # [CHANGED] Increased from 1024. Multi-hop QA demands longer context windows.
+overwrite_cache: true
+preprocessing_num_workers: 16
+packing: true
+
+### output
+output_dir: saves/BioMistral-7B/lora/sft_optimized2
+logging_steps: 10
+save_steps: 250
+save_total_limit: 5
+plot_loss: true
+
+### train
+per_device_train_batch_size: 8
+gradient_accumulation_steps: 4 # NOTE: If using >=4 GPUs, reduce this to 2 to keep global batch size manageable.
+learning_rate: 2.0e-4          # [CHANGED] Increased from 2e-5. LoRA/DoRA require higher LRs than full fine-tuning.
+num_train_epochs: 3.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+weight_decay: 0.05             # [CHANGED] Reduced from 0.1 to prevent underfitting and over-regularization.
+bf16: true
+fp16: false
+gradient_checkpointing: true
+neftune_noise_alpha: 5.0       # Excellent setting kept intact; breaks template overfitting.
+seed: 42
+ddp_timeout: 180000000
+
+### validation & early stopping
+val_size: 0.1
+eval_strategy: steps
+eval_steps: 250
+
+save_strategy: steps
+load_best_model_at_end: true
+metric_for_best_model: eval_loss
+greater_is_better: false

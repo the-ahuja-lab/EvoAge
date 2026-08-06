@@ -25,18 +25,18 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="zensical-0.0.30">
+      <meta name="generator" content="zensical-0.0.53">
     
     
       
-        <title>6. KG Construction — Splitting into Aging-Specific & Biomedical - EvoAge</title>
+        <title>05 — Making Aging & Biomedical KGs - EvoAge</title>
       
     
     
       
         
       
-      <link rel="stylesheet" href="../assets/stylesheets/modern/main.3b031116.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.20815dad.min.css">
       
         
           
@@ -55,12 +55,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
         <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
     
       
 
@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#6-kg-construction-splitting-into-aging-specific-biomedical" class="md-skip">
+        <a href="#05-making-aging-biomedical-kgs" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +104,7 @@
     <a href="./.." title="EvoAge" class="md-header__button md-logo" aria-label="EvoAge" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
@@ -121,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              6. KG Construction — Splitting into Aging-Specific &amp; Biomedical
+              05 — Making Aging &amp; Biomedical KGs
             
           </span>
         </div>
@@ -203,7 +203,7 @@
     <a href="./.." title="EvoAge" class="md-nav__button md-logo" aria-label="EvoAge" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
 
     </a>
     EvoAge
@@ -225,8 +225,7 @@
   <span class="md-ellipsis">
     
   
-    Home
-  
+  Home
 
     
   </span>
@@ -245,15 +244,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../quick-start/" class="md-nav__link">
+      <a href="../system-prerequisites/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Quick Start
-  
+  System Prerequisites
 
     
   </span>
@@ -279,8 +277,7 @@
   <span class="md-ellipsis">
     
   
-    Installation
-  
+  Installation
 
     
   </span>
@@ -306,8 +303,7 @@
   <span class="md-ellipsis">
     
   
-    Data Collection
-  
+  Data Collection
 
     
   </span>
@@ -333,8 +329,7 @@
   <span class="md-ellipsis">
     
   
-    Preprocessing
-  
+  Preprocessing
 
     
   </span>
@@ -360,8 +355,7 @@
   <span class="md-ellipsis">
     
   
-    Relation Processing
-  
+  Relation Processing
 
     
   </span>
@@ -387,8 +381,7 @@
   <span class="md-ellipsis">
     
   
-    Ortholog Mapping
-  
+  Ortholog Mapping
 
     
   </span>
@@ -410,6 +403,29 @@
   
     <li class="md-nav__item md-nav__item--active">
       
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  KG Construction
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="././" class="md-nav__link md-nav__link--active">
         
   
@@ -417,8 +433,7 @@
   <span class="md-ellipsis">
     
   
-    KG Construction
-  
+  KG Construction
 
     
   </span>
@@ -426,6 +441,165 @@
   
 
       </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Purpose
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Overview
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-the-kg_type-classification-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        How the <code>kg_type</code> classification works
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-pipeline-step-by-step" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Pipeline — Step-by-Step
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Pipeline — Step-by-Step">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-1-split-human-data-by-kg_type" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Run 1 — Split Human data by <code>kg_type</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-2-split-11-ortholog-files-by-kg_type-other-species" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Run 2 — Split 1:1 ortholog files by <code>kg_type</code> (other species)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-3-split-111m-ortholog-files-by-kg_type-other-species" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Run 3 — Split 1:1∪1:M ortholog files by <code>kg_type</code> (other species)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-4-generate-species_associatedwith-connection-triples" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Run 4 — Generate Species_AssociatedWith connection triples
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Run 4 — Generate Species_AssociatedWith connection triples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-41-species-triples-for-the-11-ortholog-kg" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Run 4.1 — Species triples for the 1:1 ortholog KG
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-42-species-triples-for-the-111m-ortholog-kg" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Run 4.2 — Species triples for the 1:1∪1:M ortholog KG
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-next-step" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Next Step
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -445,8 +619,7 @@
   <span class="md-ellipsis">
     
   
-    Tensors & Splitting
-  
+  Splitting
 
     
   </span>
@@ -465,15 +638,212 @@
   
   
     <li class="md-nav__item">
-      <a href="../documentation-structure/" class="md-nav__link">
+      <a href="../training/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Structure
+  Training & Evaluation
+
+    
+  </span>
   
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Other Analysis
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Other Analysis
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../other-analysis-1-species/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Species Evaluation
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../other-analysis-2-shuffled/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Shuffled KG Baseline
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../other-analysis-3-aging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Aging-Specific Test Set
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../neo4j-kg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Neo4j KG
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLM_finetuning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  LLM Fintuning
 
     
   </span>
@@ -496,10 +866,17 @@
               <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   
-                    <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-                    <div class="md-sidebar-button__wrapper">
-                      <label class="md-sidebar-button" for="__toc"></label>
-                    </div>
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
                   
                   <div class="md-sidebar__inner">
                     
@@ -519,67 +896,34 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#61-why-split-into-two-kg-variants" class="md-nav__link">
+  <a href="#1-purpose" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        6.1 Why Split Into Two KG Variants
-      
+      <span class="md-typeset">
+        1. Purpose
+      </span>
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#62-the-shared-classification-logic" class="md-nav__link">
+  <a href="#2-overview" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        6.2 The Shared Classification Logic
-      
+      <span class="md-typeset">
+        2. Overview
+      </span>
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#63-run-1-splitting-the-human-kg" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6.3 Run 1 — Splitting the Human KG
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="6.3 Run 1 — Splitting the Human KG">
+    <nav class="md-nav" aria-label="2. Overview">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#key-difference-from-the-other-species-scripts-output-format" class="md-nav__link">
+  <a href="#how-the-kg_type-classification-works" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Key difference from the other-species scripts: output format
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#output-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Output structure
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#log-output" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Log output
-      
+      <span class="md-typeset">
+        How the <code>kg_type</code> classification works
+      </span>
     </span>
   </a>
   
@@ -591,34 +935,79 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#64-run-2-splitting-other-species-kg-121-variant" class="md-nav__link">
+  <a href="#3-pipeline-step-by-step" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        6.4 Run 2 — Splitting Other-Species KG (121 variant)
-      
+      <span class="md-typeset">
+        3. Pipeline — Step-by-Step
+      </span>
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="6.4 Run 2 — Splitting Other-Species KG (121 variant)">
+    <nav class="md-nav" aria-label="3. Pipeline — Step-by-Step">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#output-structure_1" class="md-nav__link">
+  <a href="#run-1-split-human-data-by-kg_type" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Output structure
-      
+      <span class="md-typeset">
+        Run 1 — Split Human data by <code>kg_type</code>
+      </span>
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#log-output_1" class="md-nav__link">
+  <a href="#run-2-split-11-ortholog-files-by-kg_type-other-species" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Log output
-      
+      <span class="md-typeset">
+        Run 2 — Split 1:1 ortholog files by <code>kg_type</code> (other species)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-3-split-111m-ortholog-files-by-kg_type-other-species" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Run 3 — Split 1:1∪1:M ortholog files by <code>kg_type</code> (other species)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-4-generate-species_associatedwith-connection-triples" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Run 4 — Generate Species_AssociatedWith connection triples
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Run 4 — Generate Species_AssociatedWith connection triples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-41-species-triples-for-the-11-ortholog-kg" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Run 4.1 — Species triples for the 1:1 ortholog KG
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-42-species-triples-for-the-111m-ortholog-kg" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Run 4.2 — Species triples for the 1:1∪1:M ortholog KG
+      </span>
     </span>
   </a>
   
@@ -628,29 +1017,6 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#65-run-3-splitting-other-species-kg-12112m-variant" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6.5 Run 3 — Splitting Other-Species KG (121+12M variant)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="6.5 Run 3 — Splitting Other-Species KG (121+12M variant)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#log-output_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Log output
-      
-    </span>
-  </a>
-  
-</li>
         
       </ul>
     </nav>
@@ -658,22 +1024,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#66-resulting-directory-structure" class="md-nav__link">
+  <a href="#5-next-step" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        6.6 Resulting Directory Structure
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Next Steps
-      
+      <span class="md-typeset">
+        5. Next Step
+      </span>
     </span>
   </a>
   
@@ -702,159 +1057,125 @@
                 
                   
 
-<h1 id="6-kg-construction-splitting-into-aging-specific-biomedical">6. KG Construction — Splitting into Aging-Specific &amp; Biomedical<a class="headerlink" href="#6-kg-construction-splitting-into-aging-specific-biomedical" title="Permanent link">&para;</a></h1>
-<p>By this point in the pipeline, every relation has been merged across sources (<a href="../relation-processing/">Relation Processing</a>) and every non-human species has been ortholog-mapped to human gene symbols in two variants, 121 and 121+12M (<a href="../ortholog-mapping/">Ortholog Mapping</a>). The <strong>full EvoKG is now ready</strong> — one complete, ortholog-resolved knowledge graph spanning Human plus five model organisms.</p>
-<p>This section covers the final structural split: dividing the full EvoKG into two KG variants, <strong>Aging_specific</strong> and <strong>Biomedical</strong>, based on the <code>kg_type</code> tag that was assigned during relation-wise merging (<a href="../relation-processing/#step-2--load-each-source-with-three-tag-columns">Relation Processing Step 2</a>).</p>
+<h1 id="05-making-aging-biomedical-kgs">05 — Making Aging &amp; Biomedical KGs<a class="headerlink" href="#05-making-aging-biomedical-kgs" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>📂 <strong>Source Code &amp; Notebooks:</strong> <a href="https://github.com/the-ahuja-lab/EvoAge/tree/main/pipeline/05_kg_construction">pipeline/05_kg_construction</a></p>
+</blockquote>
+<h2 id="1-purpose">1. Purpose<a class="headerlink" href="#1-purpose" title="Permanent link">&para;</a></h2>
+<p>This is <strong>Step 5</strong> of the EvoAge Knowledge Graph (KG) construction pipeline. The goal is to split the unified processed triples (from Steps 02–04) into two distinct KG categories — <strong>Aging-specific</strong> and <strong>Biomedical (Generalised)</strong> — based on the <code>kg_type</code> column assigned during data processing. This split is performed separately for Human data and for each non-human species (using both 1:1 and 1:1∪1:M ortholog-mapped files from Step 04). Additionally, this step generates Species_AssociatedWith connection triples that link each species to the genes/entities it is associated with.</p>
 <hr />
-<h2 id="61-why-split-into-two-kg-variants"><strong>6.1 Why Split Into Two KG Variants</strong><a class="headerlink" href="#61-why-split-into-two-kg-variants" title="Permanent link">&para;</a></h2>
-<p>Every triple's <code>kg_type</code> value was set when it was loaded from its source during relation-wise merging — aging-specific sources (HALD, AgeAnno, GenAge, DrugAge, AgeAnnoMO, AgingAtlas, etc.) got <code>'Aging'</code>; general biomedical sources (DRKG, PharmKG, TARKG, Monarch, Hetionet, Harmonizome, etc.) got <code>'Generalised'</code>. After dedup, a triple that appeared in <em>both</em> kinds of sources carries <code>kg_type = 'Aging::Generalised'</code>.</p>
-<p>Splitting on this tag produces:</p>
+<h2 id="2-overview">2. Overview<a class="headerlink" href="#2-overview" title="Permanent link">&para;</a></h2>
+<p>The pipeline has <strong>4 runs</strong> across two phases:</p>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Runs</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Phase A: KG Splitting</strong></td>
+<td>Run 1, Run 2, Run 3</td>
+<td>Splits every processed triple file into Aging vs Biomedical buckets using the <code>kg_type</code> column</td>
+</tr>
+<tr>
+<td><strong>Phase B: Species Connections</strong></td>
+<td>Run 4.1, Run 4.2</td>
+<td>Creates Species_AssociatedWith triples linking each species to its entities (one file per species)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="how-the-kg_type-classification-works">How the <code>kg_type</code> classification works<a class="headerlink" href="#how-the-kg_type-classification-works" title="Permanent link">&para;</a></h3>
+<p>Every triple file from Step 02/03 carries a <code>kg_type</code> column with one of these values:</p>
+<table>
+<thead>
+<tr>
+<th><code>kg_type</code> value</th>
+<th>Routed to</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>aging</code></td>
+<td><strong>Aging only</strong></td>
+<td>Triple comes from an aging-specific database (GenAge, DrugAge, CellAge, etc.)</td>
+</tr>
+<tr>
+<td><code>generalised</code></td>
+<td><strong>Biomedical only</strong></td>
+<td>Triple comes from a general biomedical source (PrimeKG, DRKG, STRING, etc.)</td>
+</tr>
+<tr>
+<td><code>aging::generalised</code></td>
+<td><strong>Both Aging AND Biomedical</strong></td>
+<td>Triple found in both KG's (e.g., aging genes that also appear in general KGs)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-pipeline-step-by-step">3. Pipeline — Step-by-Step<a class="headerlink" href="#3-pipeline-step-by-step" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="run-1-split-human-data-by-kg_type">Run 1 — Split Human data by <code>kg_type</code><a class="headerlink" href="#run-1-split-human-data-by-kg_type" title="Permanent link">&para;</a></h3>
+<p>📄 <strong>Script</strong>: <a href="https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/05_kg_construction/Run_4_making_species_associatedwith_connection/Run1_split_kg_by_type_human.py">Run1_split_kg_by_type_human.py</a></p>
+<p><strong>What it does:</strong></p>
 <ul>
-<li><strong>Aging_specific KG</strong> — every triple tagged <code>Aging</code> (including the <code>Aging::Generalised</code> overlap rows) — a focused subgraph for aging-biology-specific hypothesis testing</li>
-<li><strong>Biomedical KG</strong> — every triple tagged <code>Generalised</code> (including the <code>Aging::Generalised</code> overlap rows again) — the broader biomedical context</li>
+<li>Reads all CSV/Parquet files under <code>processed_data_relation_wise_merge/generalised/</code> (excluding <code>OTHER_SPECIES/</code>)</li>
+<li>For each file, classifies every row by its <code>kg_type</code> value into Aging and/or Biomedical</li>
+<li>Saves Aging rows to <code>Aging_specific/Human/{relation_folder}/</code> (as Parquet)</li>
+<li>Saves Biomedical rows to <code>Biomedical/Human/{relation_folder}/</code> (as Parquet)</li>
+<li>The output directory structure mirrors the source relation-folder hierarchy</li>
 </ul>
-<p>Note the overlap rows deliberately appear in <strong>both</strong> outputs — this isn't a bug, it's the intended behavior (see <code>classify()</code> below). A triple that's both aging-relevant and part of general biomedical knowledge should be usable in either KG variant.</p>
+<p><strong>Input:</strong> <code>processed_data_relation_wise_merge/generalised/{RELATION_TYPE}/ALL_{RELATION_TYPE}.csv|parquet</code></p>
+<p><strong>Output:</strong>
+- <code>processed_data_relation_wise_merge/Aging_specific/Human/{RELATION_TYPE}/...parquet</code>
+- <code>processed_data_relation_wise_merge/Biomedical/Human/{RELATION_TYPE}/...parquet</code></p>
+<p><strong>Log file:</strong> [Human_KG_SPLIT_LOG.csv]</p>
 <hr />
-<h2 id="62-the-shared-classification-logic"><strong>6.2 The Shared Classification Logic</strong><a class="headerlink" href="#62-the-shared-classification-logic" title="Permanent link">&para;</a></h2>
-<p>All three split scripts — one for Human, two for the other five species (one per ortholog variant) — use the <strong>exact same</strong> <code>classify()</code> function:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">classify</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="sd">    Returns (is_aging, is_biomedical).</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="sd">      &#39;aging&#39;              → aging only</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="sd">      &#39;generalised&#39;        → biomedical only</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="sd">      &#39;aging::generalised&#39; → BOTH</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="sd">      blank / other        → biomedical (default)</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="n">s</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">val</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="n">is_aging</span>      <span class="o">=</span> <span class="s1">&#39;aging&#39;</span> <span class="ow">in</span> <span class="n">s</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="n">is_biomedical</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;generalised&#39;</span> <span class="ow">in</span> <span class="n">s</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">s</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="ow">not</span> <span class="n">is_aging</span><span class="p">)</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="k">return</span> <span class="n">is_aging</span><span class="p">,</span> <span class="n">is_biomedical</span>
-</span></code></pre></div>
-<p>Three design choices worth calling out:</p>
-<ol>
-<li><strong>Substring match, not exact match</strong> — <code>'aging' in s</code> catches both <code>'aging'</code> and <code>'aging::generalised'</code> in one check.</li>
-<li><strong>Biomedical is the default bucket</strong> — if <code>kg_type</code> is blank, unrecognized, or anything that isn't clearly <code>'aging'</code>-only, the row falls into Biomedical. This means <strong>Biomedical is the larger, catch-all KG</strong>, and Aging is the precise, opt-in subset.</li>
-<li><strong>Overlap rows go to both</strong> — a row tagged <code>'aging::generalised'</code> sets both <code>is_aging</code> and <code>is_biomedical</code> to <code>True</code>, so it gets written to both output trees.</li>
-</ol>
-<p>A helper finds the <code>kg_type</code> column case-insensitively:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">KG_COL</span> <span class="o">=</span> <span class="s1">&#39;kg_type&#39;</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">find_kg_col</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="n">match</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="n">KG_COL</span><span class="p">]</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="k">return</span> <span class="n">match</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">match</span> <span class="k">else</span> <span class="kc">None</span>
-</span></code></pre></div>
-<p>If no <code>kg_type</code> column is found at all, the file is skipped (logged as <code>'no kg_type'</code>).</p>
+<h3 id="run-2-split-11-ortholog-files-by-kg_type-other-species">Run 2 — Split 1:1 ortholog files by <code>kg_type</code> (other species)<a class="headerlink" href="#run-2-split-11-ortholog-files-by-kg_type-other-species" title="Permanent link">&para;</a></h3>
+<p>📄 <strong>Script</strong>: <a href="https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/05_kg_construction/Run_4_making_species_associatedwith_connection/Run2_split_1to1_kg_by_type_otherspecies.py">Run2_split_1to1_kg_by_type_otherspecies.py</a></p>
+<p><strong>What it does:</strong></p>
+<ul>
+<li>For each species, reads only <code>*_ortho_1_to_1.csv</code> files (produced by Step 04, Run 3)</li>
+<li>Splits rows by <code>kg_type</code> into Aging / Biomedical using the same classification logic as Run 1</li>
+<li>Saves to <code>Aging_specific/{Species}/{relation}/</code> and <code>Biomedical/{Species}/{relation}/</code> as CSV</li>
+</ul>
+<p><strong>Log file:</strong> <code>_OTHER_SPECIES_KG_SPLIT_LOG_1to1.csv</code></p>
 <hr />
-<h2 id="63-run-1-splitting-the-human-kg"><strong>6.3 Run 1 — Splitting the Human KG</strong><a class="headerlink" href="#63-run-1-splitting-the-human-kg" title="Permanent link">&para;</a></h2>
-<p><strong>Script</strong>: <code>Run1_split_kg_by_type_human.py</code></p>
-<p>This processes every relation-wise merged file under <code>generalised/</code> (explicitly <strong>excluding</strong> <code>OTHER_SPECIES/</code>, since that's handled by Run2/Run3 separately):</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">ROOT</span>     <span class="o">=</span> <span class="s1">&#39;/storage/Arushi/090526_EvoAge/kg_formation/processed_data_relation_wise_merge&#39;</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">SRC_BASE</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ROOT</span><span class="p">,</span> <span class="s1">&#39;generalised&#39;</span><span class="p">)</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">AGING_BASE</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ROOT</span><span class="p">,</span> <span class="s1">&#39;Aging_specific&#39;</span><span class="p">,</span> <span class="s1">&#39;Human&#39;</span><span class="p">)</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">BIOMEDICAL_BASE</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ROOT</span><span class="p">,</span> <span class="s1">&#39;Biomedical&#39;</span><span class="p">,</span> <span class="s1">&#39;Human&#39;</span><span class="p">)</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="n">all_files</span> <span class="o">=</span> <span class="p">(</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">SRC_BASE</span><span class="p">,</span> <span class="s1">&#39;**/*.csv&#39;</span><span class="p">),</span>     <span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">+</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">SRC_BASE</span><span class="p">,</span> <span class="s1">&#39;**/*.parquet&#39;</span><span class="p">),</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="p">)</span>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="n">all_files</span> <span class="o">=</span> <span class="p">[</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>    <span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">all_files</span>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    <span class="k">if</span> <span class="s1">&#39;OTHER_SPECIES&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">f</span>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>    <span class="ow">and</span> <span class="s1">&#39;.ipynb_checkpoints&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">f</span>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>    <span class="ow">and</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)</span>   <span class="c1"># skip _KG_TYPE_CHECK.csv etc.</span>
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="p">]</span>
-</span></code></pre></div>
-<h3 id="key-difference-from-the-other-species-scripts-output-format"><strong>Key difference from the other-species scripts: output format</strong><a class="headerlink" href="#key-difference-from-the-other-species-scripts-output-format" title="Permanent link">&para;</a></h3>
-<p>Run1 is the only one of the three that <strong>converts CSV → Parquet on output</strong>, regardless of input format:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">save_parquet</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">rel_path</span><span class="p">,</span> <span class="n">base_dir</span><span class="p">):</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Mirror rel_path under base_dir but force a .parquet extension.&quot;&quot;&quot;</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="n">rel_parquet</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">rel_path</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;.parquet&#39;</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="n">out_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span> <span class="n">rel_parquet</span><span class="p">)</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">out_path</span><span class="p">),</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="n">df</span><span class="o">.</span><span class="n">to_parquet</span><span class="p">(</span><span class="n">out_path</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="k">return</span> <span class="n">out_path</span>
-</span></code></pre></div>
-<p>This matches the project convention that final KG-stage outputs are saved as <code>.parquet</code> (faster reads, smaller footprint) even though intermediate relation-wise merge files stayed as <code>.csv</code>.</p>
-<h3 id="output-structure"><strong>Output structure</strong><a class="headerlink" href="#output-structure" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Aging_specific/Human/&lt;relation_subfolder&gt;/&lt;relation_file&gt;.parquet
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Biomedical/Human/&lt;relation_subfolder&gt;/&lt;relation_file&gt;.parquet
-</span></code></pre></div>
-<p>The relative path under <code>generalised/</code> (e.g. <code>GENE_DISEASE/ALL_GENE_DISEASE.csv</code>) is preserved on both sides.</p>
-<h3 id="log-output"><strong>Log output</strong><a class="headerlink" href="#log-output" title="Permanent link">&para;</a></h3>
-<p><code>Human_KG_SPLIT_LOG.csv</code> — records split stats.</p>
+<h3 id="run-3-split-111m-ortholog-files-by-kg_type-other-species">Run 3 — Split 1:1∪1:M ortholog files by <code>kg_type</code> (other species)<a class="headerlink" href="#run-3-split-111m-ortholog-files-by-kg_type-other-species" title="Permanent link">&para;</a></h3>
+<p>📄 <strong>Script</strong>: <a href="https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/05_kg_construction/Run_4_making_species_associatedwith_connection/Run3_split_12M_121_comb_kg_by_type_otherspecies.py">Run3_split_12M_121_comb_kg_by_type_otherspecies.py</a></p>
+<p><strong>What it does:</strong></p>
+<ul>
+<li>Identical logic to Run 2, but reads <code>*_ortho_1_to_one2one_plus_one2many.csv</code> files (produced by Step 04, Run 5)</li>
+<li>Produces the Aging/Biomedical split for the broader ortholog mapping
+<strong>Log file:</strong> <code>_OTHER_SPECIES_KG_SPLIT_LOG.csv</code></li>
+</ul>
 <hr />
-<h2 id="64-run-2-splitting-other-species-kg-121-variant"><strong>6.4 Run 2 — Splitting Other-Species KG (121 variant)</strong><a class="headerlink" href="#64-run-2-splitting-other-species-kg-121-variant" title="Permanent link">&para;</a></h2>
-<p><strong>Script</strong>: <code>Run2_split_1to1_kg_by_type_otherspecies.py</code></p>
-<p>Scope is the <strong>121</strong> (1-to-1 ortholog) files produced in <a href="../ortholog-mapping/#541-1-to-1-only-121">Ortholog Mapping 1-to-1 Only</a> — specifically files matching <code>*_ortho_1_to_1.csv</code>:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">SPECIES_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ROOT</span><span class="p">,</span> <span class="s1">&#39;generalised&#39;</span><span class="p">,</span> <span class="s1">&#39;OTHER_SPECIES&#39;</span><span class="p">)</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">AGING_BASE</span>   <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ROOT</span><span class="p">,</span> <span class="s1">&#39;Aging_specific&#39;</span><span class="p">)</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">BIOMED_BASE</span>  <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ROOT</span><span class="p">,</span> <span class="s1">&#39;Biomedical&#39;</span><span class="p">)</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="n">SPECIES</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="s1">&#39;Celegans&#39;</span><span class="p">:</span> <span class="s1">&#39;Celegans&#39;</span><span class="p">,</span> <span class="s1">&#39;Drosophila&#39;</span><span class="p">:</span> <span class="s1">&#39;Drosophila&#39;</span><span class="p">,</span>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    <span class="s1">&#39;Mouse&#39;</span><span class="p">:</span> <span class="s1">&#39;Mouse&#39;</span><span class="p">,</span> <span class="s1">&#39;Yeast&#39;</span><span class="p">:</span> <span class="s1">&#39;Yeast&#39;</span><span class="p">,</span> <span class="s1">&#39;Zebrafish&#39;</span><span class="p">:</span> <span class="s1">&#39;Zebrafish&#39;</span><span class="p">,</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="p">}</span>
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="k">for</span> <span class="n">species</span><span class="p">,</span> <span class="n">folder</span> <span class="ow">in</span> <span class="n">SPECIES</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    <span class="n">species_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">SPECIES_ROOT</span><span class="p">,</span> <span class="n">folder</span><span class="p">)</span>
-</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>    <span class="n">files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">([</span>
-</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>        <span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">species_dir</span><span class="p">,</span> <span class="s1">&#39;**/*_ortho_1_to_1.csv&#39;</span><span class="p">),</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>        <span class="k">if</span> <span class="s1">&#39;.ipynb_checkpoints&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">f</span>
-</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>    <span class="p">])</span>
-</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>    <span class="c1"># ... same split + save logic as Run1, but output stays .csv ...</span>
-</span></code></pre></div>
-<h3 id="output-structure_1"><strong>Output structure</strong><a class="headerlink" href="#output-structure_1" title="Permanent link">&para;</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Aging_specific/
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>├── Human/&lt;relation&gt;/&lt;file&gt;.parquet
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>├── Celegans/&lt;relation&gt;/&lt;file&gt;_ortho_1_to_1.csv
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>├── Drosophila/&lt;relation&gt;/&lt;file&gt;_ortho_1_to_1.csv
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>├── Mouse/&lt;relation&gt;/&lt;file&gt;_ortho_1_to_1.csv
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>├── Yeast/&lt;relation&gt;/&lt;file&gt;_ortho_1_to_1.csv
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>└── Zebrafish/&lt;relation&gt;/&lt;file&gt;_ortho_1_to_1.csv
-</span></code></pre></div>
-<h3 id="log-output_1"><strong>Log output</strong><a class="headerlink" href="#log-output_1" title="Permanent link">&para;</a></h3>
-<p><code>_OTHER_SPECIES_KG_SPLIT_LOG_1to1.csv</code></p>
+<h3 id="run-4-generate-species_associatedwith-connection-triples">Run 4 — Generate Species_AssociatedWith connection triples<a class="headerlink" href="#run-4-generate-species_associatedwith-connection-triples" title="Permanent link">&para;</a></h3>
+<p>This run creates a new relation type: <strong><code>Species_AssociatedWith</code></strong>, which connects each species node to every entity (gene, protein, etc.) it is associated with in the KG.</p>
+<h4 id="run-41-species-triples-for-the-11-ortholog-kg">Run 4.1 — Species triples for the 1:1 ortholog KG<a class="headerlink" href="#run-41-species-triples-for-the-11-ortholog-kg" title="Permanent link">&para;</a></h4>
+<p>📄 <strong>Script</strong>: <a href="https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/05_kg_construction/Run_4_making_species_associatedwith_connection/Run_4.1_1_to_1_ortholog/Run_4.1_make_species_triples_1_to_1.py">Run_4.1_make_species_triples_1_to_1.py</a></p>
+<p><strong>What it does:</strong></p>
+<ul>
+<li>Reads <strong>all</strong> Human generalised files + all <code>*_ortho_1_to_1.csv</code> files from other species</li>
+<li>For each file, extracts <code>head_species → Species_AssociatedWith → head</code> and <code>tail_species → Species_AssociatedWith → tail</code> triples</li>
+<li>Deduplicates across all files</li>
+<li>Splits by species and saves one Parquet per species</li>
+</ul>
+<p><strong>Output:</strong> <code>making_species_assocaitedwithconnection/1_to_1_ortholog/</code></p>
+<h4 id="run-42-species-triples-for-the-111m-ortholog-kg">Run 4.2 — Species triples for the 1:1∪1:M ortholog KG<a class="headerlink" href="#run-42-species-triples-for-the-111m-ortholog-kg" title="Permanent link">&para;</a></h4>
+<p>📄 <strong>Script</strong>: <a href="https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/05_kg_construction/Run_4_making_species_associatedwith_connection/Run_4.2_one2one_plus_one2many_ortholog/Run_4.2_make_species_triples_combined121_12M.py">Run_4.2_make_species_triples_combined121_12M.py</a></p>
+<p><strong>What it does:</strong></p>
+<ul>
+<li>Same logic as Run 4.1, but reads <code>*_ortho_1_to_one2one_plus_one2many.csv</code> for other species</li>
+<li>Produces species triples for the broader 1:1∪1:M KG</li>
+</ul>
+<p><strong>Output:</strong> <code>making_species_assocaitedwithconnection/one2one_plus_one2many_ortholog/</code></p>
 <hr />
-<h2 id="65-run-3-splitting-other-species-kg-12112m-variant"><strong>6.5 Run 3 — Splitting Other-Species KG (121+12M variant)</strong><a class="headerlink" href="#65-run-3-splitting-other-species-kg-12112m-variant" title="Permanent link">&para;</a></h2>
-<p><strong>Script</strong>: <code>Run3_split_12M_121_comb_kg_by_type_otherspecies.py</code></p>
-<p>Identical structure to Run2, but scoped to the <strong>121+12M</strong> files from <a href="../ortholog-mapping/#543-1-to-1-plus-1-to-many-12112m">Ortholog Mapping 1-to-1 Plus 1-to-Many</a> — files matching <code>*_ortho_1_to_one2one_plus_one2many.csv</code>:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">([</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    <span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>        <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">species_dir</span><span class="p">,</span> <span class="s1">&#39;**/*_ortho_1_to_one2one_plus_one2many.csv&#39;</span><span class="p">),</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>        <span class="n">recursive</span><span class="o">=</span><span class="kc">True</span>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    <span class="p">)</span>
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    <span class="k">if</span> <span class="s1">&#39;.ipynb_checkpoints&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">f</span>
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="p">])</span>
-</span></code></pre></div>
-<h3 id="log-output_2"><strong>Log output</strong><a class="headerlink" href="#log-output_2" title="Permanent link">&para;</a></h3>
-<p><code>_OTHER_SPECIES_KG_SPLIT_LOG.csv</code></p>
-<hr />
-<h2 id="66-resulting-directory-structure"><strong>6.6 Resulting Directory Structure</strong><a class="headerlink" href="#66-resulting-directory-structure" title="Permanent link">&para;</a></h2>
-<p>After Run1 + Run2 + Run3 all complete, the full split produces:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>processed_data_relation_wise_merge/
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>├── generalised/                          # pre-split, relation-wise merged (input)
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>│   ├── &lt;relation_subfolder&gt;/...          # Human relations
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>│   └── OTHER_SPECIES/&lt;Species&gt;/...       # Per-species relations (both ortho variants)
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>│
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>├── Aging_specific/
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>│   ├── Human/&lt;relation&gt;/&lt;file&gt;.parquet                          # from Run1
-</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>│   ├── Celegans/&lt;relation&gt;/&lt;file&gt;_ortho_1_to_1.csv               # from Run2 (121)
-</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>│   ├── Celegans/&lt;relation&gt;/&lt;file&gt;_ortho_1_to_one2one_plus_one2many.csv  # from Run3 (121+12M)
-</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>│   └── ...                                                       # other species
-</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>│
-</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>├── Biomedical/
-</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>│   ├── Human/&lt;relation&gt;/&lt;file&gt;.parquet
-</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>│   ├── Celegans/&lt;relation&gt;/&lt;file&gt;_ortho_1_to_1.csv
-</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>│   ├── Celegans/&lt;relation&gt;/&lt;file&gt;_ortho_1_to_one2one_plus_one2many.csv
-</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>│   └── ...
-</span></code></pre></div>
-<hr />
-<h2 id="next-steps"><strong>Next Steps</strong><a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
-<ol>
-<li>✅ <strong>Aging_specific and Biomedical splits complete?</strong> → Move to <a href="../kg-tensors-and-splitting/">Tensors &amp; Splitting</a></li>
-<li><strong>Auditing split correctness?</strong> → Cross-check log CSV files.</li>
-<li><strong>Adding a 6<sup>th</sup> species?</strong> → Add to <code>SPECIES</code> dict in Run2 and Run3.</li>
-</ol>
+<h2 id="5-next-step">5. Next Step<a class="headerlink" href="#5-next-step" title="Permanent link">&para;</a></h2>
+<p>→ <strong>[Step 06 — Final KG Building]</strong>: Merge all Aging and Biomedical splits across species into the final consolidated KGs for training and evaluation.</p>
 
 
 
@@ -911,13 +1232,13 @@
         
         
           
-          <a href="../kg-tensors-and-splitting/" class="md-footer__link md-footer__link--next" aria-label="Next: Tensors &amp; Splitting">
+          <a href="../kg-tensors-and-splitting/" class="md-footer__link md-footer__link--next" aria-label="Next: Splitting">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Tensors & Splitting
+                Splitting
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -958,10 +1279,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../assets/javascripts/bundle.66be65ca.min.js"></script>
+      <script src="../assets/javascripts/bundle.69c251d7.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

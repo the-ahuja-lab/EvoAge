@@ -1,0 +1,1242 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Multi-Species Aging Knowledge Graph Platform">
+      
+      
+        <meta name="author" content="The Ahuja Lab">
+      
+      
+        <link rel="canonical" href="https://the-ahuja-lab.github.io/EvoAge/other-analysis/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.53">
+    
+    
+      
+        <title>Other analysis - EvoAge</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.20815dad.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#analysis-1-granular-1-species-cross-species-evaluation-analysis" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="./.." title="EvoAge" class="md-header__button md-logo" aria-label="EvoAge" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            EvoAge
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Other analysis
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="EvoAge" class="md-nav__button md-logo" aria-label="EvoAge" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    EvoAge
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Home
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../system-prerequisites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  System Prerequisites
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Installation
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-collection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Data Collection
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../preprocessing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Preprocessing
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../relation-processing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Relation Processing
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ortholog-mapping/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Ortholog Mapping
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kg-construction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  KG Construction
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kg-tensors-and-splitting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Splitting
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../training/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Training & Evaluation
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Other Analysis
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Other Analysis
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../other-analysis-1-species/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Species Evaluation
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../other-analysis-2-shuffled/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Shuffled KG Baseline
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../other-analysis-3-aging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Aging-Specific Test Set
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../neo4j-kg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Neo4j KG
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLM_finetuning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  LLM Fintuning
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#analysis-1-granular-1-species-cross-species-evaluation-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Analysis 1: — Granular 1% Species &amp; Cross-Species Evaluation Analysis
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Analysis 1: — Granular 1% Species &amp; Cross-Species Evaluation Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.1. Purpose
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-pipeline-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.2. Pipeline Overview
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-test-set-splitting-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.3. Test Set Splitting Logic
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3. Test Set Splitting Logic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131-species-specific-1-test-sets-within-species-biology" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.3.1. Species-Specific 1% Test Sets (Within-Species Biology)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132-cross-species-1-test-set-cross-species-interactions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.3.2. Cross-Species 1% Test Set (Cross-Species Interactions)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#133-compilation-and-splitting" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.3.3. Compilation and Splitting
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-model-training-evaluation-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.4. Model Training &amp; Evaluation Setup
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.4. Model Training &amp; Evaluation Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#141-model-training" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.4.1. Model Training
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#142-link-prediction-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.4.2. Link Prediction Evaluation
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#143-relation-edge-type-prediction-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.4.3. Relation / Edge Type Prediction Evaluation
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-evaluation-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.5. Evaluation Results
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.5. Evaluation Results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#151-task-a-relation-edge-type-prediction-h-t" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.5.1. Task A — Relation / Edge Type Prediction <code>(h, ?, t)</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#152-task-b-link-prediction-r-t-h-r" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.5.2. Task B — Link Prediction <code>(?, r, t)</code> / <code>(h, r, ?)</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.6. Key Takeaways
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analysis-2-shuffled-kg-test-set-baseline-null-hypothesis-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Analysis 2: Shuffled KG Test Set Baseline / Null Hypothesis Evaluation
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Analysis 2: Shuffled KG Test Set Baseline &#x2f; Null Hypothesis Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.1. Purpose
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-pipeline-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.2. Pipeline Overview
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-shuffled-test-set-generation-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.3. Shuffled Test Set Generation Logic
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-evaluation-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.4. Evaluation Setup
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-key-takeaway" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.5. Key Takeaway
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analysis-3-evaluation-of-kgs-on-aging-specific-test-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Analysis 3: Evaluation of KGs on Aging-Specific Test Set
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Analysis 3: Evaluation of KGs on Aging-Specific Test Set">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.1. Purpose
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-pipeline-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.2. Pipeline Overview
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-evaluation-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.3. Evaluation Setup
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <h1 id="__skip">Other analysis</h1>
+
+<blockquote>
+<p>📂 <strong>Source Code &amp; Notebooks:</strong> <a href="https://github.com/the-ahuja-lab/EvoAge/tree/main/pipeline/08_evaluation_analysis">pipeline/08_evaluation_analysis</a></p>
+</blockquote>
+<p>This document details supplementary evaluation analyses for the EvoAge knowledge graph model, consisting of three parts:</p>
+<ol>
+<li><strong>Analysis 1</strong>: Granular 1% species-specific and cross-species evaluation analysis.</li>
+<li><strong>Analysis 2</strong>: Shuffled KG test set baseline (null hypothesis) evaluation.</li>
+<li><strong>Analysis 3</strong>: Evaluation of KGs on Aging-specific test set.</li>
+</ol>
+<hr />
+<h2 id="analysis-1-granular-1-species-cross-species-evaluation-analysis">Analysis 1: — Granular 1% Species &amp; Cross-Species Evaluation Analysis<a class="headerlink" href="#analysis-1-granular-1-species-cross-species-evaluation-analysis" title="Permanent link">&para;</a></h2>
+<h3 id="11-purpose">1.1. Purpose<a class="headerlink" href="#11-purpose" title="Permanent link">&para;</a></h3>
+<p>This section details the granular 1% species-specific and cross-species evaluation analysis. The purpose of this analysis is to evaluate KGE model performance (RESCAL, 64-dimension) at a fine-grained level across distinct species boundaries and cross-species interfaces. Rather than evaluating the model on a single uniform test set, the testing data is partitioned into <strong>7 distinct sub-test sets</strong> representing individual species and cross-species boundaries.</p>
+<hr />
+<h3 id="12-pipeline-overview">1.2. Pipeline Overview<a class="headerlink" href="#12-pipeline-overview" title="Permanent link">&para;</a></h3>
+<p>All pipeline components for this analysis are structured under:
+📂 <code>building_evoage_with_1_percent_species_testsplit/</code></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>building_evoage_with_1_percent_species_testsplit/
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├── Training/
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│   ├── Run1_percent_species_test_set.ipynb ← Test set split generation details
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│   ├── Run2_per_Rescal_64.sh ← Model training bash script (10 epochs)
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>│   ├── Run3_Rescal_64_testing.sh ← CPU-based link prediction eval bash script
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│   └── Run4_per_rescal_edge_type_metrics.py ← GPU-based custom edge type prediction script
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>└── Store_House/                                        ← Holds final split txt files for evaluation
+</span></code></pre></div>
+<hr />
+<h3 id="13-test-set-splitting-logic">1.3. Test Set Splitting Logic<a class="headerlink" href="#13-test-set-splitting-logic" title="Permanent link">&para;</a></h3>
+<p>The evaluation dataset is divided into two primary categories:</p>
+<h4 id="131-species-specific-1-test-sets-within-species-biology">1.3.1. Species-Specific 1% Test Sets (Within-Species Biology)<a class="headerlink" href="#131-species-specific-1-test-sets-within-species-biology" title="Permanent link">&para;</a></h4>
+<p>For each individual species (Human, Yeast, C. elegans, Drosophila, Zebrafish, Mouse):
+1. <strong>Filter Non-Human Nodes</strong>: Human genes mapped via orthology are separated from species-specific nodes (e.g., phenotypes, cell components, chemicals). An upper bound threshold representing human nodes is defined (e.g. <code>3,062,099</code> for Yeast). Triples where <strong>both</strong> head and tail are species-specific (IDs <span class="arithmatex">\(\ge \text{threshold}\)</span>) are selected.
+2. <strong>1% Sampling</strong>: Exactly 1% of the total triples of the species' subgraph are randomly sampled from these eligible triples.
+3. <strong>Training Exclusions</strong>: The sampled triples are subtracted from the species subgraph to avoid leakage.</p>
+<h4 id="132-cross-species-1-test-set-cross-species-interactions">1.3.2. Cross-Species 1% Test Set (Cross-Species Interactions)<a class="headerlink" href="#132-cross-species-1-test-set-cross-species-interactions" title="Permanent link">&para;</a></h4>
+<p>To evaluate the model's accuracy on relationships bridging human genes and other species' entities:
+1. <strong>Size Balancing</strong>: The total size of the cross-species test set is balanced to match the human 1% test set size.
+2. <strong>Sampling Filter</strong>: Triples are sampled where one node (head/tail) is a human gene mapping to that species (using mapped gene lists) and the other node (tail/head) is a species-specific entity within that species' ID range.
+3. <strong>Training Exclusions</strong>: The sampled triples are removed from the training pool.</p>
+<h4 id="133-compilation-and-splitting">1.3.3. Compilation and Splitting<a class="headerlink" href="#133-compilation-and-splitting" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Training (90%)</strong>: The combined remaining 99% training triples are saved as <code>EvoAge_1to1_1toM_train_90.txt</code>.</li>
+<li><strong>Validation (10%)</strong>: The combined remaining validation triples are saved as <code>EvoAge_1to1_1toM_valid_10.txt</code>.</li>
+<li><strong>Individual Test Sets</strong>: Evaluated as <code>Human.txt</code>, <code>Yeast.txt</code>, <code>Celegans.txt</code>, <code>Drosophila.txt</code>, <code>Zebrafish.txt</code>, <code>Mouse.txt</code>, and <code>CrossSpecies.txt</code>.</li>
+</ul>
+<hr />
+<h3 id="14-model-training-evaluation-setup">1.4. Model Training &amp; Evaluation Setup<a class="headerlink" href="#14-model-training-evaluation-setup" title="Permanent link">&para;</a></h3>
+<h4 id="141-model-training">1.4.1. Model Training<a class="headerlink" href="#141-model-training" title="Permanent link">&para;</a></h4>
+<p>Trained via DGL-KE utilizing the [Run2_per_Rescal_64.sh] script:
+- <strong>Model</strong>: RESCAL (64-dimensional embeddings)
+- <strong>Batch Size</strong>: 2048
+- <strong>LR</strong>: 0.01 
+- <strong>Max Steps</strong>:(Equivalent to exactly <strong>10 epochs</strong>)
+  $<span class="arithmatex">\(\text{max\_step} = \frac{10 \text{ epochs} \times 1,094,669,926 \text{ training triples}}{2048 \text{ batch size}}\)</span>$</p>
+<h4 id="142-link-prediction-evaluation">1.4.2. Link Prediction Evaluation<a class="headerlink" href="#142-link-prediction-evaluation" title="Permanent link">&para;</a></h4>
+<p>Executed via the [Run3_Rescal_64_testing.sh]script using CPU-parallel threads (<code>dglke_eval</code>).</p>
+<h4 id="143-relation-edge-type-prediction-evaluation">1.4.3. Relation / Edge Type Prediction Evaluation<a class="headerlink" href="#143-relation-edge-type-prediction-evaluation" title="Permanent link">&para;</a></h4>
+<p>Executed via the <a href="https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/08_evaluation_analysis/building_evoage_with_1_percent_species_testsplit/Training/Run4_per_rescal_edge_type_metrics.py">Run4_per_rescal_edge_type_metrics.py</a> script. It evaluates the rank of the true relation out of all 89 candidate relations in a chunked manner on the GPU.</p>
+<hr />
+<h3 id="15-evaluation-results">1.5. Evaluation Results<a class="headerlink" href="#15-evaluation-results" title="Permanent link">&para;</a></h3>
+<h4 id="151-task-a-relation-edge-type-prediction-h-t">1.5.1. Task A — Relation / Edge Type Prediction <code>(h, ?, t)</code><a class="headerlink" href="#151-task-a-relation-edge-type-prediction-h-t" title="Permanent link">&para;</a></h4>
+<h4 id="152-task-b-link-prediction-r-t-h-r">1.5.2. Task B — Link Prediction <code>(?, r, t)</code> / <code>(h, r, ?)</code><a class="headerlink" href="#152-task-b-link-prediction-r-t-h-r" title="Permanent link">&para;</a></h4>
+<hr />
+<h3 id="16-key-takeaways">1.6. Key Takeaways<a class="headerlink" href="#16-key-takeaways" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Varying Species Complexity</strong>:</li>
+<li><strong>Strong Cross-Species Prediction</strong>: The model predicts cross-species boundaries with high accuracy, demonstrating that mapping species orthologs onto human genes creates a highly coherent combined vector space.</li>
+</ol>
+<hr />
+<h2 id="analysis-2-shuffled-kg-test-set-baseline-null-hypothesis-evaluation">Analysis 2: Shuffled KG Test Set Baseline / Null Hypothesis Evaluation<a class="headerlink" href="#analysis-2-shuffled-kg-test-set-baseline-null-hypothesis-evaluation" title="Permanent link">&para;</a></h2>
+<h3 id="21-purpose">2.1. Purpose<a class="headerlink" href="#21-purpose" title="Permanent link">&para;</a></h3>
+<p>The purpose of this analysis is to establish baseline performance metrics (a null-hypothesis baseline) for the knowledge graph completion model (RESCAL, 64-dimension). By shuffling the head and tail entities of the test set triples independently while keeping relations fixed, we generate "fake" negative test sets. Evaluating the model trained on the real graph against these shuffled test sets allows us to verify if the model is genuinely learning meaningful biological associations rather than capturing simple statistical artifacts or frequency biases.</p>
+<hr />
+<h3 id="22-pipeline-overview">2.2. Pipeline Overview<a class="headerlink" href="#22-pipeline-overview" title="Permanent link">&para;</a></h3>
+<p>All pipeline components for this analysis are structured under:
+📂 <code>/storage/Arushi/090526_EvoAge/kg_formation/DOCUMENTATION/Other_Analysis_08/shuffled_kg_testset/</code></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>shuffled_kg_testset/
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>│
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>├── Run1_make_shuffled_KG.py             ← Generates 30 shuffled test sets with deduplication
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>├── Run2_Testing/                        ← Evaluation scripts &amp; outputs
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>│   ├── run_rescal_eval_all_shuffles.sh  ← Bash script to run dglke_eval sequentially
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>│   └── rescal_eval_all_shuffles.log     ← Evaluation log output for all 30 shuffles
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>└── Run3_testing_log_to_csv.py           ← Parses evaluation logs and generates summary statistics
+</span></code></pre></div>
+<hr />
+<h3 id="23-shuffled-test-set-generation-logic">2.3. Shuffled Test Set Generation Logic<a class="headerlink" href="#23-shuffled-test-set-generation-logic" title="Permanent link">&para;</a></h3>
+<p>The shuffled test sets are created using the script <a href="https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/08_evaluation_analysis/shuffled_kg_testset/Run1_make_shuffled_KG.py">Run1_make_shuffled_KG.py</a>:
+1. <strong>Source Dataset</strong>: Loads the original test set: <code>EvoAge_1to1_KG_test.txt</code> (containing <span class="arithmatex">\(N\)</span> triples).
+2. <strong>Independent Shuffling</strong>: The head and tail entity columns are independently and randomly permuted (using 30 different random seeds, 0 to 29), while keeping the relation column fixed.
+3. <strong>Collision Checking &amp; Deduplication</strong>: To ensure validity as negative samples, the script checks if any shuffled triple exists in the original test set. If a collision is detected, the colliding indices are iteratively reshuffled until a collision-free shuffled test set is generated.
+4. <strong>Outputs</strong>: Generates 30 text files (<code>shuffled_test_000_seed0.txt</code> through <code>shuffled_test_029_seed29.txt</code>) and a summary CSV <code>shuffle_summary.csv</code> inside <code>Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/</code>.</p>
+<hr />
+<h3 id="24-evaluation-setup">2.4. Evaluation Setup<a class="headerlink" href="#24-evaluation-setup" title="Permanent link">&para;</a></h3>
+<p>The evaluation of the trained RESCAL model against the shuffled test sets is performed via [run_rescal_eval_all_shuffles.sh]:
+- <strong>Model</strong>: RESCAL (64-dimensional embeddings, trained on <code>Evoage_121_12M</code> dataset).
+- <strong>Execution</strong>: Runs CPU-based link prediction evaluation (<code>dglke_eval</code>) sequentially across all 30 shuffled test sets with 17 threads.
+- <strong>Negative Sampling</strong>: Employs a negative sample size of 16 during evaluation.
+- <strong>Log Parsing</strong>: The python script <a href="https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/08_evaluation_analysis/shuffled_kg_testset/Run3_testing_log_to_csv.py">Run3_testing_log_to_csv.py</a>extracts the test metrics (MRR, MR, HITS@1, HITS@3, HITS@10) from the log file and saves them to <code>rescal_shuffled_metrics.csv</code>.</p>
+<h3 id="25-key-takeaway">2.5. Key Takeaway<a class="headerlink" href="#25-key-takeaway" title="Permanent link">&para;</a></h3>
+<p><strong>Significantly Lower Performance Compared to Real Graph</strong>rd deviations across the 30 random shuffles are extremely low, showing that the random permutation generates highly consistent, stable baseline metrics.</p>
+<hr />
+<h2 id="analysis-3-evaluation-of-kgs-on-aging-specific-test-set">Analysis 3: Evaluation of KGs on Aging-Specific Test Set<a class="headerlink" href="#analysis-3-evaluation-of-kgs-on-aging-specific-test-set" title="Permanent link">&para;</a></h2>
+<h3 id="31-purpose">3.1. Purpose<a class="headerlink" href="#31-purpose" title="Permanent link">&para;</a></h3>
+<p>The purpose of this analysis is to evaluate how integrating aging-specific data with general biomedical knowledge and orthology mappings in <strong>EvoAge</strong> helps predict aging test sets. By comparing EvoAge against Aging-only graphs on the same aging test split (<code>Aging_specific_1to1_KG_test_10.txt</code>), we quantify how the broader semantic context and cross-species links in EvoAge help enrich and improve the representation of aging-specific biology.</p>
+<hr />
+<h3 id="32-pipeline-overview">3.2. Pipeline Overview<a class="headerlink" href="#32-pipeline-overview" title="Permanent link">&para;</a></h3>
+<p>All pipeline components for this analysis are structured under:
+📂 <code>Agingonly_testing_data/</code></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Agingonly_testing_data/
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>│
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>├── Aging_testing_data_on_allKGs.sh           ← Sequentially runs dglke_eval link prediction
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>├── Aging_testing_data_on_allKGs.log          ← Combined output logs of evaluation runs
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>└── Aging_testing_data_on_allKG_compling.py   ← Script that parses logs to compile rescal_testing_summary.csv
+</span></code></pre></div>
+<hr />
+<h3 id="33-evaluation-setup">3.3. Evaluation Setup<a class="headerlink" href="#33-evaluation-setup" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Models Evaluated</strong>: RESCAL models trained on:</li>
+<li><strong>EvoAge 1-to-1</strong> (trained on <code>EvoAge_1to1_KG_train_90.txt</code> + <code>valid_10.txt</code>)</li>
+<li><strong>Aging 1-to-1</strong> (trained on <code>Aging_specific_1to1_KG_train_80.txt</code> + <code>valid_10.txt</code>)</li>
+<li><strong>EvoAge 1:1∪1:M</strong> (trained on <code>EvoAge_121_12M_KG_train_90.txt</code> + <code>valid_10.txt</code>)</li>
+<li><strong>Aging 1:1∪1:M</strong> (trained on <code>Aging_specific_121_12M_KG_train_90.txt</code> + <code>valid_10.txt</code>)</li>
+<li><strong>Shared Test Set</strong>: <code>Aging_specific_1to1_KG_test_10.txt</code> (148,311 triples).</li>
+<li><strong>Parameters</strong>: Hidden dimension of 64, gamma margin of 12.0, evaluated via CPU link prediction with 22 threads, using 16 negative samples.</li>
+<li><strong>Log compiler script</strong>: <a href="https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/08_evaluation_analysis/Agingonly_testing_data/Aging_testing_data_on_allKG_compling.py">Aging_testing_data_on_allKG_compling.py</a> extracts the test metrics from the log files and outputs a compiled CSV summary.</li>
+</ul>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 The Ahuja Lab
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.69c251d7.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

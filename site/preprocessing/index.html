@@ -25,18 +25,18 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="zensical-0.0.30">
+      <meta name="generator" content="zensical-0.0.53">
     
     
       
-        <title>3. Per-Source Preprocessing - EvoAge</title>
+        <title>02 — Data Processing (Per-Source) - EvoAge</title>
       
     
     
       
         
       
-      <link rel="stylesheet" href="../assets/stylesheets/modern/main.3b031116.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.20815dad.min.css">
       
         
           
@@ -55,12 +55,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
         <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
     
       
 
@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#3-per-source-preprocessing" class="md-skip">
+        <a href="#02-data-processing-per-source" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +104,7 @@
     <a href="./.." title="EvoAge" class="md-header__button md-logo" aria-label="EvoAge" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
@@ -121,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              3. Per-Source Preprocessing
+              02 — Data Processing (Per-Source)
             
           </span>
         </div>
@@ -203,7 +203,7 @@
     <a href="./.." title="EvoAge" class="md-nav__button md-logo" aria-label="EvoAge" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
 
     </a>
     EvoAge
@@ -225,8 +225,7 @@
   <span class="md-ellipsis">
     
   
-    Home
-  
+  Home
 
     
   </span>
@@ -245,15 +244,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../quick-start/" class="md-nav__link">
+      <a href="../system-prerequisites/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Quick Start
-  
+  System Prerequisites
 
     
   </span>
@@ -279,8 +277,7 @@
   <span class="md-ellipsis">
     
   
-    Installation
-  
+  Installation
 
     
   </span>
@@ -306,8 +303,7 @@
   <span class="md-ellipsis">
     
   
-    Data Collection
-  
+  Data Collection
 
     
   </span>
@@ -329,6 +325,29 @@
   
     <li class="md-nav__item md-nav__item--active">
       
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Preprocessing
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="././" class="md-nav__link md-nav__link--active">
         
   
@@ -336,8 +355,7 @@
   <span class="md-ellipsis">
     
   
-    Preprocessing
-  
+  Preprocessing
 
     
   </span>
@@ -345,6 +363,181 @@
   
 
       </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Purpose
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Input
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Output
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-processing-notebooks-human-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Processing Notebooks (Human Data)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Processing Notebooks (Human Data)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aging-specific-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Aging-Specific Sources
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general-biomedical-kgs" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        General Biomedical KGs
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chemical-drug-target" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Chemical / Drug / Target
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Other Sources
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-species-specific-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Species-Specific Processing
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-common-processing-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Common Processing Pattern
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Common Processing Pattern">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standard-output-schema-columns" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Standard output schema columns
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-key-design-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. Key Design Decisions
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-file-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8. File Summary
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -364,8 +557,7 @@
   <span class="md-ellipsis">
     
   
-    Relation Processing
-  
+  Relation Processing
 
     
   </span>
@@ -391,8 +583,7 @@
   <span class="md-ellipsis">
     
   
-    Ortholog Mapping
-  
+  Ortholog Mapping
 
     
   </span>
@@ -418,8 +609,7 @@
   <span class="md-ellipsis">
     
   
-    KG Construction
-  
+  KG Construction
 
     
   </span>
@@ -445,8 +635,7 @@
   <span class="md-ellipsis">
     
   
-    Tensors & Splitting
-  
+  Splitting
 
     
   </span>
@@ -465,15 +654,212 @@
   
   
     <li class="md-nav__item">
-      <a href="../documentation-structure/" class="md-nav__link">
+      <a href="../training/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Structure
+  Training & Evaluation
+
+    
+  </span>
   
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Other Analysis
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Other Analysis
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../other-analysis-1-species/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Species Evaluation
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../other-analysis-2-shuffled/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Shuffled KG Baseline
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../other-analysis-3-aging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Aging-Specific Test Set
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../neo4j-kg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Neo4j KG
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLM_finetuning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  LLM Fintuning
 
     
   </span>
@@ -496,10 +882,17 @@
               <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   
-                    <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-                    <div class="md-sidebar-button__wrapper">
-                      <label class="md-sidebar-button" for="__toc"></label>
-                    </div>
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
                   
                   <div class="md-sidebar__inner">
                     
@@ -519,100 +912,89 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#31-two-preprocessing-paradigms" class="md-nav__link">
+  <a href="#1-purpose" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        3.1 Two Preprocessing Paradigms
-      
+      <span class="md-typeset">
+        1. Purpose
+      </span>
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#32-paradigm-a-relation-typed-csv-sources" class="md-nav__link">
+  <a href="#2-input" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        3.2 Paradigm A — Relation-Typed CSV Sources
-      
+      <span class="md-typeset">
+        2. Input
+      </span>
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="3.2 Paradigm A — Relation-Typed CSV Sources">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Output
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-processing-notebooks-human-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Processing Notebooks (Human Data)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Processing Notebooks (Human Data)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#worked-example-pharmkg" class="md-nav__link">
+  <a href="#aging-specific-sources" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Worked example: PharmKG
-      
+      <span class="md-typeset">
+        Aging-Specific Sources
+      </span>
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-1-load-reference-dictionaries-once" class="md-nav__link">
+  <a href="#general-biomedical-kgs" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Step 1 — Load reference dictionaries once
-      
+      <span class="md-typeset">
+        General Biomedical KGs
+      </span>
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-2-standardize-entity-types-and-build-the-relation-label" class="md-nav__link">
+  <a href="#chemical-drug-target" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Step 2 — Standardize entity types and build the Relation label
-      
+      <span class="md-typeset">
+        Chemical / Drug / Target
+      </span>
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-3-split-into-per-relation-dataframes" class="md-nav__link">
+  <a href="#other-sources" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Step 3 — Split into per-relation DataFrames
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-4-resolve-headtail-per-entity-type" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 4 — Resolve Head/Tail per entity type
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-5-process-each-relation-block-validate-save" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 5 — Process each relation block, validate, save
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sources-following-this-same-paradigm" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Sources following this same paradigm
-      
+      <span class="md-typeset">
+        Other Sources
+      </span>
     </span>
   </a>
   
@@ -624,89 +1006,34 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#33-paradigm-b-raw-rdfowl-triple-sources" class="md-nav__link">
+  <a href="#5-species-specific-processing" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        3.3 Paradigm B — Raw RDF/OWL Triple Sources
-      
+      <span class="md-typeset">
+        5. Species-Specific Processing
+      </span>
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="3.3 Paradigm B — Raw RDF&#x2f;OWL Triple Sources">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-common-processing-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Common Processing Pattern
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Common Processing Pattern">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#worked-example-pheknowlator" class="md-nav__link">
+  <a href="#standard-output-schema-columns" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Worked example: PheKnowLator
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-1-parse-the-uri-into-a-clean-id-ontology-prefix" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 1 — Parse the URI into a clean ID + ontology prefix
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-2-map-ontology-prefix-entity-type" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 2 — Map ontology prefix → entity type
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-3-infer-the-relation-from-the-head_type-tail_type-pair" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 3 — Infer the relation from the (Head_type, Tail_type) pair
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-4-filter-to-entity-types-worth-keeping-split-and-write-semi-processed-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 4 — Filter to entity types worth keeping, split, and write semi-processed files
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-5-per-relation-type-id-resolution-second-pass" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 5 — Per-relation-type ID resolution (second pass)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sources-following-this-same-paradigm_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Sources following this same paradigm
-      
+      <span class="md-typeset">
+        Standard output schema columns
+      </span>
     </span>
   </a>
   
@@ -718,61 +1045,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#34-canonical-id-system-per-node-type" class="md-nav__link">
+  <a href="#7-key-design-decisions" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        3.4 Canonical ID System per Node Type
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3.4 Canonical ID System per Node Type">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#why-this-matters-for-graph-connectivity" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why this matters for graph connectivity
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#35-standard-output-schema" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.5 Standard Output Schema
-      
+      <span class="md-typeset">
+        7. Key Design Decisions
+      </span>
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#36-per-source-notebook-inventory" class="md-nav__link">
+  <a href="#8-file-summary" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        3.6 Per-Source Notebook Inventory
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Next Steps
-      
+      <span class="md-typeset">
+        8. File Summary
+      </span>
     </span>
   </a>
   
@@ -801,461 +1089,390 @@
                 
                   
 
-<h1 id="3-per-source-preprocessing">3. Per-Source Preprocessing<a class="headerlink" href="#3-per-source-preprocessing" title="Permanent link">&para;</a></h1>
-<p>This section documents how each of the 48+ raw data sources is converted into the standard EvoAge triple schema before relation-type classification and KG merging. It is based on the actual notebooks in <code>kg_formation/data_processing/</code>.</p>
+<h1 id="02-data-processing-per-source">02 — Data Processing (Per-Source)<a class="headerlink" href="#02-data-processing-per-source" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>📂 <strong>Source Code &amp; Notebooks:</strong> <a href="https://github.com/the-ahuja-lab/EvoAge/tree/main/pipeline/02_data_processing">pipeline/02_data_processing</a></p>
+</blockquote>
+<h2 id="1-purpose">1. Purpose<a class="headerlink" href="#1-purpose" title="Permanent link">&para;</a></h2>
+<p>This is the <strong>second step</strong> of the EvoAge KG pipeline. Each of the ~50 collected data sources has a <strong>different format, schema, and identifier system</strong>. This step processes every source individually — cleaning, normalising IDs, resolving gene symbols, and converting raw data into a <strong>standardised KG-triple format</strong>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Head | Relation | Tail | Head_type | Tail_type | Source | KG_Source | Head_detail_name | Tail_detail_name | Head_id_is | Tail_id_is | kg_type
+</span></code></pre></div>
+<p>Because each data source is different, a <strong>tailored processing strategy</strong> was developed for each source in its own Jupyter notebook.</p>
 <hr />
-<h2 id="31-two-preprocessing-paradigms"><strong>3.1 Two Preprocessing Paradigms</strong><a class="headerlink" href="#31-two-preprocessing-paradigms" title="Permanent link">&para;</a></h2>
-<p>Every source notebook follows one of two patterns, depending on what the raw data looks like:</p>
+<h2 id="2-input">2. Input<a class="headerlink" href="#2-input" title="Permanent link">&para;</a></h2>
+<p>Raw data from <strong>Step 01 (Data Collection)</strong>, located in:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>kg_formation/data_collection/&lt;source_name&gt;/
+</span></code></pre></div></p>
+<p>Plus shared reference/mapping dictionaries:</p>
+<ul>
+<li><strong>NCBI gene_info</strong> — GeneID ↔ Symbol ↔ Synonyms (per species)</li>
+<li><strong>PubChem CID-Synonym</strong> — compound name → PubChem CID</li>
+<li><strong>ChEBI</strong> — ChEBI ID mappings</li>
+<li><strong>UniProt</strong> — protein ID resolution</li>
+<li><strong>DO / DOID / MONDO</strong> — disease ontology mappings</li>
+<li><strong>GO (Quick_GO)</strong> — Gene Ontology term resolution</li>
+<li><strong>UBERON</strong> — anatomical entity ontology</li>
+<li><strong>HPO</strong> — Human Phenotype Ontology</li>
+<li><strong>Reactome</strong> — pathway IDs</li>
+</ul>
+<hr />
+<h2 id="3-output">3. Output<a class="headerlink" href="#3-output" title="Permanent link">&para;</a></h2>
+<p>Processed KG-triple CSV files saved into:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>kg_formation/data_processing/&lt;source_name&gt;/
+</span></code></pre></div></p>
+<p>Each output file follows the standard schema with columns:
+<code>Head</code>, <code>Relation</code>, <code>Tail</code>, <code>Head_type</code>, <code>Tail_type</code>, <code>Source</code>, <code>KG_Source</code>, <code>Head_detail_name</code>, <code>Tail_detail_name</code>, <code>Head_id_is</code>, <code>Tail_id_is</code>, <code>kg_type</code></p>
+<hr />
+<h2 id="4-processing-notebooks-human-data">4. Processing Notebooks (Human Data)<a class="headerlink" href="#4-processing-notebooks-human-data" title="Permanent link">&para;</a></h2>
+<p><strong>31 notebooks</strong> process human (and sometimes multi-species) data sources:</p>
+<h3 id="aging-specific-sources">Aging-Specific Sources<a class="headerlink" href="#aging-specific-sources" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>Paradigm</th>
-<th>Raw data shape</th>
-<th>Example sources</th>
-<th>Core task</th>
+<th>Notebook</th>
+<th>Source</th>
+<th>Species</th>
+<th>Key processing</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>A. Relation-typed CSV</strong></td>
-<td>Entity1/Entity2 columns + a relation/type label already present</td>
-<td>PharmKG, DRKG, PrimeKG, STITCH, STRING, Hetionet, CKG</td>
-<td>Split by relation type → resolve each Head/Tail to a canonical ID using reference dictionaries</td>
+<td><code>genage.ipynb</code></td>
+<td>GenAge (genage_models.csv)</td>
+<td>Human, Mouse, Drosophila, C. elegans, Yeast</td>
+<td>NCBI gene symbol resolution per species; separate output per species</td>
 </tr>
 <tr>
-<td><strong>B. Raw RDF/OWL triples</strong></td>
-<td>Plain <code>(subject_uri, object_uri)</code> pairs, no relation or type column at all</td>
-<td>PheKnowLator, MonarchKG</td>
-<td>Parse ontology URI prefixes → infer entity type → infer relation from the (Head_type, Tail_type) pair → resolve IDs</td>
+<td><code>drugage.ipynb</code></td>
+<td>DrugAge (two source files)</td>
+<td>Multi-species</td>
+<td>PubChem CID resolution for compounds; parallel processing of two input files</td>
+</tr>
+<tr>
+<td><code>ageanno.ipynb</code></td>
+<td>AgeAnno</td>
+<td>Human</td>
+<td>Cell-type and aging-annotation mapping</td>
+</tr>
+<tr>
+<td><code>ageannomo.ipynb</code></td>
+<td>AgeAnnoMO</td>
+<td>Multi-organism</td>
+<td>Multi-organism aging annotation mapping</td>
+</tr>
+<tr>
+<td><code>agextend.ipynb</code></td>
+<td>AgeXtend (in-house)</td>
+<td>Multi-species</td>
+<td>9 hallmark TSV files → Chemical–Hallmark CSVs; drug–aging data per species</td>
+</tr>
+<tr>
+<td><code>aging_atlas.ipynb</code></td>
+<td>Aging Atlas</td>
+<td>Human</td>
+<td>Aging gene/protein annotation processing</td>
+</tr>
+<tr>
+<td><code>digital_aging_atlas.ipynb</code></td>
+<td>Digital Ageing Atlas</td>
+<td>Human, Mouse</td>
+<td>Gene → Tissue (BTO) edges; module-based processing</td>
+</tr>
+<tr>
+<td><code>gendr.ipynb</code></td>
+<td>GenDR</td>
+<td>Mouse, Drosophila, C. elegans, Yeast</td>
+<td>Dietary restriction gene manipulations</td>
+</tr>
+<tr>
+<td><code>hald.ipynb</code></td>
+<td>HALD</td>
+<td>Human</td>
+<td>Entity + triple files; Carbohydrate/Lipid/Peptide type normalisation</td>
+</tr>
+<tr>
+<td><code>MetaboAge.ipynb</code></td>
+<td>MetaboAge</td>
+<td>Human</td>
+<td>Metabolite–aging associations</td>
+</tr>
+<tr>
+<td><code>Agingbank.ipynb</code></td>
+<td>AgingBank</td>
+<td>Aging gene bank processing</td>
+<td></td>
 </tr>
 </tbody>
 </table>
-<p>Both paradigms converge on the same output schema (<code>DESIRED_COLS</code> — see <a href="#35-standard-output-schema">§3.5</a>) so that every source plugs into the same downstream merging step (<a href="../kg-construction/">KG Construction</a>).</p>
-<hr />
-<h2 id="32-paradigm-a-relation-typed-csv-sources"><strong>3.2 Paradigm A — Relation-Typed CSV Sources</strong><a class="headerlink" href="#32-paradigm-a-relation-typed-csv-sources" title="Permanent link">&para;</a></h2>
-<h3 id="worked-example-pharmkg"><strong>Worked example: PharmKG</strong><a class="headerlink" href="#worked-example-pharmkg" title="Permanent link">&para;</a></h3>
-<p><strong>Notebook</strong>: <code>kg_formation/data_processing/pharmkg.ipynb</code>
-<strong>Raw input</strong>: <code>raw_PharmKG-180k.csv</code> — has <code>Entity1_name</code>, <code>Entity1_type</code>, <code>Entity2_name</code>, <code>Entity2_type</code>, <code>relationship_type</code> columns already.</p>
-<h3 id="step-1-load-reference-dictionaries-once"><strong>Step 1 — Load reference dictionaries once</strong><a class="headerlink" href="#step-1-load-reference-dictionaries-once" title="Permanent link">&para;</a></h3>
-<p>All ID-resolution dictionaries are built <strong>once at the top of the notebook</strong>, not rebuilt inside each relation block. The standard set of dictionaries every relation-typed source needs:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Chemical resolution</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">Pubchem_Smile_CID_Dict</span>       <span class="c1"># SMILES -&gt; PubChem CID</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">DB2PC_dict</span><span class="p">,</span> <span class="n">Chebi2PC_dict</span>    <span class="c1"># DrugBank / ChEBI -&gt; PubChem CID</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">Pubchem_Syn_fil_dict_lower</span>   <span class="c1"># chemical synonym (lowercased) -&gt; PubChem CID</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1"># Disease resolution (DO -&gt; MeSH cascade)</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">DOID_disname_DOID_dict</span>       <span class="c1"># DO label -&gt; DOID            (preferred)</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">Meshname2DOID_dict</span>           <span class="c1"># MeSH label -&gt; MeSH xref     (fallback 1)</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">MESH_dict</span>                    <span class="c1"># MeSH ID -&gt; name             (fallback 2)</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">Mesh_supp_dict</span>                <span class="c1"># MeSH supplementary ID -&gt; name (fallback 3)</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="c1"># Gene resolution</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="n">NCBI_fullname_2_SYMBOL_dict</span>  <span class="c1"># full gene description -&gt; canonical Symbol</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="n">synonym_map</span>                  <span class="c1"># alias/synonym -&gt; canonical Symbol (built ONCE)</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="n">NCBI_ALL_GENEname_dict</span>       <span class="c1"># canonical Symbol -&gt; description</span>
-</span></code></pre></div>
-<h3 id="step-2-standardize-entity-types-and-build-the-relation-label"><strong>Step 2 — Standardize entity types and build the Relation label</strong><a class="headerlink" href="#step-2-standardize-entity-types-and-build-the-relation-label" title="Permanent link">&para;</a></h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">KG_file</span><span class="p">[</span><span class="s1">&#39;Entity1_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">KG_file</span><span class="p">[</span><span class="s1">&#39;Entity1_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">KG_file</span><span class="p">[</span><span class="s1">&#39;Entity2_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">KG_file</span><span class="p">[</span><span class="s1">&#39;Entity2_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">KG_file</span><span class="p">[</span><span class="s1">&#39;RELATION&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">KG_file</span><span class="p">[</span><span class="s1">&#39;Entity1_type&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">KG_file</span><span class="p">[</span><span class="s1">&#39;Entity2_type&#39;</span><span class="p">]</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">format_relation</span><span class="p">(</span><span class="n">relation</span><span class="p">):</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;gene_disease -&gt; Gene_Disease&quot;&quot;&quot;</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="k">return</span> <span class="s1">&#39;_&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">p</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">relation</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)])</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">KG_file</span><span class="p">[</span><span class="s1">&#39;RELATION&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">KG_file</span><span class="p">[</span><span class="s1">&#39;RELATION&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">format_relation</span><span class="p">)</span>
-</span></code></pre></div>
-<p>This gives a <code>Relation</code> column like <code>Gene_Disease</code>, <code>Chemical_Gene</code>, etc. — used to split the source into per-relation-type slices.</p>
-<h3 id="step-3-split-into-per-relation-dataframes"><strong>Step 3 — Split into per-relation DataFrames</strong><a class="headerlink" href="#step-3-split-into-per-relation-dataframes" title="Permanent link">&para;</a></h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">relation_dfs</span> <span class="o">=</span> <span class="p">{}</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">for</span> <span class="n">relation</span> <span class="ow">in</span> <span class="n">KG_file</span><span class="p">[</span><span class="s1">&#39;Relation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">():</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="n">relation_dfs</span><span class="p">[</span><span class="n">relation</span><span class="p">]</span> <span class="o">=</span> <span class="n">KG_file</span><span class="p">[</span><span class="n">KG_file</span><span class="p">[</span><span class="s1">&#39;Relation&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">relation</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-</span></code></pre></div>
-<h3 id="step-4-resolve-headtail-per-entity-type"><strong>Step 4 — Resolve Head/Tail per entity type</strong><a class="headerlink" href="#step-4-resolve-headtail-per-entity-type" title="Permanent link">&para;</a></h3>
-<p>Three reusable resolver functions handle every relation-type block. Each follows the same pattern: <strong>map → validate → swap original into an audit column → drop unresolved rows</strong>.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">resolve_gene_head</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="sd">    Full gene description -&gt; canonical Symbol -&gt; validated against NCBI.</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="sd">    Audit trail: original value preserved in Head_Ori.</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Head_Ori&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Head&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">NCBI_fullname_2_SYMBOL_dict</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Head&#39;</span><span class="p">])</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Head&#39;</span><span class="p">,</span> <span class="s1">&#39;Head_Ori&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Head_Ori&#39;</span><span class="p">,</span> <span class="s1">&#39;Head&#39;</span><span class="p">]]</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Head&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Head&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Head_Alias_mapped&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Head&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">synonym_map</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Head_Detail_name&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Head_Alias_mapped&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">NCBI_ALL_GENEname_dict</span><span class="p">)</span>
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Head_ID_IS&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;NCBI_ID&#39;</span>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    <span class="k">return</span> <span class="n">df</span>
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>    <span class="c1"># resolve_gene_tail is the mirror of this for the Tail column</span>
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
-</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="k">def</span><span class="w"> </span><span class="nf">resolve_disease</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">col</span><span class="p">):</span>
-</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="sd">    4-source cascade, in priority order:</span>
-</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="sd">      1. DO label -&gt; DOID                  (preferred)</span>
-</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="sd">      2. MeSH label -&gt; MeSH xref           (fallback)</span>
-</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="sd">      3. MeSH ID -&gt; name</span>
-</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="sd">      4. MeSH supplementary ID -&gt; name</span>
-</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="sd">    Rows with no match in any of the 4 are dropped.</span>
-</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>    <span class="n">id_col</span><span class="p">,</span> <span class="n">orig_col</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s1">_ID_tmp&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s1">_Orignal&#39;</span>
-</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>    <span class="n">df</span><span class="p">[</span><span class="n">id_col</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">DOID_disname_DOID_dict</span><span class="p">)</span>
-</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>                  <span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">Meshname2DOID_dict</span><span class="p">))</span>
-</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>                  <span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">MESH_dict</span><span class="p">))</span>
-</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a>                  <span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">Mesh_supp_dict</span><span class="p">)))</span>
-</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="n">id_col</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span>
-</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a>    <span class="n">df</span><span class="p">[</span><span class="n">orig_col</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span>
-</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>    <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">id_col</span><span class="p">]</span>
-</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>    <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">id_col</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>    <span class="n">df</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s1">_ID_IS&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;DOID_ID&#39;</span>
-</span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>    <span class="k">return</span> <span class="n">df</span>
-</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>
-</span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a>
-</span><span id="__span-3-40"><a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a><span class="k">def</span><span class="w"> </span><span class="nf">resolve_chemical</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">col</span><span class="p">):</span>
-</span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Case-insensitive name -&gt; PubChem CID via synonym lookup. Unmatched rows dropped.&quot;&quot;&quot;</span>
-</span><span id="__span-3-42"><a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a>    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-</span><span id="__span-3-43"><a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a>    <span class="n">id_col</span><span class="p">,</span> <span class="n">orig_col</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s1">_ID_tmp&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s1">_Orignal&#39;</span>
-</span><span id="__span-3-44"><a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a>    <span class="n">df</span><span class="p">[</span><span class="n">id_col</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">Pubchem_Syn_fil_dict_lower</span><span class="p">)</span>
-</span><span id="__span-3-45"><a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a>    <span class="n">df</span><span class="p">[</span><span class="n">id_col</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">id_col</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\.0$&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;nan&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
-</span><span id="__span-3-46"><a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a>    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="n">id_col</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span>
-</span><span id="__span-3-47"><a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a>    <span class="n">df</span><span class="p">[</span><span class="n">orig_col</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span>
-</span><span id="__span-3-48"><a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a>    <span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">id_col</span><span class="p">]</span>
-</span><span id="__span-3-49"><a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a>    <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">id_col</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span><span id="__span-3-50"><a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a>    <span class="n">df</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s1">_ID_IS&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Pubchem&#39;</span>
-</span><span id="__span-3-51"><a id="__codelineno-3-51" name="__codelineno-3-51" href="#__codelineno-3-51"></a>    <span class="k">return</span> <span class="n">df</span>
-</span></code></pre></div>
-<h3 id="step-5-process-each-relation-block-validate-save"><strong>Step 5 — Process each relation block, validate, save</strong><a class="headerlink" href="#step-5-process-each-relation-block-validate-save" title="Permanent link">&para;</a></h3>
-<p>Each of the 9 PharmKG relation types is processed with the <strong>same 4-line pattern</strong>: pull the slice → resolve Head → resolve Tail → drop unresolved → save.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">df_Gene_Disease</span> <span class="o">=</span> <span class="n">relation_dfs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Gene_Disease&#39;</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">())</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">df_Gene_Disease</span> <span class="o">=</span> <span class="n">resolve_gene_head</span><span class="p">(</span><span class="n">df_Gene_Disease</span><span class="p">)</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">df_Gene_Disease</span> <span class="o">=</span> <span class="n">df_Gene_Disease</span><span class="p">[</span><span class="o">~</span><span class="n">df_Gene_Disease</span><span class="p">[</span><span class="s1">&#39;Head_Detail_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">df_Gene_Disease</span> <span class="o">=</span> <span class="n">resolve_disease</span><span class="p">(</span><span class="n">df_Gene_Disease</span><span class="p">,</span> <span class="s1">&#39;Tail&#39;</span><span class="p">)</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">df_Gene_Disease</span><span class="p">[</span><span class="s1">&#39;KG_Source&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;PharmKG&#39;</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="n">df_Gene_Disease</span><span class="p">[</span><span class="s1">&#39;Head_ID_IS&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;NCBI_ID&#39;</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="n">df_Gene_Disease</span> <span class="o">=</span> <span class="n">select_cols</span><span class="p">(</span><span class="n">df_Gene_Disease</span><span class="p">)</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="n">save</span><span class="p">(</span><span class="n">df_Gene_Disease</span><span class="p">,</span> <span class="s1">&#39;PharmKG_Gene_Disease.csv&#39;</span><span class="p">)</span>
-</span></code></pre></div>
+<h3 id="general-biomedical-kgs">General Biomedical KGs<a class="headerlink" href="#general-biomedical-kgs" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>Relation type</th>
-<th>Head resolution</th>
-<th>Tail resolution</th>
+<th>Notebook</th>
+<th>Source</th>
+<th>Key processing</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Gene_Gene</td>
-<td>NCBI Symbol</td>
-<td>NCBI Symbol</td>
+<td><code>PrimeKG.ipynb</code></td>
+<td>PrimeKG (kg.csv)</td>
+<td>25 relation types; split by relation, full ID standardisation</td>
 </tr>
 <tr>
-<td>Gene_Disease</td>
-<td>NCBI Symbol</td>
-<td>DOID (DO→MeSH cascade)</td>
+<td><code>DRKG.ipynb</code></td>
+<td>DRKG (drkg.tsv)</td>
+<td>Parse <code>EntityType::ID</code> format; split into per-relation CSVs</td>
 </tr>
 <tr>
-<td>Gene_Chemical</td>
-<td>NCBI Symbol</td>
-<td>PubChem CID</td>
+<td><code>hetionet.ipynb</code></td>
+<td>Hetionet</td>
+<td>Anatomy, Gene, Disease, Chemical edges; UBERON/NCBI/DOID mapping</td>
 </tr>
 <tr>
-<td>Chemical_Gene</td>
-<td>PubChem CID</td>
-<td>NCBI Symbol</td>
+<td><code>monarchkg1.ipynb</code> / <code>monarchkg2.ipynb</code></td>
+<td>Monarch KG</td>
+<td>Full reference dict loading (NCBI, PubChem, ChEBI, UniProt, DO, MONDO); two-part processing</td>
 </tr>
 <tr>
-<td>Chemical_Chemical</td>
-<td>PubChem CID</td>
-<td>PubChem CID</td>
+<td><code>ckg.ipynb</code></td>
+<td>CKG (Clinical KG)</td>
+<td>Full ID standardisation across all CKG relation types from TSV files</td>
 </tr>
 <tr>
-<td>Chemical_Disease</td>
-<td>PubChem CID</td>
-<td>DOID (DO→MeSH cascade)</td>
+<td><code>crossbar.ipynb</code></td>
+<td>CROssBAR</td>
+<td>Node/edge file processing with reference DB lookups</td>
 </tr>
 <tr>
-<td>Disease_Gene</td>
-<td>DOID</td>
-<td>NCBI Symbol</td>
+<td><code>ibkh.ipynb</code></td>
+<td>iBKH</td>
+<td>Cross-species entity linking</td>
 </tr>
 <tr>
-<td>Disease_Disease</td>
-<td>DOID</td>
-<td>DOID</td>
+<td><code>tarkg.ipynb</code></td>
+<td>TAR-KG</td>
+<td>Multiple relation types (Disease–Gene, Disease–Anatomy, Gene–Disease, etc.)</td>
 </tr>
 <tr>
-<td>Disease_Chemical</td>
-<td>DOID</td>
-<td>PubChem CID</td>
+<td><code>pharmkg.ipynb</code></td>
+<td>PharmKG-180k</td>
+<td>Gene–Gene, Gene–Disease, Gene–Chemical via NCBI symbol mapping</td>
+</tr>
+<tr>
+<td><code>bock_kg.ipynb</code></td>
+<td>BOCK KG</td>
+<td>Entity ID → label/name lookup dictionaries; edge file filtering</td>
+</tr>
+<tr>
+<td><code>phenknowlator.ipynb</code></td>
+<td>PheKnowLator</td>
+<td>Phenotype–knowledge graph processing</td>
 </tr>
 </tbody>
 </table>
-<h3 id="sources-following-this-same-paradigm"><strong>Sources following this same paradigm</strong><a class="headerlink" href="#sources-following-this-same-paradigm" title="Permanent link">&para;</a></h3>
-<p>DRKG, PrimeKG, Hetionet, CKG, CROssBAR, iBKH, TARKG, STITCH, STRING, miRTarBase, BindingDB/SMS/Biosnap/ChEMBL/DrugBank (combined notebook), BioGrakn — all have pre-labeled relation or entity-type columns and use the same map → validate → swap → drop pattern, just with source-specific column names and dictionaries.</p>
-<hr />
-<h2 id="33-paradigm-b-raw-rdfowl-triple-sources"><strong>3.3 Paradigm B — Raw RDF/OWL Triple Sources</strong><a class="headerlink" href="#33-paradigm-b-raw-rdfowl-triple-sources" title="Permanent link">&para;</a></h2>
-<h3 id="worked-example-pheknowlator"><strong>Worked example: PheKnowLator</strong><a class="headerlink" href="#worked-example-pheknowlator" title="Permanent link">&para;</a></h3>
-<p><strong>Notebook</strong>: <code>kg_formation/data_processing/phenknowlator.ipynb</code>
-<strong>Raw input</strong>: <code>PheKnowLator_v1_Full_BioKG_NoDisjointness_Closed_ELK_Triples_Labels.txt</code> — just two columns, <code>subject</code> and <code>object</code>, both full ontology URIs. <strong>There is no relation column and no entity-type column at all.</strong></p>
-<p>This is fundamentally different from Paradigm A: everything (entity type, relation type) has to be <strong>derived from the URI structure itself</strong>.</p>
-<h3 id="step-1-parse-the-uri-into-a-clean-id-ontology-prefix"><strong>Step 1 — Parse the URI into a clean ID + ontology prefix</strong><a class="headerlink" href="#step-1-parse-the-uri-into-a-clean-id-ontology-prefix" title="Permanent link">&para;</a></h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">parse_uri</span><span class="p">(</span><span class="n">uri</span><span class="p">):</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="n">uri</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">uri</span><span class="p">)</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="k">if</span> <span class="s2">&quot;obolibrary.org/obo/&quot;</span> <span class="ow">in</span> <span class="n">uri</span><span class="p">:</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>        <span class="n">raw</span> <span class="o">=</span> <span class="n">uri</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/obo/&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>            <span class="c1"># e.g. DOID_5041, GO_0002537</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>        <span class="n">prefix</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>        <span class="k">return</span> <span class="n">raw</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">),</span> <span class="n">prefix</span>     <span class="c1"># -&gt; &quot;DOID:5041&quot;, &quot;DOID&quot;</span>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    <span class="k">elif</span> <span class="s2">&quot;uniprot.org/geneid/&quot;</span> <span class="ow">in</span> <span class="n">uri</span><span class="p">:</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>        <span class="k">return</span> <span class="s2">&quot;NCBI:&quot;</span> <span class="o">+</span> <span class="n">uri</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/geneid/&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;Gene&quot;</span>
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>    <span class="k">elif</span> <span class="s2">&quot;reactome.org&quot;</span> <span class="ow">in</span> <span class="n">uri</span> <span class="ow">or</span> <span class="s2">&quot;identifiers.org/reactome&quot;</span> <span class="ow">in</span> <span class="n">uri</span><span class="p">:</span>
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>        <span class="n">raw</span> <span class="o">=</span> <span class="n">uri</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>        <span class="k">return</span> <span class="n">raw</span><span class="p">,</span> <span class="s2">&quot;R-HSA&quot;</span>
-</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>    <span class="k">else</span><span class="p">:</span>
-</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>        <span class="n">raw</span> <span class="o">=</span> <span class="n">uri</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>        <span class="k">if</span> <span class="n">raw</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;R-HSA&quot;</span><span class="p">):</span>
-</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>            <span class="k">return</span> <span class="n">raw</span><span class="p">,</span> <span class="s2">&quot;R-HSA&quot;</span>
-</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>        <span class="n">prefix</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>        <span class="k">return</span> <span class="n">raw</span><span class="p">,</span> <span class="n">prefix</span>
-</span></code></pre></div>
-<h3 id="step-2-map-ontology-prefix-entity-type"><strong>Step 2 — Map ontology prefix → entity type</strong><a class="headerlink" href="#step-2-map-ontology-prefix-entity-type" title="Permanent link">&para;</a></h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">prefix_to_type</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="s2">&quot;DOID&quot;</span><span class="p">:</span> <span class="s2">&quot;Disease&quot;</span><span class="p">,</span>       <span class="s2">&quot;HP&quot;</span><span class="p">:</span> <span class="s2">&quot;Phenotype&quot;</span><span class="p">,</span>      <span class="s2">&quot;GO&quot;</span><span class="p">:</span> <span class="s2">&quot;GO_Term&quot;</span><span class="p">,</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="s2">&quot;CHEBI&quot;</span><span class="p">:</span> <span class="s2">&quot;Chemical&quot;</span><span class="p">,</span>     <span class="s2">&quot;Gene&quot;</span><span class="p">:</span> <span class="s2">&quot;Gene&quot;</span><span class="p">,</span>          <span class="s2">&quot;UBERON&quot;</span><span class="p">:</span> <span class="s2">&quot;Anatomy&quot;</span><span class="p">,</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="s2">&quot;CL&quot;</span><span class="p">:</span> <span class="s2">&quot;CellType&quot;</span><span class="p">,</span>        <span class="s2">&quot;PR&quot;</span><span class="p">:</span> <span class="s2">&quot;Protein&quot;</span><span class="p">,</span>         <span class="s2">&quot;PRO&quot;</span><span class="p">:</span> <span class="s2">&quot;Protein&quot;</span><span class="p">,</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    <span class="s2">&quot;R-HSA&quot;</span><span class="p">:</span> <span class="s2">&quot;Pathway&quot;</span><span class="p">,</span>      <span class="s2">&quot;PATO&quot;</span><span class="p">:</span> <span class="s2">&quot;Phenotype_Quality&quot;</span><span class="p">,</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    <span class="s2">&quot;NCBITaxon&quot;</span><span class="p">:</span> <span class="s2">&quot;Species&quot;</span><span class="p">,</span>  <span class="s2">&quot;SO&quot;</span><span class="p">:</span> <span class="s2">&quot;SequenceFeature&quot;</span><span class="p">,</span> <span class="s2">&quot;FMA&quot;</span><span class="p">:</span> <span class="s2">&quot;Anatomy&quot;</span><span class="p">,</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    <span class="s2">&quot;HsapDv&quot;</span><span class="p">:</span> <span class="s2">&quot;DevStage&quot;</span><span class="p">,</span>    <span class="s2">&quot;NBO&quot;</span><span class="p">:</span> <span class="s2">&quot;Behavior&quot;</span><span class="p">,</span>       <span class="s2">&quot;CARO&quot;</span><span class="p">:</span> <span class="s2">&quot;Anatomy&quot;</span><span class="p">,</span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="p">}</span>
-</span></code></pre></div>
-<p>Applied to both subject and object URIs:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">df</span><span class="p">[</span><span class="s2">&quot;subject_id&quot;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;subject_prefix&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;subject&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">parse_uri</span><span class="p">))</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">df</span><span class="p">[</span><span class="s2">&quot;object_id&quot;</span><span class="p">],</span>  <span class="n">df</span><span class="p">[</span><span class="s2">&quot;object_prefix&quot;</span><span class="p">]</span>  <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;object&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">parse_uri</span><span class="p">))</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">df</span><span class="p">[</span><span class="s2">&quot;subject_type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;subject_prefix&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">p</span><span class="p">:</span> <span class="n">prefix_to_type</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="s2">&quot;Other&quot;</span><span class="p">))</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">df</span><span class="p">[</span><span class="s2">&quot;object_type&quot;</span><span class="p">]</span>  <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;object_prefix&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">p</span><span class="p">:</span> <span class="n">prefix_to_type</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="s2">&quot;Other&quot;</span><span class="p">))</span>
-</span></code></pre></div>
-<h3 id="step-3-infer-the-relation-from-the-head_type-tail_type-pair"><strong>Step 3 — Infer the relation from the (Head_type, Tail_type) pair</strong><a class="headerlink" href="#step-3-infer-the-relation-from-the-head_type-tail_type-pair" title="Permanent link">&para;</a></h3>
-<p>Since there's no relation label in the raw file, the relation is <strong>inferred purely from which two entity types are connected</strong>:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">type_pair_to_relation</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    <span class="p">(</span><span class="s2">&quot;Disease&quot;</span><span class="p">,</span>  <span class="s2">&quot;GO_Term&quot;</span><span class="p">):</span>    <span class="s2">&quot;disease_associated_with_go&quot;</span><span class="p">,</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    <span class="p">(</span><span class="s2">&quot;Disease&quot;</span><span class="p">,</span>  <span class="s2">&quot;Pathway&quot;</span><span class="p">):</span>    <span class="s2">&quot;disease_associated_with_pathway&quot;</span><span class="p">,</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="p">(</span><span class="s2">&quot;Disease&quot;</span><span class="p">,</span>  <span class="s2">&quot;Phenotype&quot;</span><span class="p">):</span>  <span class="s2">&quot;disease_has_phenotype&quot;</span><span class="p">,</span>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    <span class="p">(</span><span class="s2">&quot;Chemical&quot;</span><span class="p">,</span> <span class="s2">&quot;Disease&quot;</span><span class="p">):</span>    <span class="s2">&quot;chemical_associated_with_disease&quot;</span><span class="p">,</span>
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>    <span class="p">(</span><span class="s2">&quot;Chemical&quot;</span><span class="p">,</span> <span class="s2">&quot;Gene&quot;</span><span class="p">):</span>       <span class="s2">&quot;chemical_interacts_with_gene&quot;</span><span class="p">,</span>
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    <span class="p">(</span><span class="s2">&quot;Chemical&quot;</span><span class="p">,</span> <span class="s2">&quot;Pathway&quot;</span><span class="p">):</span>    <span class="s2">&quot;chemical_associated_with_pathway&quot;</span><span class="p">,</span>
-</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>    <span class="p">(</span><span class="s2">&quot;GO_Term&quot;</span><span class="p">,</span>  <span class="s2">&quot;GO_Term&quot;</span><span class="p">):</span>    <span class="s2">&quot;go_subclass_of&quot;</span><span class="p">,</span>
-</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>    <span class="p">(</span><span class="s2">&quot;GO_Term&quot;</span><span class="p">,</span>  <span class="s2">&quot;Gene&quot;</span><span class="p">):</span>       <span class="s2">&quot;go_associated_with_gene&quot;</span><span class="p">,</span>
-</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>    <span class="p">(</span><span class="s2">&quot;GO_Term&quot;</span><span class="p">,</span>  <span class="s2">&quot;Pathway&quot;</span><span class="p">):</span>    <span class="s2">&quot;go_associated_with_pathway&quot;</span><span class="p">,</span>
-</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>    <span class="p">(</span><span class="s2">&quot;Gene&quot;</span><span class="p">,</span>     <span class="s2">&quot;Gene&quot;</span><span class="p">):</span>       <span class="s2">&quot;gene_interacts_with_gene&quot;</span><span class="p">,</span>
-</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>    <span class="p">(</span><span class="s2">&quot;Gene&quot;</span><span class="p">,</span>     <span class="s2">&quot;Pathway&quot;</span><span class="p">):</span>    <span class="s2">&quot;gene_participates_in_pathway&quot;</span><span class="p">,</span>
-</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>    <span class="p">(</span><span class="s2">&quot;Gene&quot;</span><span class="p">,</span>     <span class="s2">&quot;Disease&quot;</span><span class="p">):</span>    <span class="s2">&quot;gene_associated_with_disease&quot;</span><span class="p">,</span>
-</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>    <span class="p">(</span><span class="s2">&quot;Phenotype&quot;</span><span class="p">,</span><span class="s2">&quot;Gene&quot;</span><span class="p">):</span>       <span class="s2">&quot;phenotype_associated_with_gene&quot;</span><span class="p">,</span>
-</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>    <span class="p">(</span><span class="s2">&quot;Phenotype&quot;</span><span class="p">,</span><span class="s2">&quot;Disease&quot;</span><span class="p">):</span>    <span class="s2">&quot;phenotype_associated_with_disease&quot;</span><span class="p">,</span>
-</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>    <span class="p">(</span><span class="s2">&quot;Protein&quot;</span><span class="p">,</span>  <span class="s2">&quot;Protein&quot;</span><span class="p">):</span>    <span class="s2">&quot;protein_interacts_with_protein&quot;</span><span class="p">,</span>
-</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>    <span class="p">(</span><span class="s2">&quot;Anatomy&quot;</span><span class="p">,</span>  <span class="s2">&quot;Gene&quot;</span><span class="p">):</span>       <span class="s2">&quot;anatomy_expresses_gene&quot;</span><span class="p">,</span>
-</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>    <span class="p">(</span><span class="s2">&quot;Anatomy&quot;</span><span class="p">,</span>  <span class="s2">&quot;Anatomy&quot;</span><span class="p">):</span>    <span class="s2">&quot;anatomy_subclass_of&quot;</span><span class="p">,</span>
-</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>    <span class="p">(</span><span class="s2">&quot;CellType&quot;</span><span class="p">,</span> <span class="s2">&quot;Anatomy&quot;</span><span class="p">):</span>    <span class="s2">&quot;celltype_part_of_anatomy&quot;</span><span class="p">,</span>
-</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>    <span class="p">(</span><span class="s2">&quot;Species&quot;</span><span class="p">,</span>  <span class="s2">&quot;Gene&quot;</span><span class="p">):</span>       <span class="s2">&quot;species_has_gene&quot;</span><span class="p">,</span>
-</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="p">}</span>
-</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="n">df</span><span class="p">[</span><span class="s2">&quot;relation&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
-</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a>    <span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="n">type_pair_to_relation</span><span class="o">.</span><span class="n">get</span><span class="p">((</span><span class="n">r</span><span class="p">[</span><span class="s2">&quot;subject_type&quot;</span><span class="p">],</span> <span class="n">r</span><span class="p">[</span><span class="s2">&quot;object_type&quot;</span><span class="p">]),</span> <span class="s2">&quot;related_to&quot;</span><span class="p">),</span>
-</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a>    <span class="n">axis</span><span class="o">=</span><span class="mi">1</span>
-</span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="p">)</span>
-</span></code></pre></div>
-<p>In practice, the <strong>Relation column actually used downstream is simplified further</strong> to just <code>Head_type + '_' + Tail_type</code> (e.g. <code>Gene_Gene</code>, <code>Disease_Phenotype</code>) — the semantic relation strings above are computed but the type-pair string is what drives the per-relation file split.</p>
-<h3 id="step-4-filter-to-entity-types-worth-keeping-split-and-write-semi-processed-files"><strong>Step 4 — Filter to entity types worth keeping, split, and write semi-processed files</strong><a class="headerlink" href="#step-4-filter-to-entity-types-worth-keeping-split-and-write-semi-processed-files" title="Permanent link">&para;</a></h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">keep_relations</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    <span class="s1">&#39;Anatomy_Anatomy&#39;</span><span class="p">,</span> <span class="s1">&#39;CellType_CellType&#39;</span><span class="p">,</span> <span class="s1">&#39;CellType_GO_Term&#39;</span><span class="p">,</span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    <span class="s1">&#39;Chemical_Chemical&#39;</span><span class="p">,</span> <span class="s1">&#39;Chemical_Disease&#39;</span><span class="p">,</span> <span class="s1">&#39;Chemical_GO_Term&#39;</span><span class="p">,</span>
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    <span class="s1">&#39;Chemical_Gene&#39;</span><span class="p">,</span> <span class="s1">&#39;Disease_Disease&#39;</span><span class="p">,</span> <span class="s1">&#39;Disease_GO_Term&#39;</span><span class="p">,</span>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    <span class="s1">&#39;Disease_Phenotype&#39;</span><span class="p">,</span> <span class="s1">&#39;GO_Term_GO_Term&#39;</span><span class="p">,</span> <span class="s1">&#39;GO_Term_Gene&#39;</span><span class="p">,</span>
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    <span class="s1">&#39;Gene_Gene&#39;</span><span class="p">,</span> <span class="s1">&#39;Phenotype_Gene&#39;</span><span class="p">,</span> <span class="s1">&#39;Phenotype_Phenotype&#39;</span><span class="p">,</span>
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>    <span class="s1">&#39;Protein_Chemical&#39;</span><span class="p">,</span> <span class="s1">&#39;Protein_GO_Term&#39;</span><span class="p">,</span> <span class="s1">&#39;Protein_Protein&#39;</span><span class="p">,</span>
-</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="p">}</span>
-</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="n">filtered</span> <span class="o">=</span> <span class="n">edges</span><span class="p">[</span><span class="n">edges</span><span class="p">[</span><span class="s2">&quot;Relation&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">keep_relations</span><span class="p">)]</span>
-</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="k">for</span> <span class="n">rel</span><span class="p">,</span> <span class="n">grp</span> <span class="ow">in</span> <span class="n">filtered</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Relation&quot;</span><span class="p">):</span>
-</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>    <span class="n">grp</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">out_dir</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">rel</span><span class="si">}</span><span class="s2">.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</span></code></pre></div>
-<p>This produces one <strong>semi-processed</strong> CSV per relation type — these still have raw ontology IDs (DOID:5041, GO:0002537, NCBI:7157) in the Head/Tail columns, not yet resolved to names.</p>
-<h3 id="step-5-per-relation-type-id-resolution-second-pass"><strong>Step 5 — Per-relation-type ID resolution (second pass)</strong><a class="headerlink" href="#step-5-per-relation-type-id-resolution-second-pass" title="Permanent link">&para;</a></h3>
-<p>Each semi-processed file is then read back in and resolved against the appropriate ontology dictionary — this mirrors Paradigm A's resolver pattern but uses <strong>direct dictionary lookups</strong> (no fuzzy/synonym matching needed, since ontology IDs are already canonical):</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Gene_Gene: NCBI ID -&gt; Symbol -&gt; validated description</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">Gene_Gene</span><span class="p">[</span><span class="s1">&#39;Head&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Gene_Gene</span><span class="p">[</span><span class="s1">&#39;Head&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;NCBI:&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">Gene_Gene</span><span class="p">[</span><span class="s1">&#39;Head_ID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">Gene_Gene</span><span class="p">[</span><span class="s1">&#39;Head&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>                         <span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">NCBI_ALL_GENEIDname_dict</span><span class="p">))</span>
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="n">Gene_Gene</span> <span class="o">=</span> <span class="n">Gene_Gene</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Head&quot;</span><span class="p">:</span> <span class="s2">&quot;Head_ID&quot;</span><span class="p">,</span> <span class="s2">&quot;Head_ID&quot;</span><span class="p">:</span> <span class="s2">&quot;Head&quot;</span><span class="p">})</span>
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="n">Gene_Gene</span><span class="p">[</span><span class="s1">&#39;Head_detail_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Gene_Gene</span><span class="p">[</span><span class="s1">&#39;Head&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">NCBI_Synbol_GENEname_dict</span><span class="p">)</span>
-</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="n">Gene_Gene</span> <span class="o">=</span> <span class="n">Gene_Gene</span><span class="p">[</span><span class="o">~</span><span class="n">Gene_Gene</span><span class="p">[</span><span class="s1">&#39;Head_detail_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span>   <span class="c1"># drop unresolved</span>
-</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="c1"># ... same for Tail ...</span>
-</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="n">save</span><span class="p">(</span><span class="n">Gene_Gene</span><span class="p">,</span> <span class="s1">&#39;Gene_Gene.csv&#39;</span><span class="p">)</span>
-</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>
-</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="c1"># GO_Term_GO_Term: GO ID -&gt; name, AND re-derive Head_type/Tail_type from</span>
-</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="c1"># the GO namespace itself (biological_process / molecular_function / cellular_component)</span>
-</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="n">GO_Term_GO_Term</span><span class="p">[</span><span class="s1">&#39;Head_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">GO_Term_GO_Term</span><span class="p">[</span><span class="s1">&#39;Head&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">GO_namespace_dict</span><span class="p">)</span>
-</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="n">GO_Term_GO_Term</span><span class="p">[</span><span class="s1">&#39;Tail_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">GO_Term_GO_Term</span><span class="p">[</span><span class="s1">&#39;Tail&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">GO_namespace_dict</span><span class="p">)</span>
-</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>
-</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="c1"># Chemical_Chemical: CHEBI -&gt; PubChem CID, then enrich with IUPAC name + SMILES</span>
-</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="n">Chemical_Chemical</span><span class="p">[</span><span class="s1">&#39;Head_ID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Chemical_Chemical</span><span class="p">[</span><span class="s1">&#39;Head&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">Chebi2PC_dict</span><span class="p">)</span>
-</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a><span class="n">Chemical_Chemical</span><span class="p">[</span><span class="s1">&#39;Head_IUPAC&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="n">Chemical_Chemical</span><span class="p">[</span><span class="s1">&#39;Head&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">Pubchem_IUPAC_CID_Dict</span><span class="p">)</span>
-</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="n">Chemical_Chemical</span><span class="p">[</span><span class="s1">&#39;Head_Smiles&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Chemical_Chemical</span><span class="p">[</span><span class="s1">&#39;Head&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">Pubchem_CID_Smile_Dict</span><span class="p">)</span>
-</span></code></pre></div>
-<p>Notice the <strong>GO terms split further by namespace</strong> — <code>GO_Term_GO_Term</code> becomes three separate files (<code>BiologicalProcess_BiologicalProcess.csv</code>, <code>CellularComponent_CellularComponent.csv</code>, <code>MolecularFunction_MolecularFunction.csv</code>). The same split is applied to <code>Disease_GO_Term</code> → <code>Disease_BiologicalProcess</code>, <code>Disease_CellularComponent</code>, <code>Disease_MolecularFunction</code>.</p>
-<h3 id="sources-following-this-same-paradigm_1"><strong>Sources following this same paradigm</strong><a class="headerlink" href="#sources-following-this-same-paradigm_1" title="Permanent link">&para;</a></h3>
-<p>MonarchKG, PheKnowLator — any source distributed as raw RDF/OWL/triple dumps rather than a relational CSV with named columns.</p>
-<hr />
-<h2 id="34-canonical-id-system-per-node-type"><strong>3.4 Canonical ID System per Node Type</strong><a class="headerlink" href="#34-canonical-id-system-per-node-type" title="Permanent link">&para;</a></h2>
-<p>The single hardest problem across 48+ heterogeneous sources is that <strong>the same entity type arrives under a different identifier system in almost every source</strong>.</p>
-<p>EvoAge fixes this by <strong>deciding one canonical ID system per node type up front</strong>, and converting every source's native identifier into that single system during preprocessing:</p>
+<h3 id="chemical-drug-target">Chemical / Drug / Target<a class="headerlink" href="#chemical-drug-target" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>Node Type</th>
-<th>Canonical ID System</th>
+<th>Notebook</th>
+<th>Source</th>
+<th>Key processing</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Gene</strong></td>
-<td>NCBI (Gene Symbol / Gene ID)</td>
+<td><code>bindingdb_sms_biosnap_chembl_drugbank.ipynb</code></td>
+<td>BindingDB, SMS, Biosnap, ChEMBL, DrugBank</td>
+<td>Combined processing of 5 chemical/drug databases</td>
 </tr>
 <tr>
-<td><strong>Protein</strong></td>
-<td>UniProt</td>
+<td><code>STITCH_STRING_Human_KG.ipynb</code></td>
+<td>STITCH + STRING (Human)</td>
+<td>Chemical–Chemical + Protein–Protein interactions for human</td>
 </tr>
 <tr>
-<td><strong>Disease</strong></td>
-<td>DOID / MONDO</td>
-</tr>
-<tr>
-<td><strong>Chemical</strong></td>
-<td>PubChem / DrugBank</td>
-</tr>
-<tr>
-<td><strong>Phenotype</strong></td>
-<td>HPO</td>
-</tr>
-<tr>
-<td><strong>Anatomy</strong></td>
-<td>Uberon → GO</td>
-</tr>
-<tr>
-<td><strong>Tissue</strong></td>
-<td>BTO</td>
-</tr>
-<tr>
-<td><strong>Pathway</strong></td>
-<td>KEGG / Reactome</td>
-</tr>
-<tr>
-<td><strong>Biological Process</strong></td>
-<td>GO</td>
-</tr>
-<tr>
-<td><strong>Cellular Component</strong></td>
-<td>GO</td>
-</tr>
-<tr>
-<td><strong>Molecular Function</strong></td>
-<td>GO</td>
-</tr>
-<tr>
-<td><strong>Species</strong></td>
-<td>Scientific name</td>
-</tr>
-<tr>
-<td><strong>Plant</strong></td>
-<td>Scientific name</td>
-</tr>
-<tr>
-<td><strong>PMID</strong></td>
-<td>PMID</td>
+<td><code>STRING.ipynb</code></td>
+<td>STRING (multi-species)</td>
+<td>PPI networks for all 6 species (Human, Mouse, Drosophila, C. elegans, Yeast, Zebrafish)</td>
 </tr>
 </tbody>
 </table>
-<h3 id="why-this-matters-for-graph-connectivity"><strong>Why this matters for graph connectivity</strong><a class="headerlink" href="#why-this-matters-for-graph-connectivity" title="Permanent link">&para;</a></h3>
-<p>Take <code>TP53</code>:
-- <strong>GenAge</strong>: gene symbol <code>TP53</code>
-- <strong>PharmKG</strong>: full description <code>tumor protein p53</code>
-- <strong>DRKG</strong>: Ensembl ID <code>ENSG00000141510</code>
-- <strong>PheKnowLator</strong>: URI-encoded ID <code>NCBI:7157</code></p>
-<p>Unless all four collapse to the same canonical identifier (NCBI Gene ID <code>7157</code> / Symbol <code>TP53</code>), the KG would contain <strong>four separate disconnected nodes</strong> for the same biological gene.</p>
-<hr />
-<h2 id="35-standard-output-schema"><strong>3.5 Standard Output Schema</strong><a class="headerlink" href="#35-standard-output-schema" title="Permanent link">&para;</a></h2>
-<p>Regardless of paradigm, every processed file is restricted to the same column whitelist before saving — this is what lets 48 heterogeneous sources merge cleanly later:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">DESIRED_COLS</span> <span class="o">=</span> <span class="p">[</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    <span class="s2">&quot;Head&quot;</span><span class="p">,</span> <span class="s2">&quot;Relation&quot;</span><span class="p">,</span> <span class="s2">&quot;Tail&quot;</span><span class="p">,</span> <span class="s2">&quot;Head_type&quot;</span><span class="p">,</span> <span class="s2">&quot;Relation_type&quot;</span><span class="p">,</span> <span class="s2">&quot;Tail_type&quot;</span><span class="p">,</span>
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    <span class="s2">&quot;Source&quot;</span><span class="p">,</span> <span class="s2">&quot;KG_Source&quot;</span><span class="p">,</span> <span class="s2">&quot;Head_ID&quot;</span><span class="p">,</span> <span class="s2">&quot;Head_Detail_name&quot;</span><span class="p">,</span> <span class="s2">&quot;Head_ENS&quot;</span><span class="p">,</span>
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    <span class="s2">&quot;Tail_name&quot;</span><span class="p">,</span> <span class="s2">&quot;Tail_DOID_Name&quot;</span><span class="p">,</span> <span class="s2">&quot;Tail_ENS&quot;</span><span class="p">,</span> <span class="s2">&quot;Tail_Detail_name&quot;</span><span class="p">,</span>
-</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>    <span class="s2">&quot;Tail_Alias_mapped&quot;</span><span class="p">,</span> <span class="s2">&quot;Head_ID_IS&quot;</span><span class="p">,</span> <span class="s2">&quot;Tail_ID_IS&quot;</span><span class="p">,</span>
-</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>    <span class="s2">&quot;Head_Orignal&quot;</span><span class="p">,</span> <span class="s2">&quot;Tail_Orignal&quot;</span><span class="p">,</span> <span class="s2">&quot;PubMed_ID&quot;</span><span class="p">,</span> <span class="s2">&quot;Sentence_tokenized&quot;</span><span class="p">,</span>
-</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="p">]</span>
-</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>
-</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="k">def</span><span class="w"> </span><span class="nf">select_cols</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
-</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>    <span class="k">return</span> <span class="n">df</span><span class="p">[[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">DESIRED_COLS</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">]]</span>
-</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>
-</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
-</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>    <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">OUT_PATH</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
-</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>    <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Saved </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2"> rows -&gt; </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span></code></pre></div>
-<p>Key fields every source must populate:</p>
+<h3 id="other-sources">Other Sources<a class="headerlink" href="#other-sources" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>Field</th>
-<th>Purpose</th>
+<th>Notebook</th>
+<th>Source</th>
+<th>Key processing</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>Head</code>, <code>Tail</code></td>
-<td>Canonical resolved IDs (NCBI Symbol, PubChem CID, DOID, GO ID, etc.)</td>
+<td><code>harmonizome_part1.ipynb</code> + <code>harmonizone_part2.ipynb</code></td>
+<td>Harmonizome</td>
+<td>Two-part: API-generated intermediates → final merged KG CSVs</td>
 </tr>
 <tr>
-<td><code>Head_type</code>, <code>Tail_type</code></td>
-<td>Standardized entity type strings (Gene, Chemical, Disease, Protein, ...)</td>
+<td><code>immpat_ttd_phytohub_othersources.ipynb</code></td>
+<td>IMMPAT, TTD, PhytoHub, other phytochemical sources</td>
+<td>Ayurveda/phytochemical processing; Plant–Chemical, Chemical–Disease edges</td>
 </tr>
 <tr>
-<td><code>Head_ID_IS</code>, <code>Tail_ID_IS</code></td>
-<td>Which ID system the resolved value belongs to (NCBI_ID, Pubchem, DOID_ID, HPO_ID, ...)</td>
+<td><code>mirTARbase.ipynb</code></td>
+<td>miRTarBase</td>
+<td>miRNA–Gene regulatory edges</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-species-specific-processing">5. Species-Specific Processing<a class="headerlink" href="#5-species-specific-processing" title="Permanent link">&para;</a></h2>
+<p>Species-specific data sources are processed in a <strong>separate subdirectory</strong>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>data_processing_02/species_specific_data_source/
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>├── Celegans/
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>│   ├── fic.ipynb            ← FICE (Functional Interactome of C. elegans)
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>│   ├── stitch.ipynb         ← STITCH chemical interactions
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>│   ├── string.ipynb         ← STRING PPI network
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>│   ├── wormbase.ipynb       ← WormBase gene annotations
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>│   └── worminteractomedatabase.ipynb  ← Worm Interactome Database
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>│
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>├── Drosophila/
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>│   ├── flybase.ipynb        ← FlyBase allele/gene data
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>│   ├── stitch.ipynb         ← STITCH chemical interactions
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>│   └── string.ipynb         ← STRING PPI network
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>│
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>├── Mouse/
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>│   ├── mgido.ipynb          ← MGI + Disease Ontology mappings
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>│   ├── stitch.ipynb         ← STITCH chemical interactions
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>│   └── string_mousenet.ipynb ← STRING + MouseNet v2 combined PPI
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>│
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>├── Yeast/
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>│   ├── esldb.ipynb          ← eSLDB (Essential gene database)
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>│   ├── sgd.ipynb            ← SGD (Saccharomyces Genome Database)
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>│   ├── stitch_ch_ch.ipynb   ← STITCH Chemical–Chemical
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>│   ├── stitch_ch_ge.ipynb   ← STITCH Chemical–Gene
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>│   └── string_yeastnet_biogrid.ipynb  ← STRING + YeastNet v3 + BioGRID combined
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>│
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>└── Zebrafish/
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>    ├── stitch.ipynb         ← STITCH chemical interactions
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>    ├── string.ipynb         ← STRING PPI network
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>    └── zfin.ipynb           ← ZFIN gene/phenotype annotations
+</span></code></pre></div>
+<hr />
+<h2 id="6-common-processing-pattern">6. Common Processing Pattern<a class="headerlink" href="#6-common-processing-pattern" title="Permanent link">&para;</a></h2>
+<p>Although each notebook uses a tailored strategy, they follow a shared general pattern:</p>
+<ol>
+<li><strong>Load raw data</strong> from <code>data_collection/&lt;source&gt;/</code></li>
+<li><strong>Load reference dictionaries</strong> (NCBI gene_info, PubChem synonyms, ontology mappings)</li>
+<li><strong>Map identifiers</strong> — resolve gene symbols, chemical names, disease IDs to standardised ontology IDs</li>
+<li><strong>Assign entity types</strong> — categorise heads and tails (Gene, ChemicalEntity, Disease, Pathway, etc.)</li>
+<li><strong>Define relations</strong> — map source-specific relationship labels to the EvoAge unified relation vocabulary</li>
+<li><strong>Build KG triples</strong> — create rows with the standard schema columns</li>
+<li><strong>Save output</strong> — write per-relation CSV files to <code>data_processing/&lt;source&gt;/</code></li>
+</ol>
+<h3 id="standard-output-schema-columns">Standard output schema columns<a class="headerlink" href="#standard-output-schema-columns" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Head</code></td>
+<td>Head entity identifier (standardised)</td>
 </tr>
 <tr>
-<td><code>Head_Orignal</code>, <code>Tail_Orignal</code></td>
-<td>Original (pre-resolution) value, kept as an audit trail</td>
+<td><code>Relation</code></td>
+<td>Relation type</td>
+</tr>
+<tr>
+<td><code>Tail</code></td>
+<td>Tail entity identifier (standardised)</td>
+</tr>
+<tr>
+<td><code>Head_type</code></td>
+<td>Entity type of head (e.g., Gene, ChemicalEntity, Disease)</td>
+</tr>
+<tr>
+<td><code>Tail_type</code></td>
+<td>Entity type of tail</td>
+</tr>
+<tr>
+<td><code>Source</code></td>
+<td>Original database name</td>
 </tr>
 <tr>
 <td><code>KG_Source</code></td>
-<td>Which of the 48 sources this row came from</td>
+<td>KG source label</td>
+</tr>
+<tr>
+<td><code>Head_detail_name</code></td>
+<td>Human-readable name for head entity</td>
+</tr>
+<tr>
+<td><code>Tail_detail_name</code></td>
+<td>Human-readable name for tail entity</td>
+</tr>
+<tr>
+<td><code>Head_id_is</code></td>
+<td>ID namespace for head (e.g., UniprotID, Pubchem, DOID)</td>
+</tr>
+<tr>
+<td><code>Tail_id_is</code></td>
+<td>ID namespace for tail</td>
+</tr>
+<tr>
+<td><code>kg_type</code></td>
+<td>KG category (Aging / Biomedical)</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2 id="36-per-source-notebook-inventory"><strong>3.6 Per-Source Notebook Inventory</strong><a class="headerlink" href="#36-per-source-notebook-inventory" title="Permanent link">&para;</a></h2>
-<p>For reference, the full set of preprocessing notebooks in <code>kg_formation/data_processing/</code>:</p>
-<p><strong>General biomedical / relation-typed CSV (Paradigm A):</strong>
-<code>pharmkg.ipynb</code>, <code>DRKG_EvoKG_Data_Processing.ipynb</code>, <code>PrimeKG.ipynb</code>, <code>hetionet.ipynb</code>, <code>ckg.ipynb</code>, <code>crossbar.ipynb</code>, <code>ibkh.ipynb</code>, <code>tarkg.ipynb</code>, <code>biograkn.ipynb</code>, <code>mirTARbase.ipynb</code>, <code>dtinet.ipynb</code>, <code>biningdb_sms_biosnap_chembl_drugbank.ipynb</code>, <code>STITCH_STRING_Human_KG_FIXED.ipynb</code>, <code>STRING_KG_Processing_FIXED.ipynb</code>, <code>1_harmonizome.ipynb</code>, <code>2_harmonizone.ipynb</code></p>
-<p><strong>Raw RDF/OWL triples (Paradigm B):</strong>
-<code>phenknowlator.ipynb</code>, <code>monarchkg.ipynb</code>, <code>monarchkg_new.ipynb</code>, <code>monarchkg_part2.ipynb</code></p>
-<p><strong>Aging-specific:</strong>
-<code>genage-Copy1.ipynb</code>, <code>drugage.ipynb</code>, <code>cellage.ipynb</code>, <code>gendr.ipynb</code>, <code>agextend.ipynb</code>, <code>aging_atlas.ipynb</code>, <code>ageanno.ipynb</code>, <code>ageannomo.ipynb</code>, <code>Agingbank.ipynb</code>, <code>digital_aging_atlas.ipynb</code>, <code>hald.ipynb</code>, <code>MetaboAge_4_KG.ipynb</code></p>
-<p><strong>Phytochemical / misc:</strong>
-<code>immpat_ttd_phytohub_othersources.ipynb</code></p>
-<p><strong>Species-specific</strong> (see <code>species_specific_data_source/</code>):</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>species_specific_data_source/
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>├── Celegans/    fic.ipynb, stitch.ipynb, string.ipynb, wormbase.ipynb, worminteractomedataabse.ipynb
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>├── Drosophila/  flybase.ipynb, stitch.ipynb, string.ipynb
-</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>├── Mouse/       mgido.ipynb, stitch.ipynb, string_mousenet.ipynb
-</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>├── Yeast/       esldb.ipynb, sgd.ipynb, stitch_ch_ch.ipynb, stitch_ch_ge.ipynb, string_yeastnet_biogrid.ipynb
-</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>└── Zebrafish/   stitch.ipynb, string.ipynb, zfin.ipynb
-</span></code></pre></div>
-<p>Each species folder follows Paradigm A (STITCH/STRING-style relation-typed CSVs) with species-specific ID resolution feeding into the <a href="../ortholog-mapping/">ortholog mapping pipeline</a>.</p>
+<h2 id="7-key-design-decisions">7. Key Design Decisions<a class="headerlink" href="#7-key-design-decisions" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>One notebook per source</strong>: Ensures source-specific edge cases are handled without affecting other sources.</li>
+<li><strong>Reference dictionaries loaded per notebook</strong>: Each notebook loads only the dictionaries it needs (e.g., GenAge needs per-species NCBI lookups; DrugAge needs PubChem synonym dictionaries).</li>
+<li><strong>Species separation</strong>: Human data and species-specific data are processed in separate notebooks/folders to keep the pipeline clean.</li>
+<li><strong><code>kg_type</code> assignment</strong>: Each triple is tagged as either <code>Aging</code> or <code>Biomedical</code> depending on the source, enabling downstream splitting into KG variants.</li>
+</ul>
 <hr />
-<h2 id="next-steps"><strong>Next Steps</strong><a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
-<ol>
-<li>✅ <strong>Per-source preprocessing done?</strong> → Move to <a href="../relation-processing/">Relation Processing</a></li>
-<li><strong>Need ortholog/species mapping for these sources?</strong> → See <a href="../ortholog-mapping/">Ortholog Mapping</a></li>
-</ol>
+<h2 id="8-file-summary">8. File Summary<a class="headerlink" href="#8-file-summary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Location</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data_processing_02/</code> (root)</td>
+<td>Human/general source processing</td>
+</tr>
+<tr>
+<td><code>data_processing_02/species_specific_data_source/Celegans/</code></td>
+<td>C. elegans-specific sources</td>
+</tr>
+<tr>
+<td><code>data_processing_02/species_specific_data_source/Drosophila/</code></td>
+<td>Drosophila-specific sources</td>
+</tr>
+<tr>
+<td><code>data_processing_02/species_specific_data_source/Mouse/</code></td>
+<td>Mouse-specific sources</td>
+</tr>
+<tr>
+<td><code>data_processing_02/species_specific_data_source/Yeast/</code></td>
+<td>Yeast-specific sources</td>
+</tr>
+<tr>
+<td><code>data_processing_02/species_specific_data_source/Zebrafish/</code></td>
+<td>Zebrafish-specific sources</td>
+</tr>
+</tbody>
+</table>
 
 
 
@@ -1359,10 +1576,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../assets/javascripts/bundle.66be65ca.min.js"></script>
+      <script src="../assets/javascripts/bundle.69c251d7.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

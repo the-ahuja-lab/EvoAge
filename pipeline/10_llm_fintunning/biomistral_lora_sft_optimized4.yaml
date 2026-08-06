@@ -1,0 +1,58 @@
+### model
+model_name_or_path: BioMistral/BioMistral-7B
+trust_remote_code: true
+flash_attn: fa2
+use_unsloth: false                      # Keep false for stability; enable if speed needed
+
+### method
+stage: sft
+do_train: true
+finetuning_type: lora                   # ← changed: DoRA for better fact adaptation
+use_dora: true
+lora_rank: 16                           # ← reduced from 32 to prevent overfitting
+lora_alpha: 32                          # ← double the rank for stronger adaptation
+lora_dropout: 0.15                      # ← slightly increased for regularisation
+# Added all linear modules to target MLP layers where factual knowledge resides
+lora_target: q_proj,k_proj,v_proj,o_proj,gate_proj,up_proj,down_proj
+
+### dataset
+dataset: biomedical_atomic_0, biomedical_atomic_1, biomedical_atomic_2, biomedical_aggregated_0, biomedical_aggregated_1, biomedical_aggregated_2, biomedical_multi_hop_0, biomedical_multi_hop_1, biomedical_multi_hop_2, biomedical_true_false_0, biomedical_true_false_1, biomedical_true_false_2
+template: mistral
+cutoff_len: 4096                        # ← increased to cover long biomedical QA pairs
+overwrite_cache: true
+preprocessing_num_workers: 16
+packing: false                          # ← disabled to prevent cross-sample contamination
+# If packing is required for speed, use a custom collator with per-sample attention masks
+
+### output
+output_dir: saves/BioMistral-7B/lora/sft_optimized3
+logging_steps: 10
+save_steps: 250
+save_total_limit: 5
+plot_loss: true
+resume_from_checkpoint: /home/suvenduk/Two_level/GraphGen/LLaMA-Factory/saves/BioMistral-7B/lora/sft_optimized3/checkpoint-3000
+
+### train
+per_device_train_batch_size: 8
+gradient_accumulation_steps: 4
+learning_rate: 5.0e-5                   # ← increased for DoRA and stronger adaptation
+num_train_epochs: 3.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+weight_decay: 0.01                      # ← reduced; LoRA/DoRA adapters need less regularisation
+bf16: true
+fp16: false
+gradient_checkpointing: true
+neftune_noise_alpha: 5.0                # ← excellent against template overfitting
+seed: 42
+ddp_timeout: 180000000
+ddp_find_unused_parameters: false       # ← added for multi-GPU efficiency
+
+### validation & early stopping
+val_size: 0.1
+eval_strategy: steps
+eval_steps: 250
+save_strategy: steps
+load_best_model_at_end: true
+metric_for_best_model: eval_loss
+greater_is_better: false

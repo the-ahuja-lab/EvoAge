@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://the-ahuja-lab.github.io/EvoAge/installation/">
       
       
-        <link rel="prev" href="../quick-start/">
+        <link rel="prev" href="../system-prerequisites/">
       
       
         <link rel="next" href="../data-collection/">
@@ -25,18 +25,18 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="zensical-0.0.30">
+      <meta name="generator" content="zensical-0.0.53">
     
     
       
-        <title>Installation & Setup Guide - EvoAge</title>
+        <title>Installation - EvoAge</title>
       
     
     
       
         
       
-      <link rel="stylesheet" href="../assets/stylesheets/modern/main.3b031116.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.20815dad.min.css">
       
         
           
@@ -55,12 +55,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
         <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
     
       
 
@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#installation-setup-guide" class="md-skip">
+        <a href="#backend-prerequisites-neo4j-redis-setup" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +104,7 @@
     <a href="./.." title="EvoAge" class="md-header__button md-logo" aria-label="EvoAge" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
@@ -121,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Installation &amp; Setup Guide
+              Installation
             
           </span>
         </div>
@@ -203,7 +203,7 @@
     <a href="./.." title="EvoAge" class="md-nav__button md-logo" aria-label="EvoAge" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
 
     </a>
     EvoAge
@@ -225,8 +225,7 @@
   <span class="md-ellipsis">
     
   
-    Home
-  
+  Home
 
     
   </span>
@@ -245,15 +244,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../quick-start/" class="md-nav__link">
+      <a href="../system-prerequisites/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Quick Start
-  
+  System Prerequisites
 
     
   </span>
@@ -275,6 +273,27 @@
   
     <li class="md-nav__item md-nav__item--active">
       
+      
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Installation
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="././" class="md-nav__link md-nav__link--active">
         
   
@@ -282,8 +301,7 @@
   <span class="md-ellipsis">
     
   
-    Installation
-  
+  Installation
 
     
   </span>
@@ -291,6 +309,593 @@
   
 
       </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#backend-prerequisites-neo4j-redis-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        ⚙️ Backend Prerequisites: Neo4j &amp; Redis Setup
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⚙️ Backend Prerequisites: Neo4j &amp; Redis Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-neo4j-setup-required-for-kg-queries" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Neo4j Setup (required for KG queries)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Neo4j Setup (required for KG queries)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-installstart-configure-neo4j" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.1 Install,Start &amp; Configure Neo4j
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 Install,Start &amp; Configure Neo4j">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-neo4j" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Install Neo4j
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-installed-neo4j-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Check installed Neo4j version
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-initial-password-before-first-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Set initial password BEFORE first start
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-neo4j" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Start Neo4j
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-login" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Test login
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cypher-shell-u-neo4j-p-your_neo4j_password-show-databases" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <div class="language-cypher highlight"><pre><span></span><code><span ><span class="n">cypher</span><span class="err">-</span><span class="n">shell</span><span class="w"> </span><span class="err">-</span><span class="n">u</span><span class="w"> </span><span class="n">neo4j</span><span class="w"> </span><span class="err">-</span><span class="n">p</span><span class="w"> </span><span class="p">&lt;</span><span class="s">&#39;YOUR_NEO4J_PASSWORD&#39;</span><span class="p">&gt;</span><span class="w"> </span><span class="s">&quot;SHOW DATABASES;&quot;</span>
+</span></code></pre></div>
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="cypher-shell -u neo4j -p &lt;&#x27;YOUR_NEO4J_PASSWORD&#x27;&gt; &quot;SHOW DATABASES;&quot;">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#12-restore-database-from-a-dump-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.2 Restore Database from a .dump File
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-graph-is-built-by-geting-total-node-count" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Check graph is built by geting total node count
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open-conf-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        open .conf file
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-or-un-comment-these-lines" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Add or un-comment these lines:
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-neo4j-after-restoration" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Start Neo4j after restoration
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sudo-systemctl-enable-neo4j-sudo-systemctl-start-neo4j-this-will-show-the-working-status-of-neo4j-sudo-systemctl-status-neo4j" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <div class="language-bash highlight"><pre><span></span><code><span >sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>neo4j
+</span><span >
+</span><span >sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>neo4j
+</span><span >
+</span><span ><span class="c1"># This will show the working status of neo4j</span>
+</span><span >sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>neo4j
+</span></code></pre></div>
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="sudo systemctl enable neo4j sudo systemctl start neo4j # This will show the working status of neo4j sudo systemctl status neo4j">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#13-install-apoc-plugin-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.3 Install APOC Plugin (Required)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 Install APOC Plugin (Required)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stop-neo4j-before-adding-plugins" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Stop Neo4j before adding plugins
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#go-to-neo4j-plugin-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Go to Neo4j plugin directory
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-existing-plugins" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Check existing plugins
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#download-apoc-example-for-neo4j-5x" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Download APOC (example for Neo4j 5.x)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-correct-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Set correct permissions
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-apoc-in-neo4jconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Enable APOC in neo4j.conf
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restart-neo4j" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Restart Neo4j
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-redis-setup-required-before-building-the-docker-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Redis Setup (Required Before Building the Docker Image)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Redis Setup (Required Before Building the Docker Image)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#redis-installation-configuration-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        📌 Redis Installation &amp; Configuration Script
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 Redis Installation &amp; Configuration Script">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set-your-redis-password" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <strong>Set your Redis password</strong>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-redis" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <strong>Install Redis</strong>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-redis-to-start-automatically" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <strong>Enable Redis to start automatically</strong>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-redis-password" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <strong>Configure Redis password</strong>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restart-redis-to-apply-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <strong>Restart Redis to apply changes</strong>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-redis-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <strong>Test Redis authentication</strong>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-redis-service-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <strong>Check Redis service status</strong>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-frontend-setup-streamlit-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Frontend Setup (Streamlit UI)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Frontend Setup (Streamlit UI)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-navigate-to-the-frontend-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.1 Navigate to the Frontend Directory
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-create-and-activate-conda-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.2 Create and Activate Conda Environment
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-install-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.3 Install Dependencies
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-configure-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.4 Configure Environment Variables
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-run-the-frontend" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.5 Run the Frontend
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-backend-setup-fastapi-gunicorn-dgl-ke" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Backend Setup (FastAPI + Gunicorn + DGL-KE)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Backend Setup (FastAPI + Gunicorn + DGL-KE)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-navigate-to-the-backend-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.1 Navigate to the Backend Directory
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cd-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <div class="language-bash highlight"><pre><span></span><code><span ><span class="nb">cd</span><span class="w"> </span>backend
+</span></code></pre></div>
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="cd backend">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#42-configure-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.2 Configure Environment Variables
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-create-and-activate-conda-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.3 Create and Activate Conda Environment
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-install-backend-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.4 Install Backend Dependencies
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-run-the-backend-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.5 Run the Backend Server
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -310,8 +915,7 @@
   <span class="md-ellipsis">
     
   
-    Data Collection
-  
+  Data Collection
 
     
   </span>
@@ -337,8 +941,7 @@
   <span class="md-ellipsis">
     
   
-    Preprocessing
-  
+  Preprocessing
 
     
   </span>
@@ -364,8 +967,7 @@
   <span class="md-ellipsis">
     
   
-    Relation Processing
-  
+  Relation Processing
 
     
   </span>
@@ -391,8 +993,7 @@
   <span class="md-ellipsis">
     
   
-    Ortholog Mapping
-  
+  Ortholog Mapping
 
     
   </span>
@@ -418,8 +1019,7 @@
   <span class="md-ellipsis">
     
   
-    KG Construction
-  
+  KG Construction
 
     
   </span>
@@ -445,8 +1045,7 @@
   <span class="md-ellipsis">
     
   
-    Tensors & Splitting
-  
+  Splitting
 
     
   </span>
@@ -465,15 +1064,212 @@
   
   
     <li class="md-nav__item">
-      <a href="../documentation-structure/" class="md-nav__link">
+      <a href="../training/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Structure
+  Training & Evaluation
+
+    
+  </span>
   
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Other Analysis
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Other Analysis
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../other-analysis-1-species/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Species Evaluation
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../other-analysis-2-shuffled/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Shuffled KG Baseline
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../other-analysis-3-aging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Aging-Specific Test Set
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../neo4j-kg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Neo4j KG
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLM_finetuning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  LLM Fintuning
 
     
   </span>
@@ -496,10 +1292,15 @@
               <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   
-                    <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-                    <div class="md-sidebar-button__wrapper">
-                      <label class="md-sidebar-button" for="__toc"></label>
-                    </div>
+                    
+                    
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
                   
                   <div class="md-sidebar__inner">
                     
@@ -509,8 +1310,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -519,45 +1318,174 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-system-prerequisites" class="md-nav__link">
+  <a href="#backend-prerequisites-neo4j-redis-setup" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        💻 1. System Prerequisites
-      
+      <span class="md-typeset">
+        ⚙️ Backend Prerequisites: Neo4j &amp; Redis Setup
+      </span>
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="⚙️ Backend Prerequisites: Neo4j &amp; Redis Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-neo4j-setup-required-for-kg-queries" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Neo4j Setup (required for KG queries)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Neo4j Setup (required for KG queries)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-installstart-configure-neo4j" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.1 Install,Start &amp; Configure Neo4j
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1 Install,Start &amp; Configure Neo4j">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-neo4j" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Install Neo4j
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-installed-neo4j-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Check installed Neo4j version
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-initial-password-before-first-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Set initial password BEFORE first start
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-neo4j" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Start Neo4j
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-login" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Test login
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-conda-environment-setup" class="md-nav__link">
+  <a href="#cypher-shell-u-neo4j-p-your_neo4j_password-show-databases" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        🐍 2. Conda Environment Setup
-      
+      <span class="md-typeset">
+        <div class="language-cypher highlight"><pre><span></span><code><span ><span class="n">cypher</span><span class="err">-</span><span class="n">shell</span><span class="w"> </span><span class="err">-</span><span class="n">u</span><span class="w"> </span><span class="n">neo4j</span><span class="w"> </span><span class="err">-</span><span class="n">p</span><span class="w"> </span><span class="p">&lt;</span><span class="s">&#39;YOUR_NEO4J_PASSWORD&#39;</span><span class="p">&gt;</span><span class="w"> </span><span class="s">&quot;SHOW DATABASES;&quot;</span>
+</span></code></pre></div>
+      </span>
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🐍 2. Conda Environment Setup">
+    <nav class="md-nav" aria-label="cypher-shell -u neo4j -p &lt;&#x27;YOUR_NEO4J_PASSWORD&#x27;&gt; &quot;SHOW DATABASES;&quot;">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#environmentyml-template" class="md-nav__link">
+  <a href="#12-restore-database-from-a-dump-file" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        environment.yml Template
-      
+      <span class="md-typeset">
+        1.2 Restore Database from a .dump File
+      </span>
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#setting-up-the-environment" class="md-nav__link">
+  <a href="#check-graph-is-built-by-geting-total-node-count" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Setting up the environment
-      
+      <span class="md-typeset">
+        Check graph is built by geting total node count
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open-conf-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        open .conf file
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-or-un-comment-these-lines" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Add or un-comment these lines:
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-neo4j-after-restoration" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Start Neo4j after restoration
+      </span>
     </span>
   </a>
   
@@ -569,35 +1497,392 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-hpc-cluster-configuration-pbstorque" class="md-nav__link">
+  <a href="#sudo-systemctl-enable-neo4j-sudo-systemctl-start-neo4j-this-will-show-the-working-status-of-neo4j-sudo-systemctl-status-neo4j" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        🖥️ 3. HPC Cluster Configuration (PBS/Torque)
-      
+      <span class="md-typeset">
+        <div class="language-bash highlight"><pre><span></span><code><span >sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>neo4j
+</span><span >
+</span><span >sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>neo4j
+</span><span >
+</span><span ><span class="c1"># This will show the working status of neo4j</span>
+</span><span >sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>neo4j
+</span></code></pre></div>
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="sudo systemctl enable neo4j sudo systemctl start neo4j # This will show the working status of neo4j sudo systemctl status neo4j">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#13-install-apoc-plugin-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.3 Install APOC Plugin (Required)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 Install APOC Plugin (Required)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stop-neo4j-before-adding-plugins" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Stop Neo4j before adding plugins
+      </span>
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#4-directory-configurations" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#go-to-neo4j-plugin-directory" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        ⚙️ 4. Directory Configurations
-      
+      <span class="md-typeset">
+        Go to Neo4j plugin directory
+      </span>
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#5-installation-verification-script" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#check-existing-plugins" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        ✔️ 5. Installation Verification Script
-      
+      <span class="md-typeset">
+        Check existing plugins
+      </span>
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#download-apoc-example-for-neo4j-5x" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Download APOC (example for Neo4j 5.x)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-correct-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Set correct permissions
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-apoc-in-neo4jconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Enable APOC in neo4j.conf
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restart-neo4j" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Restart Neo4j
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-redis-setup-required-before-building-the-docker-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Redis Setup (Required Before Building the Docker Image)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Redis Setup (Required Before Building the Docker Image)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#redis-installation-configuration-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        📌 Redis Installation &amp; Configuration Script
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📌 Redis Installation &amp; Configuration Script">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set-your-redis-password" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <strong>Set your Redis password</strong>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-redis" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <strong>Install Redis</strong>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-redis-to-start-automatically" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <strong>Enable Redis to start automatically</strong>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-redis-password" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <strong>Configure Redis password</strong>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restart-redis-to-apply-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <strong>Restart Redis to apply changes</strong>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-redis-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <strong>Test Redis authentication</strong>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-redis-service-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <strong>Check Redis service status</strong>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-frontend-setup-streamlit-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Frontend Setup (Streamlit UI)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Frontend Setup (Streamlit UI)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-navigate-to-the-frontend-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.1 Navigate to the Frontend Directory
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-create-and-activate-conda-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.2 Create and Activate Conda Environment
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-install-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.3 Install Dependencies
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-configure-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.4 Configure Environment Variables
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-run-the-frontend" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.5 Run the Frontend
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-backend-setup-fastapi-gunicorn-dgl-ke" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Backend Setup (FastAPI + Gunicorn + DGL-KE)
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Backend Setup (FastAPI + Gunicorn + DGL-KE)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-navigate-to-the-backend-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.1 Navigate to the Backend Directory
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cd-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        <div class="language-bash highlight"><pre><span></span><code><span ><span class="nb">cd</span><span class="w"> </span>backend
+</span></code></pre></div>
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="cd backend">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#42-configure-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.2 Configure Environment Variables
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-create-and-activate-conda-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.3 Create and Activate Conda Environment
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-install-backend-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.4 Install Backend Dependencies
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-run-the-backend-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.5 Run the Backend Server
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -624,135 +1909,227 @@
                 
                   
 
-<h1 id="installation-setup-guide">Installation &amp; Setup Guide<a class="headerlink" href="#installation-setup-guide" title="Permanent link">&para;</a></h1>
+  <h1 id="__skip">Installation</h1>
+
 <p>This page details the system requirements, environment setup, cluster configurations, and verification scripts necessary to run the EvoAge pipeline.</p>
+<h2 id="backend-prerequisites-neo4j-redis-setup">⚙️ Backend Prerequisites: Neo4j &amp; Redis Setup<a class="headerlink" href="#backend-prerequisites-neo4j-redis-setup" title="Permanent link">&para;</a></h2>
+<p>Before using the EvoAge backend or frontend, you must install and configure:</p>
+<ol>
+<li>
+<p>Neo4j Graph Database (required for KG queries)</p>
+</li>
+<li>
+<p>Redis Server (required before building or running the EvoAge Docker backend)</p>
+</li>
+</ol>
+<p>This section provides complete setup instructions in clean Markdown format for direct use in your GitHub README.</p>
+<h3 id="1-neo4j-setup-required-for-kg-queries">1. Neo4j Setup (required for KG queries)<a class="headerlink" href="#1-neo4j-setup-required-for-kg-queries" title="Permanent link">&para;</a></h3>
+<p>The EvoAGE backend uses Neo4j as the primary graph database.
+Follow the steps below to start Neo4j, configure it, restore a database from a dump, and enable the APOC plugin.</p>
 <hr />
-<h2 id="1-system-prerequisites">💻 <strong>1. System Prerequisites</strong><a class="headerlink" href="#1-system-prerequisites" title="Permanent link">&para;</a></h2>
-<p>Due to the massive scale of the knowledge graph (nearly 1 billion triples across 6 species), the pipeline requires significant computational resources for preprocessing, ortholog mapping, and KGE training.</p>
+<h4 id="11-installstart-configure-neo4j">1.1 Install,Start &amp; Configure Neo4j<a class="headerlink" href="#11-installstart-configure-neo4j" title="Permanent link">&para;</a></h4>
+<h5 id="install-neo4j">Install Neo4j<a class="headerlink" href="#install-neo4j" title="Permanent link">&para;</a></h5>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a># Install Java (Neo4j requires Java 17)
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo apt update
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>sudo apt install -y openjdk-17-jdk
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a># Add Neo4j repository
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>wget -O - https://debian.neo4j.com/neotechnology.gpg.key | sudo apt-key add -
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>echo &quot;deb https://debian.neo4j.com stable 5&quot; | sudo tee /etc/apt/sources.list.d/neo4j.list
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a># Install Neo4j
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>sudo apt install -y neo4j
+</span></code></pre></div>
+<h5 id="check-installed-neo4j-version">Check installed Neo4j version<a class="headerlink" href="#check-installed-neo4j-version" title="Permanent link">&para;</a></h5>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>neo4j<span class="w"> </span>--version
+</span></code></pre></div>
+<h5 id="set-initial-password-before-first-start">Set initial password BEFORE first start<a class="headerlink" href="#set-initial-password-before-first-start" title="Permanent link">&para;</a></h5>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>neo4j-admin<span class="w"> </span>dbms<span class="w"> </span>set-initial-password<span class="w"> </span>&lt;SET_YOUR_NEO4J_PASSWORD&gt;
+</span></code></pre></div>
+<h5 id="start-neo4j">Start Neo4j<a class="headerlink" href="#start-neo4j" title="Permanent link">&para;</a></h5>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>neo4j
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>neo4j
+</span></code></pre></div>
+<h5 id="test-login">Test login<a class="headerlink" href="#test-login" title="Permanent link">&para;</a></h5>
+<h2 id="cypher-shell-u-neo4j-p-your_neo4j_password-show-databases"><div class="language-cypher highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">cypher</span><span class="err">-</span><span class="n">shell</span><span class="w"> </span><span class="err">-</span><span class="n">u</span><span class="w"> </span><span class="n">neo4j</span><span class="w"> </span><span class="err">-</span><span class="n">p</span><span class="w"> </span><span class="p">&lt;</span><span class="s">&#39;YOUR_NEO4J_PASSWORD&#39;</span><span class="p">&gt;</span><span class="w"> </span><span class="s">&quot;SHOW DATABASES;&quot;</span>
+</span></code></pre></div><a class="headerlink" href="#cypher-shell-u-neo4j-p-your_neo4j_password-show-databases" title="Permanent link">&para;</a></h2>
+<h5 id="12-restore-database-from-a-dump-file">1.2 Restore Database from a .dump File<a class="headerlink" href="#12-restore-database-from-a-dump-file" title="Permanent link">&para;</a></h5>
+<p>Neo4j must be stopped before restoring. You can get EvoAge_neo4j.dump file from <a href="https://zenodo.org/records/17711174">https://zenodo.org/records/17711174</a></p>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo systemctl stop neo4j
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo cp neo4j.dump /var/lib/neo4j/import/
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>sudo neo4j-admin database load neo4j \
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>  --from-path=/var/lib/neo4j/import/ \
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>  --overwrite-destination=true
+</span></code></pre></div></p>
+<h5 id="check-graph-is-built-by-geting-total-node-count">Check graph is built by geting total node count<a class="headerlink" href="#check-graph-is-built-by-geting-total-node-count" title="Permanent link">&para;</a></h5>
+<p>This command will show total nodes in EvoAge graph
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>cypher-shell -u neo4j -p &lt;&#39;YOUR_neo4j_PASSWORD&#39;&gt; &quot;MATCH (n) RETURN count(n) AS nodeCount;&quot;
+</span></code></pre></div></p>
+<h5 id="open-conf-file">open .conf file<a class="headerlink" href="#open-conf-file" title="Permanent link">&para;</a></h5>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sudo nano /etc/neo4j/neo4j.conf
+</span></code></pre></div>
+<h5 id="add-or-un-comment-these-lines">Add or un-comment these lines:<a class="headerlink" href="#add-or-un-comment-these-lines" title="Permanent link">&para;</a></h5>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a># Enable APOC Core
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>dbms.security.procedures.unrestricted=apoc.*
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>dbms.security.procedures.allowlist=apoc.*
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a># Allow file imports (optional)
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>server.directories.import=import
+</span></code></pre></div>
+<h5 id="start-neo4j-after-restoration">Start Neo4j after restoration<a class="headerlink" href="#start-neo4j-after-restoration" title="Permanent link">&para;</a></h5>
+<h2 id="sudo-systemctl-enable-neo4j-sudo-systemctl-start-neo4j-this-will-show-the-working-status-of-neo4j-sudo-systemctl-status-neo4j"><div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>neo4j
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>neo4j
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="c1"># This will show the working status of neo4j</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>neo4j
+</span></code></pre></div><a class="headerlink" href="#sudo-systemctl-enable-neo4j-sudo-systemctl-start-neo4j-this-will-show-the-working-status-of-neo4j-sudo-systemctl-status-neo4j" title="Permanent link">&para;</a></h2>
+<h4 id="13-install-apoc-plugin-required">1.3 Install APOC Plugin (Required)<a class="headerlink" href="#13-install-apoc-plugin-required" title="Permanent link">&para;</a></h4>
+<h5 id="stop-neo4j-before-adding-plugins">Stop Neo4j before adding plugins<a class="headerlink" href="#stop-neo4j-before-adding-plugins" title="Permanent link">&para;</a></h5>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>neo4j
+</span></code></pre></div>
+<h5 id="go-to-neo4j-plugin-directory">Go to Neo4j plugin directory<a class="headerlink" href="#go-to-neo4j-plugin-directory" title="Permanent link">&para;</a></h5>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nb">cd</span><span class="w"> </span>/var/lib/neo4j/plugins
+</span></code></pre></div>
+<h5 id="check-existing-plugins">Check existing plugins<a class="headerlink" href="#check-existing-plugins" title="Permanent link">&para;</a></h5>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>ls<span class="w"> </span>-l
+</span></code></pre></div>
+<h5 id="download-apoc-example-for-neo4j-5x">Download APOC (example for Neo4j 5.x)<a class="headerlink" href="#download-apoc-example-for-neo4j-5x" title="Permanent link">&para;</a></h5>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>sudo<span class="w"> </span>wget<span class="w"> </span>https://github.com/neo4j/apoc/releases/download/5.26.14/apoc-5.26.14-core.jar
+</span></code></pre></div>
+<h5 id="set-correct-permissions">Set correct permissions<a class="headerlink" href="#set-correct-permissions" title="Permanent link">&para;</a></h5>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>sudo<span class="w"> </span>chown<span class="w"> </span>neo4j:neo4j<span class="w"> </span>apoc-5.26.14-core.jar
+</span></code></pre></div>
+<h5 id="enable-apoc-in-neo4jconf">Enable APOC in neo4j.conf<a class="headerlink" href="#enable-apoc-in-neo4jconf" title="Permanent link">&para;</a></h5>
+<p>Open:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/neo4j/neo4j.conf
+</span></code></pre></div></p>
+<p>Ensure this line exists:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>dbms.security.procedures.unrestricted=apoc.*
+</span></code></pre></div></p>
+<h5 id="restart-neo4j">Restart Neo4j<a class="headerlink" href="#restart-neo4j" title="Permanent link">&para;</a></h5>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>neo4j
+</span></code></pre></div>
+<p>Neo4j + APOC is now ready for the EvoAGE backend.!</p>
+<h2 id="2-redis-setup-required-before-building-the-docker-image">2. Redis Setup (Required Before Building the Docker Image)<a class="headerlink" href="#2-redis-setup-required-before-building-the-docker-image" title="Permanent link">&para;</a></h2>
+<p>Before running the EvoAGE Docker container, a Redis server must be installed and configured on your system.</p>
+<p>The following script installs Redis, enables it as a service, sets a password, and verifies that the setup is correct.</p>
+<hr />
+<h3 id="redis-installation-configuration-script">📌 Redis Installation &amp; Configuration Script<a class="headerlink" href="#redis-installation-configuration-script" title="Permanent link">&para;</a></h3>
+<h4 id="set-your-redis-password"><strong>Set your Redis password</strong><a class="headerlink" href="#set-your-redis-password" title="Permanent link">&para;</a></h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+</span></code></pre></div>
+<h4 id="install-redis"><strong>Install Redis</strong><a class="headerlink" href="#install-redis" title="Permanent link">&para;</a></h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>redis-server<span class="w"> </span>-y
+</span></code></pre></div>
+<h4 id="enable-redis-to-start-automatically"><strong>Enable Redis to start automatically</strong><a class="headerlink" href="#enable-redis-to-start-automatically" title="Permanent link">&para;</a></h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>redis-server
+</span></code></pre></div>
+<h4 id="configure-redis-password"><strong>Configure Redis password</strong><a class="headerlink" href="#configure-redis-password" title="Permanent link">&para;</a></h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nv">REDIS_PASSWORD</span><span class="o">=</span><span class="s2">&quot;YOUR_REDIS_PASSWORD_HERE&quot;</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>sudo<span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;s/^# requirepass .*/requirepass </span><span class="nv">$REDIS_PASSWORD</span><span class="s2">/&quot;</span><span class="w"> </span>/etc/redis/redis.conf
+</span></code></pre></div>
+<h4 id="restart-redis-to-apply-changes"><strong>Restart Redis to apply changes</strong><a class="headerlink" href="#restart-redis-to-apply-changes" title="Permanent link">&para;</a></h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>redis-server
+</span></code></pre></div>
+<h4 id="test-redis-authentication"><strong>Test Redis authentication</strong><a class="headerlink" href="#test-redis-authentication" title="Permanent link">&para;</a></h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>redis-cli
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="m">127</span>.0.0.1:6379&gt;<span class="w"> </span>AUTH<span class="w"> </span>default<span class="w"> </span>&lt;YOUR_PASSWORD&gt;
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>OK
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="m">127</span>.0.0.1:6379&gt;<span class="w"> </span>PING
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>PONG
+</span></code></pre></div>
+<h4 id="check-redis-service-status"><strong>Check Redis service status</strong><a class="headerlink" href="#check-redis-service-status" title="Permanent link">&para;</a></h4>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>systemctl<span class="w"> </span>status<span class="w"> </span>redis-server<span class="w"> </span>--no-pager
+</span></code></pre></div>
+<p>Redis setup completed successfully! 🎉</p>
+<h2 id="3-frontend-setup-streamlit-ui">3. Frontend Setup (Streamlit UI)<a class="headerlink" href="#3-frontend-setup-streamlit-ui" title="Permanent link">&para;</a></h2>
+<p>The EvoAge frontend is built using <strong>Streamlit</strong>, providing an interactive interface for exploring the Knowledge Graph, embeddings, and agentic system.<br />
+Follow the steps below to set up and run the frontend locally.</p>
+<hr />
+<h3 id="31-navigate-to-the-frontend-directory">3.1 Navigate to the Frontend Directory<a class="headerlink" href="#31-navigate-to-the-frontend-directory" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="nb">cd</span><span class="w"> </span>frontend
+</span></code></pre></div>
+<hr />
+<h3 id="32-create-and-activate-conda-environment">3.2 Create and Activate Conda Environment<a class="headerlink" href="#32-create-and-activate-conda-environment" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>evoage_frontend<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.11<span class="w"> </span>-y
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>conda<span class="w"> </span>activate<span class="w"> </span>evoage_frontend
+</span></code></pre></div>
+<hr />
+<h3 id="33-install-dependencies">3.3 Install Dependencies<a class="headerlink" href="#33-install-dependencies" title="Permanent link">&para;</a></h3>
+<p>Install the required Python packages using <code>requirements.txt</code>:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</span></code></pre></div></p>
+<hr />
+<h3 id="34-configure-environment-variables">3.4 Configure Environment Variables<a class="headerlink" href="#34-configure-environment-variables" title="Permanent link">&para;</a></h3>
+<p>Create a new <code>.env</code> file by copying the example template:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>cp<span class="w"> </span>.env.example<span class="w"> </span>.env
+</span></code></pre></div></p>
+<p>Open the file and update the necessary values:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>nano<span class="w"> </span>.env
+</span></code></pre></div></p>
+<p>Examples of variables to configure:
+- Backend API URL   </p>
+<hr />
+<h3 id="35-run-the-frontend">3.5 Run the Frontend<a class="headerlink" href="#35-run-the-frontend" title="Permanent link">&para;</a></h3>
+<p>Start the Streamlit application using:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>streamlit<span class="w"> </span>run<span class="w"> </span>streamlit_app.py<span class="w"> </span>--server.port<span class="o">=</span><span class="m">8501</span><span class="w"> </span>--server.address<span class="o">=</span><span class="m">0</span>.0.0.0<span class="w"> </span>--server.enableCORS<span class="o">=</span><span class="nb">false</span>
+</span></code></pre></div></p>
+<p>Once running, access the UI at:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>http://localhost:8501
+</span></code></pre></div>
+If hosting on a remote machine, replace <code>localhost</code> with your server’s public IP.</p>
+<hr />
+<h2 id="4-backend-setup-fastapi-gunicorn-dgl-ke">4. Backend Setup (FastAPI + Gunicorn + DGL-KE)<a class="headerlink" href="#4-backend-setup-fastapi-gunicorn-dgl-ke" title="Permanent link">&para;</a></h2>
+<p>The EvoAge backend provides REST APIs for querying the Knowledge Graph, running inference using trained KGE models, and interfacing with the frontend.</p>
+<p>Follow the steps below to configure and run the backend.</p>
+<hr />
+<h3 id="41-navigate-to-the-backend-directory">4.1 Navigate to the Backend Directory<a class="headerlink" href="#41-navigate-to-the-backend-directory" title="Permanent link">&para;</a></h3>
+<h2 id="cd-backend"><div class="language-bash highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="nb">cd</span><span class="w"> </span>backend
+</span></code></pre></div><a class="headerlink" href="#cd-backend" title="Permanent link">&para;</a></h2>
+<h3 id="42-configure-environment-variables">4.2 Configure Environment Variables<a class="headerlink" href="#42-configure-environment-variables" title="Permanent link">&para;</a></h3>
+<p>Create your .env file based on .env.example:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>cp<span class="w"> </span>.env.example<span class="w"> </span>.env
+</span></code></pre></div></p>
+<p>Edit the file:</p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>nano<span class="w"> </span>.env
+</span></code></pre></div>
+Fill in the required values:</p>
 <ul>
-<li><strong>Compute (RAM)</strong>: Minimum <strong>629GB RAM</strong> is required for in-memory graph joins and chunked splits.</li>
-<li><strong>GPU Hardware</strong>: Multi-GPU cluster setup. Evaluated on <strong>NVIDIA RTX 5000 Ada</strong> and <strong>NVIDIA RTX 3090</strong> GPUs.</li>
-<li><strong>Storage</strong>: Minimum <strong>2TB</strong> of high-speed NVMe SSD storage to store raw databases, intermediate parquet tables, and trained KGE tensors.</li>
-<li><strong>Operating System</strong>: Linux (Ubuntu 20.04+ recommended or RedHat Enterprise Linux on HPC cluster).</li>
-<li><strong>Job Scheduler</strong>: PBS/Torque (HPC cluster scheduler).</li>
-<li><strong>Python</strong>: Version <code>3.8</code> up to <code>3.10</code>.</li>
-<li><strong>R Environment</strong>: Version <code>4.2+</code> (required for Ensembl BioMart ortholog lookup).</li>
+<li>Neo4j URI, username, password</li>
+<li>Redis connection details</li>
+<li>Model paths</li>
+<li>API keys</li>
 </ul>
 <hr />
-<h2 id="2-conda-environment-setup">🐍 <strong>2. Conda Environment Setup</strong><a class="headerlink" href="#2-conda-environment-setup" title="Permanent link">&para;</a></h2>
-<p>We use Conda to manage Python dependencies, libraries, and GPU packages. Below is the canonical <code>environment.yml</code> used for the EvoAge project:</p>
-<h3 id="environmentyml-template"><strong><code>environment.yml</code> Template</strong><a class="headerlink" href="#environmentyml-template" title="Permanent link">&para;</a></h3>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">evoage_env</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">channels</span><span class="p">:</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pytorch</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dglteam</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nvidia</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">conda-forge</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">defaults</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">dependencies</span><span class="p">:</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python=3.8.16</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pytorch=1.13.1</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">torchvision=0.14.1</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">torchaudio=0.13.1</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pytorch-cuda=11.7</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dgl-cuda11.7=1.1.0</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pandas=1.5.3</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">numpy=1.23.5</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pyarrow=11.0.0</span>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scikit-learn=1.2.2</span>
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scipy=1.10.1</span>
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip</span>
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">pip</span><span class="p">:</span>
-</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dgl-ke</span>
-</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pykeen==1.10.1</span>
-</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cugraph-cu11==23.04.0</span>
-</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">minijinja</span>
-</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">zensical</span>
-</span></code></pre></div>
-<h3 id="setting-up-the-environment"><strong>Setting up the environment</strong><a class="headerlink" href="#setting-up-the-environment" title="Permanent link">&para;</a></h3>
-<p>Execute the following commands in your shell to clone the repository and initialize the Conda environment:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Clone the repository</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>git<span class="w"> </span>clone<span class="w"> </span>&lt;repo-url&gt;
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nb">cd</span><span class="w"> </span>EvoAge-Documentation
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># Create the conda environment</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>environment.yml
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="c1"># Activate the environment</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>conda<span class="w"> </span>activate<span class="w"> </span>evoage_env
+<h3 id="43-create-and-activate-conda-environment">4.3 Create and Activate Conda Environment<a class="headerlink" href="#43-create-and-activate-conda-environment" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>evoage_backend<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.11<span class="w"> </span>-y
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>conda<span class="w"> </span>activate<span class="w"> </span>evoage_backend
 </span></code></pre></div>
 <hr />
-<h2 id="3-hpc-cluster-configuration-pbstorque">🖥️ <strong>3. HPC Cluster Configuration (PBS/Torque)</strong><a class="headerlink" href="#3-hpc-cluster-configuration-pbstorque" title="Permanent link">&para;</a></h2>
-<p>The training pipelines and large-scale relation merges are submitted as batch jobs using PBS. A standard submission script template for a DGL-KE training job is shown below:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="ch">#!/bin/bash</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1">#PBS -N EvoAge_Training</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="c1">#PBS -q gpu_queue</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1">#PBS -l nodes=1:ppn=16:gpus=2</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1">#PBS -l walltime=48:00:00</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1">#PBS -o training_output.log</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1">#PBS -e training_error.log</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1"># Load modules if required by your cluster</span>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c1"># module load cuda/11.7</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="c1"># Activate the Conda environment</span>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="nb">source</span><span class="w"> </span><span class="k">$(</span>conda<span class="w"> </span>info<span class="w"> </span>--base<span class="k">)</span>/etc/profile.d/conda.sh
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>conda<span class="w"> </span>activate<span class="w"> </span>evoage_env
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>
-</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="c1"># Run the training command</span>
-</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>python<span class="w"> </span>-m<span class="w"> </span>dglke.train<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">    </span>--model_name<span class="w"> </span>RESCAL<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">    </span>--dataset<span class="w"> </span>EvoAge_121_12M<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">    </span>--data_path<span class="w"> </span>/storage/Arushi/090526_EvoAge/Store_House/<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">    </span>--format<span class="w"> </span>udt_tsv<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">    </span>--batch_size<span class="w"> </span><span class="m">2048</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">    </span>--neg_sample_size<span class="w"> </span><span class="m">256</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">    </span>--hidden_dim<span class="w"> </span><span class="m">400</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">    </span>--gamma<span class="w"> </span><span class="m">12</span>.0<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">    </span>--lr<span class="w"> </span><span class="m">0</span>.1<span class="w"> </span><span class="se">\</span>
-</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="w">    </span>--gpu<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="w">    </span>--max_step<span class="w"> </span><span class="m">5000000</span><span class="w"> </span><span class="se">\</span>
-</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="w">    </span>--save_path<span class="w"> </span>/storage/Arushi/090526_EvoAge/training_runs/
-</span></code></pre></div>
-<hr />
-<h2 id="4-directory-configurations">⚙️ <strong>4. Directory Configurations</strong><a class="headerlink" href="#4-directory-configurations" title="Permanent link">&para;</a></h2>
-<p>Before executing pipeline steps, configure the local path mappings in the configuration scripts. Set the absolute path of the workspace:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># config.py or inside individual scripts</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">BASE_DIR</span> <span class="o">=</span> <span class="s1">&#39;/storage/Arushi/090526_EvoAge/kg_formation/&#39;</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">PROC_DIR</span> <span class="o">=</span> <span class="n">BASE_DIR</span> <span class="o">+</span> <span class="s1">&#39;processed_data/&#39;</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">DB_DIR</span>   <span class="o">=</span> <span class="n">BASE_DIR</span> <span class="o">+</span> <span class="s1">&#39;data_collection/databases_for_mapping/&#39;</span>
-</span></code></pre></div>
-<hr />
-<h2 id="5-installation-verification-script">✔️ <strong>5. Installation Verification Script</strong><a class="headerlink" href="#5-installation-verification-script" title="Permanent link">&para;</a></h2>
-<p>To verify that PyTorch, DGL-KE, and CUDA are properly integrated and that the GPU is accessible within the active environment, create and run the following verification script:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># verify_env.py</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">dgl</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=== EvoAge Environment Verification ===&quot;</span><span class="p">)</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Python Version: </span><span class="si">{</span><span class="n">sys</span><span class="o">.</span><span class="n">version</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;PyTorch Version: </span><span class="si">{</span><span class="n">torch</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;DGL Version: </span><span class="si">{</span><span class="n">dgl</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;CUDA Available: </span><span class="si">{</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">():</span>
-</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;GPU Device Count: </span><span class="si">{</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">device_count</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Current Device Name: </span><span class="si">{</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">get_device_name</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
-</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a>    <span class="c1"># Run test tensor calculation on GPU</span>
-</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
-</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>    <span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
-</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a>    <span class="n">z</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;GPU Tensor multiplication test: SUCCESS&quot;</span><span class="p">)</span>
-</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22" href="#__codelineno-4-22"></a><span class="k">else</span><span class="p">:</span>
-</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23" href="#__codelineno-4-23"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;WARNING: CUDA is not available. GPU-based training will not work!&quot;</span><span class="p">)</span>
-</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24" href="#__codelineno-4-24"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=======================================&quot;</span><span class="p">)</span>
-</span></code></pre></div>
-<p>Run the validation script using:
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>python<span class="w"> </span>verify_env.py
+<h3 id="44-install-backend-dependencies">4.4 Install Backend Dependencies<a class="headerlink" href="#44-install-backend-dependencies" title="Permanent link">&para;</a></h3>
+<p>Install dependencies:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
 </span></code></pre></div></p>
+<p>Install local DGL-KE:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>dgl-ke/python
+</span></code></pre></div></p>
+<hr />
+<h3 id="45-run-the-backend-server">4.5 Run the Backend Server<a class="headerlink" href="#45-run-the-backend-server" title="Permanent link">&para;</a></h3>
+<p>Install via Poetry:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>poetry<span class="w"> </span>install
+</span></code></pre></div>
+Run the backend using Gunicorn + Uvicorn worker:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>poetry<span class="w"> </span>run<span class="w"> </span>gunicorn<span class="w"> </span>-w<span class="w"> </span><span class="m">1</span><span class="w"> </span>--timeout<span class="w"> </span><span class="m">300</span><span class="w"> </span>-k<span class="w"> </span>uvicorn.workers.UvicornWorker<span class="w"> </span>app.main:app<span class="w"> </span>--bind<span class="w"> </span><span class="m">0</span>.0.0.0:1026
+</span></code></pre></div>
+Backend will be available at:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>http://localhost:1026
+</span></code></pre></div>
+Or via remote server:
+```bash
+http://<SERVER_IP>:1026</p>
 
 
 
@@ -792,7 +2169,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../quick-start/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Quick Start">
+          <a href="../system-prerequisites/" class="md-footer__link md-footer__link--prev" aria-label="Previous: System Prerequisites">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
@@ -802,7 +2179,7 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Quick Start
+                System Prerequisites
               </div>
             </div>
           </a>
@@ -856,10 +2233,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../assets/javascripts/bundle.66be65ca.min.js"></script>
+      <script src="../assets/javascripts/bundle.69c251d7.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

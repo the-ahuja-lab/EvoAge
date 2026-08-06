@@ -1,0 +1,1733 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Multi-Species Aging Knowledge Graph Platform">
+      
+      
+        <meta name="author" content="The Ahuja Lab">
+      
+      
+        <link rel="canonical" href="https://the-ahuja-lab.github.io/EvoAge/neo4j-kg/">
+      
+      
+        <link rel="prev" href="../other-analysis-3-aging/">
+      
+      
+        <link rel="next" href="../LLM_finetuning/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.53">
+    
+    
+      
+        <title>EvoAge Neo4j Knowledge Graph Construction - EvoAge</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.20815dad.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.dfe2e883.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#evoage-neo4j-knowledge-graph-construction" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="./.." title="EvoAge" class="md-header__button md-logo" aria-label="EvoAge" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            EvoAge
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              EvoAge Neo4j Knowledge Graph Construction
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="EvoAge" class="md-nav__button md-logo" aria-label="EvoAge" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    EvoAge
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Home
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../system-prerequisites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  System Prerequisites
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Installation
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-collection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Data Collection
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../preprocessing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Preprocessing
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../relation-processing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Relation Processing
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ortholog-mapping/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Ortholog Mapping
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kg-construction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  KG Construction
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kg-tensors-and-splitting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Splitting
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../training/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Training & Evaluation
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Other Analysis
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Other Analysis
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../other-analysis-1-species/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Species Evaluation
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../other-analysis-2-shuffled/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Shuffled KG Baseline
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../other-analysis-3-aging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Aging-Specific Test Set
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Neo4j KG
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Neo4j KG
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Overview
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-graph-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Graph Schema
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Graph Schema">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-node-labels-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.1 Node labels (16)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-relationship-types-85" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.2 Relationship types (~85)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-common-node-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.3 Common node properties
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-infrastructure-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Infrastructure Setup
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Infrastructure Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-memory-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.1 Memory configuration
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-indexing-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Indexing Strategy
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Indexing Strategy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-why-indexing-matters-here" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.1 Why indexing matters here
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-creating-a-unique-constraint-which-also-creates-an-index-per-label" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.2 Creating a unique constraint (which also creates an index) per label
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-index-creation-on-an-already-loaded-label" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.3 Index creation on an already-loaded label
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-verifying-an-index-is-actually-being-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.4 Verifying an index is actually being used
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.5 Result
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-data-preparation-pre-neo4j" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Data Preparation (pre-Neo4j)
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-bulk-loading-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Bulk Loading Pipeline
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Bulk Loading Pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-standard-load-fixed-node-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.1 Standard load (fixed node types)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-dynamic-label-resolution-mixed-type-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.2 Dynamic label resolution (mixed-type files)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-execution-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.3 Execution workflow
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-loader-shell-script-load_csvsh" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.4 Loader shell script — <code>load_csv.sh</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-post-load-enrichment" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. Post-Load Enrichment
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Post-Load Enrichment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-assigning-model_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.1 Assigning <code>model_id</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-adding-supplementary-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.2 Adding supplementary properties
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLM_finetuning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  LLM Fintuning
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Overview
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-graph-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Graph Schema
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Graph Schema">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-node-labels-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.1 Node labels (16)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-relationship-types-85" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.2 Relationship types (~85)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-common-node-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.3 Common node properties
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-infrastructure-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Infrastructure Setup
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Infrastructure Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-memory-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.1 Memory configuration
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-indexing-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Indexing Strategy
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Indexing Strategy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-why-indexing-matters-here" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.1 Why indexing matters here
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-creating-a-unique-constraint-which-also-creates-an-index-per-label" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.2 Creating a unique constraint (which also creates an index) per label
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-index-creation-on-an-already-loaded-label" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.3 Index creation on an already-loaded label
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-verifying-an-index-is-actually-being-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.4 Verifying an index is actually being used
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.5 Result
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-data-preparation-pre-neo4j" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Data Preparation (pre-Neo4j)
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-bulk-loading-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Bulk Loading Pipeline
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Bulk Loading Pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-standard-load-fixed-node-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.1 Standard load (fixed node types)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-dynamic-label-resolution-mixed-type-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.2 Dynamic label resolution (mixed-type files)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-execution-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.3 Execution workflow
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-loader-shell-script-load_csvsh" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.4 Loader shell script — <code>load_csv.sh</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-post-load-enrichment" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. Post-Load Enrichment
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Post-Load Enrichment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-assigning-model_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.1 Assigning <code>model_id</code>
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-adding-supplementary-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.2 Adding supplementary properties
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+<h1 id="evoage-neo4j-knowledge-graph-construction">EvoAge Neo4j Knowledge Graph Construction<a class="headerlink" href="#evoage-neo4j-knowledge-graph-construction" title="Permanent link">&para;</a></h1>
+<h2 id="1-overview">1. Overview<a class="headerlink" href="#1-overview" title="Permanent link">&para;</a></h2>
+<p>This document describes how the EvoAge Neo4j graph was built, loaded, and maintained: schema design, indexing strategy, bulk-loading workflow, post-load enrichment, deduplication, and performance troubleshooting.</p>
+<p>EvoAge is a multi-species aging knowledge graph integrating <strong>48+ biomedical source databases</strong> (DRKG, PrimeKG, Hetionet, Monarch, CKG, STRING, miRTarBase, DrugAge, GenAge, CellAge, AgingBank, AgeXtend, Aging Atlas, and others) across six species: <strong>Human, Mouse, Zebrafish, Drosophila, <em>C. elegans</em>, and Yeast</strong>.</p>
+<p>At current scale, the graph contains:</p>
+<ul>
+<li><strong>~45M nodes</strong></li>
+<li><strong>~1.2B+ relationships</strong></li>
+<li><strong>16 node labels</strong></li>
+<li><strong>~85 relationship types</strong></li>
+</ul>
+<p>The graph is served by Neo4j (with the APOC plugin) running as a systemd service, queried via <code>cypher-shell</code> / the Bolt protocol.</p>
+<hr />
+<h2 id="2-graph-schema">2. Graph Schema<a class="headerlink" href="#2-graph-schema" title="Permanent link">&para;</a></h2>
+<h3 id="21-node-labels-16">2.1 Node labels (16)<a class="headerlink" href="#21-node-labels-16" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Label</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Gene</code></td>
+<td>Gene entities across all six species</td>
+</tr>
+<tr>
+<td><code>Protein</code></td>
+<td>Protein entities</td>
+</tr>
+<tr>
+<td><code>Disease</code></td>
+<td>Disease Ontology terms</td>
+</tr>
+<tr>
+<td><code>Phenotype</code></td>
+<td>Phenotype terms (e.g., HPO/MPO)</td>
+</tr>
+<tr>
+<td><code>Pathway</code></td>
+<td>Biological pathways</td>
+</tr>
+<tr>
+<td><code>BiologicalProcess</code></td>
+<td>GO biological process terms</td>
+</tr>
+<tr>
+<td><code>MolecularFunction</code></td>
+<td>GO molecular function terms</td>
+</tr>
+<tr>
+<td><code>CellularComponent</code></td>
+<td>GO cellular component terms</td>
+</tr>
+<tr>
+<td><code>ChemicalEntity</code></td>
+<td>Chemicals/compounds (PubChem CID-based)</td>
+</tr>
+<tr>
+<td><code>PlantSpecies</code></td>
+<td>Plant source species for chemicals</td>
+</tr>
+<tr>
+<td><code>Mirna</code></td>
+<td>microRNA entities</td>
+</tr>
+<tr>
+<td><code>Mutation</code></td>
+<td>Genetic mutations/variants</td>
+</tr>
+<tr>
+<td><code>AnatomicalEntity</code></td>
+<td>Anatomical structures</td>
+</tr>
+<tr>
+<td><code>Tissue</code></td>
+<td>Tissue types</td>
+</tr>
+<tr>
+<td><code>Species</code></td>
+<td>Species nodes (for cross-species edges)</td>
+</tr>
+<tr>
+<td><code>PMID</code></td>
+<td>Literature/publication references</td>
+</tr>
+</tbody>
+</table>
+<h3 id="22-relationship-types-85">2.2 Relationship types (~85)<a class="headerlink" href="#22-relationship-types-85" title="Permanent link">&para;</a></h3>
+<p>Relationships fall into two broad categories:</p>
+<ul>
+<li><strong>Causal</strong>: e.g. <code>Inhibits</code>, <code>Promotes</code></li>
+<li><strong>Associative</strong>: e.g. <code>PositivelyAssociatedWithAging</code>, <code>NegativelyAssociatedWithAging</code></li>
+</ul>
+<p>Plus standard biomedical edge types such as <code>Gene_Gene</code> (ortholog), <code>Protein_Disease</code>, <code>Mutation_Gene</code>, <code>ChemicalEntity_Gene</code>, <code>Mirna_Gene</code>, <code>Gene_Pathway</code>, <code>Gene_Phenotype</code>, species-association edges, etc. Every relationship type follows a <code>HeadType_TailType</code> (or descriptive) naming convention for traceability back to source.</p>
+<h3 id="23-common-node-properties">2.3 Common node properties<a class="headerlink" href="#23-common-node-properties" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td>Primary identifier (unique per label, indexed)</td>
+</tr>
+<tr>
+<td><code>model_id</code></td>
+<td>Internal numeric ID assigned post-load (see §7.1)</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>Human-readable name</td>
+</tr>
+<tr>
+<td><em>(type-specific)</em></td>
+<td>e.g. <code>alternative_name</code>, <code>iupac_name</code>, <code>smiles</code> on <code>ChemicalEntity</code></td>
+</tr>
+</tbody>
+</table>
+<p>Each label has a <strong>unique RANGE index on <code>id</code></strong>, created before bulk loading and used throughout for <code>MERGE</code> performance and coverage checks (see §4 — Indexing Strategy).</p>
+<hr />
+<h2 id="3-infrastructure-setup">3. Infrastructure Setup<a class="headerlink" href="#3-infrastructure-setup" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Neo4j</strong> installed as a native systemd service, with the <strong>APOC</strong> plugin enabled.</li>
+<li>Access via <code>cypher-shell -a bolt://&lt;host&gt;:&lt;port&gt; -u &lt;user&gt; -p &lt;password&gt;</code>.</li>
+<li><code>server.directories.import</code> set to <code>/</code> so that <code>LOAD CSV FROM 'file:///...'</code> can reference <strong>absolute paths</strong> anywhere on disk (rather than only Neo4j's default <code>import/</code> folder). This was necessary because source CSVs live under a shared project directory, not the default import path.</li>
+</ul>
+<h3 id="31-memory-configuration">3.1 Memory configuration<a class="headerlink" href="#31-memory-configuration" title="Permanent link">&para;</a></h3>
+<p>For a graph at this scale, default Neo4j memory settings (heap ~512MB, page cache ~10GB) are far too small and cause <code>MemoryPoolOutOfMemoryError</code>. On a machine with several hundred GB of RAM, <code>neo4j.conf</code> was tuned roughly as follows (values are illustrative — set relative to your machine's total RAM):</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>server.memory.heap.initial_size=31g
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>server.memory.heap.max_size=31g
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>server.memory.pagecache.size=150g
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>dbms.memory.transaction.total.max=15g
+</span></code></pre></div>
+<p>Verify applied settings with:
+<div class="language-cypher highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">CALL</span><span class="w"> </span><span class="n">dbms</span><span class="p">.</span><span class="n">listConfig</span><span class="p">()</span><span class="w"> </span><span class="k">YIELD</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">value</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">CONTAINS</span><span class="w"> </span><span class="s">&#39;memory&#39;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">RETURN</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+</span></code></pre></div></p>
+<p>After editing <code>neo4j.conf</code>, restart the service and confirm no old <code>cypher-shell</code> jobs are still attached to the previous instance before relaunching heavy loads.</p>
+<hr />
+<h2 id="4-indexing-strategy">4. Indexing Strategy<a class="headerlink" href="#4-indexing-strategy" title="Permanent link">&para;</a></h2>
+<p>Indexes were not an afterthought — they turned out to be the single biggest lever for load performance, and got created (and re-diagnosed) iteratively as loading problems surfaced.</p>
+<h3 id="41-why-indexing-matters-here">4.1 Why indexing matters here<a class="headerlink" href="#41-why-indexing-matters-here" title="Permanent link">&para;</a></h3>
+<p>Every <code>MERGE (n:Label {id: ...})</code> call needs to check whether a node with that <code>id</code> already exists. Without an index on <code>id</code>, Neo4j does this by scanning <strong>every existing node of that label</strong> (<code>NodeByLabelScan</code>) — cheap when a label has a handful of nodes, catastrophic once it has millions. This was the root cause behind one load (<code>PROTEIN_DISEASE.csv</code>, 31.2M rows) taking 7–8 hours: <code>Protein</code> and <code>Disease</code> nodes were shared across many relation files, so by the time this file loaded, both labels already held hundreds of thousands of nodes with no index to seek against.</p>
+<h3 id="42-creating-a-unique-constraint-which-also-creates-an-index-per-label">4.2 Creating a unique constraint (which also creates an index) per label<a class="headerlink" href="#42-creating-a-unique-constraint-which-also-creates-an-index-per-label" title="Permanent link">&para;</a></h3>
+<p>A <strong>unique constraint on <code>id</code></strong> was created for every one of the 16 node labels, before bulk loading began for that label. A unique constraint both enforces the <code>id</code> uniqueness invariant the whole KG relies on <em>and</em> implicitly creates the backing index used by <code>MERGE</code>:</p>
+<div class="language-cypher highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="n">CONSTRAINT</span><span class="w"> </span><span class="n">gene_id</span><span class="w"> </span><span class="n">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="n">EXISTS</span><span class="w"> </span><span class="n">FOR</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="n">Gene</span><span class="p">)</span><span class="w"> </span><span class="n">REQUIRE</span><span class="w"> </span><span class="n">n</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">UNIQUE</span><span class="p">;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="n">CONSTRAINT</span><span class="w"> </span><span class="n">protein_id</span><span class="w"> </span><span class="n">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="n">EXISTS</span><span class="w"> </span><span class="n">FOR</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="n">Protein</span><span class="p">)</span><span class="w"> </span><span class="n">REQUIRE</span><span class="w"> </span><span class="n">n</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">UNIQUE</span><span class="p">;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">CREATE</span><span class="w"> </span><span class="n">CONSTRAINT</span><span class="w"> </span><span class="n">disease_id</span><span class="w"> </span><span class="n">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="n">EXISTS</span><span class="w"> </span><span class="n">FOR</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="n">Disease</span><span class="p">)</span><span class="w"> </span><span class="n">REQUIRE</span><span class="w"> </span><span class="n">n</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">UNIQUE</span><span class="p">;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="err">--</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="n">repeated</span><span class="w"> </span><span class="n">for</span><span class="w"> </span><span class="k">all</span><span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="n">labels</span><span class="p">:</span><span class="w"> </span><span class="n">Pathway</span><span class="p">,</span><span class="w"> </span><span class="n">Phenotype</span><span class="p">,</span><span class="w"> </span><span class="n">BiologicalProcess</span><span class="p">,</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="err">--</span><span class="w"> </span><span class="n">MolecularFunction</span><span class="p">,</span><span class="w"> </span><span class="n">CellularComponent</span><span class="p">,</span><span class="w"> </span><span class="n">ChemicalEntity</span><span class="p">,</span><span class="w"> </span><span class="n">PlantSpecies</span><span class="p">,</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="err">--</span><span class="w"> </span><span class="n">Mirna</span><span class="p">,</span><span class="w"> </span><span class="n">Mutation</span><span class="p">,</span><span class="w"> </span><span class="n">AnatomicalEntity</span><span class="p">,</span><span class="w"> </span><span class="n">Tissue</span><span class="p">,</span><span class="w"> </span><span class="n">Species</span><span class="p">,</span><span class="w"> </span><span class="n">PMID</span>
+</span></code></pre></div>
+<p><code>IF NOT EXISTS</code> makes this safe to re-run — it won't error if the constraint already exists, and if <code>id</code> isn't actually guaranteed unique for a given label, a plain range index is used instead:
+<div class="language-cypher highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">gene_id_idx</span><span class="w"> </span><span class="n">IF</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="n">EXISTS</span><span class="w"> </span><span class="n">FOR</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="n">Gene</span><span class="p">)</span><span class="w"> </span><span class="n">ON</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="p">.</span><span class="n">id</span><span class="p">);</span>
+</span></code></pre></div></p>
+<h3 id="43-index-creation-on-an-already-loaded-label">4.3 Index creation on an already-loaded label<a class="headerlink" href="#43-index-creation-on-an-already-loaded-label" title="Permanent link">&para;</a></h3>
+<p>Constraints/indexes were ideally created <strong>before</strong> the first load touched a label, but in practice a few labels (<code>Protein</code>, <code>Disease</code>) were only indexed after the slow-load symptom appeared, i.e. against data that already existed. Neo4j handles this fine — index population runs as a background job over existing nodes:</p>
+<div class="language-cypher highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">SHOW</span><span class="w"> </span><span class="n">INDEXES</span><span class="w"> </span><span class="k">YIELD</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">populationPercent</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="o">[</span><span class="s">&#39;protein_id&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;disease_id&#39;</span><span class="o">]</span><span class="p">;</span>
+</span></code></pre></div>
+<p>Loads were paused until <code>state = 'ONLINE'</code> and <code>populationPercent = 100</code> before resuming, since an index still populating doesn't yet give the <code>MERGE</code> speedup.</p>
+<h3 id="44-verifying-an-index-is-actually-being-used">4.4 Verifying an index is actually being used<a class="headerlink" href="#44-verifying-an-index-is-actually-being-used" title="Permanent link">&para;</a></h3>
+<p>Rather than assume an index is helping, a small sample was profiled directly:</p>
+<div class="language-cypher highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">LOAD</span><span class="w"> </span><span class="n">CSV</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="n">HEADERS</span><span class="w"> </span><span class="n">FROM</span><span class="w"> </span><span class="s">&#39;file:///path/to/sample_100_rows.csv&#39;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">row</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">WITH</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="m">100</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">PROFILE</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">MERGE</span><span class="w"> </span><span class="p">(</span><span class="n">h</span><span class="p">:</span><span class="n">Protein</span><span class="w"> </span><span class="p">{</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="n">row</span><span class="p">.</span><span class="n">head</span><span class="p">})</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="k">RETURN</span><span class="w"> </span><span class="n">count</span><span class="p">(*);</span>
+</span></code></pre></div>
+<p>The <code>PROFILE</code> output was checked for <code>NodeUniqueIndexSeek</code> (indexed — fast) rather than <code>NodeByLabelScan</code> (unindexed — slow). This confirmed the fix before committing to a multi-hour full-file reload.</p>
+<h3 id="45-result">4.5 Result<a class="headerlink" href="#45-result" title="Permanent link">&para;</a></h3>
+<p>Once all 16 labels had <code>ONLINE</code> unique constraints on <code>id</code>, <code>MERGE</code>-based loads that had been taking hours dropped to minutes for comparable file sizes, since every node lookup became an index seek instead of a label scan.</p>
+<hr />
+<h2 id="5-data-preparation-pre-neo4j">5. Data Preparation (pre-Neo4j)<a class="headerlink" href="#5-data-preparation-pre-neo4j" title="Permanent link">&para;</a></h2>
+<p>Before anything touches Neo4j, source databases are processed independently:</p>
+<ol>
+<li>Each source database is parsed into a <strong>unified triple schema</strong>:
+   <code>Head | Head_name | Tail | Tail_name | Relation | Head_type | Tail_type | kg_source</code></li>
+<li>Relation-wise CSVs are merged across sources (e.g. multiple <code>Gene_Gene</code> sources combined into one <code>Gene_Gene.csv</code>).</li>
+<li>Each relation-wise CSV is deduplicated on <code>(Head, Relation, Tail)</code>.</li>
+<li>Files with mixed <code>Head_type</code>/<code>Tail_type</code> columns (e.g. cross-species association files) are kept separate from single-type files, since they require dynamic label resolution at load time (§6.2).</li>
+</ol>
+<p>This stage produces the clean, relation-wise CSVs that are the direct input to the Neo4j loading step below.</p>
+<hr />
+<h2 id="6-bulk-loading-pipeline">6. Bulk Loading Pipeline<a class="headerlink" href="#6-bulk-loading-pipeline" title="Permanent link">&para;</a></h2>
+<h3 id="61-standard-load-fixed-node-types">6.1 Standard load (fixed node types)<a class="headerlink" href="#61-standard-load-fixed-node-types" title="Permanent link">&para;</a></h3>
+<p>For files where head/tail node types are fixed and known in advance (e.g. <code>Protein_Disease.csv</code>), loading uses <code>LOAD CSV</code> + <code>apoc.periodic.iterate</code> for batching, rather than a raw <code>LOAD CSV ... MERGE</code> (which does not batch and will exhaust the transaction memory limit on large files):</p>
+<div class="language-cypher highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">CALL</span><span class="w"> </span><span class="n">apoc</span><span class="p">.</span><span class="n">periodic</span><span class="p">.</span><span class="n">iterate</span><span class="p">(</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="s">&quot;LOAD CSV WITH HEADERS FROM &#39;file:///path/to/Protein_Disease.csv&#39; AS row RETURN row&quot;</span><span class="p">,</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="s">&quot;MERGE (h:Protein {id: row.head})</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="s">   ON CREATE SET h.name = row.head_name</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="s">   MERGE (t:Disease {id: row.tail})</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="s">   ON CREATE SET t.name = row.tail_name</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="s">   MERGE (h)-[r:Protein_Disease]-&gt;(t)</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="s">   ON CREATE SET r.kg_source = row.kg_source&quot;</span><span class="p">,</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">  </span><span class="p">{</span><span class="n">batchSize</span><span class="p">:</span><span class="w"> </span><span class="m">500</span><span class="p">,</span><span class="w"> </span><span class="n">parallel</span><span class="p">:</span><span class="w"> </span><span class="k">false</span><span class="p">,</span><span class="w"> </span><span class="n">logProgress</span><span class="p">:</span><span class="w"> </span><span class="k">true</span><span class="p">}</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="p">);</span>
+</span></code></pre></div>
+<h3 id="62-dynamic-label-resolution-mixed-type-files">6.2 Dynamic label resolution (mixed-type files)<a class="headerlink" href="#62-dynamic-label-resolution-mixed-type-files" title="Permanent link">&para;</a></h3>
+<p>For species-association files and similar cases where <code>head_type</code>/<code>tail_type</code> vary row-to-row, hardcoded labels are replaced with <code>apoc.merge.node</code>, which accepts the label as a parameter:</p>
+<div class="language-cypher highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">CALL</span><span class="w"> </span><span class="n">apoc</span><span class="p">.</span><span class="n">periodic</span><span class="p">.</span><span class="n">iterate</span><span class="p">(</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="s">&quot;LOAD CSV WITH HEADERS FROM &#39;file:///path/to/species_associated.csv&#39; AS row RETURN row&quot;</span><span class="p">,</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="s">&quot;CALL apoc.merge.node([row.head_type], {id: row.head}, {name: row.head_name}, {}) YIELD node AS h</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="s">   CALL apoc.merge.node([row.tail_type], {id: row.tail}, {name: row.tail_name}, {}) YIELD node AS t</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="s">   MERGE (h)-[r:ASSOCIATED_WITH]-&gt;(t)</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="s">   ON CREATE SET r.kg_source = row.kg_source&quot;</span><span class="p">,</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">  </span><span class="p">{</span><span class="n">batchSize</span><span class="p">:</span><span class="w"> </span><span class="m">300</span><span class="p">,</span><span class="w"> </span><span class="n">parallel</span><span class="p">:</span><span class="w"> </span><span class="k">false</span><span class="p">,</span><span class="w"> </span><span class="n">logProgress</span><span class="p">:</span><span class="w"> </span><span class="k">true</span><span class="p">}</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="p">);</span>
+</span></code></pre></div>
+<p>The empty <code>onMatchProps</code> (<code>{}</code>) argument is important — it prevents <code>apoc.merge.node</code> from overwriting existing node properties on repeated matches.</p>
+<h3 id="63-execution-workflow">6.3 Execution workflow<a class="headerlink" href="#63-execution-workflow" title="Permanent link">&para;</a></h3>
+<p>Every new load, without exception, follows this sequence:</p>
+<ol>
+<li><strong>Dry run on 2 rows</strong> — append <code>LIMIT 2</code> to the <code>LOAD CSV</code> step and <code>RETURN</code> the result to sanity-check parsing and typing in Neo4j Browser before committing to a full run.</li>
+<li><strong>Full run in the background</strong> — long-running loads (multi-hour, multi-million-row files) are launched with <code>nohup</code> so they survive terminal/laptop disconnects:
+   <div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>nohup<span class="w"> </span>cypher-shell<span class="w"> </span>-a<span class="w"> </span>bolt://&lt;host&gt;:&lt;port&gt;<span class="w"> </span>-u<span class="w"> </span>&lt;user&gt;<span class="w"> </span>-p<span class="w"> </span>&lt;password&gt;<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span>-f<span class="w"> </span>load_relation.cypher<span class="w"> </span>&gt;<span class="w"> </span>relation_load.log<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">&amp;</span>
+</span></code></pre></div></li>
+<li><strong>Monitor progress</strong>:
+   <div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>tail<span class="w"> </span>-f<span class="w"> </span>relation_load.log
+</span></code></pre></div>
+   <div class="language-cypher highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">CALL</span><span class="w"> </span><span class="n">dbms</span><span class="p">.</span><span class="n">listQueries</span><span class="p">();</span>
+</span></code></pre></div></li>
+<li><strong>Verify the job is still alive</strong> with <code>ps aux | grep cypher-shell</code> if the log goes quiet — a live PID with growing runtime is expected, not a hang, for files with tens of millions of rows at <code>batchSize:200–500</code>.</li>
+</ol>
+<h3 id="64-loader-shell-script-load_csvsh">6.4 Loader shell script — <code>load_csv.sh</code><a class="headerlink" href="#64-loader-shell-script-load_csvsh" title="Permanent link">&para;</a></h3>
+<p>A reusable wrapper takes a CSV filename (relative to a fixed base directory), a log filename, and a <code>.cypher</code> file containing just the <code>MERGE</code> clause. It assembles the full <code>apoc.periodic.iterate</code> call and fires it off via <code>nohup</code> so the job survives disconnects:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="ch">#!/bin/bash</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nv">PASSWORD</span><span class="o">=</span><span class="s2">&quot;&lt;password&gt;&quot;</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="nv">USERNAME</span><span class="o">=</span><span class="s2">&quot;&lt;username&gt;&quot;</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="nv">CSV_BASE</span><span class="o">=</span><span class="s2">&quot;&lt;path&gt;/evokg_new/rem_human_files/&quot;</span><span class="w">   </span><span class="c1"># fixed base dir for this batch of files</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="nv">CSV_PATH</span><span class="o">=</span><span class="nv">$1</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="nv">LOG_FILE</span><span class="o">=</span><span class="nv">$2</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="nv">MERGE_FILE</span><span class="o">=</span><span class="nv">$3</span><span class="w">   </span><span class="c1"># a .cypher file containing just the MERGE clause, not a raw string</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="k">if</span><span class="w"> </span><span class="o">[[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$CSV_PATH</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$LOG_FILE</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$MERGE_FILE</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Usage: ./load_csv.sh &lt;CSV_PATH&gt; &lt;LOG_FILE&gt; &lt;MERGE_FILE&gt;&quot;</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">  </span><span class="nb">exit</span><span class="w"> </span><span class="m">1</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="k">fi</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="c1"># Load the MERGE query safely from file (avoids quoting/escaping issues</span>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="c1"># that come from inlining large Cypher blocks as shell strings)</span>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="nv">MERGE_QUERY</span><span class="o">=</span><span class="k">$(</span>&lt;<span class="s2">&quot;</span><span class="nv">$MERGE_FILE</span><span class="s2">&quot;</span><span class="k">)</span>
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="c1"># Resolve full CSV path relative to the base directory</span>
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="nv">CSV_PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$CSV_BASE$CSV_PATH</span><span class="s2">&quot;</span>
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a>
+</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="c1"># Run the job in the background, output redirected to the log file</span>
+</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a>nohup<span class="w"> </span>cypher-shell<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-11-23"><a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a><span class="w">  </span>-a<span class="w"> </span>bolt://&lt;host&gt;:&lt;port&gt;<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-11-24"><a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a><span class="w">  </span>-u<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$USERNAME</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-11-25"><a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a><span class="w">  </span>-p<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PASSWORD</span><span class="s2">&quot;</span><span class="w"> </span><span class="s">&lt;&lt;EOF &gt; &quot;$LOG_FILE&quot; 2&gt;&amp;1 &amp;</span>
+</span><span id="__span-11-26"><a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a><span class="s">CALL apoc.periodic.iterate(</span>
+</span><span id="__span-11-27"><a id="__codelineno-11-27" name="__codelineno-11-27" href="#__codelineno-11-27"></a><span class="s"> &#39;LOAD CSV WITH HEADERS FROM &quot;file:///$CSV_PATH&quot; AS row RETURN row&#39;,</span>
+</span><span id="__span-11-28"><a id="__codelineno-11-28" name="__codelineno-11-28" href="#__codelineno-11-28"></a><span class="s">  &quot;$MERGE_QUERY RETURN count(*)&quot;,</span>
+</span><span id="__span-11-29"><a id="__codelineno-11-29" name="__codelineno-11-29" href="#__codelineno-11-29"></a><span class="s">  {batchSize:200, parallel:false, logProgress:true}</span>
+</span><span id="__span-11-30"><a id="__codelineno-11-30" name="__codelineno-11-30" href="#__codelineno-11-30"></a><span class="s">)</span>
+</span><span id="__span-11-31"><a id="__codelineno-11-31" name="__codelineno-11-31" href="#__codelineno-11-31"></a><span class="s">EOF</span>
+</span></code></pre></div>
+<p><strong>Usage:</strong>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>./load_csv.sh<span class="w"> </span>Protein_Disease.csv<span class="w"> </span>protein_disease_load.log<span class="w"> </span>protein_disease_merge.cypher
+</span></code></pre></div></p>
+<p>Design notes:</p>
+<ul>
+<li>The <code>MERGE</code> clause lives in its own <code>.cypher</code> file (<code>$MERGE_FILE</code>) rather than being typed inline as a shell string — this avoids quote-escaping headaches for anything beyond a trivial one-line <code>MERGE</code>.</li>
+<li><code>CSV_BASE</code> is fixed per batch of files (e.g. one base dir per species or per data drop), so callers only pass the filename, not the full path — this cut down on path-typo errors across dozens of relation files.</li>
+<li>The heredoc (<code>&lt;&lt;EOF ... EOF</code>) feeds the assembled Cypher directly to <code>cypher-shell</code> on stdin, avoiding an extra intermediate <code>.cypher</code> file per run.</li>
+<li>Credentials and the base path are hardcoded at the top of the script rather than passed as arguments, since they're constant across an entire loading session — only <code>CSV_PATH</code>, <code>LOG_FILE</code>, and <code>MERGE_FILE</code> vary per call.</li>
+</ul>
+<hr />
+<h2 id="7-post-load-enrichment">7. Post-Load Enrichment<a class="headerlink" href="#7-post-load-enrichment" title="Permanent link">&para;</a></h2>
+<h3 id="71-assigning-model_id">7.1 Assigning <code>model_id</code><a class="headerlink" href="#71-assigning-model_id" title="Permanent link">&para;</a></h3>
+<p>After the raw graph is loaded, every node across all 16 labels receives an internal <code>model_id</code> (used downstream for embedding/model training pipelines). This is done with a reusable <code>add_model_id.sh</code> script driving <code>apoc.periodic.iterate</code> at <code>batchSize:500</code>:</p>
+<div class="language-cypher highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">CALL</span><span class="w"> </span><span class="n">apoc</span><span class="p">.</span><span class="n">periodic</span><span class="p">.</span><span class="n">iterate</span><span class="p">(</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span><span class="s">&quot;MATCH (n:Gene) WHERE n.model_id IS NULL RETURN n&quot;</span><span class="p">,</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">  </span><span class="s">&quot;SET n.model_id = &lt;assigned_id&gt;&quot;</span><span class="p">,</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">  </span><span class="p">{</span><span class="n">batchSize</span><span class="p">:</span><span class="w"> </span><span class="m">500</span><span class="p">,</span><span class="w"> </span><span class="n">parallel</span><span class="p">:</span><span class="w"> </span><span class="k">false</span><span class="p">,</span><span class="w"> </span><span class="n">logProgress</span><span class="p">:</span><span class="w"> </span><span class="k">true</span><span class="p">}</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="p">);</span>
+</span></code></pre></div>
+<p><strong>Coverage verification</strong> after assignment uses a per-label <code>UNION ALL</code> query (leveraging the unique <code>id</code> index on each label) to catch any nodes missed:</p>
+<div class="language-cypher highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="n">Gene</span><span class="p">)</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">n</span><span class="p">.</span><span class="n">model_id</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">RETURN</span><span class="w"> </span><span class="s">&#39;Gene&#39;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">label</span><span class="p">,</span><span class="w"> </span><span class="n">count</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">missing</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="k">UNION</span><span class="w"> </span><span class="k">ALL</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="n">Protein</span><span class="p">)</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">n</span><span class="p">.</span><span class="n">model_id</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">RETURN</span><span class="w"> </span><span class="s">&#39;Protein&#39;</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">label</span><span class="p">,</span><span class="w"> </span><span class="n">count</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">missing</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="c1">// ... repeated for all 16 labels</span>
+</span></code></pre></div>
+<p>This surfaced edge cases such as <code>ChemicalEntity</code>/<code>PlantSpecies</code> nodes whose <code>id</code> was a full chemical name string rather than a numeric CID — these were assigned <code>model_id</code>s manually.</p>
+<h3 id="72-adding-supplementary-properties">7.2 Adding supplementary properties<a class="headerlink" href="#72-adding-supplementary-properties" title="Permanent link">&para;</a></h3>
+<p>Additional properties sourced from later-arriving data (e.g. <code>alternative_name</code>, <code>iupac_name</code>, <code>smiles</code> for <code>ChemicalEntity</code>) are added using the same <code>apoc.periodic.iterate</code> batched-update pattern, driven from a CSV keyed on <code>id</code>.</p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../other-analysis-3-aging/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Aging-Specific Test Set">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Aging-Specific Test Set
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../LLM_finetuning/" class="md-footer__link md-footer__link--next" aria-label="Next: LLM Fintuning">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                LLM Fintuning
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 The Ahuja Lab
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.69c251d7.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

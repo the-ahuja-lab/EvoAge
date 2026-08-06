@@ -12,13 +12,13 @@
         <meta name="author" content="The Ahuja Lab">
       
       
-        <link rel="canonical" href="https://the-ahuja-lab.github.io/EvoAge/ortholog-mapping/">
+        <link rel="canonical" href="https://the-ahuja-lab.github.io/EvoAge/other-analysis-2-shuffled/">
       
       
-        <link rel="prev" href="../relation-processing/">
+        <link rel="prev" href="../other-analysis-1-species/">
       
       
-        <link rel="next" href="../kg-construction/">
+        <link rel="next" href="../other-analysis-3-aging/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>Orthology Mapping - EvoAge</title>
+        <title>Analysis 2: Shuffled KG Baseline - EvoAge</title>
       
     
     
@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#orthology-mapping" class="md-skip">
+        <a href="#analysis-2-shuffled-kg-baseline" class="md-skip">
           Skip to content
         </a>
       
@@ -121,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Orthology Mapping
+              Analysis 2: Shuffled KG Baseline
             
           </span>
         </div>
@@ -371,36 +371,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Ortholog Mapping
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="././" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../ortholog-mapping/" class="md-nav__link">
         
   
   
@@ -415,160 +389,6 @@
   
 
       </a>
-      
-        
-
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#04-orthology-mapping-non-human-human" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        #04 — Orthology Mapping (Non-Human → Human)
-      </span>
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1-purpose" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        1. Purpose
-      </span>
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        2. Overview
-      </span>
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. Overview">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#why-two-kgs" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        Why two KGs?
-      </span>
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-pipeline-step-by-step" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        3. Pipeline — Step-by-Step
-      </span>
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Pipeline — Step-by-Step">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#run-1-collect-unique-gene-nodes-per-species" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        Run 1 — Collect unique Gene nodes per species
-      </span>
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#run-2-query-ensembl-biomart-for-human-orthologs" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        Run 2 — Query Ensembl BioMart for human orthologs
-      </span>
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#run-3-build-the-11-ortholog-kg" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        Run 3 — Build the 1:1 ortholog KG
-      </span>
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#run-4-merge-11-and-1many-ortholog-tables" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        Run 4 — Merge 1:1 and 1:Many ortholog tables
-      </span>
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#run-5-build-the-11-1many-111m-ortholog-kg" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        Run 5 — Build the 1:1 ∪ 1:Many (1:1+1:M) ortholog KG
-      </span>
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-next-step" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        5. Next Step
-      </span>
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -655,8 +475,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -675,11 +497,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" checked>
         
           
           <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
@@ -699,7 +521,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_11">
             <span class="md-nav__icon md-icon"></span>
             
@@ -740,10 +562,36 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../other-analysis-2-shuffled/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Shuffled KG Baseline
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
         
   
   
@@ -758,6 +606,99 @@
   
 
       </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#shuffled-kg-test-set-baseline-null-hypothesis-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Shuffled KG Test Set Baseline / Null Hypothesis Evaluation
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Shuffled KG Test Set Baseline &#x2f; Null Hypothesis Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.1. Purpose
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-pipeline-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.2. Pipeline Overview
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-shuffled-test-set-generation-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.3. Shuffled Test Set Generation Logic
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-evaluation-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.4. Evaluation Setup
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-key-takeaway" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.5. Key Takeaway
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -890,44 +831,66 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#04-orthology-mapping-non-human-human" class="md-nav__link">
+  <a href="#shuffled-kg-test-set-baseline-null-hypothesis-evaluation" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        #04 — Orthology Mapping (Non-Human → Human)
+        Shuffled KG Test Set Baseline / Null Hypothesis Evaluation
       </span>
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1-purpose" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        1. Purpose
-      </span>
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        2. Overview
-      </span>
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="2. Overview">
+    <nav class="md-nav" aria-label="Shuffled KG Test Set Baseline &#x2f; Null Hypothesis Evaluation">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#why-two-kgs" class="md-nav__link">
+  <a href="#21-purpose" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Why two KGs?
+        2.1. Purpose
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-pipeline-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.2. Pipeline Overview
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-shuffled-test-set-generation-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.3. Shuffled Test Set Generation Logic
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-evaluation-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.4. Evaluation Setup
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-key-takeaway" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.5. Key Takeaway
       </span>
     </span>
   </a>
@@ -936,89 +899,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-pipeline-step-by-step" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        3. Pipeline — Step-by-Step
-      </span>
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Pipeline — Step-by-Step">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#run-1-collect-unique-gene-nodes-per-species" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        Run 1 — Collect unique Gene nodes per species
-      </span>
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#run-2-query-ensembl-biomart-for-human-orthologs" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        Run 2 — Query Ensembl BioMart for human orthologs
-      </span>
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#run-3-build-the-11-ortholog-kg" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        Run 3 — Build the 1:1 ortholog KG
-      </span>
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#run-4-merge-11-and-1many-ortholog-tables" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        Run 4 — Merge 1:1 and 1:Many ortholog tables
-      </span>
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#run-5-build-the-11-1many-111m-ortholog-kg" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        Run 5 — Build the 1:1 ∪ 1:Many (1:1+1:M) ortholog KG
-      </span>
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-next-step" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        5. Next Step
-      </span>
-    </span>
-  </a>
   
 </li>
       
@@ -1040,174 +920,103 @@
   
 
 
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="./.." class="md-path__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="../other-analysis-1-species/" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    Other Analysis
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
               
               <article class="md-content__inner md-typeset">
                 
                   
 
-<h1 id="orthology-mapping">Orthology Mapping<a class="headerlink" href="#orthology-mapping" title="Permanent link">&para;</a></h1>
-<h4 id="04-orthology-mapping-non-human-human">#04 — Orthology Mapping (Non-Human → Human)<a class="headerlink" href="#04-orthology-mapping-non-human-human" title="Permanent link">&para;</a></h4>
+<h1 id="analysis-2-shuffled-kg-baseline">Analysis 2: Shuffled KG Baseline<a class="headerlink" href="#analysis-2-shuffled-kg-baseline" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p>📂 <strong>Source Code &amp; Notebooks:</strong> <a href="https://github.com/the-ahuja-lab/EvoAge/tree/main/pipeline/04_orthology_mapping">pipeline/04_orthology_mapping</a></p>
+<p>📂 <strong>Source Code &amp; Notebooks:</strong> <a href="https://github.com/the-ahuja-lab/EvoAge/tree/main/pipeline/08_evaluation_analysis/shuffled_kg_testset">pipeline/08_evaluation_analysis/shuffled_kg_testset</a></p>
 </blockquote>
-<h2 id="1-purpose">1. Purpose<a class="headerlink" href="#1-purpose" title="Permanent link">&para;</a></h2>
-<p>This is <strong>Step 4</strong> of the EvoAge Knowledge Graph (KG) construction pipeline. The goal is to convert all non-human species gene nodes to their <strong>human ortholog equivalents</strong> so that data from five model organisms can be unified into a single human-centric KG. This step produces two KG variants — a <strong>strict 1:1 ortholog KG</strong> and a <strong>1:1 + 1:Many (1:1∪1:M) ortholog KG</strong> — to support rigorous, fair link-prediction evaluation.</p>
+<h2 id="shuffled-kg-test-set-baseline-null-hypothesis-evaluation">Shuffled KG Test Set Baseline / Null Hypothesis Evaluation<a class="headerlink" href="#shuffled-kg-test-set-baseline-null-hypothesis-evaluation" title="Permanent link">&para;</a></h2>
+<h3 id="21-purpose">2.1. Purpose<a class="headerlink" href="#21-purpose" title="Permanent link">&para;</a></h3>
+<p>The purpose of this analysis is to establish baseline performance metrics (a null-hypothesis baseline) for the knowledge graph completion model (RESCAL, 64-dimension). By shuffling the head and tail entities of the test set triples independently while keeping relations fixed, we generate "fake" negative test sets. Evaluating the model trained on the real graph against these shuffled test sets allows us to verify if the model is genuinely learning meaningful biological associations rather than capturing simple statistical artifacts or frequency biases.</p>
 <hr />
-<h2 id="2-overview">2. Overview<a class="headerlink" href="#2-overview" title="Permanent link">&para;</a></h2>
-<p>After Steps 01–03, processed triple files exist per species with species-specific gene identifiers. This step:</p>
-<ol>
-<li><strong>Collects</strong> all unique Gene nodes from each species' processed triple files.</li>
-<li><strong>Converts</strong> those genes to human orthologs using <strong>Ensembl BioMart (release e114)</strong>.</li>
-<li><strong>Maps</strong> the species-specific KG triples to human gene symbols, producing two ortholog-converted KG variants.</li>
-</ol>
-<p>The two KG variants exist to guarantee that the <strong>test set used for evaluation is always a subset of the KG being evaluated</strong>, avoiding information leakage.</p>
-<h3 id="why-two-kgs">Why two KGs?<a class="headerlink" href="#why-two-kgs" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>KG variant</th>
-<th>Ortholog types included</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>1:1 KG</strong></td>
-<td><code>ortholog_one2one</code> only</td>
-<td>Conservative mapping; each non-human gene maps to exactly one human gene. Used to <strong>generate the test set</strong> for link-prediction evaluation.</td>
-</tr>
-<tr>
-<td><strong>1:1 ∪ 1:M KG</strong></td>
-<td><code>ortholog_one2one</code> + <code>ortholog_one2many</code></td>
-<td>Broader coverage; non-human genes can map to multiple human genes (row explosion). The 1:1 test set is guaranteed to be a subset of this KG, so evaluation is fair.</td>
-</tr>
-</tbody>
-</table>
-<p>note&gt; [!IMPORTANT]</p>
-<blockquote>
-<p>The 1:1 test set is used to evaluate <strong>both</strong> KG variants. If a node in the test set came from a gene that only appears in the 1:M mapping, it would be absent from the 1:1 KG — making the comparison unfair. By building the 1:1∪1:M KG as a <strong>superset</strong> of the 1:1 KG, every test-set triple is guaranteed to exist in both KGs.</p>
-</blockquote>
-<hr />
-<h2 id="3-pipeline-step-by-step">3. Pipeline — Step-by-Step<a class="headerlink" href="#3-pipeline-step-by-step" title="Permanent link">&para;</a></h2>
-<p>The pipeline consists of <strong>5 sequential runs</strong>, each implemented as a standalone script. The scripts are preserved in this documentation folder with <code>Run_N_</code> prefixes for traceability.</p>
-<hr />
-<h3 id="run-1-collect-unique-gene-nodes-per-species">Run 1 — Collect unique Gene nodes per species<a class="headerlink" href="#run-1-collect-unique-gene-nodes-per-species" title="Permanent link">&para;</a></h3>
-<p>📄 <strong>Script</strong>: <a href="https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/04_orthology_mapping/Run_1_collecting_all_species_Unique_gene.py">Run_1_collecting_all_species_Unique_gene.py</a></p>
-<p><strong>What it does:</strong>
-- Scans all processed triple CSVs under <code>processed_data_relation_wise_merge/generalised/OTHER_SPECIES/{Species}/</code>
-- For each file, extracts every unique value from <code>head</code> (where <code>head_type == 'Gene'</code>) and <code>tail</code> (where <code>tail_type == 'Gene'</code>)
-- Unions all genes across files for each species
-- Saves one CSV per species: <code>{Species}_unique_genes.csv</code></p>
-<p><strong>Output files:</strong></p>
-<table>
-<thead>
-<tr>
-<th>File</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Celegans_unique_genes.csv</code></td>
-</tr>
-<tr>
-<td><code>Drosophila_unique_genes.csv</code></td>
-</tr>
-<tr>
-<td><code>Mouse_unique_genes.csv</code></td>
-</tr>
-<tr>
-<td><code>Yeast_unique_genes.csv</code></td>
-</tr>
-<tr>
-<td><code>Zebrafish_unique_genes.csv</code></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Output location:</strong> <code>orthology_mapping/</code></p>
-<hr />
-<h3 id="run-2-query-ensembl-biomart-for-human-orthologs">Run 2 — Query Ensembl BioMart for human orthologs<a class="headerlink" href="#run-2-query-ensembl-biomart-for-human-orthologs" title="Permanent link">&para;</a></h3>
-<p>📄 <strong>Script</strong>: <a href="https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/04_orthology_mapping/Run_2_Final_map_orthologs_to_human_desc.R">Run_2_Final_map_orthologs_to_human_desc.R</a></p>
-<p><strong>What it does:</strong>
-- For each species, reads the unique-gene CSV from Run 1
-- <strong>Resolves</strong> gene symbols/IDs to Ensembl gene IDs using:
-  1. <strong>g:Profiler <code>gconvert()</code></strong> (primary) — pinned to archive <code>e114_eg62_p19</code> for reproducibility
-  2. <strong>biomaRt <code>getBM()</code></strong> (fallback) — for genes symbols which g:Profiler could not resolve
-- <strong>Queries</strong> the source-species mart for human orthologs via BioMart attributes
-- <strong>Fetches human gene descriptions</strong> from the <code>hsapiens_gene_ensembl</code> mart
-- Saves per-species, per-orthology-type CSVs + summary files</p>
-<hr />
-<p><strong>Output per species</strong> (saved to <code>Human_Ortholog_Mapping_3/{Species}/</code>):</p>
-<table>
-<thead>
-<tr>
-<th>File</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>{Species}_byType_ortholog_one2one.csv</code></td>
-<td>1:1 orthologs only</td>
-</tr>
-<tr>
-<td><code>{Species}_byType_ortholog_one2many.csv</code></td>
-<td>1:many orthologs only</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Output columns in ortholog CSVs:</strong></p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>source_species, input_gene, source_ensembl_id, source_symbol,
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>human_ensembl_id, human_symbol, human_description,
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>orthology_type, orthology_confidence, perc_id
+<h3 id="22-pipeline-overview">2.2. Pipeline Overview<a class="headerlink" href="#22-pipeline-overview" title="Permanent link">&para;</a></h3>
+<p>All pipeline components for this analysis are structured under:</p>
+<p>📂 <a href="https://github.com/the-ahuja-lab/EvoAge/tree/main/pipeline/08_evaluation_analysis/shuffled_kg_testset"><code>pipeline/08_evaluation_analysis/shuffled_kg_testset/</code></a></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>shuffled_kg_testset/
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├── Run1_make_shuffled_KG.py             ← Generates 30 shuffled test sets with deduplication
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>├── Run2_Testing/                        ← Evaluation scripts &amp; outputs
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│   ├── run_rescal_eval_all_shuffles.sh  ← Bash script to run dglke_eval sequentially
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>│   └── rescal_eval_all_shuffles.log     ← Evaluation log output for all 30 shuffles
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>└── Run3_testing_log_to_csv.py           ← Parses evaluation logs and generates summary statistics
 </span></code></pre></div>
 <hr />
-<h3 id="run-3-build-the-11-ortholog-kg">Run 3 — Build the 1:1 ortholog KG<a class="headerlink" href="#run-3-build-the-11-ortholog-kg" title="Permanent link">&para;</a></h3>
-<p>📄 <strong>Script</strong>: <a href="https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/04_orthology_mapping/Run_3_1to1_converting.py">Run_3_1to1_converting.py</a></p>
-<p><strong>What it does:</strong></p>
-<ul>
-<li>Reads the <code>{Species}_byType_ortholog_one2one.csv</code> from Run 2</li>
-<li>Builds lookup dictionaries: <code>input_gene (uppercased) → human_symbol</code>, <code>→ human_description</code>, <code>→ ortholog_info</code></li>
-<li>Iterates over each species' processed triple CSVs (original, pre-mapping)</li>
-<li>For each Gene node (head or tail):</li>
-<li>If a 1:1 ortholog exists → replaces the gene symbol with the human symbol</li>
-<li>Sets <code>{side}_species = 'Homo sapiens'</code></li>
-<li>Adds <code>{side}_detail_name</code> (human gene description) and <code>{side}_ortholog_info</code> (species, confidence, perc_id, type)</li>
-<li>If no ortholog exists → gene is kept <strong>unchanged</strong> (remains in original species namespace)</li>
-<li>Saves each mapped file as <code>{original_name}_ortho_1_to_1.csv</code> alongside the original</li>
-</ul>
-<p><strong>Mapping rule:</strong> One source gene → exactly one human gene (no row explosion)</p>
-<p><strong>Output suffix:</strong> <code>_ortho_1_to_1.csv</code></p>
-<p><strong>Log file:</strong> <code>_ORTHOLOG_MAPPING_LOG_1_to_1_BioMart.csv</code> (per-file mapping statistics)</p>
+<h3 id="23-shuffled-test-set-generation-logic">2.3. Shuffled Test Set Generation Logic<a class="headerlink" href="#23-shuffled-test-set-generation-logic" title="Permanent link">&para;</a></h3>
+<p>The shuffled test sets are created using the script <a href="https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/08_evaluation_analysis/shuffled_kg_testset/Run1_make_shuffled_KG.py">Run1_make_shuffled_KG.py</a>:</p>
+<ol>
+<li><strong>Source Dataset</strong>: Loads the original test set: <code>EvoAge_1to1_KG_test.txt</code> (containing <span class="arithmatex">\(N\)</span> triples).</li>
+<li><strong>Independent Shuffling</strong>: The head and tail entity columns are independently and randomly permuted (using 30 different random seeds, 0 to 29), while keeping the relation column fixed.</li>
+<li><strong>Collision Checking &amp; Deduplication</strong>: To ensure validity as negative samples, the script checks if any shuffled triple exists in the original test set. If a collision is detected, the colliding indices are iteratively reshuffled until a collision-free shuffled test set is generated.</li>
+<li><strong>Outputs</strong>: Generates 30 text files (<code>shuffled_test_000_seed0.txt</code> through <code>shuffled_test_029_seed29.txt</code>) and a summary CSV <code>shuffle_summary.csv</code> inside <code>Shuffled_EvoAge_testing/Store_House/shuffled_test_sets/</code>.</li>
+</ol>
 <hr />
-<h3 id="run-4-merge-11-and-1many-ortholog-tables">Run 4 — Merge 1:1 and 1:Many ortholog tables<a class="headerlink" href="#run-4-merge-11-and-1many-ortholog-tables" title="Permanent link">&para;</a></h3>
-<p>📄 <strong>Script</strong>: <a href="https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/04_orthology_mapping/Run_4_merge_121_12M_tomake_121PLUS12M.py">Run_4_merge_121_12M_tomake_121PLUS12M.py</a></p>
-<p><strong>What it does:</strong></p>
+<h3 id="24-evaluation-setup">2.4. Evaluation Setup<a class="headerlink" href="#24-evaluation-setup" title="Permanent link">&para;</a></h3>
+<p>The evaluation of the trained RESCAL model against the shuffled test sets is performed via <a href="https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/08_evaluation_analysis/shuffled_kg_testset/Run2_Testing/run_rescal_eval_all_shuffles.sh">run_rescal_eval_all_shuffles.sh</a>:</p>
 <ul>
-<li>For each species, concatenates:</li>
-<li><code>{Species}_byType_ortholog_one2one.csv</code> (from Run 2)</li>
-<li><code>{Species}_byType_ortholog_one2many.csv</code> (from Run 2)</li>
-<li>Drops exact duplicate rows</li>
-<li>Saves the combined file as <code>{Species}_byType_ortholog_one2one_plus_one2many.csv</code></li>
+<li><strong>Model</strong>: RESCAL (64-dimensional embeddings, trained on <code>Evoage_121_12M</code> dataset).</li>
+<li><strong>Execution</strong>: Runs CPU-based link prediction evaluation (<code>dglke_eval</code>) sequentially across all 30 shuffled test sets with 17 threads.</li>
+<li><strong>Negative Sampling</strong>: Employs a negative sample size of 16 during evaluation.</li>
+<li><strong>Log Parsing</strong>: The python script <a href="https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/08_evaluation_analysis/shuffled_kg_testset/Run3_testing_log_to_csv.py">Run3_testing_log_to_csv.py</a> extracts the test metrics (MRR, MR, HITS@1, HITS@3, HITS@10) from the log file and saves them to <code>rescal_shuffled_metrics.csv</code>.</li>
 </ul>
-<p><strong>Purpose:</strong> Creates the merged ortholog table that Run 5 will use to build the 1:1∪1:M KG.</p>
-<p><strong>Output:</strong> <code>Human_Ortholog_Mapping_3/{Species}/{Species}_byType_ortholog_one2one_plus_one2many.csv</code></p>
-<hr />
-<h3 id="run-5-build-the-11-1many-111m-ortholog-kg">Run 5 — Build the 1:1 ∪ 1:Many (1:1+1:M) ortholog KG<a class="headerlink" href="#run-5-build-the-11-1many-111m-ortholog-kg" title="Permanent link">&para;</a></h3>
-<p>📄 <strong>Script</strong>: <a href="https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/04_orthology_mapping/Run_5_1toM_121_converting.py">Run_5_1toM_121_converting.py</a></p>
-<p><strong>What it does:</strong></p>
-<ul>
-<li>Reads the merged <code>{Species}_byType_ortholog_one2one_plus_one2many.csv</code> from Run 4</li>
-<li>Builds lookup dictionaries: <code>input_gene (uppercased) → [list of human_symbols]</code></li>
-<li>Iterates over each species' processed triple CSVs</li>
-<li>For each Gene node (head or tail):</li>
-<li>If orthologs exist → <strong>explodes</strong> the row: one source row becomes N rows (one per ortholog)</li>
-<li>Saves each mapped file as <code>{original_name}_ortho_1_to_one2one_plus_one2many.csv</code></li>
-</ul>
-<p><strong>Mapping rule:</strong> One source gene → <strong>one or more</strong> human genes (row explosion possible)</p>
-<p><strong>Output suffix:</strong> <code>_ortho_1_to_one2one_plus_one2many.csv</code></p>
-<hr />
-<h2 id="5-next-step">5. Next Step<a class="headerlink" href="#5-next-step" title="Permanent link">&para;</a></h2>
-<p>→ <strong>[Step 05 — Making Aging &amp; Biomedical KG]</strong>: Combine human + ortholog-mapped species triples into the final Aging KG and Biomedical KG variants.</p>
+<h3 id="25-key-takeaway">2.5. Key Takeaway<a class="headerlink" href="#25-key-takeaway" title="Permanent link">&para;</a></h3>
+<p><strong>Significantly Lower Performance Compared to Real Graph</strong>rd deviations across the 30 random shuffles are extremely low, showing that the random permutation generates highly consistent, stable baseline metrics.</p>
 
 
 
@@ -1247,7 +1056,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../relation-processing/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Relation Processing">
+          <a href="../other-analysis-1-species/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Species Evaluation">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
@@ -1257,20 +1066,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Relation Processing
+                Species Evaluation
               </div>
             </div>
           </a>
         
         
           
-          <a href="../kg-construction/" class="md-footer__link md-footer__link--next" aria-label="Next: KG Construction">
+          <a href="../other-analysis-3-aging/" class="md-footer__link md-footer__link--next" aria-label="Next: Aging-Specific Test Set">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                KG Construction
+                Aging-Specific Test Set
               </div>
             </div>
             <div class="md-footer__button md-icon">

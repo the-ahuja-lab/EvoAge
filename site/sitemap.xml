@@ -4,7 +4,7 @@
         <loc>https://the-ahuja-lab.github.io/EvoAge/</loc>
       </url>
       <url>
-        <loc>https://the-ahuja-lab.github.io/EvoAge/quick-start/</loc>
+        <loc>https://the-ahuja-lab.github.io/EvoAge/system-prerequisites/</loc>
       </url>
       <url>
         <loc>https://the-ahuja-lab.github.io/EvoAge/installation/</loc>
@@ -28,6 +28,21 @@
         <loc>https://the-ahuja-lab.github.io/EvoAge/kg-tensors-and-splitting/</loc>
       </url>
       <url>
-        <loc>https://the-ahuja-lab.github.io/EvoAge/documentation-structure/</loc>
+        <loc>https://the-ahuja-lab.github.io/EvoAge/training/</loc>
+      </url>
+      <url>
+        <loc>https://the-ahuja-lab.github.io/EvoAge/other-analysis-1-species/</loc>
+      </url>
+      <url>
+        <loc>https://the-ahuja-lab.github.io/EvoAge/other-analysis-2-shuffled/</loc>
+      </url>
+      <url>
+        <loc>https://the-ahuja-lab.github.io/EvoAge/other-analysis-3-aging/</loc>
+      </url>
+      <url>
+        <loc>https://the-ahuja-lab.github.io/EvoAge/neo4j-kg/</loc>
+      </url>
+      <url>
+        <loc>https://the-ahuja-lab.github.io/EvoAge/LLM_finetuning/</loc>
       </url>
 </urlset>

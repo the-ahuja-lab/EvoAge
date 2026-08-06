@@ -23,7 +23,9 @@ nav = [
         { "Shuffled KG Baseline" = "other-analysis-2-shuffled.md" },
         { "Aging-Specific Test Set" = "other-analysis-3-aging.md" }
     ] },
-    { "Neo4j KG" = "neo4j-kg.md" }
+    { "Neo4j KG" = "neo4j-kg.md" },
+    { "LLM Fintuning" = "LLM_finetuning.md" }
+
 ]
 
 # Additional JavaScript for MathJax rendering support

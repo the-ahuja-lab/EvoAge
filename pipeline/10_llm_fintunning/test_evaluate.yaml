@@ -1,0 +1,29 @@
+global_params:
+  working_dir: cache
+  graph_backend: kuzu
+  kv_backend: rocksdb
+
+nodes:
+  - id: read_graph
+    op_name: read_graph
+    type: source
+    dependencies: []
+    save_output: true
+    params:
+      working_dir: cache
+      graph_backend: kuzu
+      kv_backend: rocksdb
+      namespace: graph_test
+      include_nodes: true
+      include_edges: true
+      skip_judged: true
+
+  - id: judge
+    op_name: judge
+    type: map_batch
+    dependencies:
+      - read_graph
+    execution_params:
+      replicas: 2
+      batch_size: 128
+    save_output: true

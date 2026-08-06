@@ -12,13 +12,13 @@
         <meta name="author" content="The Ahuja Lab">
       
       
-        <link rel="canonical" href="https://the-ahuja-lab.github.io/EvoAge/data-collection/">
+        <link rel="canonical" href="https://the-ahuja-lab.github.io/EvoAge/training/">
       
       
-        <link rel="prev" href="../installation/">
+        <link rel="prev" href="../kg-tensors-and-splitting/">
       
       
-        <link rel="next" href="../preprocessing/">
+        <link rel="next" href="../other-analysis-1-species/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>Data Collection - EvoAge</title>
+        <title>07 — Model Training and Evaluation - EvoAge</title>
       
     
     
@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#data-collection" class="md-skip">
+        <a href="#07-model-training-and-evaluation" class="md-skip">
           Skip to content
         </a>
       
@@ -121,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Data Collection
+              07 — Model Training and Evaluation
             
           </span>
         </div>
@@ -293,36 +293,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Data Collection
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="././" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../data-collection/" class="md-nav__link">
         
   
   
@@ -337,132 +311,6 @@
   
 
       </a>
-      
-        
-
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-purpose" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        1. Purpose
-      </span>
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        2. Overview
-      </span>
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-data-source-master-table" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        3. Data Source Master Table
-      </span>
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Data Source Master Table">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#key-provenance-fields-per-source" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        Key provenance fields per source
-      </span>
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#41-downloading-the-raw-data" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        4.1 Downloading the Raw Data
-      </span>
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#42-where-raw-data-lives" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        4.2 Where Raw Data Lives
-      </span>
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-species-coverage" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        5. Species Coverage
-      </span>
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-non-standard-provenance-cases" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        6. Non-standard Provenance Cases
-      </span>
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-next-step" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        7. Next Step
-      </span>
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -601,10 +449,36 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../training/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Training & Evaluation
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
         
   
   
@@ -619,6 +493,138 @@
   
 
       </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Purpose
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-environment-and-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Environment and Framework
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-benchmarked-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Benchmarked Models
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-hyperparameter-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Hyperparameter Settings
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Hyperparameter Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#max-steps-calculation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Max Steps Calculation
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-evaluation-tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Evaluation Tasks
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Evaluation Tasks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#task-a-link-prediction-dglke_eval" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Task A: Link Prediction (<code>dglke_eval</code>)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-b-relation-prediction-edge-type-prediction-custom-pytorch-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Task B: Relation Prediction / Edge Type Prediction (Custom PyTorch Scripts)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-training-evaluation-scripts-directory" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Training &amp; Evaluation Scripts Directory
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -873,10 +879,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-overview" class="md-nav__link">
+  <a href="#2-environment-and-framework" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        2. Overview
+        2. Environment and Framework
       </span>
     </span>
   </a>
@@ -884,22 +890,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-data-source-master-table" class="md-nav__link">
+  <a href="#3-benchmarked-models" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        3. Data Source Master Table
+        3. Benchmarked Models
       </span>
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="3. Data Source Master Table">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-hyperparameter-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Hyperparameter Settings
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Hyperparameter Settings">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#key-provenance-fields-per-source" class="md-nav__link">
+  <a href="#max-steps-calculation" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        Key provenance fields per source
+        Max Steps Calculation
       </span>
     </span>
   </a>
@@ -912,54 +929,49 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#41-downloading-the-raw-data" class="md-nav__link">
+  <a href="#5-evaluation-tasks" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        4.1 Downloading the Raw Data
+        5. Evaluation Tasks
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Evaluation Tasks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#task-a-link-prediction-dglke_eval" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Task A: Link Prediction (<code>dglke_eval</code>)
       </span>
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#42-where-raw-data-lives" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#task-b-relation-prediction-edge-type-prediction-custom-pytorch-scripts" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        4.2 Where Raw Data Lives
+        Task B: Relation Prediction / Edge Type Prediction (Custom PyTorch Scripts)
       </span>
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#5-species-coverage" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        5. Species Coverage
-      </span>
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-non-standard-provenance-cases" class="md-nav__link">
+  <a href="#6-training-evaluation-scripts-directory" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        6. Non-standard Provenance Cases
-      </span>
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-next-step" class="md-nav__link">
-    <span class="md-ellipsis">
-      <span class="md-typeset">
-        7. Next Step
+        6. Training &amp; Evaluation Scripts Directory
       </span>
     </span>
   </a>
@@ -989,203 +1001,158 @@
                 
                   
 
-<h1 id="data-collection">Data Collection<a class="headerlink" href="#data-collection" title="Permanent link">&para;</a></h1>
+<h1 id="07-model-training-and-evaluation">07 — Model Training and Evaluation<a class="headerlink" href="#07-model-training-and-evaluation" title="Permanent link">&para;</a></h1>
 <blockquote>
-<p>📂 <strong>Source Code &amp; Notebooks:</strong> <a href="https://github.com/the-ahuja-lab/EvoAge/tree/main/pipeline/01_data_collection">pipeline/01_data_collection</a></p>
+<p>📂 <strong>Source Code &amp; Notebooks:</strong> <a href="https://github.com/the-ahuja-lab/EvoAge/tree/main/pipeline/07_model_training">pipeline/07_model_training</a></p>
 </blockquote>
 <h2 id="1-purpose">1. Purpose<a class="headerlink" href="#1-purpose" title="Permanent link">&para;</a></h2>
-<p>This is the <strong>first step</strong> of the EvoAge Knowledge Graph (KG) construction pipeline. The goal is to collect, catalogue, and version-pin all raw data from <strong>48+ external sources</strong> that will feed into the KG. Every source is timestamped and version-locked to ensure reproducibility.</p>
+<p>This is <strong>Step 7</strong> of the EvoAge Knowledge Graph (KG) construction pipeline. The goal is to train Knowledge Graph Embedding (KGE) models to learn vector representations for entities (nodes) and relations across each of the KG configurations. </p>
+<p>This step focuses on:</p>
+<ol>
+<li><strong>Selecting the Best KGE Algorithm</strong>: Benchmarking 6 models (TransE, RotatE, ComplEx, SimplE, DistMult, and RESCAL) on the unified <code>EvoAge_1:1∪1:M</code> KG.</li>
+<li><strong>Quantifying the Benefits of Orthology and EvoAge Combination</strong>: Training the selected model (RESCAL) on all 6 KGs to measure the impact of 1:1∪1:M ortholog mappings and the union of Aging and Biomedical KGs.</li>
+</ol>
 <hr />
-<h2 id="2-overview">2. Overview<a class="headerlink" href="#2-overview" title="Permanent link">&para;</a></h2>
-<p>EvoAge integrates data from <strong>48+ named databases/resources</strong> </p>
-<table>
-<thead>
-<tr>
-<th>Category</th>
-<th>Sources</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Aging-specific databases</strong></td>
-<td>GenAge, DrugAge, CellAge, Aging Atlas, AgeAnno</td>
-</tr>
-<tr>
-<td><strong>General biomedical KGs</strong></td>
-<td>DRKG, PrimeKG, Hetionet, MonarchKG, CKG etc</td>
-</tr>
-<tr>
-<td><strong>Protein/Gene interaction networks</strong></td>
-<td>STRING, BioGRID, Biosnap etc</td>
-</tr>
-<tr>
-<td><strong>Chemical/Drug/Target databases</strong></td>
-<td>ChEMBL, DrugBank, BindingDB, STITCH, TTD</td>
-</tr>
-<tr>
-<td><strong>Species-specific annotation</strong></td>
-<td>FlyBase, WormBase, SGD, ZFIN, MGI</td>
-</tr>
-<tr>
-<td><strong>Phytochemical / Traditional medicine</strong></td>
-<td>PhytoHub, IMPPAT</td>
-</tr>
-<tr>
-<td><strong>Literature curation</strong></td>
-<td>Manually curated hallmarks-of-aging ↔ biological process links</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="3-data-source-master-table">3. Data Source Master Table<a class="headerlink" href="#3-data-source-master-table" title="Permanent link">&para;</a></h2>
-<p>The full master table with <strong>Version/Build</strong>, <strong>Last Download date</strong>, <strong>Download Link</strong>, and <strong>Reference/Publication</strong> for all 48+ sources is documented in:</p>
-<p>📄 <strong><a href="https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/01_data_collection/data_collection_01.md">DataCollection.md</a></strong></p>
-<p>This table is kept in sync with the manuscript's Supplementary Table.</p>
-<h3 id="key-provenance-fields-per-source">Key provenance fields per source<a class="headerlink" href="#key-provenance-fields-per-source" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Version / Build</strong></td>
-<td>Exact release pinned — traceable to a specific build</td>
-</tr>
-<tr>
-<td><strong>Last Download</strong></td>
-<td>Date the data was actually pulled</td>
-</tr>
-<tr>
-<td><strong>Download Link</strong></td>
-<td>Direct retrieval path (GitHub, FTP, Webpage)</td>
-</tr>
-<tr>
-<td><strong>Reference / Link</strong></td>
-<td>Primary publication or landing page</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="41-downloading-the-raw-data">4.1 Downloading the Raw Data<a class="headerlink" href="#41-downloading-the-raw-data" title="Permanent link">&para;</a></h2>
-<p>The complete raw data collected for EvoAge is hosted on Hugging Face at:</p>
-<blockquote>
-<p>📦 <strong>Dataset Link:</strong> <a href="https://huggingface.co/datasets/gauravahuja77/EvoAge/tree/main/kg_formation/data_collection">kg_formation/data_collection/</a></p>
-</blockquote>
-<p><strong>How to download:</strong>
-You can easily download these raw datasets directly from the Hugging Face repository using <code>git lfs</code> (Large File Storage) by cloning the dataset repo: 
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>git@hf.co:datasets/gauravahuja77/EvoAge
-</span></code></pre></div>
- Alternatively, you can download individual files directly through your web browser by navigating to the link above.</p>
-<hr />
-<h2 id="42-where-raw-data-lives">4.2 Where Raw Data Lives<a class="headerlink" href="#42-where-raw-data-lives" title="Permanent link">&para;</a></h2>
-<p>The actual downloaded raw data is stored in the working directory:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>kg_formation/data_collection/
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>├── ageanno/
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>├── ageannomo/
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>├── agextend/
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>├── agingatlas/
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>├── agingbank/
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>├── bindingdb/
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>├── biograkn/
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>├── biogrid/
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>├── biosnap/
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>├── bock/
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>├── cellage/
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>├── chembl/
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>├── ckg/
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>├── crossbar/
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>├── digitalagingatlas/
-</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>├── drkg/
-</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>├── drugage/
-</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>├── drugbank/
-</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>├── dtinet/
-</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>├── evolf/
-</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>├── fic/
-</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>├── flybase/
-</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>├── genage/
-</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>├── gendr/
-</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>├── hald/
-</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>├── harmonizome/
-</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>├── hetionet/
-</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>├── hmd_hp/
-</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>├── ibkh/
-</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>├── immpat/
-</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>├── metaboage/
-</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>├── mgi_do/
-</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>├── mirTARbase/
-</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>├── monarchkg/
-</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>├── mousenet/
-</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>├── other_sources/
-</span><span id="__span-1-38"><a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a>├── pharmkg/
-</span><span id="__span-1-39"><a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>├── pheknowlator/
-</span><span id="__span-1-40"><a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>├── phytohub/
-</span><span id="__span-1-41"><a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a>├── primekg/
-</span><span id="__span-1-42"><a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a>├── sgd/
-</span><span id="__span-1-43"><a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a>├── sms/
-</span><span id="__span-1-44"><a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a>├── stitch/
-</span><span id="__span-1-45"><a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a>├── string/
-</span><span id="__span-1-46"><a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a>├── tarkg/
-</span><span id="__span-1-47"><a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a>├── ttd/
-</span><span id="__span-1-48"><a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a>├── widb/
-</span><span id="__span-1-49"><a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a>├── wormbase/
-</span><span id="__span-1-50"><a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a>├── yeastnet/
-</span><span id="__span-1-51"><a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a>├── zfin/
-</span><span id="__span-1-52"><a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a>├── databases_for_mapping/    ← Reference files used in ID mapping (NCBI, PubChem, etc.)
-</span><span id="__span-1-53"><a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a>├── data_collection.ipynb     ← Notebook documenting initial collection steps
-</span></code></pre></div>
-<p><strong>Each directory</strong> (one per source or source group).</p>
-<hr />
-<h2 id="5-species-coverage">5. Species Coverage<a class="headerlink" href="#5-species-coverage" title="Permanent link">&para;</a></h2>
-<p>Data was collected for <strong>6 species</strong>:</p>
-<table>
-<thead>
-<tr>
-<th>Species</th>
-<th>Common name</th>
-<th>Key sources</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><em>Mus musculus</em></td>
-<td>Mouse</td>
-<td>MGI, MouseNet, STRING, STITCH</td>
-</tr>
-<tr>
-<td><em>Drosophila melanogaster</em></td>
-<td>Fruit fly</td>
-<td>FlyBase, STRING, STITCH</td>
-</tr>
-<tr>
-<td><em>Caenorhabditis elegans</em></td>
-<td>Roundworm</td>
-<td>WormBase, Worm Interactome DB, FICE, STRING, STITCH</td>
-</tr>
-<tr>
-<td><em>Saccharomyces cerevisiae</em></td>
-<td>Yeast</td>
-<td>SGD, YeastNet, eSLDB, STRING, STITCH, BioGRID</td>
-</tr>
-<tr>
-<td><em>Danio rerio</em></td>
-<td>Zebrafish</td>
-<td>ZFIN, STRING, STITCH</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="6-non-standard-provenance-cases">6. Non-standard Provenance Cases<a class="headerlink" href="#6-non-standard-provenance-cases" title="Permanent link">&para;</a></h2>
+<h2 id="2-environment-and-framework">2. Environment and Framework<a class="headerlink" href="#2-environment-and-framework" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>In house data</strong> (AgeXtend, Evolf): generated internally, not downloaded from public repositories.</li>
-<li><strong>Custom Python script</strong> (Harmonizome): data retrieved via the Harmonizome API — no flat-file bulk download.</li>
-<li><strong>Manually curated</strong> (Literature category): hallmarks-of-aging ↔ biological process links curated by hand.</li>
+<li><strong>Framework</strong>: DGL-KE (Deep Graph Library - Knowledge Embedding), optimized for large-scale KG training.</li>
 </ul>
 <hr />
-<h2 id="7-next-step">7. Next Step<a class="headerlink" href="#7-next-step" title="Permanent link">&para;</a></h2>
-<p>→ <strong><a href="../preprocessing/">Step 02 — Data Processing</a></strong>: Per-source cleaning, ID normalisation, and KG-triple extraction.</p>
+<h2 id="3-benchmarked-models">3. Benchmarked Models<a class="headerlink" href="#3-benchmarked-models" title="Permanent link">&para;</a></h2>
+<p>All models were evaluated on the unified <code>EvoAge_121_12M</code> dataset using <strong>64-dimensional embeddings</strong>.</p>
+<ol>
+<li><strong>RESCAL</strong>: A tensor factorization model that represents relations as full <span class="arithmatex">\(d \times d\)</span> matrices, allowing it to capture rich bilinear entity-relation-entity interactions.</li>
+<li><strong>RotatE</strong>: Defines relations as rotations in a complex entity space, ensuring excellent tracking of composition, inversion, and symmetry.</li>
+<li><strong>SimplE</strong>: A bilinear model that assigns dual embedding vectors to each entity, capturing independent roles as head and tail nodes.</li>
+<li><strong>DistMult</strong>: A bilinear diagonal model representing relations as diagonal matrices. It is structurally symmetric, which limits its ability to model directional relations.</li>
+<li><strong>ComplEx</strong>: Extends DistMult to a complex space, introducing asymmetric bilinear scoring capable of modeling directed graphs.</li>
+<li><strong>TransE</strong>: A translational distance model where relation vectors represent additive translations between head and tail entity vectors in a real space.</li>
+</ol>
+<hr />
+<h2 id="4-hyperparameter-settings">4. Hyperparameter Settings<a class="headerlink" href="#4-hyperparameter-settings" title="Permanent link">&para;</a></h2>
+<p>Below is the standard configuration used for training the larger KGs (EvoAge and Biomedical):</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--batch_size</code></td>
+<td><code>2048</code></td>
+<td>Training batch size</td>
+</tr>
+<tr>
+<td><code>--neg_sample_size</code></td>
+<td><code>32</code></td>
+<td>Number of negative samples drawn per positive triple</td>
+</tr>
+<tr>
+<td><code>--batch_size_eval</code></td>
+<td><code>512</code></td>
+<td>Evaluation batch size</td>
+</tr>
+<tr>
+<td><code>--neg_sample_size_eval</code></td>
+<td><code>16</code></td>
+<td>Number of negative samples used in evaluation</td>
+</tr>
+<tr>
+<td><code>--hidden_dim</code></td>
+<td><code>64</code></td>
+<td>Embedding dimension</td>
+</tr>
+<tr>
+<td><code>--gamma</code></td>
+<td><code>12.0</code></td>
+<td>Margin parameter for distance/rotation scoring functions</td>
+</tr>
+<tr>
+<td><code>--lr</code></td>
+<td><code>0.01</code></td>
+<td>Learning rate (with Adagrad optimizer via <code>-adv</code>)</td>
+</tr>
+<tr>
+<td><code>--eval_interval</code></td>
+<td><code>2,500,000</code></td>
+<td>Steps between evaluation runs</td>
+</tr>
+<tr>
+<td><code>--max_step</code></td>
+<td><em>Dynamic</em></td>
+<td>Total training steps, equivalent to exactly <strong>10 epochs</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="max-steps-calculation">Max Steps Calculation<a class="headerlink" href="#max-steps-calculation" title="Permanent link">&para;</a></h3>
+<p>The total training steps (<code>--max_step</code>) are calculated using the formula:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>max_step = (No of epoch * trainingtriple count) / batch_size
+</span></code></pre></div></p>
+<hr />
+<h2 id="5-evaluation-tasks">5. Evaluation Tasks<a class="headerlink" href="#5-evaluation-tasks" title="Permanent link">&para;</a></h2>
+<p>Two distinct evaluation methodologies were implemented to benchmark model performance:</p>
+<h3 id="task-a-link-prediction-dglke_eval">Task A: Link Prediction (<code>dglke_eval</code>)<a class="headerlink" href="#task-a-link-prediction-dglke_eval" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Query Type</strong>: Head prediction <code>(?, r, t)</code> and Tail prediction <code>(h, r, ?)</code>.</li>
+<li><strong>Methodology</strong>: For each validation or test triple, 16 negative entities are sampled. The model ranks the ground-truth entity against the negatives.</li>
+<li><strong>Metrics</strong>: Hits@1, Hits@3, Hits@10, Mean Rank (MR), and Mean Reciprocal Rank (MRR).</li>
+</ul>
+<h3 id="task-b-relation-prediction-edge-type-prediction-custom-pytorch-scripts">Task B: Relation Prediction / Edge Type Prediction (Custom PyTorch Scripts)<a class="headerlink" href="#task-b-relation-prediction-edge-type-prediction-custom-pytorch-scripts" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Query Type</strong>: Relation type prediction <code>(h, ?, t)</code>.</li>
+<li><strong>Methodology</strong>: For every test triple, scores are computed for <strong>all 89 relation types</strong> in the ontology. The correct relation is ranked against the other 88 classes.</li>
+<li><strong>Metrics</strong>: Hits@1, Hits@3, Hits@10, and MRR.</li>
+<li><strong>Design Strategy</strong>: Custom scripts (e.g., <code>64_rescal_edge_type_metrics.py</code>) perform chunked relation evaluation on GPU to prevent memory overflow.</li>
+</ul>
+<hr />
+<h2 id="6-training-evaluation-scripts-directory">6. Training &amp; Evaluation Scripts Directory<a class="headerlink" href="#6-training-evaluation-scripts-directory" title="Permanent link">&para;</a></h2>
+<p>The script files are organized as follows:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>DOCUMENTATION/Training_07/
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>│
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>├── Aging_1_to_1/
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>│   └── Rescal_64.sh                                     ← RESCAL 10-epoch training script
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>│
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>├── Aging_121_12M/
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>│   └── Rescal_64.sh                                     ← RESCAL 10-epoch training script
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>│
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>├── Biomedical_1_to_1/
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>│   ├── Rescal_64.sh                                     ← Training script
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>│   ├── Rescal_64_Biomed_1_to_1_testing.sh               ← CPU-based link prediction eval
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>│   └── edge_type/
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>│       └── B_121_64_rescal_edge_type_metrics.py         ← Relation prediction script
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>│
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>├── Biomedical_121_12M/
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>│   ├── Rescal_64.sh                                     ← Training script
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>│   ├── Rescal_64_Biomed_121_12M_testing.sh              ← CPU-based link prediction eval
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>│   └── edge_type/
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>│       └── B_121_64_rescal_edge_type_metrics.py         ← Relation prediction script
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>│
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>├── EvoAge_1_to_1/
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>│   ├── Rescal_64.sh                                     ← Training script
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>│   └── Rescal_64_Evoage_1_to_1_testing.sh               ← CPU-based link prediction eval
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>│
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>└── EvoAge_121_12M/
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>    ├── Run_1_train_test/                                ← Main scripts for all 6 models
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>    │   ├── RotatE_64.sh / RotatE_64_testing.sh
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>    │   ├── transe_64.sh / Transe_64_testing.sh
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>    │   ├── complex_64.sh / Complex_64_testing.sh
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>    │   ├── Dismult.sh / Dismult_64_testing.sh
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>    │   ├── Simple_64.sh / Simple_64_testing.sh
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>    │   ├── Rescal_64.sh / Rescal_64_testing.sh
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>    │   └── readme.txt                                   ← execution notes
+</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>    │
+</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>    └── Run2_64_edge_type_testing/                       ← Custom edge type prediction python scripts
+</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>        ├── 64_transE_edgetype_metrics.py
+</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>        ├── 64_rotate_edge_type_metrics.py
+</span><span id="__span-1-38"><a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a>        ├── 64_complex_edge_type_metric.py
+</span><span id="__span-1-39"><a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>        ├── 64_dismult_edge_type_metrics.py
+</span><span id="__span-1-40"><a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>        ├── 64_simple_edge_type_metrics.py
+</span><span id="__span-1-41"><a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a>        └── 64_rescal_edge_type_metrics.py
+</span></code></pre></div>
+<hr />
 
 
 
@@ -1225,7 +1192,7 @@ You can easily download these raw datasets directly from the Hugging Face reposi
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../installation/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Installation">
+          <a href="../kg-tensors-and-splitting/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Splitting">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
@@ -1235,20 +1202,20 @@ You can easily download these raw datasets directly from the Hugging Face reposi
                 Previous
               </span>
               <div class="md-ellipsis">
-                Installation
+                Splitting
               </div>
             </div>
           </a>
         
         
           
-          <a href="../preprocessing/" class="md-footer__link md-footer__link--next" aria-label="Next: Preprocessing">
+          <a href="../other-analysis-1-species/" class="md-footer__link md-footer__link--next" aria-label="Next: Species Evaluation">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Preprocessing
+                Species Evaluation
               </div>
             </div>
             <div class="md-footer__button md-icon">

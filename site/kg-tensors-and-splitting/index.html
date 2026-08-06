@@ -18,25 +18,25 @@
         <link rel="prev" href="../kg-construction/">
       
       
-        <link rel="next" href="../documentation-structure/">
+        <link rel="next" href="../training/">
       
       
         
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="zensical-0.0.30">
+      <meta name="generator" content="zensical-0.0.53">
     
     
       
-        <title>7. Building Final KG Tensors & Train/Valid/Test Splitting - EvoAge</title>
+        <title>Kg tensors and splitting - EvoAge</title>
       
     
     
       
         
       
-      <link rel="stylesheet" href="../assets/stylesheets/modern/main.3b031116.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.20815dad.min.css">
       
         
           
@@ -55,12 +55,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
         <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
     
       
 
@@ -85,7 +85,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#7-building-final-kg-tensors-trainvalidtest-splitting" class="md-skip">
+        <a href="#06-final-kg-building-trainvalidtest-splitting" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +104,7 @@
     <a href="./.." title="EvoAge" class="md-header__button md-logo" aria-label="EvoAge" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
@@ -121,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              7. Building Final KG Tensors &amp; Train/Valid/Test Splitting
+              Kg tensors and splitting
             
           </span>
         </div>
@@ -203,7 +203,7 @@
     <a href="./.." title="EvoAge" class="md-nav__button md-logo" aria-label="EvoAge" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
 
     </a>
     EvoAge
@@ -225,8 +225,7 @@
   <span class="md-ellipsis">
     
   
-    Home
-  
+  Home
 
     
   </span>
@@ -245,15 +244,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../quick-start/" class="md-nav__link">
+      <a href="../system-prerequisites/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Quick Start
-  
+  System Prerequisites
 
     
   </span>
@@ -279,8 +277,7 @@
   <span class="md-ellipsis">
     
   
-    Installation
-  
+  Installation
 
     
   </span>
@@ -306,8 +303,7 @@
   <span class="md-ellipsis">
     
   
-    Data Collection
-  
+  Data Collection
 
     
   </span>
@@ -333,8 +329,7 @@
   <span class="md-ellipsis">
     
   
-    Preprocessing
-  
+  Preprocessing
 
     
   </span>
@@ -360,8 +355,7 @@
   <span class="md-ellipsis">
     
   
-    Relation Processing
-  
+  Relation Processing
 
     
   </span>
@@ -387,8 +381,7 @@
   <span class="md-ellipsis">
     
   
-    Ortholog Mapping
-  
+  Ortholog Mapping
 
     
   </span>
@@ -414,8 +407,7 @@
   <span class="md-ellipsis">
     
   
-    KG Construction
-  
+  KG Construction
 
     
   </span>
@@ -437,6 +429,27 @@
   
     <li class="md-nav__item md-nav__item--active">
       
+      
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Splitting
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="././" class="md-nav__link md-nav__link--active">
         
   
@@ -444,8 +457,7 @@
   <span class="md-ellipsis">
     
   
-    Tensors & Splitting
-  
+  Splitting
 
     
   </span>
@@ -453,6 +465,363 @@
   
 
       </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#06-final-kg-building-trainvalidtest-splitting" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        # 06 — Final KG Building &amp; Train/Valid/Test Splitting
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Purpose
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Overview
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-6-final-kgs" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        The 6 Final KGs
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shared-global-mappings" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Shared Global Mappings
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-test-set-flow-the-core-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Test Set Flow — The Core Logic
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Test Set Flow — The Core Logic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-test-sets-are-generated-and-reused" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        How test sets are generated and reused
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-this-works" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Why this works
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-pipeline-step-by-step" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Pipeline — Step-by-Step
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Pipeline — Step-by-Step">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#40-pre-step-build-global-mappings-node-ids-relation-ids" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.0. Pre-step — Build Global Mappings (node IDs + relation IDs)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#41-build-aging-kgs" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.1. Build Aging KGs
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1. Build Aging KGs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-1-aging-11-kg-build-801010-split" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Run 1 — Aging 1:1 KG (build + 80/10/10 split)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-2-aging-111m-kg-build-subtract-11-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Run 2 — Aging 1:1∪1:M KG (build + subtract 1:1 test)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-build-biomedical-kgs" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.2. Build Biomedical KGs
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2. Build Biomedical KGs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-1-biomedical-11-kg-build-801010-split" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Run 1 — Biomedical 1:1 KG (build + 80/10/10 split)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-2-biomedical-111m-kg-build-subtract-11-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Run 2 — Biomedical 1:1∪1:M KG (build + subtract 1:1 test)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-build-evoage-kgs" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.3. Build EvoAge KGs
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.3. Build EvoAge KGs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-1-evoage-11-kg-build-derive-test-from-aging-biomedical-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Run 1 — EvoAge 1:1 KG (build + derive test from Aging ∪ Biomedical tests)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-2-evoage-111m-kg-subtract-11-test-split-remaining" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Run 2 — EvoAge 1:1∪1:M KG (subtract 1:1 test, split remaining)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-split-summary-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Split Summary Table
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-output-directory-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Output Directory Structure
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-technical-implementation-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. Technical Implementation Details
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Technical Implementation Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bijective-int64-encoding-for-deduplication" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Bijective int64 encoding for deduplication
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chunked-subtract-for-ram-safety" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Chunked subtract for RAM safety
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reproducibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Reproducibility
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-key-design-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8. Key Design Decisions
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-next-step" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        9. Next Step
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -465,15 +834,212 @@
   
   
     <li class="md-nav__item">
-      <a href="../documentation-structure/" class="md-nav__link">
+      <a href="../training/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Structure
+  Training & Evaluation
+
+    
+  </span>
   
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Other Analysis
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Other Analysis
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../other-analysis-1-species/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Species Evaluation
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../other-analysis-2-shuffled/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Shuffled KG Baseline
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../other-analysis-3-aging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Aging-Specific Test Set
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../neo4j-kg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Neo4j KG
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LLM_finetuning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  LLM Fintuning
 
     
   </span>
@@ -496,10 +1062,15 @@
               <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   
-                    <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-                    <div class="md-sidebar-button__wrapper">
-                      <label class="md-sidebar-button" for="__toc"></label>
-                    </div>
+                    
+                    
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
                   
                   <div class="md-sidebar__inner">
                     
@@ -509,8 +1080,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -519,45 +1088,56 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#71-build-order-critical-do-not-reorder" class="md-nav__link">
+  <a href="#06-final-kg-building-trainvalidtest-splitting" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        7.1 Build Order (Critical — Do Not Reorder)
-      
+      <span class="md-typeset">
+        # 06 — Final KG Building &amp; Train/Valid/Test Splitting
+      </span>
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#72-building-the-global-node-relation-mapping" class="md-nav__link">
+  <a href="#1-purpose" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        7.2 Building the Global Node &amp; Relation Mapping
-      
+      <span class="md-typeset">
+        1. Purpose
+      </span>
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="7.2 Building the Global Node &amp; Relation Mapping">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Overview
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Overview">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#why-a-custom-parallel-builder-instead-of-pdunique-on-everything-at-once" class="md-nav__link">
+  <a href="#the-6-final-kgs" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Why a custom parallel builder instead of pd.unique() on everything at once
-      
+      <span class="md-typeset">
+        The 6 Final KGs
+      </span>
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#saved-artifacts" class="md-nav__link">
+  <a href="#shared-global-mappings" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Saved artifacts
-      
+      <span class="md-typeset">
+        Shared Global Mappings
+      </span>
     </span>
   </a>
   
@@ -569,56 +1149,34 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#73-the-shared-triple-mapping-pattern" class="md-nav__link">
+  <a href="#3-test-set-flow-the-core-logic" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        7.3 The Shared Triple-Mapping Pattern
-      
+      <span class="md-typeset">
+        3. Test Set Flow — The Core Logic
+      </span>
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="7.3 The Shared Triple-Mapping Pattern">
+    <nav class="md-nav" aria-label="3. Test Set Flow — The Core Logic">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#part-1-collect-the-right-file-set" class="md-nav__link">
+  <a href="#how-test-sets-are-generated-and-reused" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Part 1 — Collect the right file set
-      
+      <span class="md-typeset">
+        How test sets are generated and reused
+      </span>
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#part-2-vectorized-id-lookup-via-pdseriesmap" class="md-nav__link">
+  <a href="#why-this-works" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        Part 2 — Vectorized ID lookup via pd.Series.map
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#part-3-unmapped-row-auditing-not-silent-dropping" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Part 3 — Unmapped-row auditing (not silent dropping)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#part-4-concatenate-dedup-via-bijective-integer-encoding-save" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Part 4 — Concatenate, dedup via bijective integer encoding, save
-      
+      <span class="md-typeset">
+        Why this works
+      </span>
     </span>
   </a>
   
@@ -630,56 +1188,212 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#74-trainvalidtest-splitting-three-different-strategies" class="md-nav__link">
+  <a href="#4-pipeline-step-by-step" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        7.4 Train/Valid/Test Splitting — Three Different Strategies
-      
+      <span class="md-typeset">
+        4. Pipeline — Step-by-Step
+      </span>
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="7.4 Train&#x2f;Valid&#x2f;Test Splitting — Three Different Strategies">
+    <nav class="md-nav" aria-label="4. Pipeline — Step-by-Step">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#741-aging-1-to-1-and-biomedical-1-to-1-independent-801010" class="md-nav__link">
+  <a href="#40-pre-step-build-global-mappings-node-ids-relation-ids" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        7.4.1 Aging (1-to-1) and Biomedical (1-to-1) — independent 80/10/10
-      
+      <span class="md-typeset">
+        4.0. Pre-step — Build Global Mappings (node IDs + relation IDs)
+      </span>
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#742-evoage-1-to-1-ab_test-construction-then-leakage-free-9010" class="md-nav__link">
+  <a href="#41-build-aging-kgs" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        7.4.2 EvoAge (1-to-1) — AB_test construction, then leakage-free 90/10
-      
+      <span class="md-typeset">
+        4.1. Build Aging KGs
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.1. Build Aging KGs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-1-aging-11-kg-build-801010-split" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Run 1 — Aging 1:1 KG (build + 80/10/10 split)
+      </span>
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#743-aging-12112m-and-biomedical-12112m-remove-1to1-test-then-9010" class="md-nav__link">
+  <a href="#run-2-aging-111m-kg-build-subtract-11-test" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        7.4.3 Aging (121+12M) and Biomedical (121+12M) — remove-1to1-test, then 90/10
-      
+      <span class="md-typeset">
+        Run 2 — Aging 1:1∪1:M KG (build + subtract 1:1 test)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-build-biomedical-kgs" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.2. Build Biomedical KGs
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2. Build Biomedical KGs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-1-biomedical-11-kg-build-801010-split" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Run 1 — Biomedical 1:1 KG (build + 80/10/10 split)
+      </span>
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#744-evoage-12112m-remove-evoage-1to1-test-then-9010" class="md-nav__link">
+  <a href="#run-2-biomedical-111m-kg-build-subtract-11-test" class="md-nav__link">
     <span class="md-ellipsis">
+      <span class="md-typeset">
+        Run 2 — Biomedical 1:1∪1:M KG (build + subtract 1:1 test)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-build-evoage-kgs" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.3. Build EvoAge KGs
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.3. Build EvoAge KGs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-1-evoage-11-kg-build-derive-test-from-aging-biomedical-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Run 1 — EvoAge 1:1 KG (build + derive test from Aging ∪ Biomedical tests)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-2-evoage-111m-kg-subtract-11-test-split-remaining" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Run 2 — EvoAge 1:1∪1:M KG (subtract 1:1 test, split remaining)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
-        7.4.4 EvoAge (121+12M) — remove EvoAge-1to1-test, then 90/10
+        <li class="md-nav__item">
+  <a href="#5-split-summary-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Split Summary Table
+      </span>
+    </span>
+  </a>
+  
+</li>
       
+        <li class="md-nav__item">
+  <a href="#6-output-directory-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Output Directory Structure
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-technical-implementation-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. Technical Implementation Details
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Technical Implementation Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bijective-int64-encoding-for-deduplication" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Bijective int64 encoding for deduplication
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chunked-subtract-for-ram-safety" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Chunked subtract for RAM safety
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reproducibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Reproducibility
+      </span>
     </span>
   </a>
   
@@ -691,33 +1405,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#75-test-set-lineage-summary" class="md-nav__link">
+  <a href="#8-key-design-decisions" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        7.5 Test-Set Lineage Summary
-      
+      <span class="md-typeset">
+        8. Key Design Decisions
+      </span>
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#76-output-inventory-store_house" class="md-nav__link">
+  <a href="#9-next-step" class="md-nav__link">
     <span class="md-ellipsis">
-      
-        7.6 Output Inventory (Store_House/)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Next Steps
-      
+      <span class="md-typeset">
+        9. Next Step
+      </span>
     </span>
   </a>
   
@@ -746,403 +1449,367 @@
                 
                   
 
-<h1 id="7-building-final-kg-tensors-trainvalidtest-splitting">7. Building Final KG Tensors &amp; Train/Valid/Test Splitting<a class="headerlink" href="#7-building-final-kg-tensors-trainvalidtest-splitting" title="Permanent link">&para;</a></h1>
-<p>This section covers the last stage before training: converting the split, ortholog-mapped CSV/Parquet files (<a href="../kg-construction/">KG Construction</a>) into integer-encoded PyTorch tensors, and creating leakage-free train/valid/test splits across <strong>four KG variants</strong> — Aging (1-to-1), Biomedical (1-to-1), EvoAge (1-to-1), and EvoAge (121+12M).</p>
-<p>The single most important structural decision in this stage is the <strong>global node and relation mapping</strong>: it is built <strong>once</strong>, from the largest KG (EvoAge 121+12M), and every other KG variant — Aging, Biomedical, EvoAge 1-to-1 — reuses that exact same mapping rather than building its own. This is what makes the four KG variants directly comparable.</p>
+  <h1 id="__skip">Kg tensors and splitting</h1>
+
+<h5 id="06-final-kg-building-trainvalidtest-splitting"># 06 — Final KG Building &amp; Train/Valid/Test Splitting<a class="headerlink" href="#06-final-kg-building-trainvalidtest-splitting" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p>📂 <strong>Source Code &amp; Notebooks:</strong> <a href="https://github.com/the-ahuja-lab/EvoAge/tree/main/pipeline/06_tensor_building">pipeline/06_tensor_building</a></p>
+</blockquote>
+<h2 id="1-purpose">1. Purpose<a class="headerlink" href="#1-purpose" title="Permanent link">&para;</a></h2>
+<p>This is <strong>Step 6</strong> of the EvoAge Knowledge Graph (KG) construction pipeline. The goal is to convert all processed triple files into <strong>integer-mapped PyTorch tensors</strong> and produce reproducible <strong>train / valid / test splits</strong> for three KG variants: <strong>Aging</strong>, <strong>Biomedical</strong>, and <strong>EvoAge</strong> (the union of both). Each variant is built in two ortholog configurations (1:1 and 1:1∪1:M), yielding <strong>6 final KGs</strong>. The critical design requirement is that the <strong>test set from the 1:1 KG is used to evaluate both the 1:1 and 1:1∪1:M versions</strong> of the same KG variant — ensuring fair, leak-free comparison.</p>
 <hr />
-<h2 id="71-build-order-critical-do-not-reorder"><strong>7.1 Build Order (Critical — Do Not Reorder)</strong><a class="headerlink" href="#71-build-order-critical-do-not-reorder" title="Permanent link">&para;</a></h2>
-<p>The scripts must run in this exact order, because each later step depends on an artifact produced by an earlier one:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>1. EvoAge_1_to_1_1_to_M.py   ← Builds the GLOBAL node_id + relation_id mapping
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>                                 (from the EvoAge 121+12M file set — the largest)
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>                              ← Produces:
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>                                  Store_House/node_id_mapping_EvoAge_121_12M.pkl
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>                                  Store_House/relation_id_EvoAge_EvoAge_121_12M.csv
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>                              ← Builds EvoAge_121_12M_to_many_KG.pt
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>                                 (deferred — actually run AFTER step 2, see §7.5)
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>2. EvoAge_1_to_1.py          ← Reuses the global mapping from step 1
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>                              ← Builds EvoAge_1_to_1_KG.pt
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>                              ← Splits into EvoAge_1to1_KG_test (= AB_test, see §7.4)
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>                                 + train_90 / valid_10
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>3. Aging_1_to_1.py           ← Reuses the SAME global mapping
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>                              ← Builds Aging_specific_1_to_1_KG.pt
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>                              ← Splits 80/10/10 → train_80 / valid_10 / test_10
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>4. Biomedical_1_to_1.py      ← Reuses the SAME global mapping
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>                              ← Builds Biomedical_1_to_1_KG.pt
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>                              ← Splits 80/10/10 → train_80 / valid_10 / test_10
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>
-</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>   [Steps 3 + 4 must complete before re-entering EvoAge_1_to_1.py&#39;s splitting
-</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>    section, because that section needs Aging_specific_1to1_KG_test_10.pt and
-</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>    Biomedical_1to1_KG_test_10.pt as inputs — see §7.4]
-</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>
-</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>5. Aging_121_12M.py          ← Reuses the SAME global mapping
-</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>                              ← Builds Aging_specific_121_12M_KG.pt
-</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>                              ← Removes the Aging 1-to-1 test set from it, then
-</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>                                90/10 splits the remainder → train_90 / valid_10
-</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>
-</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>6. Biomedical_121_12M.py     ← Reuses the SAME global mapping
-</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>                              ← Builds Biomedical_121_12M_KG.pt (same pattern as #5)
-</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>
-</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>7. (back to) EvoAge_1_to_1_1_to_M.py&#39;s later cells
-</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>                              ← Builds EvoAge_121_12M_to_many_KG.pt
-</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>                              ← Removes EvoAge_1to1_KG_test from it, then
-</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>                                90/10 splits the remainder → train_90 / valid_10
-</span></code></pre></div>
-<hr />
-<h2 id="72-building-the-global-node-relation-mapping"><strong>7.2 Building the Global Node &amp; Relation Mapping</strong><a class="headerlink" href="#72-building-the-global-node-relation-mapping" title="Permanent link">&para;</a></h2>
-<p><strong>Script</strong>: <code>EvoAge_1_to_1_1_to_M.py</code> (Section: "BUILD NODE MAPPING of EvoAge 121+12M")</p>
-<p>The mapping is built from the <strong>complete EvoAge 121+12M file set</strong> — Human files plus all five species' <code>*_ortho_1_to_one2one_plus_one2many.csv</code> files plus six species-connection parquet files.</p>
-<h3 id="why-a-custom-parallel-builder-instead-of-pdunique-on-everything-at-once"><strong>Why a custom parallel builder instead of <code>pd.unique()</code> on everything at once</strong><a class="headerlink" href="#why-a-custom-parallel-builder-instead-of-pdunique-on-everything-at-once" title="Permanent link">&para;</a></h3>
-<p>Some of these files are 25GB+. The builder is deliberately engineered for this scale:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">BATCH_ROWS</span> <span class="o">=</span> <span class="mi">2_000_000</span>   <span class="c1"># rows per streamed batch</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">N_JOBS</span>     <span class="o">=</span> <span class="mi">8</span>           <span class="c1"># parallel workers across files</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">file_unique_nodes</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">cache_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Read ONLY head &amp; tail columns, streaming in batches, dedup per-batch.&quot;&quot;&quot;</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="n">seen</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.parquet&#39;</span><span class="p">):</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>        <span class="n">pf</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">ParquetFile</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>        <span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">pf</span><span class="o">.</span><span class="n">iter_batches</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;head&#39;</span><span class="p">,</span> <span class="s1">&#39;tail&#39;</span><span class="p">],</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">BATCH_ROWS</span><span class="p">):</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>            <span class="n">d</span> <span class="o">=</span> <span class="n">batch</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>            <span class="n">seen</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;head&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)))</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>            <span class="n">seen</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;tail&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)))</span>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    <span class="k">else</span><span class="p">:</span>
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>        <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;head&#39;</span><span class="p">,</span> <span class="s1">&#39;tail&#39;</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span>
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>                                 <span class="n">chunksize</span><span class="o">=</span><span class="n">BATCH_ROWS</span><span class="p">,</span> <span class="n">low_memory</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>            <span class="n">seen</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">chunk</span><span class="p">[</span><span class="s1">&#39;head&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)))</span>
-</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>            <span class="n">seen</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">chunk</span><span class="p">[</span><span class="s1">&#39;tail&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)))</span>
-</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>
-</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>    <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromiter</span><span class="p">(</span><span class="n">seen</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">object</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">seen</span><span class="p">))</span>
-</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>    <span class="n">arr</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>   <span class="c1"># sorted output matches np.union1d&#39;s behavior — reproducible IDs</span>
-</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>    <span class="k">return</span> <span class="n">idx</span><span class="p">,</span> <span class="n">arr</span>
-</span></code></pre></div>
-<p>Four optimizations stacked together:</p>
-<ol>
-<li><strong>Column projection</strong> — only <code>head</code>/<code>tail</code> are read.</li>
-<li><strong>Streaming/chunked</strong> — no file is ever held whole in RAM.</li>
-<li><strong>Parallel across files</strong> — <code>ProcessPoolExecutor</code> runs <code>file_unique_nodes</code> concurrently.</li>
-<li><strong>Deterministic ID assignment</strong> — Phase 2 replays files in original list order, making the resulting mapping exactly reproducible.</li>
-</ol>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">build_global_mapping</span><span class="p">(</span><span class="n">all_files</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">cache_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="c1"># Phase 1: parallel per-file unique extraction</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="k">with</span> <span class="n">ProcessPoolExecutor</span><span class="p">(</span><span class="n">max_workers</span><span class="o">=</span><span class="n">n_jobs</span><span class="p">)</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>        <span class="n">futs</span> <span class="o">=</span> <span class="p">[</span><span class="n">ex</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">file_unique_nodes</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">cache_dir</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">all_files</span><span class="p">)]</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>        <span class="n">results</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">all_files</span><span class="p">)</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>        <span class="k">for</span> <span class="n">fut</span> <span class="ow">in</span> <span class="n">as_completed</span><span class="p">(</span><span class="n">futs</span><span class="p">):</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>            <span class="n">i</span><span class="p">,</span> <span class="n">payload</span> <span class="o">=</span> <span class="n">fut</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>            <span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">payload</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>    <span class="c1"># Phase 2: sequential, ORDER-PRESERVING id assignment</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>    <span class="n">global_mapping</span> <span class="o">=</span> <span class="p">{}</span>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>    <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>    <span class="k">for</span> <span class="n">payload</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>           <span class="c1"># original order</span>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>        <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">payload</span><span class="p">,</span> <span class="n">allow_pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">payload</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">payload</span>
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">:</span>
-</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>            <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">global_mapping</span><span class="p">:</span>
-</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>                <span class="n">global_mapping</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">n</span>
-</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>                <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
-</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>    <span class="k">return</span> <span class="n">global_mapping</span>
-</span></code></pre></div>
-<h3 id="saved-artifacts"><strong>Saved artifacts</strong><a class="headerlink" href="#saved-artifacts" title="Permanent link">&para;</a></h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">node_id_df</span><span class="o">.</span><span class="n">to_pickle</span><span class="p">(</span><span class="s1">&#39;Store_House/node_id_mapping_EvoAge_121_12M.pkl&#39;</span><span class="p">)</span>        <span class="c1"># [&#39;Node&#39;, &#39;MappedID&#39;]</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">rel_id_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;Store_House/relation_id_EvoAge_EvoAge_121_12M.csv&#39;</span><span class="p">)</span>         <span class="c1"># [&#39;Relation&#39;, &#39;MappedID&#39;]</span>
-</span></code></pre></div>
-<p>Every other script loads these files and never rebuilds them.</p>
-<hr />
-<h2 id="73-the-shared-triple-mapping-pattern"><strong>7.3 The Shared Triple-Mapping Pattern</strong><a class="headerlink" href="#73-the-shared-triple-mapping-pattern" title="Permanent link">&para;</a></h2>
-<p>Every KG-variant script converts its CSV/Parquet files into an integer tensor using the <strong>same four-part pattern</strong>:</p>
-<h3 id="part-1-collect-the-right-file-set"><strong>Part 1 — Collect the right file set</strong><a class="headerlink" href="#part-1-collect-the-right-file-set" title="Permanent link">&para;</a></h3>
-<p>Each variant pulls from a different combination:</p>
+<h2 id="2-overview">2. Overview<a class="headerlink" href="#2-overview" title="Permanent link">&para;</a></h2>
+<h3 id="the-6-final-kgs">The 6 Final KGs<a class="headerlink" href="#the-6-final-kgs" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
-<th>Variant</th>
-<th>Human source</th>
-<th>Species source pattern</th>
+<th>KG Variant</th>
+<th>Ortholog config</th>
+<th>Sources</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Aging (1-to-1)</td>
-<td><code>Aging_specific/Human/**/*.parquet</code></td>
-<td><code>Aging_specific/**/*_ortho_1_to_1.csv</code></td>
+<td><strong>Aging 1:1</strong></td>
+<td><code>ortholog_one2one</code></td>
+<td><code>Aging_specific/</code> Human + 1:1 species files</td>
 </tr>
 <tr>
-<td>Aging (121+12M)</td>
-<td><code>Aging_specific/Human/**/*.parquet</code></td>
-<td><code>Aging_specific/**/*1_to_one2one_plus_one2many.csv</code></td>
+<td><strong>Aging 1:1∪1:M</strong></td>
+<td><code>one2one + one2many</code></td>
+<td><code>Aging_specific/</code> Human + 1:1∪1:M species files</td>
 </tr>
 <tr>
-<td>Biomedical (1-to-1)</td>
-<td><code>Biomedical/Human/**/*.parquet</code></td>
-<td><code>Biomedical/**/*_ortho_1_to_1.csv</code></td>
+<td><strong>Biomedical 1:1</strong></td>
+<td><code>ortholog_one2one</code></td>
+<td><code>Biomedical/</code> Human + 1:1 species files</td>
 </tr>
 <tr>
-<td>Biomedical (121+12M)</td>
-<td><code>Biomedical/Human/**/*.parquet</code></td>
-<td><code>Biomedical/**/*ortho_1_to_one2one_plus_one2many.csv</code></td>
+<td><strong>Biomedical 1:1∪1:M</strong></td>
+<td><code>one2one + one2many</code></td>
+<td><code>Biomedical/</code> Human + 1:1∪1:M species files</td>
 </tr>
 <tr>
-<td>EvoAge (1-to-1)</td>
-<td><code>generalised/**/*.csv</code> + <code>*.parquet</code> (excl. <code>OTHER_SPECIES</code>)</td>
-<td><code>OTHER_SPECIES/&lt;Species&gt;/**/*_ortho_1_to_1.csv</code> <strong>+ 6 species-connection parquet files</strong></td>
+<td><strong>EvoAge 1:1</strong></td>
+<td><code>ortholog_one2one</code></td>
+<td>ALL generalised/ Human + 1:1 species + species connections</td>
 </tr>
 <tr>
-<td>EvoAge (121+12M)</td>
-<td>same human files</td>
-<td><code>**/*1_to_one2one_plus_one2many.csv</code> <strong>+ 6 species-connection parquet files</strong></td>
+<td><strong>EvoAge 1:1∪1:M</strong></td>
+<td><code>one2one + one2many</code></td>
+<td>ALL generalised/ Human + 1:1∪1:M species + species connections</td>
 </tr>
 </tbody>
 </table>
-<h3 id="part-2-vectorized-id-lookup-via-pdseriesmap"><strong>Part 2 — Vectorized ID lookup via <code>pd.Series.map</code></strong><a class="headerlink" href="#part-2-vectorized-id-lookup-via-pdseriesmap" title="Permanent link">&para;</a></h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">head_map_s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">global_mapping</span><span class="p">,</span>   <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;int64&#39;</span><span class="p">)</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">tail_map_s</span> <span class="o">=</span> <span class="n">head_map_s</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">rel_map_s</span>  <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">relation_mapping</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;int64&#39;</span><span class="p">)</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">h</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;head&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">head_map_s</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(</span><span class="s1">&#39;int64&#39;</span><span class="p">)</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="n">t</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;tail&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">tail_map_s</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(</span><span class="s1">&#39;int64&#39;</span><span class="p">)</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="n">r</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;relation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">rel_map_s</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(</span><span class="s1">&#39;int64&#39;</span><span class="p">)</span>
-</span></code></pre></div>
-<h3 id="part-3-unmapped-row-auditing-not-silent-dropping"><strong>Part 3 — Unmapped-row auditing (not silent dropping)</strong><a class="headerlink" href="#part-3-unmapped-row-auditing-not-silent-dropping" title="Permanent link">&para;</a></h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">mask_bad</span> <span class="o">=</span> <span class="p">(</span><span class="n">h</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">t</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">r</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">if</span> <span class="n">mask_bad</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="n">bad</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">mask_bad</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="n">bad</span><span class="p">[</span><span class="s1">&#39;unmapped_head&#39;</span><span class="p">]</span>     <span class="o">=</span> <span class="n">h</span><span class="p">[</span><span class="n">mask_bad</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="n">bad</span><span class="p">[</span><span class="s1">&#39;unmapped_tail&#39;</span><span class="p">]</span>     <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">mask_bad</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="n">bad</span><span class="p">[</span><span class="s1">&#39;unmapped_relation&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">r</span><span class="p">[</span><span class="n">mask_bad</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    <span class="n">bad</span><span class="p">[</span><span class="s1">&#39;source_file&#39;</span><span class="p">]</span>       <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    <span class="n">unmapped_records</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bad</span><span class="p">)</span>
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="n">mask_good</span> <span class="o">=</span> <span class="o">~</span><span class="n">mask_bad</span>
-</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="n">head_index_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">h</span><span class="p">[</span><span class="n">mask_good</span><span class="p">]))</span>
-</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="n">tail_index_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">mask_good</span><span class="p">]))</span>
-</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="n">edge_type_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="n">mask_good</span><span class="p">]))</span>
-</span></code></pre></div>
-<h3 id="part-4-concatenate-dedup-via-bijective-integer-encoding-save"><strong>Part 4 — Concatenate, dedup via bijective integer encoding, save</strong><a class="headerlink" href="#part-4-concatenate-dedup-via-bijective-integer-encoding-save" title="Permanent link">&para;</a></h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">mapped_triples</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">head_index_list</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">edge_type_list</span><span class="p">,</span>  <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">tail_index_list</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</span></code></pre></div>
-<p><strong>Deduplication</strong> uses bijective packing:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">H</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">T</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">mt</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">mt</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">mt</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> <span class="o">+</span> <span class="mi">1</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">INT64_MAX</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">63</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">fits</span> <span class="o">=</span> <span class="p">(</span><span class="n">H</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">R</span> <span class="o">*</span> <span class="n">T</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">R</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">T</span> <span class="o">+</span> <span class="p">(</span><span class="n">T</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">INT64_MAX</span>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="k">if</span> <span class="n">fits</span><span class="p">:</span>
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>    <span class="n">enc</span>  <span class="o">=</span> <span class="n">mt</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">R</span> <span class="o">*</span> <span class="n">T</span><span class="p">)</span> <span class="o">+</span> <span class="n">mt</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">T</span> <span class="o">+</span> <span class="n">mt</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>    <span class="n">enc</span>  <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">enc</span><span class="p">)</span>
-</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>    <span class="n">tail</span> <span class="o">=</span> <span class="n">enc</span> <span class="o">%</span> <span class="n">T</span>
-</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>    <span class="n">rel</span>  <span class="o">=</span> <span class="p">(</span><span class="n">enc</span> <span class="o">//</span> <span class="n">T</span><span class="p">)</span> <span class="o">%</span> <span class="n">R</span>
-</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>    <span class="n">head</span> <span class="o">=</span> <span class="n">enc</span> <span class="o">//</span> <span class="p">(</span><span class="n">T</span> <span class="o">*</span> <span class="n">R</span><span class="p">)</span>
-</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>    <span class="n">mapped_triples</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">head</span><span class="p">,</span> <span class="n">rel</span><span class="p">,</span> <span class="n">tail</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="k">else</span><span class="p">:</span>
-</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>    <span class="n">mapped_triples</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">mapped_triples</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-</span></code></pre></div>
+<h3 id="shared-global-mappings">Shared Global Mappings<a class="headerlink" href="#shared-global-mappings" title="Permanent link">&para;</a></h3>
+<p>All 6 KGs share the <strong>same node-to-integer and relation-to-integer mappings</strong>, built from the EvoAge 1:1∪1:M KG (the largest superset). This ensures that node ID <code>42</code> always refers to the same entity across all KGs, enabling direct comparison.</p>
 <hr />
-<h2 id="74-trainvalidtest-splitting-three-different-strategies"><strong>7.4 Train/Valid/Test Splitting — Three Different Strategies</strong><a class="headerlink" href="#74-trainvalidtest-splitting-three-different-strategies" title="Permanent link">&para;</a></h2>
-<h3 id="741-aging-1-to-1-and-biomedical-1-to-1-independent-801010"><strong>7.4.1 Aging (1-to-1) and Biomedical (1-to-1) — independent 80/10/10</strong><a class="headerlink" href="#741-aging-1-to-1-and-biomedical-1-to-1-independent-801010" title="Permanent link">&para;</a></h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">SEED</span> <span class="o">=</span> <span class="mi">42</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">generator</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">Generator</span><span class="p">()</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">generator</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="n">SEED</span><span class="p">)</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="n">perm</span>     <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randperm</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">generator</span><span class="o">=</span><span class="n">generator</span><span class="p">)</span>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="n">shuffled</span> <span class="o">=</span> <span class="n">mapped_triples</span><span class="p">[</span><span class="n">perm</span><span class="p">]</span>
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="n">n_train</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">N</span> <span class="o">*</span> <span class="mf">0.80</span><span class="p">)</span>
-</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="n">n_valid</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">N</span> <span class="o">*</span> <span class="mf">0.10</span><span class="p">)</span>
-</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="n">n_test</span>  <span class="o">=</span> <span class="n">N</span> <span class="o">-</span> <span class="n">n_train</span> <span class="o">-</span> <span class="n">n_valid</span>
-</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>
-</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="n">train</span><span class="p">,</span> <span class="n">valid</span><span class="p">,</span> <span class="n">test</span> <span class="o">=</span> <span class="n">shuffled</span><span class="p">[:</span><span class="n">n_train</span><span class="p">],</span> <span class="n">shuffled</span><span class="p">[</span><span class="n">n_train</span><span class="p">:</span><span class="n">n_train</span><span class="o">+</span><span class="n">n_valid</span><span class="p">],</span> <span class="n">shuffled</span><span class="p">[</span><span class="n">n_train</span><span class="o">+</span><span class="n">n_valid</span><span class="p">:]</span>
-</span></code></pre></div>
-<h3 id="742-evoage-1-to-1-ab_test-construction-then-leakage-free-9010"><strong>7.4.2 EvoAge (1-to-1) — AB_test construction, then leakage-free 90/10</strong><a class="headerlink" href="#742-evoage-1-to-1-ab_test-construction-then-leakage-free-9010" title="Permanent link">&para;</a></h3>
+<h2 id="3-test-set-flow-the-core-logic">3. Test Set Flow — The Core Logic<a class="headerlink" href="#3-test-set-flow-the-core-logic" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>[!IMPORTANT]
+The test set design is the most critical part of this step. It ensures that when comparing the 1:1 KG against the 1:1∪1:M KG, the evaluation is fair — the same test triples are used for both, and every test triple is guaranteed to exist in both KGs.</p>
+</blockquote>
+<h3 id="how-test-sets-are-generated-and-reused">How test sets are generated and reused<a class="headerlink" href="#how-test-sets-are-generated-and-reused" title="Permanent link">&para;</a></h3>
+<pre class="mermaid"><code>graph TD
+    subgraph "Phase 1: Build 1:1 KGs &amp; generate test sets"
+        A1["Aging 1:1 KG"] --&gt;|"80/10/10 split&lt;br/&gt;(seed=42)"| A1_train["Aging train 80%"]
+        A1 --&gt; A1_valid["Aging valid 10%"]
+        A1 --&gt; A1_test["Aging test 10%"]
+
+        B1["Biomedical 1:1 KG"] --&gt;|"80/10/10 split&lt;br/&gt;(seed=42)"| B1_train["Biomed train 80%"]
+        B1 --&gt; B1_valid["Biomed valid 10%"]
+        B1 --&gt; B1_test["Biomed test 10%"]
+    end
+
+    subgraph "Phase 2: Build EvoAge 1:1 &amp; derive its test set"
+        A1_test --&gt; AB["Union: Aging test ∪ Biomed test&lt;br/&gt;(deduplicated)"]
+        B1_test --&gt; AB
+        E1["EvoAge 1:1 KG&lt;br/&gt;(full)"] --&gt; SUB["Subtract AB_test&lt;br/&gt;from EvoAge"]
+        AB --&gt; SUB
+        SUB --&gt; E1_test["EvoAge test&lt;br/&gt;(AB triples found in EvoAge)"]
+        SUB --&gt; E1_rem["Remaining triples"]
+        E1_rem --&gt;|"90/10 split&lt;br/&gt;(seed=42)"| E1_train["EvoAge train 90%"]
+        E1_rem --&gt; E1_valid["EvoAge valid 10%"]
+    end
+
+    subgraph "Phase 3: Build 1:1∪1:M KGs &amp; reuse 1:1 test sets"
+        A1_test2["Aging 1:1 test ✦"] --&gt; A2_sub["Subtract from&lt;br/&gt;Aging 1:1∪1:M KG"]
+        A2["Aging 1:1∪1:M KG"] --&gt; A2_sub
+        A2_sub --&gt; A2_train["Aging 1:1∪1:M train 90%"]
+        A2_sub --&gt; A2_valid["Aging 1:1∪1:M valid 10%"]
+
+        B1_test2["Biomed 1:1 test ✦"] --&gt; B2_sub["Subtract from&lt;br/&gt;Biomed 1:1∪1:M KG"]
+        B2["Biomed 1:1∪1:M KG"] --&gt; B2_sub
+        B2_sub --&gt; B2_train["Biomed 1:1∪1:M train 90%"]
+        B2_sub --&gt; B2_valid["Biomed 1:1∪1:M valid 10%"]
+
+        E1_test2["EvoAge 1:1 test ✦"] --&gt; E2_sub["Subtract from&lt;br/&gt;EvoAge 1:1∪1:M KG"]
+        E2["EvoAge 1:1∪1:M KG"] --&gt; E2_sub
+        E2_sub --&gt; E2_train["EvoAge 1:1∪1:M train 90%"]
+        E2_sub --&gt; E2_valid["EvoAge 1:1∪1:M valid 10%"]
+    end
+
+    style A1_test fill:#f9e79f,stroke:#f39c12
+    style B1_test fill:#f9e79f,stroke:#f39c12
+    style E1_test fill:#f9e79f,stroke:#f39c12
+    style A1_test2 fill:#f9e79f,stroke:#f39c12
+    style B1_test2 fill:#f9e79f,stroke:#f39c12
+    style E1_test2 fill:#f9e79f,stroke:#f39c12</code></pre>
+<p><strong>✦ = same test set reused</strong> — the 1:1 test is subtracted from the 1:1∪1:M KG so the remaining triples become train+valid.</p>
+<h3 id="why-this-works">Why this works<a class="headerlink" href="#why-this-works" title="Permanent link">&para;</a></h3>
 <ol>
-<li><strong>Combines</strong> Aging and Biomedical 1-to-1 test sets into a single <strong>AB_test</strong></li>
-<li><strong>Removes</strong> AB_test triples from EvoAge 1-to-1 KG</li>
-<li><strong>Splits</strong> the remainder 90/10 into train/valid</li>
-<li><strong>AB_test</strong> itself becomes the EvoAge test set</li>
+<li><strong>1:1 KG is a subset of 1:1∪1:M KG</strong> (guaranteed by construction in Step 04). Therefore every triple in the 1:1 test set also exists in the 1:1∪1:M KG.</li>
+<li>By subtracting the 1:1 test set from the 1:1∪1:M KG, we ensure:</li>
+<li>The <strong>test set is identical</strong> for both configurations → fair comparison</li>
+<li>No test triple leaks into the train/valid sets of the 1:1∪1:M KG</li>
+<li>The remaining triples (after subtraction) are split into train (90%) and valid (10%).</li>
 </ol>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">AB_test</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">aging_test</span><span class="p">,</span> <span class="n">biomedical_test</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="c1"># dedup</span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">AB_enc</span> <span class="o">=</span> <span class="n">encode</span><span class="p">(</span><span class="n">AB_test</span><span class="p">)</span>
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="n">sort_idx</span> <span class="o">=</span> <span class="n">AB_enc</span><span class="o">.</span><span class="n">argsort</span><span class="p">()</span>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="n">AB_sorted_enc</span><span class="p">,</span> <span class="n">AB_sorted_triples</span> <span class="o">=</span> <span class="n">AB_enc</span><span class="p">[</span><span class="n">sort_idx</span><span class="p">],</span> <span class="n">AB_test</span><span class="p">[</span><span class="n">sort_idx</span><span class="p">]</span>
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="n">unique_mask</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">AB_sorted_enc</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">bool</span><span class="p">)</span>
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="n">unique_mask</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">=</span> <span class="n">AB_sorted_enc</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">!=</span> <span class="n">AB_sorted_enc</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="n">AB_test_unique</span> <span class="o">=</span> <span class="n">AB_sorted_triples</span><span class="p">[</span><span class="n">unique_mask</span><span class="p">]</span>
-</span></code></pre></div>
-<p>Subtract via binary search (<code>searchsorted</code>):</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">CHUNK</span> <span class="o">=</span> <span class="mi">50_000_000</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">ab_sorted</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">encode</span><span class="p">(</span><span class="n">AB_test_unique</span><span class="p">))</span>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="n">keep_parts</span><span class="p">,</span> <span class="n">test_parts</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N_full</span><span class="p">,</span> <span class="n">CHUNK</span><span class="p">):</span>
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>    <span class="n">block</span> <span class="o">=</span> <span class="n">evoage_full</span><span class="p">[</span><span class="n">s</span><span class="p">:</span><span class="n">s</span><span class="o">+</span><span class="n">CHUNK</span><span class="p">]</span>
-</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>    <span class="n">keys</span>  <span class="o">=</span> <span class="n">encode</span><span class="p">(</span><span class="n">block</span><span class="p">)</span>
-</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>    <span class="n">pos</span>   <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">ab_sorted</span><span class="p">,</span> <span class="n">keys</span><span class="p">)</span><span class="o">.</span><span class="n">clamp_</span><span class="p">(</span><span class="nb">max</span><span class="o">=</span><span class="n">ab_sorted</span><span class="o">.</span><span class="n">numel</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>    <span class="n">in_ab</span> <span class="o">=</span> <span class="n">ab_sorted</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">==</span> <span class="n">keys</span>
-</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>    <span class="n">test_parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">block</span><span class="p">[</span><span class="n">in_ab</span><span class="p">])</span>
-</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>    <span class="n">keep_parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">block</span><span class="p">[</span><span class="o">~</span><span class="n">in_ab</span><span class="p">])</span>
-</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>
-</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="n">remaining</span>   <span class="o">=</span> <span class="n">concat_free</span><span class="p">(</span><span class="n">keep_parts</span><span class="p">)</span>
-</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="n">evoage_test</span> <span class="o">=</span> <span class="n">concat_free</span><span class="p">(</span><span class="n">test_parts</span><span class="p">)</span>
-</span></code></pre></div>
-<p>The remaining pool is split 90/10:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">generator</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">Generator</span><span class="p">()</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="n">SEED</span><span class="p">)</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">perm</span>      <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randperm</span><span class="p">(</span><span class="n">N_remaining</span><span class="p">,</span> <span class="n">generator</span><span class="o">=</span><span class="n">generator</span><span class="p">)</span>
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="n">shuffled</span>  <span class="o">=</span> <span class="n">remaining</span><span class="p">[</span><span class="n">perm</span><span class="p">]</span>
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
-</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="n">n_train</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">N_remaining</span> <span class="o">*</span> <span class="mf">0.90</span><span class="p">)</span>
-</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="n">train</span><span class="p">,</span> <span class="n">valid</span> <span class="o">=</span> <span class="n">shuffled</span><span class="p">[:</span><span class="n">n_train</span><span class="p">],</span> <span class="n">shuffled</span><span class="p">[</span><span class="n">n_train</span><span class="p">:]</span>
-</span></code></pre></div>
-<h3 id="743-aging-12112m-and-biomedical-12112m-remove-1to1-test-then-9010"><strong>7.4.3 Aging (121+12M) and Biomedical (121+12M) — remove-1to1-test, then 90/10</strong><a class="headerlink" href="#743-aging-12112m-and-biomedical-12112m-remove-1to1-test-then-9010" title="Permanent link">&para;</a></h3>
-<p>The 1-to-1 test set is removed from the 121+12M tensor, and the remainder is split 90/10 into train/valid (the 1-to-1 test set functions as the test set).</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">test_1to1</span>  <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;Store_House/Aging_specific_1to1_KG_test_10.pt&#39;</span><span class="p">)</span>
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">kg_1tomany</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;Store_House/Aging_specific_121_12M_KG.pt&#39;</span><span class="p">)</span>
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
-</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="n">test_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="n">test_1to1</span><span class="o">.</span><span class="n">tolist</span><span class="p">()))</span>
-</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="n">mask</span> <span class="o">=</span> <span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">triple</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">test_set</span> <span class="k">for</span> <span class="n">triple</span> <span class="ow">in</span> <span class="n">kg_1tomany</span><span class="p">]</span>
-</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="n">kg_filtered</span> <span class="o">=</span> <span class="n">kg_1tomany</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
-</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>
-</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="n">train_idx</span><span class="p">,</span> <span class="n">valid_idx</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
-</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>    <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">kg_filtered</span><span class="p">))),</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="n">train_90</span><span class="p">,</span> <span class="n">valid_10</span> <span class="o">=</span> <span class="n">kg_filtered</span><span class="p">[</span><span class="n">train_idx</span><span class="p">],</span> <span class="n">kg_filtered</span><span class="p">[</span><span class="n">valid_idx</span><span class="p">]</span>
-</span></code></pre></div>
-<h3 id="744-evoage-12112m-remove-evoage-1to1-test-then-9010"><strong>7.4.4 EvoAge (121+12M) — remove EvoAge-1to1-test, then 90/10</strong><a class="headerlink" href="#744-evoage-12112m-remove-evoage-1to1-test-then-9010" title="Permanent link">&para;</a></h3>
-<p>Same removal pattern, but using binary search at scale:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">test_keys</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">encode</span><span class="p">(</span><span class="n">test</span><span class="p">))</span>
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="n">train_parts</span><span class="p">,</span> <span class="n">valid_parts</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="n">gen</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">Generator</span><span class="p">()</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="n">SEED</span><span class="p">)</span>
-</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">CHUNK</span><span class="p">):</span>
-</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>    <span class="n">block</span> <span class="o">=</span> <span class="n">kg</span><span class="p">[</span><span class="n">s</span><span class="p">:</span><span class="n">s</span><span class="o">+</span><span class="n">CHUNK</span><span class="p">]</span>
-</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>    <span class="n">keys</span>  <span class="o">=</span> <span class="n">encode</span><span class="p">(</span><span class="n">block</span><span class="p">)</span>
-</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>    <span class="n">pos</span>     <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">test_keys</span><span class="p">,</span> <span class="n">keys</span><span class="p">)</span><span class="o">.</span><span class="n">clamp_</span><span class="p">(</span><span class="nb">max</span><span class="o">=</span><span class="n">test_keys</span><span class="o">.</span><span class="n">numel</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>    <span class="n">in_test</span> <span class="o">=</span> <span class="n">test_keys</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span> <span class="o">==</span> <span class="n">keys</span>
-</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>    <span class="n">kept</span>    <span class="o">=</span> <span class="n">block</span><span class="p">[</span><span class="o">~</span><span class="n">in_test</span><span class="p">]</span>
-</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>
-</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>    <span class="n">vmask</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">kept</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">generator</span><span class="o">=</span><span class="n">gen</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.10</span>
-</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>    <span class="n">valid_parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">kept</span><span class="p">[</span><span class="n">vmask</span><span class="p">])</span>
-</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>    <span class="n">train_parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">kept</span><span class="p">[</span><span class="o">~</span><span class="n">vmask</span><span class="p">])</span>
-</span></code></pre></div>
+<blockquote>
+<p>[!WARNING]
+If separate test sets were drawn for the 1:1 and 1:1∪1:M KGs, some 1:1∪1:M test triples would involve genes that don't exist in the 1:1 KG — making the 1:1 KG's performance artificially worse (evaluating on nodes it has never seen). The shared-test-set approach avoids this bias entirely.</p>
+</blockquote>
 <hr />
-<h2 id="75-test-set-lineage-summary"><strong>7.5 Test-Set Lineage Summary</strong><a class="headerlink" href="#75-test-set-lineage-summary" title="Permanent link">&para;</a></h2>
-<p>The four KG variants' test sets form a strict lineage:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Aging (1-to-1) test_10        ──┐
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>                                 ├──► AB_test (deduped union) ──► EvoAge (1-to-1) test
-</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>Biomedical (1-to-1) test_10   ──┘                                       │
-</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>                                                                           │ (reused as-is)
-</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>        Aging (1-to-1) test_10  ──► removed from Aging (121+12M)        │
-</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>        Biomedical (1-to-1) test_10  ──► removed from Biomedical (121+12M)
-</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>                                                                           ▼
-</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>                                                           EvoAge (1-to-1) test
-</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>                                                                   ──► removed from EvoAge (121+12M)
-</span></code></pre></div>
-<p>This guarantees <strong>any triple that is test data for Aging or Biomedical in any ortholog variant is also test data for EvoAge.</strong></p>
+<h2 id="4-pipeline-step-by-step">4. Pipeline — Step-by-Step<a class="headerlink" href="#4-pipeline-step-by-step" title="Permanent link">&para;</a></h2>
+<h3 id="40-pre-step-build-global-mappings-node-ids-relation-ids">4.0. Pre-step — Build Global Mappings (node IDs + relation IDs)<a class="headerlink" href="#40-pre-step-build-global-mappings-node-ids-relation-ids" title="Permanent link">&para;</a></h3>
+<p>📄 <strong>Script</strong>: <a href="https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/06_tensor_building/making_global_mapping.py">making_global_mapping.py</a></p>
+<p><strong>What it does:</strong></p>
+<ul>
+<li>Reads <strong>all</strong> source files (Human + all species + species connections) for the EvoAge 1:1∪1:M KG (the largest superset)</li>
+<li>Extracts every unique <code>head</code> and <code>tail</code> value → builds a global <code>node → integer</code> mapping</li>
+<li>Extracts every unique <code>relation</code> value → builds a <code>relation → integer</code> mapping</li>
+<li>Uses parallel processing (8 workers) with streaming batches (2M rows) to handle files up to 25 GB</li>
+<li>Saves mappings as <code>node_id_mapping_EvoAge_121_12M.pkl</code> and <code>relation_id_EvoAge_EvoAge_121_12M.csv</code></li>
+</ul>
+<p><strong>Key detail:</strong> The mapping is built from the <strong>largest KG</strong> so that every node/relation across all 6 KGs gets a consistent integer ID. Smaller KGs (Aging, Biomedical) reuse these same mappings — they just use a subset of the IDs.</p>
+<p><strong>Outputs:</strong>
+- <code>node_id_mapping_EvoAge_121_12M.pkl</code> — DataFrame with <code>[Node, MappedID]</code>
+- <code>relation_id_EvoAge_EvoAge_121_12M.csv</code> — CSV with <code>[Relation, MappedID]</code></p>
 <hr />
-<h2 id="76-output-inventory-store_house"><strong>7.6 Output Inventory (Store_House/)</strong><a class="headerlink" href="#76-output-inventory-store_house" title="Permanent link">&para;</a></h2>
+<h3 id="41-build-aging-kgs">4.1. Build Aging KGs<a class="headerlink" href="#41-build-aging-kgs" title="Permanent link">&para;</a></h3>
+<h4 id="run-1-aging-11-kg-build-801010-split">Run 1 — Aging 1:1 KG (build + 80/10/10 split)<a class="headerlink" href="#run-1-aging-11-kg-build-801010-split" title="Permanent link">&para;</a></h4>
+<p>📄 <strong>Script</strong>: <a href="https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/06_tensor_building/building_aging_kg_new/Run_1_Aging_1_to_1.py">Run_1_Aging_1_to_1.py</a></p>
+<p><strong>What it does:</strong></p>
+<ol>
+<li>Loads the global node + relation mappings</li>
+<li>Reads all files from <code>Aging_specific/</code> (Human parquets + <code>*_ortho_1_to_1.csv</code> species files)</li>
+<li>Maps every (head, relation, tail) triple to integer IDs → PyTorch tensor <code>[N, 3]</code></li>
+<li>Deduplicates using bijective int64 encoding</li>
+<li>Saves full KG → <code>Aging_specific_1_to_1_KG.pt</code></li>
+<li><strong>Splits 80/10/10</strong> with seed=42:</li>
+<li><code>Aging_specific_1to1_KG_train_80.pt</code> / <code>.txt</code></li>
+<li><code>Aging_specific_1to1_KG_valid_10.pt</code> / <code>.txt</code></li>
+<li><code>Aging_specific_1to1_KG_test_10.pt</code> / <code>.txt</code> ← <strong>this test set is reused for 1:1∪1:M</strong></li>
+</ol>
+<h4 id="run-2-aging-111m-kg-build-subtract-11-test">Run 2 — Aging 1:1∪1:M KG (build + subtract 1:1 test)<a class="headerlink" href="#run-2-aging-111m-kg-build-subtract-11-test" title="Permanent link">&para;</a></h4>
+<p>📄 <strong>Script</strong>: <a href="https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/06_tensor_building/building_aging_kg_new/Run_2_Aging_121_12M.py">Run_2_Aging_121_12M.py</a></p>
+<p><strong>What it does:</strong></p>
+<ol>
+<li>Builds the Aging 1:1∪1:M KG tensor from <code>Aging_specific/</code> (Human + <code>*_ortho_1_to_one2one_plus_one2many.csv</code>)</li>
+<li>Loads the <strong>1:1 test set</strong> (<code>Aging_specific_1to1_KG_test_10.pt</code>)</li>
+<li><strong>Subtracts</strong> the test triples from the 1:1∪1:M KG</li>
+<li>Splits the remaining triples 90/10 → train/valid</li>
+<li>Saves:</li>
+<li><code>Aging_specific_121_12M_KG_train_90.pt</code> / <code>.txt</code></li>
+<li><code>Aging_specific_121_12M_KG_valid_10.pt</code> / <code>.txt</code></li>
+<li>Test set = <code>Aging_specific_1to1_KG_test_10.pt</code> (same file, reused)</li>
+</ol>
+<hr />
+<h3 id="42-build-biomedical-kgs">4.2. Build Biomedical KGs<a class="headerlink" href="#42-build-biomedical-kgs" title="Permanent link">&para;</a></h3>
+<h4 id="run-1-biomedical-11-kg-build-801010-split">Run 1 — Biomedical 1:1 KG (build + 80/10/10 split)<a class="headerlink" href="#run-1-biomedical-11-kg-build-801010-split" title="Permanent link">&para;</a></h4>
+<p>📄 <strong>Script</strong>: <a href="https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/06_tensor_building/building_biomedical_kg_new/Run_1_Biomedical_1_to_1.py">Run_1_Biomedical_1_to_1.py</a></p>
+<p><strong>Same pattern as Aging Run 1</strong>, but reads from <code>Biomedical/</code> (Human + species 1:1 files).</p>
+<h4 id="run-2-biomedical-111m-kg-build-subtract-11-test">Run 2 — Biomedical 1:1∪1:M KG (build + subtract 1:1 test)<a class="headerlink" href="#run-2-biomedical-111m-kg-build-subtract-11-test" title="Permanent link">&para;</a></h4>
+<p>📄 <strong>Script</strong>: <a href="https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/06_tensor_building/building_biomedical_kg_new/Run_2_Biomedical_121_12M.py">Run_2_Biomedical_121_12M.py</a></p>
+<p><strong>Same pattern as Aging Run 2</strong> — subtracts Biomedical 1:1 test, splits remaining 90/10.</p>
+<hr />
+<h3 id="43-build-evoage-kgs">4.3. Build EvoAge KGs<a class="headerlink" href="#43-build-evoage-kgs" title="Permanent link">&para;</a></h3>
+<h4 id="run-1-evoage-11-kg-build-derive-test-from-aging-biomedical-tests">Run 1 — EvoAge 1:1 KG (build + derive test from Aging ∪ Biomedical tests)<a class="headerlink" href="#run-1-evoage-11-kg-build-derive-test-from-aging-biomedical-tests" title="Permanent link">&para;</a></h4>
+<p>📄 <strong>Script</strong>: <a href="https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/06_tensor_building/building_evoage_kg_new/Run_1_EvoAge_1_to_1.py">Run_1_EvoAge_1_to_1.py</a></p>
+<p><strong>This is the most complex split.</strong> The EvoAge KG is the union of ALL data, so its test set must be derived from the Aging and Biomedical test sets:</p>
+<ol>
+<li>Builds the EvoAge 1:1 KG tensor from ALL generalised/ Human files + all species <code>*_ortho_1_to_1.csv</code> + species connection parquets</li>
+<li>Loads both <strong>Aging 1:1 test</strong> and <strong>Biomedical 1:1 test</strong></li>
+<li><strong>Unions</strong> them → <code>AB_test</code> (deduplicated)</li>
+<li><strong>Subtracts</strong> AB_test from the full EvoAge KG (chunked, RAM-safe with 50M-row chunks)</li>
+<li>Triples found in EvoAge that match AB_test → <strong>EvoAge test set</strong></li>
+<li>Remaining triples → train + valid pool</li>
+<li>Shuffles remaining with seed=42, splits 90/10 → train/valid</li>
+<li><strong>Asserts <code>train + valid + test == N_full</code></strong> (exact sum check)</li>
+<li>Saves:</li>
+<li><code>EvoAge_1to1_KG_train_90.pt</code> / <code>.txt</code></li>
+<li><code>EvoAge_1to1_KG_valid_10.pt</code> / <code>.txt</code></li>
+<li><code>EvoAge_1to1_KG_test.pt</code> / <code>.txt</code></li>
+</ol>
+<blockquote>
+<p>[!NOTE]
+Some AB_test triples may NOT be found in the EvoAge KG (if deduplication at the triple level removed them). These are logged as <code>AB NOT in EvoAge (dropped)</code> and excluded from the EvoAge test set.</p>
+</blockquote>
+<h4 id="run-2-evoage-111m-kg-subtract-11-test-split-remaining">Run 2 — EvoAge 1:1∪1:M KG (subtract 1:1 test, split remaining)<a class="headerlink" href="#run-2-evoage-111m-kg-subtract-11-test-split-remaining" title="Permanent link">&para;</a></h4>
+<p>📄 <strong>Script</strong>: <a href="https://github.com/the-ahuja-lab/EvoAge/blob/main/pipeline/06_tensor_building/building_evoage_kg_new/Run_2_EvoAge_121_12M.py">Run_2_EvoAge_121_12M.py</a></p>
+<p><strong>What it does:</strong></p>
+<ol>
+<li>Loads the EvoAge 1:1∪1:M full KG (<code>EvoAge_121_12M_to_many_KG.pt</code>)</li>
+<li>Loads the <strong>EvoAge 1:1 test</strong> (<code>EvoAge_1to1_KG_test.pt</code>)</li>
+<li>Subtracts test triples from the 1:1∪1:M KG (chunked)</li>
+<li>Splits remaining 90/10 (stochastic per-row assignment with seed=42)</li>
+<li>Saves:</li>
+<li><code>EvoAge_121_12M_KG_train_90.pt</code> / <code>.txt</code></li>
+<li><code>EvoAge_121_12M_KG_valid_10.pt</code> / <code>.txt</code></li>
+<li>Test set = <code>EvoAge_1to1_KG_test.pt</code> / <code>.txt</code> (same file, reused)</li>
+</ol>
+<p>Also generates final training-format files:
+- <code>entities_final.dict</code> — tab-separated <code>MappedID → Node</code> mapping
+- <code>relation_final.dict</code> — tab-separated <code>MappedID → Relation</code> mapping</p>
+<hr />
+<h2 id="5-split-summary-table">5. Split Summary Table<a class="headerlink" href="#5-split-summary-table" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
-<th>File</th>
-<th>Variant</th>
-<th>Content</th>
+<th>KG Variant</th>
+<th>Split</th>
+<th>Source of test set</th>
+<th>Split ratio</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>node_id_mapping_EvoAge_121_12M.pkl</code></td>
-<td>global</td>
-<td>Node string → integer ID</td>
+<td><strong>Aging 1:1</strong></td>
+<td>80/10/10 random</td>
+<td>Self (random split)</td>
+<td>80 train / 10 valid / 10 test</td>
 </tr>
 <tr>
-<td><code>relation_id_EvoAge_EvoAge_121_12M.csv</code></td>
-<td>global</td>
-<td>Relation string → integer ID</td>
+<td><strong>Aging 1:1∪1:M</strong></td>
+<td>Subtract 1:1 test → 90/10</td>
+<td>Aging 1:1 test</td>
+<td>90 train / 10 valid / test from 1:1</td>
 </tr>
 <tr>
-<td><code>Aging_specific_1_to_1_KG.pt</code></td>
-<td>Aging 1-to-1</td>
-<td>Full deduped tensor</td>
+<td><strong>Biomedical 1:1</strong></td>
+<td>80/10/10 random</td>
+<td>Self (random split)</td>
+<td>80 train / 10 valid / 10 test</td>
 </tr>
 <tr>
-<td><code>Aging_specific_1to1_KG_train_80.pt</code> / <code>_valid_10.pt</code> / <code>_test_10.pt</code></td>
-<td>Aging 1-to-1</td>
-<td>80/10/10 split</td>
+<td><strong>Biomedical 1:1∪1:M</strong></td>
+<td>Subtract 1:1 test → 90/10</td>
+<td>Biomedical 1:1 test</td>
+<td>90 train / 10 valid / test from 1:1</td>
 </tr>
 <tr>
-<td><code>Aging_specific_121_12M_KG.pt</code></td>
-<td>Aging 121+12M</td>
-<td>Full deduped tensor</td>
+<td><strong>EvoAge 1:1</strong></td>
+<td>Subtract AB_test → 90/10</td>
+<td>Union(Aging 1:1 test, Biomed 1:1 test)</td>
+<td>90 train / 10 valid / AB test</td>
 </tr>
 <tr>
-<td><code>Aging_specific_121_12M_KG_train_90.pt</code> / <code>_valid_10.pt</code></td>
-<td>Aging 121+12M</td>
-<td>90/10 split (test = Aging 1-to-1 test)</td>
-</tr>
-<tr>
-<td><code>Biomedical_1_to_1_KG.pt</code></td>
-<td>Biomedical 1-to-1</td>
-<td>Full deduped tensor</td>
-</tr>
-<tr>
-<td><code>Biomedical_1to1_KG_train_80.pt</code> / <code>_valid_10.pt</code> / <code>_test_10.pt</code></td>
-<td>Biomedical 1-to-1</td>
-<td>80/10/10 split</td>
-</tr>
-<tr>
-<td><code>Biomedical_121_12M_KG.pt</code></td>
-<td>Biomedical 121+12M</td>
-<td>Full deduped tensor</td>
-</tr>
-<tr>
-<td><code>Biomedical_121_12M_KG_train_90.pt</code> / <code>_valid_10.pt</code></td>
-<td>Biomedical 121+12M</td>
-<td>90/10 split (test = Biomedical 1-to-1 test)</td>
-</tr>
-<tr>
-<td><code>EvoAge_1_to_1_KG.pt</code></td>
-<td>EvoAge 1-to-1</td>
-<td>Full deduped tensor</td>
-</tr>
-<tr>
-<td><code>EvoAge_1to1_KG_train_90.pt</code> / <code>_valid_10.pt</code> / <code>_test.pt</code></td>
-<td>EvoAge 1-to-1</td>
-<td>test = AB_test; 90/10 of remainder</td>
-</tr>
-<tr>
-<td><code>EvoAge_121_12M_to_many_KG.pt</code></td>
-<td>EvoAge 121+12M</td>
-<td>Full deduped tensor</td>
-</tr>
-<tr>
-<td><code>EvoAge_121_12M_KG_train_90.pt</code> / <code>_valid_10.pt</code></td>
-<td>EvoAge 121+12M</td>
-<td>90/10 split (test = EvoAge 1-to-1 test)</td>
-</tr>
-<tr>
-<td><code>entities_final.dict</code></td>
-<td>global</td>
-<td><code>MappedID \t Node</code></td>
-</tr>
-<tr>
-<td><code>relation_final.dict</code></td>
-<td>global</td>
-<td><code>MappedID \t Relation</code></td>
+<td><strong>EvoAge 1:1∪1:M</strong></td>
+<td>Subtract 1:1 test → 90/10</td>
+<td>EvoAge 1:1 test</td>
+<td>90 train / 10 valid / test from 1:1</td>
 </tr>
 </tbody>
 </table>
-<p>Every tensor twin is also written as a TSV file for training pipelines.</p>
 <hr />
-<h2 id="next-steps"><strong>Next Steps</strong><a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<h2 id="6-output-directory-structure">6. Output Directory Structure<a class="headerlink" href="#6-output-directory-structure" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>final_kg_building_2/
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├── building_aging_kg_new/
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│   └── Store_House/
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│       ├── Aging_specific_1_to_1_KG.pt              ← full 1:1 KG
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>│       ├── Aging_specific_1to1_KG_train_80.pt|.txt  ← 1:1 train
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│       ├── Aging_specific_1to1_KG_valid_10.pt|.txt  ← 1:1 valid
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│       ├── Aging_specific_1to1_KG_test_10.pt|.txt   ← 1:1 test (REUSED)
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│       ├── Aging_specific_121_12M_KG.pt              ← full 1:1∪1:M KG
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│       ├── Aging_specific_121_12M_KG_train_90.pt|.txt
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│       ├── Aging_specific_121_12M_KG_valid_10.pt|.txt
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>│
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>├── building_biomedical_kg_new/
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>│   └── Store_House/
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>│       ├── Biomedical_1_to_1_KG.pt                   ← full 1:1 KG
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>│       ├── Biomedical_1to1_KG_train_80.pt|.txt
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>│       ├── Biomedical_1to1_KG_valid_10.pt|.txt
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>│       ├── Biomedical_1to1_KG_test_10.pt|.txt        ← 1:1 test (REUSED)
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>│       ├── Biomedical_121_12M_KG.pt                   ← full 1:1∪1:M KG
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>│       ├── Biomedical_121_12M_KG_train_90.txt
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>│       ├── Biomedical_121_12M_KG_valid_10.txt
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>│
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>├── building_evoage_kg_new/
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>│   └── Store_House/
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>│       ├── node_id_mapping_EvoAge_121_12M.pkl         ← GLOBAL node mapping
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>│       ├── relation_id_EvoAge_EvoAge_121_12M.csv      ← GLOBAL relation mapping
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>│       ├── EvoAge_1_to_1_KG.pt                        ← full 1:1 KG
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>│       ├── EvoAge_1to1_KG_train_90.pt|.txt
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>│       ├── EvoAge_1to1_KG_valid_10.pt|.txt
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>│       ├── EvoAge_1to1_KG_test.pt|.txt                ← derived from Aging∪Biomed test
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>│       ├── EvoAge_121_12M_to_many_KG.pt               ← full 1:1∪1:M KG
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>│       ├── EvoAge_121_12M_KG_train_90.pt|.txt
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>│       ├── EvoAge_121_12M_KG_valid_10.pt|.txt
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>│       ├── entities_final.dict
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>│       └── relation_final.dict
+</span></code></pre></div>
+<hr />
+<h2 id="7-technical-implementation-details">7. Technical Implementation Details<a class="headerlink" href="#7-technical-implementation-details" title="Permanent link">&para;</a></h2>
+<h3 id="bijective-int64-encoding-for-deduplication">Bijective int64 encoding for deduplication<a class="headerlink" href="#bijective-int64-encoding-for-deduplication" title="Permanent link">&para;</a></h3>
+<p>Rather than using <code>torch.unique(dim=0)</code> (O(N²) memory for large tensors), the pipeline encodes each <code>(head, relation, tail)</code> triple as a single <code>int64</code>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>encoded = head × (R × T) + relation × T + tail
+</span></code></pre></div>
+<p>where R = max_relation_id + 1, T = max_tail_id + 1. This reduces dedup to <code>torch.unique()</code> on a 1-D tensor — orders of magnitude faster for billion-scale KGs. An overflow check ensures this fits within int64 range.</p>
+<h3 id="chunked-subtract-for-ram-safety">Chunked subtract for RAM safety<a class="headerlink" href="#chunked-subtract-for-ram-safety" title="Permanent link">&para;</a></h3>
+<p>The EvoAge KG has ~1.2B+ triples. Subtracting the test set uses a <strong>sorted-searchsorted</strong> approach:
+1. Sort the (small) test keys once
+2. Stream the (large) KG in 50M-row chunks
+3. For each chunk: <code>searchsorted</code> + equality check → boolean mask
+4. Accumulate kept/removed parts without holding the full tensor</p>
+<h3 id="reproducibility">Reproducibility<a class="headerlink" href="#reproducibility" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Random seed</td>
+<td><code>42</code> (for <code>torch.manual_seed</code>, <code>np.random.seed</code>, <code>torch.Generator</code>)</td>
+</tr>
+<tr>
+<td>Split method</td>
+<td><code>torch.randperm</code> with fixed generator</td>
+</tr>
+<tr>
+<td>Ensembl release</td>
+<td>e114 (inherited from Step 04)</td>
+</tr>
+<tr>
+<td>Output format</td>
+<td><code>.pt</code> (PyTorch tensor) + <code>.txt</code> (tab-separated integers, PyKEEN-compatible)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="8-key-design-decisions">8. Key Design Decisions<a class="headerlink" href="#8-key-design-decisions" title="Permanent link">&para;</a></h2>
 <ol>
-<li>✅ <strong>All four KG variants built and split?</strong> → Proceed to DGL-KE / PyKEEN model training.</li>
-<li><strong>Re-running with a 6<sup>th</sup> species?</strong> → Rebuild the global mapping first.</li>
-<li><strong>Auditing for test-set leakage?</strong> → Verify using searchsorted membership check.</li>
+<li>
+<p><strong>Single global mapping</strong>: All 6 KGs share the same node/relation IDs, built from the largest KG (EvoAge 1:1∪1:M). This means Aging KG node 42 = Biomedical KG node 42 = EvoAge KG node 42.</p>
+</li>
+<li>
+<p><strong>Test set hierarchy</strong>: Aging and Biomedical get their own 80/10/10 split. EvoAge's test set is the <strong>union</strong> of the Aging and Biomedical test sets (since EvoAge = Aging ∪ Biomedical ∪ generalised). This avoids generating a separate EvoAge test set that might overlap with already-evaluated Aging/Biomedical triples.</p>
+</li>
+<li>
+<p><strong>1:1∪1:M gets 90/10 (no separate test)</strong>: Since the 1:1 test set is subtracted first, the remaining pool only needs a train/valid split (90/10). The test set is always the 1:1 test — this is the whole point of the design.</p>
+</li>
+<li>
+<p><strong>Unmapped triples audited</strong>: Any triple whose head/tail/relation is not in the global mapping is logged to <code>unmapped_triples_*.csv</code> for debugging, not silently dropped.</p>
+</li>
+<li>
+<p><strong>Sum-check assertion</strong>: After splitting, the code asserts <code>len(train) + len(valid) + len(test) == len(full_KG)</code> to guarantee no triples are lost or duplicated.</p>
+</li>
 </ol>
+<hr />
+<h2 id="9-next-step">9. Next Step<a class="headerlink" href="#9-next-step" title="Permanent link">&para;</a></h2>
+<p>→ <strong><a href="../training/">Step 07 — Training</a></strong>: Train KG embedding models (e.g., TransE, RotatE, ComplEx) on the train/valid/test splits using PyKEEN or equivalent frameworks.</p>
 
 
 
@@ -1199,13 +1866,13 @@
         
         
           
-          <a href="../documentation-structure/" class="md-footer__link md-footer__link--next" aria-label="Next: Structure">
+          <a href="../training/" class="md-footer__link md-footer__link--next" aria-label="Next: Training &amp; Evaluation">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Structure
+                Training & Evaluation
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1246,10 +1913,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["announce.dismiss","content.code.annotate","content.code.copy","content.code.select","content.footnote.tooltips","content.tabs.link","content.tooltips","navigation.footer","navigation.indexes","navigation.instant","navigation.instant.prefetch","navigation.path","navigation.sections","navigation.top","navigation.tracking","search.highlight"],"search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../assets/javascripts/bundle.66be65ca.min.js"></script>
+      <script src="../assets/javascripts/bundle.69c251d7.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
