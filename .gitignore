@@ -54,3 +54,6 @@ logs/
 *.json
 
 /DGL-EvoKG-Data/
+# --- Secrets (real credentials despite the name) ---
+.envsafe
+**/.envsafe
