@@ -13,7 +13,7 @@ This database fragmentation presents a major bottleneck: **How do we translate a
 ## 2. The EvoAge Breakthrough
 **EvoAge** bridges this gap by unifying evolutionary orthology, systems biology, and Agentic AI. It integrates **48 public databases** into a massive, harmonized multi-species Knowledge Graph:
 
-* **1.04 Billion Triples**: Spanning 16 biological entity types and 89 relation types.
+* **1.2 Billion Triples**: Spanning 16 biological entity types and 89 relation types.
 * **6 Key Species**: Human (*Homo sapiens*), Mouse (*Mus musculus*), Fruit Fly (*Drosophila melanogaster*), Roundworm (*Caenorhabditis elegans*), Yeast (*Saccharomyces cerevisiae*), and Zebrafish (*Danio rerio*).
 * **80,000+ Gene Orthology Mappings**: Translating genes from model organisms into a unified, human-centric vector space.
 

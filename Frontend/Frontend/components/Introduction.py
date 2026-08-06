@@ -227,7 +227,7 @@ def show_intro_page():
             </div>
             <div class="evokg-subheader">
                 An AI-powered platform for cross-species aging research—built on a unified graph of 
-                <span class="bubble-highlight">1.04B</span> biological relationships.
+                <span class="bubble-highlight">1.2B</span> biological relationships.
             </div>
             <div class="evokg-divider"></div>
         </div>
@@ -237,7 +237,7 @@ def show_intro_page():
                 <span class="evokg-header-emoji">🧬</span> What is EvoAge?
             </div>
             <div class="evokg-page-content">
-                EvoAge integrates 48 aging and biomedical databases into a human-centric knowledge graph spanning six model organisms.
+                EvoAge integrates 51 aging and biomedical databases into a human-centric knowledge graph spanning six model organisms.
                 Through orthology-based mapping and optimized graph embeddings, it enables discovery of conserved aging mechanisms 
                 and supports AI-driven hypothesis testing.
             </div>
@@ -248,7 +248,7 @@ def show_intro_page():
                 <div class="evokg-feature-icon">🔍</div>
                 <div class="evokg-feature-title">Explore Knowledge</div>
                 <div class="evokg-feature-desc">
-                    Query over <b>1.04B</b> relationships across six species.
+                    Query over <b>1.2B</b> relationships across six species.
                 </div>
             </div>
             <div class="evokg-feature-card">
@@ -551,14 +551,14 @@ def show_intro_page():
 #             </div>
 #             <div class="evokg-subheader">
 #                 An AI-powered platform for cross-species aging research—built on a unified graph of 
-#                 <span class="bubble-highlight">1.04B</span> biological relationships.
+#                 <span class="bubble-highlight">1.2B</span> biological relationships.
 #             </div>
 #             <div class="evokg-divider"></div>
 #         </div>
 #         <div class="evokg-page-card">
 #             <div class="evokg-page-title"><span class="evokg-header-emoji">🧬</span> What is EvoAge?</div>
 #             <div class="evokg-page-content">
-#                 EvoAge integrates 48 aging and biomedical databases into a human-centric knowledge graph spanning six model organisms.
+#                 EvoAge integrates 51 aging and biomedical databases into a human-centric knowledge graph spanning six model organisms.
 #                 Through orthology-based mapping and optimized graph embeddings, it enables discovery of conserved aging mechanisms 
 #                 and supports AI-driven hypothesis testing.
 #             </div>
@@ -568,7 +568,7 @@ def show_intro_page():
 #                 <div class="evokg-feature-icon">🔍</div>
 #                 <div class="evokg-feature-title">Explore Knowledge</div>
 #                 <div class="evokg-feature-desc">
-#                     Query over <b>1.04B</b> relationships across humans, mice, flies, worms, zebrafish, and yeast.
+#                     Query over <b>1.2B</b> relationships across humans, mice, flies, worms, zebrafish, and yeast.
 #                 </div>
 #             </div>
 #             <div class="evokg-feature-card">
@@ -794,14 +794,14 @@ def show_intro_page():
 #         <div class="evokg-header-wrapper">
 #             <div class="evokg-header">✨ Welcome to EvoAge</div>
 #             <div class="evokg-subheader">
-#                 🧬 An AI-powered platform for cross-species aging research, built on a unified knowledge graph of 1.04 billion biological relationships.
+#                 🧬 An AI-powered platform for cross-species aging research, built on a unified knowledge graph of 1.2 billion biological relationships.
 #             </div>
 #             <div class="evokg-divider"></div>
 #         </div>
 #         <div class="evokg-page-card">
 #             <div class="evokg-page-title">🧬 What is EvoAge?</div>
 #             <div class="evokg-page-content">
-#                 EvoAge integrates 48 aging and biomedical databases into a human-centric knowledge graph spanning six model organisms. 
+#                 EvoAge integrates 51 aging and biomedical databases into a human-centric knowledge graph spanning six model organisms. 
 #                 Through orthology-based mapping and optimized graph embeddings, it enables discovery of evolutionarily conserved aging mechanisms 
 #                 and provides AI-driven hypothesis testing with experimental validation.
 #             </div>
@@ -811,7 +811,7 @@ def show_intro_page():
 #                 <div class="evokg-feature-icon">🔍</div>
 #                 <div class="evokg-feature-title">Explore Knowledge</div>
 #                 <div class="evokg-feature-desc">
-#                     Query <b>1.04</b> billion relationships across humans, mice, zebrafish, flies, worms, and yeast through unified orthology mapping.
+#                     Query <b>1.2</b> billion relationships across humans, mice, zebrafish, flies, worms, and yeast through unified orthology mapping.
 #                 </div>
 #             </div>
 #             <div class="evokg-feature-card">

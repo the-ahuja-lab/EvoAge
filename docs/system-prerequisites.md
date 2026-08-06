@@ -2,7 +2,7 @@
 
 This document details the hardware specifications, storage configurations, and operating system requirements of the workstation on which all EvoAge data processing, graph construction, model training, and evaluation are performed.
 
-Due to the scale of the integrated EvoAge Knowledge Graph (~1.04 billion triples, 16 entity types, and 89 relation types), standard workstation hardware is insufficient. Below is the minimum recommended hardware profile required to run the pipeline successfully.
+Due to the scale of the integrated EvoAge Knowledge Graph (~1.2 billion triples, 16 entity types, and 89 relation types), standard workstation hardware is insufficient. Below is the minimum recommended hardware profile required to run the pipeline successfully.
 
 ---
 

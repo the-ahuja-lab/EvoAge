@@ -242,7 +242,7 @@ def show_login_signup(initial_choice_index=0):
             <p class="evo-header-subtext">
                 A next-generation, multi-species platform that integrates  
                 <strong>48 biological databases</strong>, <strong>6 model organisms</strong>,  
-                and <strong>1.04B knowledge graph triples</strong>  
+                and <strong>1.2B knowledge graph triples</strong>  
                 to power AI-driven discovery in aging biology.
             </p>
         </div>
@@ -257,7 +257,7 @@ def show_login_signup(initial_choice_index=0):
             </div>
             <div class="evo-feature-card">
                 <div class="evo-feature-icon">🕸️</div>
-                <div class="evo-feature-title">1.04B-Triple Knowledge Graph</div>
+                <div class="evo-feature-title">1.2B-Triple Knowledge Graph</div>
                 <div class="evo-feature-desc">
                     A dense biological network connecting genes, chemicals,  
                     diseases, pathways, and phenotypes.
@@ -549,7 +549,7 @@ def show_login_signup(initial_choice_index=0):
 #     st.markdown("""
 #     <div class="stat-strips-wrapper">
 #         <div class="stat-card">
-#             <div class="stat-value">1.04B+</div>
+#             <div class="stat-value">1.2B+</div>
 #             <div class="stat-label">KG Triples</div>
 #         </div>
 #         <div class="stat-card">
