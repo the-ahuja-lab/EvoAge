@@ -6,7 +6,7 @@ This document provides the complete, end-to-end execution code required to host 
 
 # Environment Setup
 
-### 1. SGLang Environment Setup (Python 3.11)
+### 1 SGLang Environment Setup (Python 3.11)
 
 Create a dedicated Conda environment for serving LLMs with SGLang.
 
