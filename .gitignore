@@ -57,3 +57,7 @@ logs/
 # --- Secrets (real credentials despite the name) ---
 .envsafe
 **/.envsafe
+
+# --- Secrets (real credentials despite the name) ---
+.envsafe
+**/.envsafe
