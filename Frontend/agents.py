@@ -554,6 +554,119 @@ Interaction: Keep responses concise and offer summaries or options for large dat
             return {"error": f"Failed to get hello world message: {str(e)}"}
 
     @ai_function
+    def get_kg_ranking(
+        self,
+        source_label: Annotated[
+            str,
+            AIParam(
+                desc="Label of the entities to rank (e.g. Disease, Gene, Protein, ChemicalEntity)"
+            ),
+        ],
+        target_label: Annotated[
+            str,
+            AIParam(
+                desc="Label of the neighbours to count (e.g. Gene, BiologicalProcess, Phenotype)"
+            ),
+        ] = "",
+        rel_type: Annotated[
+            str,
+            AIParam(
+                desc="Optional single relationship type to restrict to (e.g. Disease_Gene)"
+            ),
+        ] = "",
+        entity_name: Annotated[
+            str,
+            AIParam(
+                desc="Optional: restrict to entities whose name contains this text, e.g. 'cellular senescence'"
+            ),
+        ] = "",
+        limit: Annotated[
+            int,
+            AIParam(desc="How many entities to return, default 10"),
+        ] = 10,
+    ) -> dict:
+        """
+        Rank entities by how many neighbours they have, computed across the ENTIRE
+        knowledge graph.
+
+        Use this for superlative and ranking questions -- "which disease has the
+        most associated genes", "top 10 genes by number of biological processes",
+        "which chemical affects the most pathways" -- and for counting the
+        neighbours of one named entity, by setting entity_name and limit=1
+        (e.g. "how many genes are associated with cellular senescence").
+
+        Never answer a "which has the most" question by fetching a few example
+        nodes and comparing them: that returns the maximum of the sample, not of
+        the graph, and the graph contains tens of thousands of entities per label.
+
+        Args:
+          source_label: Label of the entities being ranked
+          target_label: Label of the neighbours being counted
+          rel_type: Optional relationship type to restrict to
+          entity_name: Optional name filter on the ranked entities
+          limit: Number of results to return
+
+        Returns:
+          dict: entities ordered by neighbour count, highest first
+        """
+        try:
+            params = {"source_label": source_label, "limit": limit}
+            if target_label:
+                params["target_label"] = target_label
+            if rel_type:
+                params["rel_type"] = rel_type
+            if entity_name:
+                params["entity_name"] = entity_name
+            # Aggregations scan many relationships; allow well beyond the default.
+            return self.api_call("kg_aggregate", timeout=900, **params)
+        except Exception as e:
+            logging.error(f"Error calling kg_aggregate endpoint: {str(e)}")
+            return {"error": f"Failed to compute knowledge graph ranking: {str(e)}"}
+
+    @ai_function
+    def get_kg_statistics(
+        self,
+        label: Annotated[
+            str,
+            AIParam(
+                desc="Optional single node label to count (e.g. Gene, Disease, Protein, ChemicalEntity). Leave empty to get counts for every label."
+            ),
+        ] = "",
+        rel_type: Annotated[
+            str,
+            AIParam(
+                desc="Optional single relationship type to count (e.g. Gene_Disease, Disease_Gene). Leave empty to get counts for every relationship type."
+            ),
+        ] = "",
+    ) -> dict:
+        """
+        Count what the knowledge graph contains. Use this for any question about
+        how many nodes, entities, relationships or edges exist -- for example
+        "how many diseases are in the knowledge graph", "how many genes are
+        there", "what is the total number of edges", "how many node types exist"
+        or "how many relationship types are there".
+
+        Args:
+          label: Optional node label to restrict the node counts to (e.g. Gene, Disease)
+          rel_type: Optional relationship type to restrict the relationship counts to (e.g. Gene_Disease)
+
+        Returns:
+          dict: total_nodes, total_relationships, node_label_count,
+            relationship_type_count, and per-label / per-relationship-type counts
+        """
+        try:
+            params = {}
+            if label:
+                params["label"] = label
+            if rel_type:
+                params["rel_type"] = rel_type
+            response = self.api_call("kg_statistics", **params)
+            return response
+        except Exception as e:
+            logging.error(f"Error calling kg_statistics endpoint: {str(e)}")
+            return {"error": f"Failed to retrieve knowledge graph statistics: {str(e)}"}
+
+    @ai_function
     def get_sample_triples(
         self,
         rel_type: Annotated[
@@ -590,7 +703,13 @@ Interaction: Keep responses concise and offer summaries or options for large dat
         ],
     ) -> List[dict]:
         """
-        Retrieve 10 nodes of a given type, returning either id or name as available.
+        Retrieve a SAMPLE of up to 10 example nodes of a given type, to show what
+        nodes of that type look like.
+
+        This returns only a small sample, NEVER the full set and NEVER a total.
+        Do not use it to count anything or to answer "how many" questions -- the
+        number of rows it returns says nothing about how many such nodes exist.
+        For counts and totals use get_kg_statistics instead.
 
         Args:
           label: The label of the nodes to retrieve (e.g., Gene, Protein, Disease, ChemicalEntity, Phenotype, Tissue, Anatomy, BiologicalProcess, MolecularFunction, CellularComponent, Pathway, Mutation, PMID, Species, PlantExtract)

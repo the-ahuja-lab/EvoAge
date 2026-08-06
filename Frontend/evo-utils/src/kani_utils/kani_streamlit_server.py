@@ -43,7 +43,7 @@ def initialize_app_config(**kwargs):
         "menu_items": {
             "Get Help": "https://github.com/the-ahuja-lab/EvoAge/issues",
             "Report a Bug": "https://github.com/the-ahuja-lab/EvoAge/issues",
-            "About": "EvoAge",
+            "About": "The Ahuja lab",
         }
     }
 
