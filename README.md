@@ -1,4 +1,4 @@
-# Cross-Species Aging Knowledge Integration into Agentic AI Platform Uncovers Conserved Mechanisms
+# Cross-Species Aging Knowledge Integration through a Knowledge-Grounded AI Platform Uncovers Conserved Mechanisms
 
 
 ### Overview
