@@ -13,8 +13,8 @@ Create a dedicated Conda environment for serving LLMs with SGLang.
 
 ```bash
 # Create and activate a new Conda environment
-conda create -n sglang python=3.11 -y
-conda activate sglang
+conda create -n vllm3 python=3.11 -y
+conda activate vllm3
 
 # Upgrade pip
 pip install --upgrade pip
@@ -26,9 +26,23 @@ pip install "sglang[all]==0.5.15.post1"
 python -c "import sglang; print(sglang.__version__)"
 ```
 
+## 2. GraphGen Environment Setup
 
 
-## 2. LLaMA-Factory Environment Setup (Python 3.11+)
+Clone the GraphGen repository and install dependencies in an isolated Python 3.10 environment:
+```bash
+# Clone the repository and navigate into it
+cd pipeline/10_llm_fintunning/GraphGen/
+
+# Create and activate a new Conda environment
+conda create -n graphgen python=3.10 -y
+conda activate graphgen
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+## 3. LLaMA-Factory Environment Setup (Python 3.11+)
 Because LLaMA-Factory requires **Python >= 3.11**, you must run it in a separate, isolated environment to avoid python version conflicts with GraphGen:
 ```bash
 # Create and activate a separate conda environment
@@ -78,7 +92,7 @@ flowchart TD
 
 ---
 
-## 2. pipeline_data_gen.sh (Step 1 & 2)
+## 2. pipeline_data_gen.sh
 
 This script runs the Knowledge Graph preparation and the question-answer dataset synthesis:
 
