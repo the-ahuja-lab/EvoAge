@@ -1,6 +1,6 @@
 # EvoAge Shell Setup Flow
 
-![EvoAge setup command flow](./evoage_setup_flow_improved%281%29.svg)
+![EvoAge setup command flow](./evoage_setup_flow.svg)
 
 This folder contains helper scripts for setting up EvoAge with fewer manual commands while keeping verification checks visible.
 
