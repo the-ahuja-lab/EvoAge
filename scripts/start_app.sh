@@ -274,6 +274,63 @@ check_backend_model_artifacts() {
   info "Backend DGL-EvoKG model/data file check passed."
 }
 
+check_blackwell_cuda_compatibility() {
+  local gpu_info
+  local gpu_name=""
+  local capability=""
+  local arch_list=""
+
+  [[ "$START_BACKEND" == "1" ]] || return 0
+  have conda || return 0
+  conda_env_exists "$BACKEND_ENV_NAME" || return 0
+
+  if have nvidia-smi; then
+    gpu_info="$(nvidia-smi --query-gpu=name,compute_cap --format=csv,noheader 2>/dev/null | head -n 1 || true)"
+    if [[ -n "$gpu_info" ]]; then
+      gpu_name="${gpu_info%%,*}"
+      capability="${gpu_info#*,}"
+      gpu_name="$(printf '%s' "$gpu_name" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"
+      capability="$(printf '%s' "$capability" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"
+    fi
+  fi
+
+  if [[ -z "$capability" ]]; then
+    gpu_info="$(conda run -n "$BACKEND_ENV_NAME" python - <<'PYGPU' 2>/dev/null || true
+import torch
+
+try:
+    if not torch.cuda.is_available():
+        raise SystemExit
+    major, minor = torch.cuda.get_device_capability(0)
+    print("|".join([torch.cuda.get_device_name(0), f"{major}.{minor}"]))
+except Exception:
+    pass
+PYGPU
+)"
+    if [[ -n "$gpu_info" ]]; then
+      IFS='|' read -r gpu_name capability <<< "$gpu_info"
+    fi
+  fi
+
+  arch_list="$(conda run -n "$BACKEND_ENV_NAME" python - <<'PYARCH' 2>/dev/null || true
+import torch
+
+try:
+    print(",".join(torch.cuda.get_arch_list()))
+except Exception:
+    pass
+PYARCH
+)"
+
+  if [[ "$capability" == 12.* && "$arch_list" != *"sm_120"* ]]; then
+    warn "Detected a Blackwell GPU ($gpu_name, compute capability $capability), but the backend PyTorch build does not include sm_120 CUDA kernels."
+    warn "Backend startup may fail with: CUDA error: no kernel image is available for execution on the device."
+    warn "This is only needed for Blackwell GPUs. Install a CUDA 12.8+ PyTorch build in '$BACKEND_ENV_NAME', then rerun: bash scripts/start_app.sh --restart"
+    warn "Example: conda run -n $BACKEND_ENV_NAME python -m pip install --upgrade --force-reinstall torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128"
+  fi
+}
+
+
 parse_args() {
   while [[ $# -gt 0 ]]; do
     case "$1" in
@@ -445,6 +502,7 @@ main() {
     [[ "$START_FRONTEND" == "1" ]] && stop_from_pid_file "frontend" "$RUN_DIR/frontend.pid"
   fi
 
+  [[ "$START_BACKEND" == "1" ]] && check_blackwell_cuda_compatibility
   [[ "$START_BACKEND" == "1" ]] && start_backend
   [[ "$START_FRONTEND" == "1" ]] && start_frontend
 

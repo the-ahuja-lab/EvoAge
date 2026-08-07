@@ -216,6 +216,19 @@ bash scripts/start_app.sh
 
 This starts the backend and frontend in the background, writes logs/PID files, prints URLs, and checks whether the URLs become reachable.
 
+#### Blackwell GPU / CUDA compatibility note
+
+The default backend dependency setup should work on regular supported CUDA GPUs. NVIDIA Blackwell GPUs, such as RTX PRO 5000 or newer 50-series cards, report compute capability `sm_120` and need a PyTorch build with CUDA 12.8+ support.
+
+If backend startup fails with `CUDA error: no kernel image is available for execution on the device`, reinstall PyTorch inside the backend environment with a CUDA 12.8+ wheel, then restart the app:
+
+```bash
+conda run -n evoage_backend python -m pip install --upgrade --force-reinstall torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128
+bash scripts/start_app.sh --restart
+```
+
+`start_app.sh` prints a warning when it detects a Blackwell GPU with a PyTorch build that does not include `sm_120` CUDA kernels.
+
 Runtime defaults:
 
 - Backend printed/checked URL comes from `Frontend/.env` `API_BASE_URL`, then `Backend/.env` `API_BASE`.
