@@ -15,8 +15,8 @@ bash scripts/download_evoage_artifacts.sh
 # Fill all required values in Backend/.env and Frontend/.env.
 # Choose either USE=gemini or USE=medgemma in Backend/.env.
 
-# Optional local MedGemma path only:
-# bash scripts/setup_medgemma.sh
+# Optional local MedGemma path only. First accept access on the MedGemma page.
+# MEDGEMMA_HF_TOKEN=YOUR_HF_READ_TOKEN bash scripts/setup_medgemma.sh
 
 bash scripts/setup_services.sh
 bash scripts/setup.sh --check-only
@@ -135,13 +135,13 @@ MEDGEMMA_MODEL=medgemma-27b-local
 
 If you use Gemini, skip the MedGemma setup and continue directly to service setup.
 
-If you use MedGemma, run the MedGemma setup script in another terminal from the same repository root and :
+If you use [MedGemma](https://huggingface.co/google/medgemma-27b-text-it), run the MedGemma setup script in another terminal from the same repository root:
 
 > **Warning:** MedGemma 27B needs roughly 60GB VRAM; an 80GB GPU is recommended. If you do not have enough GPU memory, use `USE=gemini` with the Gemini API instead.
 >
 > Keep the MedGemma/SGLang server process running while the backend uses `USE=medgemma`. Continue the remaining setup/startup commands from a separate terminal in the same repo.
 
-`google/medgemma-27b-text-it` is a gated repository. Accept the licence on the model page with your Hugging Face account, then use a read token and run the below command:
+`google/medgemma-27b-text-it` is a gated repository. Accept the licence on the model [page](https://huggingface.co/google/medgemma-27b-text-it) with your Hugging Face account, wait for approval if required, then use a `read token` and run the command with the token:
 
 ```bash
 MEDGEMMA_HF_TOKEN=YOUR_HF_READ_TOKEN bash scripts/setup_medgemma.sh
