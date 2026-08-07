@@ -159,6 +159,7 @@ download_dgl_artifacts() {
     --repo-type dataset \
     --include "DGL-EvoKG/Model/*" \
     --include "DGL-EvoKG/Node_Mapping/*" \
+    --include "DGL-EvoKG/HypothesisTesting/*" \
     --local-dir "$BACKEND_DIR"
 
   if [[ "$DRY_RUN" != "1" ]]; then
