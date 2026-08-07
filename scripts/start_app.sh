@@ -323,10 +323,10 @@ PYARCH
 )"
 
   if [[ "$capability" == 12.* && "$arch_list" != *"sm_120"* ]]; then
-    warn "Detected a Blackwell GPU ($gpu_name, compute capability $capability), but the backend PyTorch build does not include sm_120 CUDA kernels."
-    warn "Backend startup may fail with: CUDA error: no kernel image is available for execution on the device."
-    warn "This is only needed for Blackwell GPUs. Install a CUDA 12.8+ PyTorch build in '$BACKEND_ENV_NAME', then rerun: bash scripts/start_app.sh --restart"
-    warn "Example: conda run -n $BACKEND_ENV_NAME python -m pip install --upgrade --force-reinstall torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128"
+    warn "Detected a Blackwell GPU ($gpu_name, compute capability $capability)."
+    warn "The backend PyTorch/DGL-KE GPU runtime may fail because the installed PyTorch build does not include sm_120 CUDA kernels."
+    warn "Typical error: CUDA error: no kernel image is available for execution on the device."
+    warn "This is a Blackwell-specific PyTorch CUDA compatibility issue, not a general EvoAge setup failure."
   fi
 }
 
