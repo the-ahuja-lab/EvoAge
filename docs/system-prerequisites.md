@@ -2,11 +2,7 @@
 
 This page documents the hardware, operating system, and software environment used to build, train, evaluate, and serve EvoAge. It corresponds to the **Computational Infrastructure**, **Graph Database Implementation**, **KGE Training**, and **Backend/Frontend** sections of the manuscript Methods.
 
-<<<<<<< HEAD
-Due to the scale of the integrated EvoAge Knowledge Graph (~1.2 billion triples, 16 entity types, and 89 relation types), standard workstation hardware is insufficient. Below is the minimum recommended hardware profile required to run the pipeline successfully.
-=======
 The integrated EvoAge knowledge graph contains **~1.23 billion unique triples** (~1.28 billion when source provenance is preserved), **45.6 million nodes**, **16 semantic node labels**, and **~89 relation types**, drawn from **51 source layers**. At this scale, ordinary desktop hardware is not sufficient — the requirements below are the practical minimum for reproducing the pipeline end to end.
->>>>>>> d0f0097 (Doc Changes)
 
 ---
 
@@ -150,4 +146,4 @@ A healthy setup reports Linux, ≥ 250 GB total memory, at least one CUDA-visibl
 
 ---
 
-**Next:** [Step 01 — Data Collection](data_collection_01.md)
+**Next:** [Step 01 — Data Collection](data-collection.md)
