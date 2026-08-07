@@ -129,16 +129,21 @@ setup_sglang_env() {
 }
 
 model_files_present() {
-  [[ -d "$MEDGEMMA_MODEL_PATH" ]] || return 1
-  find "$MEDGEMMA_MODEL_PATH" -mindepth 1 -type f -print -quit | grep -q .
+  [[ -s "$MEDGEMMA_MODEL_PATH/config.json" ]] || return 1
+  grep -q '"model_type"' "$MEDGEMMA_MODEL_PATH/config.json" || return 1
+  find "$MEDGEMMA_MODEL_PATH" -maxdepth 1 -type f \( -name '*.safetensors' -o -name '*.bin' \) -print -quit | grep -q .
 }
 
 download_model() {
   mkdir -p "$MEDGEMMA_MODEL_PATH"
 
   if [[ "$FORCE_DOWNLOAD" != "1" ]] && model_files_present; then
-    info "MedGemma model files already exist. Keeping: $MEDGEMMA_MODEL_PATH"
+    info "MedGemma model files already exist and look complete. Keeping: $MEDGEMMA_MODEL_PATH"
     return
+  fi
+
+  if [[ -d "$MEDGEMMA_MODEL_PATH" ]] && ! model_files_present; then
+    warn "Existing MedGemma directory is incomplete or invalid; re-running Hugging Face download: $MEDGEMMA_MODEL_PATH"
   fi
 
   info "Downloading MedGemma model"
@@ -146,15 +151,20 @@ download_model() {
   info "Target path: $MEDGEMMA_MODEL_PATH"
 
   local token_args=()
+  local force_args=()
   if [[ -n "$MEDGEMMA_HF_TOKEN" ]]; then
     token_args=(--token "$MEDGEMMA_HF_TOKEN")
   else
     warn "No MEDGEMMA_HF_TOKEN/HF_TOKEN provided. The download requires that you are already logged in with hf auth login, or it will fail."
   fi
+  if [[ "$FORCE_DOWNLOAD" == "1" ]]; then
+    force_args=(--force-download)
+  fi
 
   conda_run "$MEDGEMMA_ENV_NAME" hf download "$MEDGEMMA_MODEL_REPO" \
     --local-dir "$MEDGEMMA_MODEL_PATH" \
     "${token_args[@]}" \
+    "${force_args[@]}" \
     --max-workers "$MEDGEMMA_DOWNLOAD_WORKERS"
 }
 
