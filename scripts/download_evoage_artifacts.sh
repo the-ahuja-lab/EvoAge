@@ -157,7 +157,8 @@ download_dgl_artifacts() {
   run conda run -n "$BACKEND_ENV_NAME" python -m pip install --progress-bar on --upgrade "huggingface_hub[cli]"
   run conda run -n "$BACKEND_ENV_NAME" hf download gauravahuja77/EvoAge \
     --repo-type dataset \
-    --include "DGL-EvoKG/Model/*" "DGL-EvoKG/Node_Mapping/*" \
+    --include "DGL-EvoKG/Model/*" \
+    --include "DGL-EvoKG/Node_Mapping/*" \
     --local-dir "$BACKEND_DIR"
 
   if [[ "$DRY_RUN" != "1" ]]; then
