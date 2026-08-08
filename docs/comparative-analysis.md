@@ -1,10 +1,100 @@
-# Comparative Analysis: EvoAge vs BioChatter vs Escargot
+# Comparative Analysis
+
+EvoAge was benchmarked against two different classes of system, in two separate
+comparisons.
+
+**Part A** compares EvoAge with biomedical language models answering from their
+own parametric knowledge — MedGemma, BioMistral, and an AgingKG-finetuned
+BioMistral.
+
+**Part B** compares EvoAge with knowledge-graph question-answering frameworks —
+BioChatter and Escargot — all three querying the same EvoAge knowledge graph.
+
+---
+
+## Part A — EvoAge vs MedGemma vs BioMistral vs BioMistral-Finetuned
+
+### A1. What is being compared
+
+This comparison asks whether a biomedical language model, answering from what it
+already knows, can discriminate a literature-supported hypothesis from its
+logical inverse — and how that compares with EvoAge, which answers from
+retrieved graph evidence.
+
+Three models were evaluated:
+
+| Model | Role |
+|---|---|
+| **MedGemma-27B** | Biomedical language model, as published |
+| **BioMistral-7B** | Biomedical language model, as published |
+| **BioMistral-7B (AgingKG-finetuned)** | The same base model after AgingKG-guided domain adaptation |
+
+### A2. How they were run
+
+Each model was served locally through SGLang as an OpenAI-compatible endpoint,
+and driven by the same evaluation script. Every model was given the **same
+prompts**, in the same two-step sequence, and **temperature was fixed at 0** so
+that responses are deterministic and differences between models cannot be
+attributed to sampling.
+
+Each hypothesis was evaluated in two steps:
+
+1. **Verdict.** The model is asked to place the hypothesis on the same
+   five-level ladder used throughout this work —
+   `no_support → weak_support → partial_support → support → strong_support` —
+   and to reply with the verdict alone. The prompt instructs it to judge using
+   established biomedical knowledge, and to choose the lower level when
+   uncertain.
+2. **Explanation.** The verdict is appended to the conversation and the model is
+   asked to justify it in two or three sentences, grounded in known mechanisms,
+   pathways or evidence.
+
+Both the verdict and the explanation were **recorded for every hypothesis**, so
+each verdict can be audited rather than taken on trust.
+
+### A3. What each model was asked
+
+Every model saw the identical set of hypotheses: for each of the 101 curated
+publications, both the literature-supported **right hypothesis** and its
+logically inverted counterpart. Evaluating both members of the pair is what
+makes the test meaningful — a model that affirms everything scores well on the
+supported statements and fails on the inverses.
+
+Unlike Part B, no knowledge graph evidence is supplied here. These models answer
+from parametric knowledge alone, which is the capability under test.
+
+### A4. Reproducing it
+
+Code lives in the repository under
+`pipeline/09_evoage_vs_other/evoage_vs_medgemma_biomistral/`:
+
+| Path | What it does |
+|---|---|
+| `All_Hypothesis_fixed_with_ent.csv` | The 101 right/inverse hypothesis pairs |
+| `medgemma/` | Server launch and evaluation run for MedGemma |
+| `BioMistral/` | Server launch and evaluation run for base BioMistral |
+| `BioMistralFinetuned/` | Server launch and evaluation run for the AgingKG-finetuned model |
+| `run_all.sh` | Runs all three in sequence |
+
+```bash
+./run_all.sh
+```
+
+Each model directory carries an identical `run_hypothesis.py`, so the prompts,
+the two-step sequence and `temperature=0` are the same for every model; only the
+served model path differs. Each run writes `All_Hypothesis_evaluated.csv` into
+its own directory, adding verdict and explanation columns for both the right and
+the inverse hypothesis.
+
+---
+
+## Part B — EvoAge vs BioChatter vs Escargot
 
 How EvoAge was benchmarked against two published KG-question-answering frameworks on the same knowledge graph, the same language model, and the same 101 hypotheses — so that the reasoning architecture was the only variable.
 
 ---
 
-## 1. What the comparison is for
+### B1. What the comparison is for
 
 EvoAge is not the only system that answers biological questions over a knowledge graph. The relevant question is therefore not "does EvoAge produce evidence?" but **"given the same graph and the same language model, does EvoAge convert that shared knowledge into better-graded biological evidence than existing frameworks?"**
 
@@ -12,7 +102,7 @@ Answering that requires holding everything except the reasoning framework consta
 
 ---
 
-## 2. Choice of baselines
+### B2. Choice of baselines
 
 | System | Why it qualifies |
 |---|---|
@@ -31,7 +121,7 @@ All baseline runs were read-only. No baseline modified the graph or any EvoAge s
 
 ---
 
-## 3. Adapting the baselines — and why this is conservative
+### B3. Adapting the baselines — and why this is conservative
 
 **No framework logic was modified.** Both baselines were used as published; every adaptation was made externally through configuration and standard Python subclassing, which are the extension points each framework provides. For BioChatter this was verified by checksum — all 45 installed package files matched the hashes in the distribution manifest, confirming no framework file had been altered.
 
@@ -49,7 +139,7 @@ The adaptations fall into three categories:
 
 ---
 
-## 4. Grading
+### B4. Grading
 
 Each system returned its own evidence and answer. Prose cannot be scored, so all outputs were placed on one ordinal ladder by a judge model:
 
@@ -76,7 +166,7 @@ This asymmetry is a property of what is being compared — an end-to-end reasoni
 
 ---
 
-## 5. Joining and counting
+### B5. Joining and counting
 
 - Results were joined across systems **on DOI**, not on title and not on row order. DOI was verified unique within each file and identical across all three (101/101), and the merge is validated 1:1, so no pairing can be introduced by re-sorting.
 - Verdicts falling **outside the ladder** — a system returning `unknown`, or a judge call failing — were **retained in the denominator and reported separately**, never folded into `no_support`.
@@ -84,21 +174,7 @@ This asymmetry is a property of what is being compared — an end-to-end reasoni
 
 ---
 
-## 6. Result
-
-All three systems answered all 101 hypotheses against the same graph.
-
-| System | no support | weak | partial | support | strong | unresolved | Any support (weak+) |
-|---|---|---|---|---|---|---|---|
-| **EvoAge** | 25 | 36 | 15 | 22 | 0 | 3 | **73 / 101** |
-| **Escargot** | 89 | 5 | 6 | 1 | 0 | 0 | **12 / 101** |
-| **BioChatter** | 99 | 2 | 0 | 0 | 0 | 0 | **2 / 101** |
-
-Given access to the same biological graph and the same language model, both baselines returned predominantly negative or weakly informative assessments, while EvoAge produced a substantially broader and more evidence-sensitive verdict distribution. Because the graph and the model were shared, the difference is attributable to the reasoning architecture — the multi-agent evidence decomposition, relation-specific calibrated thresholds, and adjudication layer — rather than to a difference in underlying knowledge.
-
----
-
-## 7. Reproducing it
+### B6. Reproducing it
 
 Code lives in the repository under `pipeline/09_evoage_vs_other/evoage_vs_biochat_escargot/`:
 
