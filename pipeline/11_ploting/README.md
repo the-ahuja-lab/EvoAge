@@ -7,7 +7,7 @@ paper, from the statistics tables written by the earlier pipeline stages.
 |---|---|
 | **Main figures** | 1, 2, 4, 5 (panel by panel) |
 | **Supplementary** | 1–7 |
-| **Kernel** | `KG_pykeen` |
+
 
 Figure 3 is a schematic and is not generated here.
 
