@@ -119,7 +119,7 @@ This script runs the model training using LLaMA-Factory, weight merging, and pos
 ### Supervised Fine-Tuning (SFT) & Model Export
 *   **Configurations:** Compares training hyperparameters to balance graph learning and clinical reasoning preservation:
     *   *Model 1 (`biomistral_lora_sft_optimized3.yaml`):* Rank 64, Alpha 128, LR `2e-4`, packing enabled. Led to catastrophic MMLU degradation (-14.5%) due to overfitting.
-    *   *Model 2 (`biomistral_lora_sft_optimized4.yaml`):* Rank 16, Alpha 32, LR `5e-5`, MLP+Attention target, packing disabled. Achieved combined graph loss `0.136` while maintaining medical benchmark accuracy.
+    *   *Aging_BioMistral_finetuned (`biomistral_lora_sft_optimized4.yaml`):* Rank 16, Alpha 32, LR `5e-5`, MLP+Attention target, packing disabled. Achieved combined graph loss `0.136` while maintaining medical benchmark accuracy.
 *   **Fine-Tuning:** Initiates SFT training using `llamafactory-cli train` pointing to the balanced YAML config.
 *   **Weight Merge & Export:** Consolidates base model weights and adapter weights, exporting the merged model to `models/BioMistral-Finetuned4`.
 *   **Tokenizer Patching:** Fixes the serialization issue in `models/BioMistral-Finetuned4/tokenizer_config.json` by replacing empty `"extra_special_tokens"` lists with empty JSON objects to ensure vLLM/SGLang loader compatibility.
