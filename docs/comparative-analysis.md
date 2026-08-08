@@ -24,7 +24,6 @@ Both were selected because they query a graph that already exists. That is the p
 **Held constant across all three systems**
 
 - The same Neo4j instance of the EvoAge KG — 45.56 M nodes, 1.2376 B relationships, 16 node types, 89 relationship types
-- The same language model backend (`deepseek-v4-flash`) via an OpenAI-compatible endpoint
 - The same 101 DOI-anchored hypotheses
 - The same judge model, rubric and verdict ladder
 
