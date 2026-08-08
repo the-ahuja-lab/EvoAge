@@ -1,0 +1,1481 @@
+is_schema_info: true
+ChemicalEntity:
+  represented_as: node
+  is_relationship: false
+  present_in_knowledge_graph: true
+  preferred_id: id
+  input_label: ChemicalEntity
+  count: 1210916
+  properties:
+    id: str
+    name: str
+    type: str
+    node_species: str
+    alternative_name: str
+    id_lower: str
+    iupac_name: str
+    model_id: str
+    name_lower: str
+    node_id_is: str
+    smiles: str
+CellularComponent:
+  represented_as: node
+  is_relationship: false
+  present_in_knowledge_graph: true
+  preferred_id: id
+  input_label: CellularComponent
+  count: 4340
+  properties:
+    id: str
+    name: str
+    type: str
+    node_species: str
+    id_lower: str
+    model_id: str
+    name_lower: str
+    node_id_is: str
+AnatomicalEntity:
+  represented_as: node
+  is_relationship: false
+  present_in_knowledge_graph: true
+  preferred_id: id
+  input_label: AnatomicalEntity
+  count: 56029
+  properties:
+    id: str
+    name: str
+    type: str
+    node_species: str
+    id_lower: str
+    model_id: str
+    name_lower: str
+    node_id_is: str
+Protein:
+  represented_as: node
+  is_relationship: false
+  present_in_knowledge_graph: true
+  preferred_id: id
+  input_label: Protein
+  count: 518647
+  properties:
+    id: str
+    name: str
+    type: str
+    node_species: str
+    id_lower: str
+    model_id: str
+    name_lower: str
+    node_id_is: str
+Mutation:
+  represented_as: node
+  is_relationship: false
+  present_in_knowledge_graph: true
+  preferred_id: id
+  input_label: Mutation
+  count: 14230255
+  properties:
+    id: str
+    name: str
+    type: str
+    node_species: str
+    id_lower: str
+    model_id: str
+    name_lower: str
+    node_id_is: str
+BiologicalProcess:
+  represented_as: node
+  is_relationship: false
+  present_in_knowledge_graph: true
+  preferred_id: id
+  input_label: BiologicalProcess
+  count: 29637
+  properties:
+    id: str
+    name: str
+    type: str
+    node_species: str
+    id_lower: str
+    model_id: str
+    name_lower: str
+    node_id_is: str
+Gene:
+  represented_as: node
+  is_relationship: false
+  present_in_knowledge_graph: true
+  preferred_id: id
+  input_label: Gene
+  count: 90294
+  properties:
+    id: str
+    name: str
+    type: str
+    node_species: str
+    id_lower: str
+    model_id: str
+    name_lower: str
+    node_id_is: str
+    ortholog_info: str
+Tissue:
+  represented_as: node
+  is_relationship: false
+  present_in_knowledge_graph: true
+  preferred_id: id
+  input_label: Tissue
+  count: 5422
+  properties:
+    id: str
+    name: str
+    type: str
+    node_species: str
+    id_lower: str
+    model_id: str
+    name_lower: str
+    node_id_is: str
+MolecularFunction:
+  represented_as: node
+  is_relationship: false
+  present_in_knowledge_graph: true
+  preferred_id: id
+  input_label: MolecularFunction
+  count: 11750
+  properties:
+    id: str
+    name: str
+    type: str
+    node_species: str
+    id_lower: str
+    model_id: str
+    name_lower: str
+    node_id_is: str
+Disease:
+  represented_as: node
+  is_relationship: false
+  present_in_knowledge_graph: true
+  preferred_id: id
+  input_label: Disease
+  count: 44263
+  properties:
+    id: str
+    name: str
+    type: str
+    node_species: str
+    id_lower: str
+    model_id: str
+    name_lower: str
+    node_id_is: str
+Phenotype:
+  represented_as: node
+  is_relationship: false
+  present_in_knowledge_graph: true
+  preferred_id: id
+  input_label: Phenotype
+  count: 101262
+  properties:
+    id: str
+    name: str
+    type: str
+    node_species: str
+    id_lower: str
+    model_id: str
+    name_lower: str
+    node_id_is: str
+Pathway:
+  represented_as: node
+  is_relationship: false
+  present_in_knowledge_graph: true
+  preferred_id: id
+  input_label: Pathway
+  count: 5121
+  properties:
+    id: str
+    name: str
+    type: str
+    node_species: str
+    id_lower: str
+    model_id: str
+    name_lower: str
+    node_id_is: str
+PlantSpecies:
+  represented_as: node
+  is_relationship: false
+  present_in_knowledge_graph: true
+  preferred_id: id
+  input_label: PlantSpecies
+  count: 5773
+  properties:
+    id: str
+    type: str
+    node_species: str
+    id_lower: str
+    model_id: str
+Mirna:
+  represented_as: node
+  is_relationship: false
+  present_in_knowledge_graph: true
+  preferred_id: id
+  input_label: Mirna
+  count: 4318
+  properties:
+    id: str
+    name: str
+    type: str
+    node_species: str
+    id_lower: str
+    model_id: str
+    name_lower: str
+    node_id_is: str
+PMID:
+  represented_as: node
+  is_relationship: false
+  present_in_knowledge_graph: true
+  preferred_id: id
+  input_label: PMID
+  count: 29237564
+  properties:
+    id: str
+    type: str
+    node_species: str
+    id_lower: str
+    model_id: str
+    node_id_is: str
+Species:
+  represented_as: node
+  is_relationship: false
+  present_in_knowledge_graph: true
+  preferred_id: id
+  input_label: Species
+  count: 6
+  properties:
+    id: str
+    type: str
+    id_lower: str
+    model_id: str
+CellularComponent_ChemicalEntity:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: CellularComponent_ChemicalEntity
+  input_label: CellularComponent_ChemicalEntity
+  count: 5
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: CellularComponent
+  target: ChemicalEntity
+AnatomicalEntity_ChemicalEntity:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: AnatomicalEntity_ChemicalEntity
+  input_label: AnatomicalEntity_ChemicalEntity
+  count: 9
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: AnatomicalEntity
+  target: ChemicalEntity
+Protein_ChemicalEntity:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Protein_ChemicalEntity
+  input_label: Protein_ChemicalEntity
+  count: 12
+  properties:
+    type: str
+    source: str
+    kg_type: str
+  source: Protein
+  target: ChemicalEntity
+Mutation_ChemicalEntity:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Mutation_ChemicalEntity
+  input_label: Mutation_ChemicalEntity
+  count: 25
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: Mutation
+  target: ChemicalEntity
+BiologicalProcess_Protein:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: BiologicalProcess_Protein
+  input_label: BiologicalProcess_Protein
+  count: 28
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: BiologicalProcess
+  target: Protein
+AnatomicalEntity_CellularComponent:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: AnatomicalEntity_CellularComponent
+  input_label: AnatomicalEntity_CellularComponent
+  count: 2837
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: AnatomicalEntity
+  target: CellularComponent
+Mutation_Mutation:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Mutation_Mutation
+  input_label: Mutation_Mutation
+  count: 163
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: Mutation
+  target: Mutation
+Gene_Mutation:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Gene_Mutation
+  input_label: Gene_Mutation
+  count: 252
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: Gene
+  target: Mutation
+ChemicalEntity_Tissue:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: ChemicalEntity_Tissue
+  input_label: ChemicalEntity_Tissue
+  count: 258
+  properties:
+    type: str
+    source: str
+    kg_type: str
+  source: ChemicalEntity
+  target: Tissue
+MolecularFunction_Protein:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: MolecularFunction_Protein
+  input_label: MolecularFunction_Protein
+  count: 294
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: MolecularFunction
+  target: Protein
+Disease_Mutation:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Disease_Mutation
+  input_label: Disease_Mutation
+  count: 425
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: Disease
+  target: Mutation
+Protein_Phenotype:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Protein_Phenotype
+  input_label: Protein_Phenotype
+  count: 328
+  properties:
+    type: str
+    source: str
+    kg_type: str
+  source: Protein
+  target: Phenotype
+AnatomicalEntity_BiologicalProcess:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: AnatomicalEntity_BiologicalProcess
+  input_label: AnatomicalEntity_BiologicalProcess
+  count: 321
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: AnatomicalEntity
+  target: BiologicalProcess
+Disease_Pathway:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Disease_Pathway
+  input_label: Disease_Pathway
+  count: 866
+  properties:
+    type: str
+    source: str
+    kg_type: str
+  source: Disease
+  target: Pathway
+MolecularFunction_BiologicalProcess:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: MolecularFunction_BiologicalProcess
+  input_label: MolecularFunction_BiologicalProcess
+  count: 848
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: MolecularFunction
+  target: BiologicalProcess
+BiologicalProcess_MolecularFunction:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: BiologicalProcess_MolecularFunction
+  input_label: BiologicalProcess_MolecularFunction
+  count: 834
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: BiologicalProcess
+  target: MolecularFunction
+Pathway_Pathway:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Pathway_Pathway
+  input_label: Pathway_Pathway
+  count: 2545
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: Pathway
+  target: Pathway
+BiologicalProcess_ChemicalEntity:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: BiologicalProcess_ChemicalEntity
+  input_label: BiologicalProcess_ChemicalEntity
+  count: 3723
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: BiologicalProcess
+  target: ChemicalEntity
+BiologicalProcess_CellularComponent:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: BiologicalProcess_CellularComponent
+  input_label: BiologicalProcess_CellularComponent
+  count: 1489
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: BiologicalProcess
+  target: CellularComponent
+CellularComponent_CellularComponent:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: CellularComponent_CellularComponent
+  input_label: CellularComponent_CellularComponent
+  count: 11575
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: CellularComponent
+  target: CellularComponent
+ChemicalEntity_BiologicalProcess:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: ChemicalEntity_BiologicalProcess
+  input_label: ChemicalEntity_BiologicalProcess
+  count: 11116
+  properties:
+    type: str
+    source: str
+    kg_type: str
+  source: ChemicalEntity
+  target: BiologicalProcess
+Mutation_Disease:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Mutation_Disease
+  input_label: Mutation_Disease
+  count: 14685
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: Mutation
+  target: Disease
+ChemicalEntity_Mutation:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: ChemicalEntity_Mutation
+  input_label: ChemicalEntity_Mutation
+  count: 13808
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: ChemicalEntity
+  target: Mutation
+ChemicalEntity_Pathway:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: ChemicalEntity_Pathway
+  input_label: ChemicalEntity_Pathway
+  count: 10338
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: ChemicalEntity
+  target: Pathway
+MolecularFunction_ChemicalEntity:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: MolecularFunction_ChemicalEntity
+  input_label: MolecularFunction_ChemicalEntity
+  count: 17669
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: MolecularFunction
+  target: ChemicalEntity
+PlantSpecies_Disease:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: PlantSpecies_Disease
+  input_label: PlantSpecies_Disease
+  count: 35303
+  properties:
+    type: str
+    source: str
+    kg_type: str
+  source: PlantSpecies
+  target: Disease
+Phenotype_Protein:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Phenotype_Protein
+  input_label: Phenotype_Protein
+  count: 39720
+  properties:
+    type: str
+    source: str
+    kg_type: str
+  source: Phenotype
+  target: Protein
+MolecularFunction_MolecularFunction:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: MolecularFunction_MolecularFunction
+  input_label: MolecularFunction_MolecularFunction
+  count: 31058
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source:
+  - BiologicalProcess
+  - MolecularFunction
+  target:
+  - BiologicalProcess
+  - MolecularFunction
+Pathway_Gene:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Pathway_Gene
+  input_label: Pathway_Gene
+  count: 40964
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: Pathway
+  target: Gene
+Phenotype_Phenotype:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Phenotype_Phenotype
+  input_label: Phenotype_Phenotype
+  count: 43393
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: Phenotype
+  target: Phenotype
+Phenotype_Disease:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Phenotype_Disease
+  input_label: Phenotype_Disease
+  count: 51887
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: Phenotype
+  target: Disease
+AnatomicalEntity_AnatomicalEntity:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: AnatomicalEntity_AnatomicalEntity
+  input_label: AnatomicalEntity_AnatomicalEntity
+  count: 209796
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: AnatomicalEntity
+  target: AnatomicalEntity
+Disease_Disease:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Disease_Disease
+  input_label: Disease_Disease
+  count: 93925
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: Disease
+  target: Disease
+Phenotype_ChemicalEntity:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Phenotype_ChemicalEntity
+  input_label: Phenotype_ChemicalEntity
+  count: 67063
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: Phenotype
+  target: ChemicalEntity
+Disease_AnatomicalEntity:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Disease_AnatomicalEntity
+  input_label: Disease_AnatomicalEntity
+  count: 7808
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: Disease
+  target: AnatomicalEntity
+CellularComponent_Gene:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: CellularComponent_Gene
+  input_label: CellularComponent_Gene
+  count: 89080
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: CellularComponent
+  target: Gene
+Gene_Pathway:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Gene_Pathway
+  input_label: Gene_Pathway
+  count: 147860
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: Gene
+  target: Pathway
+Phenotype_Gene:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Phenotype_Gene
+  input_label: Phenotype_Gene
+  count: 153582
+  properties:
+    type: str
+    source: str
+    kg_type: str
+  source: Phenotype
+  target: Gene
+PlantSpecies_ChemicalEntity:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: PlantSpecies_ChemicalEntity
+  input_label: PlantSpecies_ChemicalEntity
+  count: 125613
+  properties:
+    type: str
+    source: str
+    kg_type: str
+  source: PlantSpecies
+  target: ChemicalEntity
+BiologicalProcess_BiologicalProcess:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: BiologicalProcess_BiologicalProcess
+  input_label: BiologicalProcess_BiologicalProcess
+  count: 113292
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: BiologicalProcess
+  target: BiologicalProcess
+BiologicalProcess_Gene:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: BiologicalProcess_Gene
+  input_label: BiologicalProcess_Gene
+  count: 155018
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: BiologicalProcess
+  target: Gene
+Disease_Phenotype:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Disease_Phenotype
+  input_label: Disease_Phenotype
+  count: 292346
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: Disease
+  target: Phenotype
+Gene_CellularComponent:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Gene_CellularComponent
+  input_label: Gene_CellularComponent
+  count: 514849
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: Gene
+  target: CellularComponent
+ChemicalEntity_Protein:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: ChemicalEntity_Protein
+  input_label: ChemicalEntity_Protein
+  count: 6928023
+  properties:
+    type: str
+    source: str
+    kg_type: str
+  source: ChemicalEntity
+  target: Protein
+Disease_Gene:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Disease_Gene
+  input_label: Disease_Gene
+  count: 13033677
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: Disease
+  target: Gene
+Gene_AnatomicalEntity:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Gene_AnatomicalEntity
+  input_label: Gene_AnatomicalEntity
+  count: 9078869
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: Gene
+  target: AnatomicalEntity
+ChemicalEntity_ChemicalEntity:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: ChemicalEntity_ChemicalEntity
+  input_label: ChemicalEntity_ChemicalEntity
+  count: 3377989
+  properties:
+    type: str
+    source: str
+    kg_type: str
+  source: ChemicalEntity
+  target: ChemicalEntity
+ChemicalEntity_Gene:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: ChemicalEntity_Gene
+  input_label: ChemicalEntity_Gene
+  count: 45961103
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: ChemicalEntity
+  target: Gene
+Gene_Tissue:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Gene_Tissue
+  input_label: Gene_Tissue
+  count: 4627741
+  properties:
+    type: str
+    source: str
+    kg_type: str
+  source: Gene
+  target: Tissue
+ChemicalEntity_Disease:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: ChemicalEntity_Disease
+  input_label: ChemicalEntity_Disease
+  count: 1480767
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: ChemicalEntity
+  target: Disease
+AnatomicalEntity_Gene:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: AnatomicalEntity_Gene
+  input_label: AnatomicalEntity_Gene
+  count: 1721930
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: AnatomicalEntity
+  target: Gene
+Mirna_Gene:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Mirna_Gene
+  input_label: Mirna_Gene
+  count: 2115721
+  properties:
+    type: str
+    source: str
+    kg_type: str
+  source: Mirna
+  target: Gene
+Gene_Disease:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Gene_Disease
+  input_label: Gene_Disease
+  count: 610383
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: Gene
+  target: Disease
+Gene_BiologicalProcess:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Gene_BiologicalProcess
+  input_label: Gene_BiologicalProcess
+  count: 1239869
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: Gene
+  target: BiologicalProcess
+Protein_MolecularFunction:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Protein_MolecularFunction
+  input_label: Protein_MolecularFunction
+  count: 1172768
+  properties:
+    type: str
+    source: str
+    kg_type: str
+  source: Protein
+  target:
+  - BiologicalProcess
+  - MolecularFunction
+PMID_ChemicalEntity:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: PMID_ChemicalEntity
+  input_label: PMID_ChemicalEntity
+  count: 42795681
+  properties:
+    type: str
+    source: str
+    kg_type: str
+  source: PMID
+  target: ChemicalEntity
+PMID_Disease:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: PMID_Disease
+  input_label: PMID_Disease
+  count: 192843423
+  properties:
+    type: str
+    source: str
+    kg_type: str
+  source: PMID
+  target: Disease
+PMID_Protein:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: PMID_Protein
+  input_label: PMID_Protein
+  count: 237058221
+  properties:
+    type: str
+    source: str
+    kg_type: str
+  source: PMID
+  target: Protein
+PMID_Tissue:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: PMID_Tissue
+  input_label: PMID_Tissue
+  count: 303745858
+  properties:
+    type: str
+    source: str
+    kg_type: str
+  source: PMID
+  target: Tissue
+PMID_CellularComponent:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: PMID_CellularComponent
+  input_label: PMID_CellularComponent
+  count: 87097962
+  properties:
+    type: str
+    source: str
+    kg_type: str
+  source: PMID
+  target: CellularComponent
+Disease_ChemicalEntity:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Disease_ChemicalEntity
+  input_label: Disease_ChemicalEntity
+  count: 7932
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: Disease
+  target: ChemicalEntity
+ChemicalEntity_Inhibits_BiologicalProcess:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: ChemicalEntity_Inhibits_BiologicalProcess
+  input_label: ChemicalEntity_Inhibits_BiologicalProcess
+  count: 7112
+  properties:
+    type: str
+    source: str
+    kg_type: str
+  source: ChemicalEntity
+  target: BiologicalProcess
+ChemicalEntity_NegativelyAssociatedWith_BiologicalProcess:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: ChemicalEntity_NegativelyAssociatedWith_BiologicalProcess
+  input_label: ChemicalEntity_NegativelyAssociatedWith_BiologicalProcess
+  count: 337
+  properties:
+    type: str
+    source: str
+    kg_type: str
+  source: ChemicalEntity
+  target: BiologicalProcess
+ChemicalEntity_NoEffect_BiologicalProcess:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: ChemicalEntity_NoEffect_BiologicalProcess
+  input_label: ChemicalEntity_NoEffect_BiologicalProcess
+  count: 642388
+  properties:
+    type: str
+    source: str
+    kg_type: str
+  source: ChemicalEntity
+  target: BiologicalProcess
+ChemicalEntity_PositivelyAssociatedWith_BiologicalProcess:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: ChemicalEntity_PositivelyAssociatedWith_BiologicalProcess
+  input_label: ChemicalEntity_PositivelyAssociatedWith_BiologicalProcess
+  count: 509
+  properties:
+    type: str
+    source: str
+    kg_type: str
+  source: ChemicalEntity
+  target: BiologicalProcess
+ChemicalEntity_Promotes_BiologicalProcess:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: ChemicalEntity_Promotes_BiologicalProcess
+  input_label: ChemicalEntity_Promotes_BiologicalProcess
+  count: 47341
+  properties:
+    type: str
+    source: str
+    kg_type: str
+  source: ChemicalEntity
+  target: BiologicalProcess
+Gene_ChemicalEntity:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Gene_ChemicalEntity
+  input_label: Gene_ChemicalEntity
+  count: 242756
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: Gene
+  target: ChemicalEntity
+Gene_Gene:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Gene_Gene
+  input_label: Gene_Gene
+  count: 32976388
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: Gene
+  target: Gene
+Gene_Inhibits_BiologicalProcess:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Gene_Inhibits_BiologicalProcess
+  input_label: Gene_Inhibits_BiologicalProcess
+  count: 1289
+  properties:
+    type: str
+    source: str
+    kg_type: str
+  source: Gene
+  target: BiologicalProcess
+Gene_MolecularFunction:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Gene_MolecularFunction
+  input_label: Gene_MolecularFunction
+  count: 340107
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: Gene
+  target: MolecularFunction
+Gene_NegativelyAssociatedWith_BiologicalProcess:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Gene_NegativelyAssociatedWith_BiologicalProcess
+  input_label: Gene_NegativelyAssociatedWith_BiologicalProcess
+  count: 515
+  properties:
+    type: str
+    source: str
+    kg_type: str
+  source: Gene
+  target: BiologicalProcess
+Gene_NotAssociatedWith_BiologicalProcess:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Gene_NotAssociatedWith_BiologicalProcess
+  input_label: Gene_NotAssociatedWith_BiologicalProcess
+  count: 25
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_source: str
+    relation_type: str
+  source: Gene
+  target: BiologicalProcess
+Gene_Phenotype:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Gene_Phenotype
+  input_label: Gene_Phenotype
+  count: 1767619
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: Gene
+  target: Phenotype
+Gene_PositivelyAssociatedWith_BiologicalProcess:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Gene_PositivelyAssociatedWith_BiologicalProcess
+  input_label: Gene_PositivelyAssociatedWith_BiologicalProcess
+  count: 498
+  properties:
+    type: str
+    source: str
+    kg_type: str
+  source: Gene
+  target: BiologicalProcess
+Gene_Promotes_BiologicalProcess:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Gene_Promotes_BiologicalProcess
+  input_label: Gene_Promotes_BiologicalProcess
+  count: 1755
+  properties:
+    type: str
+    source: str
+    kg_type: str
+  source: Gene
+  target: BiologicalProcess
+Gene_Protein:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Gene_Protein
+  input_label: Gene_Protein
+  count: 446839
+  properties:
+    type: str
+    source: str
+    kg_type: str
+  source: Gene
+  target: Protein
+Mutation_Gene:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Mutation_Gene
+  input_label: Mutation_Gene
+  count: 13638792
+  properties:
+    type: str
+    source: str
+    kg_type: str
+  source: Mutation
+  target: Gene
+Protein_BiologicalProcess:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Protein_BiologicalProcess
+  input_label: Protein_BiologicalProcess
+  count: 601071
+  properties:
+    type: str
+    source: str
+    kg_type: str
+  source: Protein
+  target: BiologicalProcess
+Mutation_Protein:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Mutation_Protein
+  input_label: Mutation_Protein
+  count: 32013911
+  properties:
+    type: str
+    source: str
+    kg_type: str
+  source: Mutation
+  target: Protein
+Protein_CellularComponent:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Protein_CellularComponent
+  input_label: Protein_CellularComponent
+  count: 20783765
+  properties:
+    type: str
+    source: str
+    kg_type: str
+  source: Protein
+  target: CellularComponent
+Protein_Protein:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Protein_Protein
+  input_label: Protein_Protein
+  count: 58025729
+  properties:
+    type: str
+    source: str
+    kg_type: str
+  source: Protein
+  target: Protein
+Protein_Disease:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Protein_Disease
+  input_label: Protein_Disease
+  count: 31227114
+  properties:
+    type: str
+    source: str
+    kg_type: str
+  source: Protein
+  target: Disease
+Protein_Pathway:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Protein_Pathway
+  input_label: Protein_Pathway
+  count: 65434
+  properties:
+    type: str
+    source: str
+    kg_type: str
+  source: Protein
+  target: Pathway
+Protein_Tissue:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Protein_Tissue
+  input_label: Protein_Tissue
+  count: 40398331
+  properties:
+    type: str
+    source: str
+    kg_type: str
+  source: Protein
+  target: Tissue
+ChemicalEntity_NotAssociatedWith_BiologicalProcess:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: ChemicalEntity_NotAssociatedWith_BiologicalProcess
+  input_label: ChemicalEntity_NotAssociatedWith_BiologicalProcess
+  count: 348
+  properties:
+    type: str
+    source: str
+    kg_type: str
+  source: ChemicalEntity
+  target: BiologicalProcess
+Phenotype_BiologicalProcess:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Phenotype_BiologicalProcess
+  input_label: Phenotype_BiologicalProcess
+  count: 12655
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: Phenotype
+  target: BiologicalProcess
+Phenotype_CellularComponent:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Phenotype_CellularComponent
+  input_label: Phenotype_CellularComponent
+  count: 5808
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: Phenotype
+  target: CellularComponent
+Phenotype_MolecularFunction:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Phenotype_MolecularFunction
+  input_label: Phenotype_MolecularFunction
+  count: 459
+  properties:
+    type: str
+    source: str
+    kg_type: str
+    relation_type: str
+  source: Phenotype
+  target:
+  - BiologicalProcess
+  - MolecularFunction
+Species_AssociatedWith:
+  represented_as: edge
+  is_relationship: true
+  present_in_knowledge_graph: true
+  label_as_edge: Species_AssociatedWith
+  input_label: Species_AssociatedWith
+  count: 47113872
+  properties:
+    type: str
+  source: Species
+  target:
+  - AnatomicalEntity
+  - BiologicalProcess
+  - CellularComponent
+  - ChemicalEntity
+  - Disease
+  - Gene
+  - Mirna
+  - MolecularFunction
+  - Mutation
+  - PMID
+  - Pathway
+  - Phenotype
+  - PlantSpecies
+  - Protein
+  - Tissue

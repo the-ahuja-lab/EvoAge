@@ -1,0 +1,4 @@
+system,n_hypotheses,no_support,weak_support,partial_support,support,strong_support,any_support_n,any_support_pct,unusable_or_unknown
+EvoAge,101,25,36,15,22,0,73,72.3,3
+Escargot,101,89,5,6,1,0,12,11.9,0
+BioChatter,101,99,2,0,0,0,2,2.0,0

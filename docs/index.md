@@ -32,7 +32,8 @@ The EvoAge graph is large enough that reproducing it from the paper alone would 
 | 08.1 | [Species Evaluation](other-analysis-1-species.md) |
 | 08.2 | [Shuffled KG Baseline](other-analysis-2-shuffled.md) |
 | 08.3 | [Aging-Specific Test Set](other-analysis-3-aging.md) |
-| 09 | [LLM Finetuning](LLM_finetuning.md) |
+| 09 | [Comparative Analysis](comparative-analysis.md) |
+| 10 | [LLM Finetuning](LLM_finetuning.md) |
 | — | [Neo4j Knowledge Graph](neo4j-kg.md) |
 
 **Web server:** [evoage.ahujalab.iiitd.edu.in](https://evoage.ahujalab.iiitd.edu.in/) · **Code:** [github.com/the-ahuja-lab/EvoAge](https://github.com/the-ahuja-lab/EvoAge)

@@ -24,7 +24,8 @@ nav = [
         { "Aging-Specific Test Set" = "other-analysis-3-aging.md" }
     ] },
     { "Neo4j KG" = "neo4j-kg.md" },
-    { "LLM Fintuning" = "LLM_finetuning.md" }
+    { "LLM Fintuning" = "LLM_finetuning.md" },
+    { "Comparative Analysis" = "comparative-analysis.md" }
 
 ]
 

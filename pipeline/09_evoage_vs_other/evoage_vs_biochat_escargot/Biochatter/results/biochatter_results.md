@@ -1,0 +1,1311 @@
+# BioChatter results
+
+## Q1 (tier 1) — 11.3s
+
+**Which genes are associated with Alzheimer disease?**
+
+```cypher
+MATCH (g:Gene)-[r:Gene_Disease]->(d:Disease)
+WHERE d.name_lower CONTAINS 'alzheimer'
+RETURN g.id AS gene_id, g.name AS gene_name
+LIMIT 25
+```
+
+rows: 10
+
+```cypher
+MATCH (g:Gene)-[r:Gene_Disease]->(d:Disease)
+WHERE d.name_lower CONTAINS 'alzheimer'
+RETURN g.id AS gene_id, g.name AS gene_name
+LIMIT 25
+```
+
+The genes associated with Alzheimer disease are: A2M (alpha-2-macroglobulin), ZNRD2 (zinc ribbon domain containing 2), ZNF804A (zinc finger protein 804A), ZNF608 (zinc finger protein 608), ZNF423 (zinc finger protein 423), ZNF410 (zinc finger protein 410), ZNF415 (zinc finger protein 415), ZNF217 (zinc finger protein 217), ZMYND10 (zinc finger MYND-type containing 10), and ZIC1 (Zic family member 1).
+
+## Q2 (tier 1) — 11.7s
+
+**Which biological processes is the gene SIRT1 involved in?**
+
+```cypher
+MATCH (g:Gene)-[r:Gene_BiologicalProcess|Gene_PositivelyAssociatedWith_BiologicalProcess|Gene_NegativelyAssociatedWith_BiologicalProcess|Gene_Inhibits_BiologicalProcess|Gene_Promotes_BiologicalProcess|Gene_NotAssociatedWith_BiologicalProcess]->(bp:BiologicalProcess)
+WHERE g.id_lower = 'sirt1'
+RETURN bp.name, bp.id
+LIMIT 25
+```
+
+rows: 10
+
+```cypher
+MATCH (g:Gene)-[r:Gene_BiologicalProcess|Gene_PositivelyAssociatedWith_BiologicalProcess|Gene_NegativelyAssociatedWith_BiologicalProcess|Gene_Inhibits_BiologicalProcess|Gene_Promotes_BiologicalProcess|Gene_NotAssociatedWith_BiologicalProcess]->(bp:BiologicalProcess)
+WHERE g.id_lower = 'sirt1'
+RETURN bp.name, bp.id
+LIMIT 25
+```
+
+Based on the retrieved results, the gene SIRT1 is involved in the following biological processes:
+
+- rDNA heterochromatin formation (GO:0000183)
+- positive regulation of nucleic acid-templated transcription (GO:1903508)
+- regulation of cellular response to testosterone stimulus (GO:2000654)
+- negative regulation of nucleic acid-templated transcription (GO:1903507)
+- regulation of RNA biosynthetic process (GO:2001141)
+- regulation of DNA catabolic process (GO:1903624)
+- obsolete organic cyclic compound metabolic process (GO:1901360)
+- regulation of nucleic acid-templated transcription (GO:1903506)
+- obsolete organic substance biosynthetic process (GO:1901576)
+- obsolete organic cyclic compound biosynthetic process (GO:1901362)
+
+## Q3 (tier 1) — 12.6s
+
+**What chemicals are associated with the gene APOE?**
+
+```cypher
+MATCH (g:Gene)-[:Gene_ChemicalEntity]->(c:ChemicalEntity)
+WHERE g.id_lower = 'apoe'
+RETURN c.name, c.id
+LIMIT 25
+```
+
+rows: 10
+
+```cypher
+MATCH (g:Gene)-[:Gene_ChemicalEntity]->(c:ChemicalEntity)
+WHERE g.id_lower = 'apoe'
+RETURN c.name, c.id
+LIMIT 25
+```
+
+The chemicals associated with the gene APOE are:
+- retinol (445354)
+- [2,6-di(propan-2-yl)phenyl] N-[2-[2,4,6-tri(propan-2-yl)phenyl]acetyl]sulfamate (166558)
+- [(2E,4E,6E,8E)-3,7-dimethyl-9-(2,6,6-trimethylcyclohexen-1-yl)nona-2,4,6,8-tetraenyl] (Z)-octadec-9-enoate (11699609)
+- (1S,12S,14R)-9-methoxy-4-methyl-11-oxa-4-azatetracyclo[8.6.1.01,12.06,17]heptadeca-6(17),7,9,15-tetraen-14-ol (9651)
+- lovastatin (53232)
+- 1,3-thiazol-5-ylmethyl N-[(2S,3S,5S)-3-hydroxy-5-[[(2S)-3-methyl-2-[[methyl-[(2-propan-2-yl-1,3-thiazol-4-yl)methyl]carbamoyl]amino]butanoyl]amino]-1,6-diphenylhexan-2-yl]carbamate (392622)
+- Heparin (DB01109)
+- hydroxide (961)
+- 2-amino-9-(1,3-dihydroxypropan-2-yloxymethyl)-1H-purin-6-one (135398740)
+- (2S,3R,4R,6R)-3-methoxy-2-methyl-4-(methylamino)-29-oxa-1,7,17-triazaoctacyclo[12.12.2.12,6.07,28.08,13.015,19.020,27.021,26]nonacosa-8,10,12,14,19,21,23,25,27-nonaen-16-one (44259)
+
+## Q4 (tier 1) — 10.4s
+
+**Which diseases is the gene TP53 associated with?**
+
+```cypher
+MATCH (g:Gene)-[:Gene_Disease]->(d:Disease)
+WHERE g.id_lower CONTAINS 'tp53'
+RETURN d.name, d.id
+LIMIT 25
+```
+
+rows: 10
+
+```cypher
+MATCH (g:Gene)-[:Gene_Disease]->(d:Disease)
+WHERE g.id_lower CONTAINS 'tp53'
+RETURN d.name, d.id
+LIMIT 25
+```
+
+The gene TP53 is associated with the following diseases from the retrieved results:
+
+- Brain Diseases (D001927)
+- epithelioid sarcoma (DOID:6193)
+- Osteoarthritis (DOID:8398)
+- lung small cell carcinoma (DOID:5409)
+- colorectal cancer (DOID:9256)
+- T-cell acute lymphoblastic leukemia (DOID:5603)
+- choroid plexus carcinoma (DOID:5648)
+- viral infectious disease (DOID:934)
+- brain disease (DOID:936)
+- kidney disease (DOID:557)
+
+## Q5 (tier 1) — 10.4s
+
+**What phenotypes are linked to the gene FOXO3?**
+
+```cypher
+MATCH (g:Gene)-[:Gene_Phenotype]->(p:Phenotype)
+WHERE g.id_lower CONTAINS 'foxo3'
+RETURN p.name, p.id
+LIMIT 25
+```
+
+rows: 10
+
+```cypher
+MATCH (g:Gene)-[:Gene_Phenotype]->(p:Phenotype)
+WHERE g.id_lower CONTAINS 'foxo3'
+RETURN p.name, p.id
+LIMIT 25
+```
+
+The phenotypes linked to FOXO3 are: Atherosclerosis (HP:0002621), dermatitis, homeostasis/metabolism phenotype, increased heart weight, decreased insulin secretion, oocyte degeneration, decreased startle reflex, abnormal estrous cycle (MP:0001927), abnormal retina morphology (MP:0001325), and abnormal T cell physiology.
+
+## Q6 (tier 1) — 10.8s
+
+**Which proteins interact with the protein encoded by MTOR?**
+
+```cypher
+MATCH (g:Gene {id_lower: 'mTOR'})-[:Gene_Protein]->(p:Protein)
+MATCH (p)-[:Protein_Protein]->(interacting:Protein)
+RETURN DISTINCT interacting.id AS interacting_protein_id, interacting.name AS interacting_protein_name
+LIMIT 25
+```
+
+rows: 0
+
+I didn't find any results in the knowledge graph for proteins interacting with the protein encoded by MTOR. The query I used was:
+
+```cypher
+MATCH (g:Gene {id_lower: 'mTOR'})-[:Gene_Protein]->(p:Protein)
+MATCH (p)-[:Protein_Protein]->(interacting:Protein)
+RETURN DISTINCT interacting.id AS interacting_protein_id, interacting.name AS interacting_protein_name
+LIMIT 25
+```
+
+You may want to refine the question, for example by checking the exact gene identifier (e.g., `MTOR` vs `mTOR`) or specifying a different relationship type.
+
+## Q7 (tier 1) — 9.8s
+
+**What anatomical entities are associated with the gene IGF1?**
+
+```cypher
+MATCH (g:Gene)-[:Gene_AnatomicalEntity]->(a:AnatomicalEntity)
+WHERE g.id_lower CONTAINS 'igf1'
+RETURN a.name AS anatomical_entity_name, a.id AS anatomical_entity_id
+LIMIT 25
+```
+
+rows: 10
+
+```cypher
+MATCH (g:Gene)-[:Gene_AnatomicalEntity]->(a:AnatomicalEntity)
+WHERE g.id_lower CONTAINS 'igf1'
+RETURN a.name AS anatomical_entity_name, a.id AS anatomical_entity_id
+LIMIT 25
+```
+
+The anatomical entities associated with the gene IGF1 are: nose, lens, whole organism, liver, muscle, visceral fat, blood plasma, head, anatomical structure, and skeletal muscle.
+
+## Q8 (tier 1) — 10.0s
+
+**Which pathways is CDKN2A part of?**
+
+```cypher
+MATCH (g:Gene)-[:Gene_Pathway]->(p:Pathway)
+WHERE g.id_lower CONTAINS 'cdkn2a'
+RETURN p.name, p.id
+LIMIT 25
+```
+
+rows: 10
+
+```cypher
+MATCH (g:Gene)-[:Gene_Pathway]->(p:Pathway)
+WHERE g.id_lower CONTAINS 'cdkn2a'
+RETURN p.name, p.id
+LIMIT 25
+```
+
+Based on the retrieved results, CDKN2A is part of the following pathways:
+
+- G1 Phase (R-HSA-69236)
+- Cyclin D associated events in G1 (R-HSA-69231)
+- SUMOylation of transcription factors (R-HSA-3232118)
+- Nuclear events mediated by NFE2L2 (R-HSA-9759194)
+- Evasion of Oncogene Induced Senescence Due to Defective p16INK4A binding to CDK4 (R-HSA-9630791)
+- Cellular Senescence (R-HSA-2559583)
+- Regulation of MITF-M-dependent genes involved in cell cycle and proliferation (R-HSA-9825892)
+- Senescence-Associated Secretory Phenotype (SASP) (R-HSA-2559582)
+- Regulation of TP53 Activity (R-HSA-5633007)
+- Evasion of Oncogene Induced Senescence Due to Defective p16INK4A binding to CDK4 and CDK6 (R-HSA-9630794)
+
+## Q9 (tier 1) — 9.9s
+
+**What molecular functions does the gene TERT have?**
+
+```cypher
+MATCH (g:Gene)-[:Gene_MolecularFunction]->(mf:MolecularFunction)
+WHERE g.id_lower CONTAINS 'tert'
+RETURN mf.name, mf.id
+LIMIT 25
+```
+
+rows: 10
+
+```cypher
+MATCH (g:Gene)-[:Gene_MolecularFunction]->(mf:MolecularFunction)
+WHERE g.id_lower CONTAINS 'tert'
+RETURN mf.name, mf.id
+LIMIT 25
+```
+
+The gene TERT has the following molecular functions:
+- organic cyclic compound binding (GO:0097159)
+- metal ion binding (GO:0046872)
+- transferase activity, transferring phosphorus-containing groups (GO:0016772)
+- RNA-directed DNA polymerase activity (GO:0003964)
+- cation binding (GO:0043169)
+- catalytic activity (GO:0003824)
+- protein dimerization activity (GO:0046983)
+- nucleotidyltransferase activity (GO:0016779)
+- DNA polymerase activity (GO:0034061)
+- protein homodimerization activity (GO:0042803)
+
+## Q10 (tier 1) — 13.0s
+
+**Which chemicals are associated with cellular senescence?**
+
+```cypher
+MATCH (c:ChemicalEntity)-[:ChemicalEntity_BiologicalProcess|ChemicalEntity_PositivelyAssociatedWith_BiologicalProcess|ChemicalEntity_Promotes_BiologicalProcess|ChemicalEntity_NegativelyAssociatedWith_BiologicalProcess|ChemicalEntity_Inhibits_BiologicalProcess|ChemicalEntity_NoEffect_BiologicalProcess|ChemicalEntity_NotAssociatedWith_BiologicalProcess]->(bp:BiologicalProcess)
+WHERE bp.name_lower CONTAINS 'cellular senescence'
+RETURN DISTINCT c.name AS chemical_name, c.id AS chemical_id
+LIMIT 25
+```
+
+rows: 10
+
+```cypher
+MATCH (c:ChemicalEntity)-[:ChemicalEntity_BiologicalProcess|ChemicalEntity_PositivelyAssociatedWith_BiologicalProcess|ChemicalEntity_Promotes_BiologicalProcess|ChemicalEntity_NegativelyAssociatedWith_BiologicalProcess|ChemicalEntity_Inhibits_BiologicalProcess|ChemicalEntity_NoEffect_BiologicalProcess|ChemicalEntity_NotAssociatedWith_BiologicalProcess]->(bp:BiologicalProcess)
+WHERE bp.name_lower CONTAINS 'cellular senescence'
+RETURN DISTINCT c.name AS chemical_name, c.id AS chemical_id
+LIMIT 25
+```
+
+The chemicals associated with cellular senescence are: bisphenol A, sirolimus, N-(2-chloro-6-methylphenyl)-2-[[6-[4-(2-hydroxyethyl)piperazin-1-yl]-2-methylpyrimidin-4-yl]amino]-1,3-thiazole-5-carboxamide, (2S)-1-[4-[(5-cyclopropyl-1H-pyrazol-3-yl)amino]pyrrolo[2,1-f][1,2,4]triazin-2-yl]-N-(6-fluoropyridin-3-yl)-2-methylpyrrolidine-2-carboxamide, (7S,9S)-7-[(2R,4S,5S,6S)-4-amino-5-hydroxy-6-methyloxan-2-yl]oxy-6,9,11-trihydroxy-9-(2-hydroxyacetyl)-4-methoxy-8,10-dihydro-7H-tetracene-5,12-dione, paraquat, hydrogen peroxide, (2S)-2-amino-5-[[(2R)-1-(carboxymethylamino)-1-oxo-3-sulfanylpropan-2-yl]amino]-5-oxopentanoic acid, 4-N-(7-chloroquinolin-4-yl)-1-N,1-N-diethylpentane-1,4-diamine, and 4-[2-[[4-[[2-[(2-acetamido-3-methylbutanoyl)amino]-3-methylbutanoyl]amino]-3-hydroxy-6-methylheptanoyl]amino]propanoylamino]-3-hydroxy-6-methylheptanoic acid.
+
+## Q1 (tier 1) — 13.2s
+
+**Which genes are associated with Alzheimer disease?**
+
+```cypher
+MATCH (g:Gene)-[r:Gene_Disease]->(d:Disease)
+WHERE d.name_lower CONTAINS 'alzheimer'
+RETURN g.id AS gene_id, g.name AS gene_name
+LIMIT 25
+```
+
+rows: 10
+
+```cypher
+MATCH (g:Gene)-[r:Gene_Disease]->(d:Disease)
+WHERE d.name_lower CONTAINS 'alzheimer'
+RETURN g.id AS gene_id, g.name AS gene_name
+LIMIT 25
+```
+
+The genes associated with Alzheimer disease are: A2M (alpha-2-macroglobulin), ZNRD2 (zinc ribbon domain containing 2), ZNF804A (zinc finger protein 804A), ZNF608 (zinc finger protein 608), ZNF423 (zinc finger protein 423), ZNF410 (zinc finger protein 410), ZNF415 (zinc finger protein 415), ZNF217 (zinc finger protein 217), ZMYND10 (zinc finger MYND-type containing 10), and ZIC1 (Zic family member 1).
+
+## Q2 (tier 1) — 12.2s
+
+**Which biological processes is the gene SIRT1 involved in?**
+
+```cypher
+MATCH (g:Gene)-[r:Gene_BiologicalProcess|Gene_PositivelyAssociatedWith_BiologicalProcess|Gene_NegativelyAssociatedWith_BiologicalProcess|Gene_Inhibits_BiologicalProcess|Gene_Promotes_BiologicalProcess|Gene_NotAssociatedWith_BiologicalProcess]->(bp:BiologicalProcess)
+WHERE g.id_lower = 'sirt1'
+RETURN bp.name AS biological_process_name, bp.id AS biological_process_id
+LIMIT 25
+```
+
+rows: 10
+
+```cypher
+MATCH (g:Gene)-[r:Gene_BiologicalProcess|Gene_PositivelyAssociatedWith_BiologicalProcess|Gene_NegativelyAssociatedWith_BiologicalProcess|Gene_Inhibits_BiologicalProcess|Gene_Promotes_BiologicalProcess|Gene_NotAssociatedWith_BiologicalProcess]->(bp:BiologicalProcess)
+WHERE g.id_lower = 'sirt1'
+RETURN bp.name AS biological_process_name, bp.id AS biological_process_id
+LIMIT 25
+```
+
+Based on the retrieved results, the gene SIRT1 is involved in the following biological processes:
+
+- rDNA heterochromatin formation (GO:0000183)
+- positive regulation of nucleic acid-templated transcription (GO:1903508)
+- regulation of cellular response to testosterone stimulus (GO:2000654)
+- negative regulation of nucleic acid-templated transcription (GO:1903507)
+- regulation of RNA biosynthetic process (GO:2001141)
+- regulation of DNA catabolic process (GO:1903624)
+- obsolete organic cyclic compound metabolic process (GO:1901360)
+- regulation of nucleic acid-templated transcription (GO:1903506)
+- obsolete organic substance biosynthetic process (GO:1901576)
+- obsolete organic cyclic compound biosynthetic process (GO:1901362)
+
+## Q3 (tier 1) — 13.5s
+
+**What chemicals are associated with the gene APOE?**
+
+```cypher
+MATCH (g:Gene)-[:Gene_ChemicalEntity]->(c:ChemicalEntity)
+WHERE g.id_lower CONTAINS 'apoe'
+RETURN c.name, c.id
+LIMIT 25
+```
+
+rows: 10
+
+```cypher
+MATCH (g:Gene)-[:Gene_ChemicalEntity]->(c:ChemicalEntity)
+WHERE g.id_lower CONTAINS 'apoe'
+RETURN c.name, c.id
+LIMIT 25
+```
+
+The chemicals associated with the gene APOE are:
+- retinol (445354)
+- [2,6-di(propan-2-yl)phenyl] N-[2-[2,4,6-tri(propan-2-yl)phenyl]acetyl]sulfamate (166558)
+- [(2E,4E,6E,8E)-3,7-dimethyl-9-(2,6,6-trimethylcyclohexen-1-yl)nona-2,4,6,8-tetraenyl] (Z)-octadec-9-enoate (11699609)
+- (1S,12S,14R)-9-methoxy-4-methyl-11-oxa-4-azatetracyclo[8.6.1.01,12.06,17]heptadeca-6(17),7,9,15-tetraen-14-ol (9651)
+- lovastatin (53232)
+- 1,3-thiazol-5-ylmethyl N-[(2S,3S,5S)-3-hydroxy-5-[[(2S)-3-methyl-2-[[methyl-[(2-propan-2-yl-1,3-thiazol-4-yl)methyl]carbamoyl]amino]butanoyl]amino]-1,6-diphenylhexan-2-yl]carbamate (392622)
+- Heparin (DB01109)
+- hydroxide (961)
+- 2-amino-9-(1,3-dihydroxypropan-2-yloxymethyl)-1H-purin-6-one (135398740)
+- (2S,3R,4R,6R)-3-methoxy-2-methyl-4-(methylamino)-29-oxa-1,7,17-triazaoctacyclo[12.12.2.12,6.07,28.08,13.015,19.020,27.021,26]nonacosa-8,10,12,14,19,21,23,25,27-nonaen-16-one (44259)
+
+## Q4 (tier 1) — 10.3s
+
+**Which diseases is the gene TP53 associated with?**
+
+```cypher
+MATCH (g:Gene)-[:Gene_Disease]->(d:Disease)
+WHERE g.id_lower = 'tp53'
+RETURN d.name, d.id
+LIMIT 25
+```
+
+rows: 10
+
+```cypher
+MATCH (g:Gene)-[:Gene_Disease]->(d:Disease)
+WHERE g.id_lower = 'tp53'
+RETURN d.name, d.id
+LIMIT 25
+```
+
+Based on the retrieved results, the gene TP53 is associated with the following diseases:
+- Brain Diseases (D001927)
+- epithelioid sarcoma (DOID:6193)
+- Osteoarthritis (DOID:8398)
+- lung small cell carcinoma (DOID:5409)
+- colorectal cancer (DOID:9256)
+- T-cell acute lymphoblastic leukemia (DOID:5603)
+- choroid plexus carcinoma (DOID:5648)
+- viral infectious disease (DOID:934)
+- brain disease (DOID:936)
+- kidney disease (DOID:557)
+
+## Q5 (tier 1) — 10.5s
+
+**What phenotypes are linked to the gene FOXO3?**
+
+```cypher
+MATCH (g:Gene)-[:Gene_Phenotype]->(p:Phenotype)
+WHERE g.id_lower CONTAINS 'foxo3'
+RETURN p.name, p.id
+LIMIT 25
+```
+
+rows: 10
+
+```cypher
+MATCH (g:Gene)-[:Gene_Phenotype]->(p:Phenotype)
+WHERE g.id_lower CONTAINS 'foxo3'
+RETURN p.name, p.id
+LIMIT 25
+```
+
+Based on the retrieved results, the phenotypes linked to FOXO3 are:
+- Atherosclerosis (HP:0002621)
+- dermatitis
+- homeostasis/metabolism phenotype
+- increased heart weight
+- decreased insulin secretion
+- oocyte degeneration
+- decreased startle reflex
+- abnormal estrous cycle (MP:0001927)
+- abnormal retina morphology (MP:0001325)
+- abnormal T cell physiology
+
+## Q6 (tier 1) — 11.2s
+
+**Which proteins interact with the protein encoded by MTOR?**
+
+```cypher
+MATCH (g:Gene {id_lower: 'mtor'})-[:Gene_Protein]->(p:Protein)
+MATCH (p)-[:Protein_Protein]->(interacting:Protein)
+RETURN DISTINCT interacting.id AS protein_id, interacting.name AS protein_name
+LIMIT 25
+```
+
+rows: 10
+
+```cypher
+MATCH (g:Gene {id_lower: 'mtor'})-[:Gene_Protein]->(p:Protein)
+MATCH (p)-[:Protein_Protein]->(interacting:Protein)
+RETURN DISTINCT interacting.id AS protein_id, interacting.name AS protein_name
+LIMIT 25
+```
+
+Based on the retrieved results, the proteins that interact with the protein encoded by MTOR are:
+
+- Ras-related protein Rab-19 (A4D1S5)
+- Receptor-interacting serine/threonine-protein kinase 3 (Q9Y572)
+- Transcription factor HES-2 (Q9Y543)
+- Dolichyl-phosphate beta-glucosyltransferase (Q9Y673)
+- Soluble lamin-associated protein of 75 kDa (Q9Y6X4)
+- Disintegrin and metalloproteinase domain-containing protein 15 (U3KQL5)
+- Lipid droplet-regulating VLDL assembly factor AUP1 (Q9Y679)
+- Epsin-1 (Q9Y6I3)
+- Nuclear receptor coactivator 3 (Q9Y6Q9)
+- Centrosomal protein of 83 kDa (Q9Y592)
+
+## Q7 (tier 1) — 9.9s
+
+**What anatomical entities are associated with the gene IGF1?**
+
+```cypher
+MATCH (g:Gene)-[:Gene_AnatomicalEntity]->(a:AnatomicalEntity)
+WHERE g.id_lower CONTAINS 'igf1'
+RETURN a.name AS anatomical_entity_name, a.id AS anatomical_entity_id
+LIMIT 25
+```
+
+rows: 10
+
+```cypher
+MATCH (g:Gene)-[:Gene_AnatomicalEntity]->(a:AnatomicalEntity)
+WHERE g.id_lower CONTAINS 'igf1'
+RETURN a.name AS anatomical_entity_name, a.id AS anatomical_entity_id
+LIMIT 25
+```
+
+The anatomical entities associated with the gene IGF1 are: nose, lens, whole organism, liver, muscle, visceral fat, blood plasma, head, anatomical structure, and skeletal muscle.
+
+## Q8 (tier 1) — 12.2s
+
+**Which pathways is CDKN2A part of?**
+
+```cypher
+MATCH (g:Gene)-[:Gene_Pathway]->(p:Pathway)
+WHERE g.id_lower = 'cdkn2a'
+RETURN p.name AS pathway_name, p.id AS pathway_id
+LIMIT 25
+```
+
+rows: 10
+
+```cypher
+MATCH (g:Gene)-[:Gene_Pathway]->(p:Pathway)
+WHERE g.id_lower = 'cdkn2a'
+RETURN p.name AS pathway_name, p.id AS pathway_id
+LIMIT 25
+```
+
+CDKN2A is part of the following pathways:
+- G1 Phase (R-HSA-69236)
+- Cyclin D associated events in G1 (R-HSA-69231)
+- SUMOylation of transcription factors (R-HSA-3232118)
+- Nuclear events mediated by NFE2L2 (R-HSA-9759194)
+- Evasion of Oncogene Induced Senescence Due to Defective p16INK4A binding to CDK4 (R-HSA-9630791)
+- Cellular Senescence (R-HSA-2559583)
+- Regulation of MITF-M-dependent genes involved in cell cycle and proliferation (R-HSA-9825892)
+- Senescence-Associated Secretory Phenotype (SASP) (R-HSA-2559582)
+- Regulation of TP53 Activity (R-HSA-5633007)
+- Evasion of Oncogene Induced Senescence Due to Defective p16INK4A binding to CDK4 and CDK6 (R-HSA-9630794)
+
+## Q9 (tier 1) — 10.8s
+
+**What molecular functions does the gene TERT have?**
+
+```cypher
+MATCH (g:Gene)-[:Gene_MolecularFunction]->(mf:MolecularFunction)
+WHERE g.id_lower CONTAINS 'tert'
+RETURN mf.name, mf.id
+LIMIT 25
+```
+
+rows: 10
+
+```cypher
+MATCH (g:Gene)-[:Gene_MolecularFunction]->(mf:MolecularFunction)
+WHERE g.id_lower CONTAINS 'tert'
+RETURN mf.name, mf.id
+LIMIT 25
+```
+
+The gene TERT has the following molecular functions:
+- organic cyclic compound binding (GO:0097159)
+- metal ion binding (GO:0046872)
+- transferase activity, transferring phosphorus-containing groups (GO:0016772)
+- RNA-directed DNA polymerase activity (GO:0003964)
+- cation binding (GO:0043169)
+- catalytic activity (GO:0003824)
+- protein dimerization activity (GO:0046983)
+- nucleotidyltransferase activity (GO:0016779)
+- DNA polymerase activity (GO:0034061)
+- protein homodimerization activity (GO:0042803)
+
+## Q10 (tier 1) — 14.3s
+
+**Which chemicals are associated with cellular senescence?**
+
+```cypher
+MATCH (c:ChemicalEntity)-[:ChemicalEntity_BiologicalProcess|ChemicalEntity_PositivelyAssociatedWith_BiologicalProcess|ChemicalEntity_NegativelyAssociatedWith_BiologicalProcess|ChemicalEntity_Promotes_BiologicalProcess|ChemicalEntity_Inhibits_BiologicalProcess|ChemicalEntity_NoEffect_BiologicalProcess|ChemicalEntity_NotAssociatedWith_BiologicalProcess]->(bp:BiologicalProcess)
+WHERE bp.name_lower CONTAINS 'cellular senescence'
+RETURN DISTINCT c.name AS chemical_name, c.id AS chemical_id
+LIMIT 25
+```
+
+rows: 10
+
+```cypher
+MATCH (c:ChemicalEntity)-[:ChemicalEntity_BiologicalProcess|ChemicalEntity_PositivelyAssociatedWith_BiologicalProcess|ChemicalEntity_NegativelyAssociatedWith_BiologicalProcess|ChemicalEntity_Promotes_BiologicalProcess|ChemicalEntity_Inhibits_BiologicalProcess|ChemicalEntity_NoEffect_BiologicalProcess|ChemicalEntity_NotAssociatedWith_BiologicalProcess]->(bp:BiologicalProcess)
+WHERE bp.name_lower CONTAINS 'cellular senescence'
+RETURN DISTINCT c.name AS chemical_name, c.id AS chemical_id
+LIMIT 25
+```
+
+The chemicals associated with cellular senescence are: bisphenol A, sirolimus, N-(2-chloro-6-methylphenyl)-2-[[6-[4-(2-hydroxyethyl)piperazin-1-yl]-2-methylpyrimidin-4-yl]amino]-1,3-thiazole-5-carboxamide, (2S)-1-[4-[(5-cyclopropyl-1H-pyrazol-3-yl)amino]pyrrolo[2,1-f][1,2,4]triazin-2-yl]-N-(6-fluoropyridin-3-yl)-2-methylpyrrolidine-2-carboxamide, (7S,9S)-7-[(2R,4S,5S,6S)-4-amino-5-hydroxy-6-methyloxan-2-yl]oxy-6,9,11-trihydroxy-9-(2-hydroxyacetyl)-4-methoxy-8,10-dihydro-7H-tetracene-5,12-dione, paraquat, hydrogen peroxide, (2S)-2-amino-5-[[(2R)-1-(carboxymethylamino)-1-oxo-3-sulfanylpropan-2-yl]amino]-5-oxopentanoic acid, 4-N-(7-chloroquinolin-4-yl)-1-N,1-N-diethylpentane-1,4-diamine, and 4-[2-[[4-[[2-[(2-acetamido-3-methylbutanoyl)amino]-3-methylbutanoyl]amino]-3-hydroxy-6-methylheptanoyl]amino]propanoylamino]-3-hydroxy-6-methylheptanoic acid.
+
+## Q11 (tier 2) — 11.5s
+
+**Which genes are associated with both Alzheimer disease and cellular senescence?**
+
+```cypher
+MATCH (g:Gene)-[:Gene_Disease]->(d:Disease)
+WHERE d.name_lower CONTAINS 'alzheimer'
+WITH g
+MATCH (g)-[:Gene_BiologicalProcess|Gene_PositivelyAssociatedWith_BiologicalProcess|Gene_NegativelyAssociatedWith_BiologicalProcess|Gene_Inhibits_BiologicalProcess|Gene_Promotes_BiologicalProcess|Gene_NotAssociatedWith_BiologicalProcess]->(bp:BiologicalProcess)
+WHERE bp.name_lower CONTAINS 'cellular senescence'
+RETURN DISTINCT g.id AS gene_id, g.name AS gene_name
+LIMIT 25
+```
+
+rows: 10
+
+```cypher
+MATCH (g:Gene)-[:Gene_Disease]->(d:Disease)
+WHERE d.name_lower CONTAINS 'alzheimer'
+WITH g
+MATCH (g)-[:Gene_BiologicalProcess|Gene_PositivelyAssociatedWith_BiologicalProcess|Gene_NegativelyAssociatedWith_BiologicalProcess|Gene_Inhibits_BiologicalProcess|Gene_Promotes_BiologicalProcess|Gene_NotAssociatedWith_BiologicalProcess]->(bp:BiologicalProcess)
+WHERE bp.name_lower CONTAINS 'cellular senescence'
+RETURN DISTINCT g.id AS gene_id, g.name AS gene_name
+LIMIT 25
+```
+
+The genes associated with both Alzheimer disease and cellular senescence are: **ABL1, BECN1, TP63, TERF2, TBX2, SIRT1, PRKCD, PML, NUP62, MIF**.
+
+## Q12 (tier 2) — 13.2s
+
+**What chemicals target genes that are associated with Parkinson disease?**
+
+```cypher
+MATCH (d:Disease)-[:Disease_Gene]->(g:Gene)-[:Gene_ChemicalEntity]->(c:ChemicalEntity)
+WHERE d.name_lower CONTAINS 'parkinson'
+RETURN c.name AS chemical_name, c.id AS chemical_id, g.name AS gene_name, g.id AS gene_id
+LIMIT 25
+```
+
+rows: 10
+
+```cypher
+MATCH (d:Disease)-[:Disease_Gene]->(g:Gene)-[:Gene_ChemicalEntity]->(c:ChemicalEntity)
+WHERE d.name_lower CONTAINS 'parkinson'
+RETURN c.name AS chemical_name, c.id AS chemical_id, g.name AS gene_name, g.id AS gene_id
+LIMIT 25
+```
+
+Based on the retrieved results, the chemicals targeting genes associated with Parkinson disease (specifically the gene *BST1* – bone marrow stromal cell antigen 1) are:
+
+- [(2S,3R,4R,5R)-5-(3-carbamoylpyridin-1-ium-1-yl)-3,4-dihydroxyoxolan-2-yl]methyl dihydrogen phosphate (ID: 6093202)
+- [[(2R,3S,4R,5R)-5-(6-aminopurin-9-yl)-3,4-dihydroxyoxolan-2-yl]methoxy-hydroxyphosphoryl] dihydroxyphosphinothioyl hydrogen phosphate (ID: 440317)
+- nicotinamide mononucleotide (ID: 14180)
+- [[(2R,3R,4R,5R)-5-(6-aminopurin-9-yl)-3-hydroxy-4-phosphonooxyoxolan-2-yl]methoxy-hydroxyphosphoryl] [(2R,3S,4R,5R)-5-(3-carboxypyridin-1-ium-1-yl)-3,4-dihydroxyoxolan-2-yl]methyl phosphate (ID: 123952)
+- [[(2R,3R,4R,5R)-5-(6-aminopurin-9-yl)-3-hydroxy-4-phosphonooxyoxolan-2-yl]methoxy-hydroxyphosphoryl] [(2R,3S,4R,5R)-5-(3-carbamoylpyridin-1-ium-1-yl)-3,4-dihydroxyoxolan-2-yl]methyl phosphate (ID: 5885)
+- [[(2R,3S,4R,5R)-5-(6-aminopurin-9-yl)-3,4-dihydroxyoxolan-2-yl]methoxy-hydroxyphosphoryl] [(2R,3S,4R,5R)-5-(3-carbamoylpyridin-1-ium-1-yl)-3,4-dihydroxyoxolan-2-yl]methyl phosphate (ID: 5892)
+- molecular hydrogen (ID: 783)
+- [hydroxy-[[(2S,3S,4R,5R)-3-hydroxy-5-imidazo[2,1-f]purin-3-yl-4-phosphonooxyoxolan-2-yl]methoxy]phosphoryl] [(2R,3S,4S,5S)-3,4,5-trihydroxyoxolan-2-yl]methyl hydrogen phosphate (ID: 46936772)
+- glycerol (ID: 753)
+- Adenosine-5'-Diphosphate Monothiophosphate (ID: DB01660)
+
+All these chemicals are associated with the gene *BST1*, which is linked to Parkinson disease in the knowledge graph.
+
+## Q13 (tier 2) — 10.9s
+
+**Which biological processes are shared between SIRT1 and FOXO3?**
+
+```cypher
+MATCH (g1:Gene {id_lower: 'sirt1'})-[:Gene_BiologicalProcess|Gene_PositivelyAssociatedWith_BiologicalProcess|Gene_NegativelyAssociatedWith_BiologicalProcess|Gene_Inhibits_BiologicalProcess|Gene_Promotes_BiologicalProcess|Gene_NotAssociatedWith_BiologicalProcess]->(bp:BiologicalProcess)
+WITH g1, bp
+MATCH (g2:Gene {id_lower: 'foxo3'})-[:Gene_BiologicalProcess|Gene_PositivelyAssociatedWith_BiologicalProcess|Gene_NegativelyAssociatedWith_BiologicalProcess|Gene_Inhibits_BiologicalProcess|Gene_Promotes_BiologicalProcess|Gene_NotAssociatedWith_BiologicalProcess]->(bp)
+RETURN DISTINCT bp.name AS biological_process
+LIMIT 25
+```
+
+rows: 10
+
+```cypher
+MATCH (g1:Gene {id_lower: 'sirt1'})-[:Gene_BiologicalProcess|Gene_PositivelyAssociatedWith_BiologicalProcess|Gene_NegativelyAssociatedWith_BiologicalProcess|Gene_Inhibits_BiologicalProcess|Gene_Promotes_BiologicalProcess|Gene_NotAssociatedWith_BiologicalProcess]->(bp:BiologicalProcess)
+WITH g1, bp
+MATCH (g2:Gene {id_lower: 'foxo3'})-[:Gene_BiologicalProcess|Gene_PositivelyAssociatedWith_BiologicalProcess|Gene_NegativelyAssociatedWith_BiologicalProcess|Gene_Inhibits_BiologicalProcess|Gene_Promotes_BiologicalProcess|Gene_NotAssociatedWith_BiologicalProcess]->(bp)
+RETURN DISTINCT bp.name AS biological_process
+LIMIT 25
+```
+
+The shared biological processes between SIRT1 and FOXO3 are:
+- female gamete generation
+- negative regulation of nucleic acid-templated transcription
+- regulation of biological quality
+- negative regulation of RNA metabolic process
+- negative regulation of nitrogen compound metabolic process
+- regulation of RNA biosynthetic process
+- biological regulation
+- negative regulation of RNA biosynthetic process
+- negative regulation of DNA-templated transcription
+- regulation of cellular process
+
+## Q14 (tier 2) — 12.8s
+
+**Find genes associated with diseases that also have a link to inflammation.**
+
+```cypher
+MATCH (g:Gene)-[:Gene_Disease]->(d:Disease)
+WHERE d.name_lower CONTAINS 'inflammation'
+RETURN g.id AS gene_id, g.name AS gene_name, d.name AS disease_name
+LIMIT 25
+```
+
+rows: 10
+
+```cypher
+MATCH (g:Gene)-[:Gene_Disease]->(d:Disease)
+WHERE d.name_lower CONTAINS 'inflammation'
+RETURN g.id AS gene_id, g.name AS gene_name, d.name AS disease_name
+LIMIT 25
+```
+
+Based on the retrieved results, the following genes are associated with the disease "Inflammation":
+
+- A2M (alpha-2-macroglobulin)
+- ZMPSTE24 (zinc metallopeptidase STE24)
+- ZFP36 (ZFP36 ring finger protein)
+- ZC3H12A (zinc finger CCCH-type containing 12A)
+- YWHAG (tyrosine 3-monooxygenase/tryptophan 5-monooxygenase activation protein gamma)
+- XDH (xanthine dehydrogenase)
+- WRN (WRN RecQ like helicase)
+- WNT5A (Wnt family member 5A)
+- VWF (von Willebrand factor)
+- VTN (vitronectin)
+
+## Q15 (tier 2) — 11.3s
+
+**Which proteins are involved in pathways associated with type 2 diabetes?**
+
+```cypher
+MATCH (d:Disease)-[:Disease_Pathway]->(p:Pathway)<-[:Protein_Pathway]-(pr:Protein)
+WHERE d.name_lower CONTAINS 'type 2 diabetes'
+RETURN pr.id, pr.name
+LIMIT 25
+```
+
+rows: 0
+
+I didn't find any results in the knowledge graph for proteins associated with type 2 diabetes pathways. The query I used was:
+
+```cypher
+MATCH (d:Disease)-[:Disease_Pathway]->(p:Pathway)<-[:Protein_Pathway]-(pr:Protein)
+WHERE d.name_lower CONTAINS 'type 2 diabetes'
+RETURN pr.id, pr.name
+LIMIT 25
+```
+
+You may want to refine the question, for example by checking the exact disease name (e.g., "diabetes mellitus, type 2") or broadening the search to related terms like "insulin resistance" or "glucose metabolism."
+
+## Q16 (tier 2) — 11.2s
+
+**What diseases share associated genes with Alzheimer disease?**
+
+```cypher
+MATCH (d1:Disease {name_lower: 'alzheimer disease'})<-[:Gene_Disease]-(g:Gene)-[:Gene_Disease]->(d2:Disease)
+WHERE d2 <> d1
+RETURN DISTINCT d2.name AS disease_name
+LIMIT 25
+```
+
+rows: 10
+
+```cypher
+MATCH (d1:Disease {name_lower: 'alzheimer disease'})<-[:Gene_Disease]-(g:Gene)-[:Gene_Disease]->(d2:Disease)
+WHERE d2 <> d1
+RETURN DISTINCT d2.name AS disease_name
+LIMIT 25
+```
+
+Based on the retrieved results, the diseases sharing associated genes with Alzheimer disease are: Hyperinsulinemia, Thrombosis, Respiratory Distress Syndrome, Neoplasms, Hemolysis, essential tremor, leprosy, acromegaly, proteinuria, and Hyperglycemia.
+
+## Q17 (tier 2) — 11.3s
+
+**Which chemicals inhibit biological processes that TP53 positively regulates?**
+
+```cypher
+MATCH (g:Gene {id_lower: 'tp53'})-[:Gene_PositivelyAssociatedWith_BiologicalProcess]->(bp:BiologicalProcess)<-[:ChemicalEntity_Inhibits_BiologicalProcess]-(c:ChemicalEntity)
+RETURN DISTINCT c.name AS chemical_name, c.id AS chemical_id, bp.name AS biological_process_name
+LIMIT 25
+```
+
+rows: 0
+
+I didn't find any result in the knowledge graph for chemicals that inhibit biological processes positively regulated by TP53.
+
+Here is the query I used:
+
+```cypher
+MATCH (g:Gene {id_lower: 'tp53'})-[:Gene_PositivelyAssociatedWith_BiologicalProcess]->(bp:BiologicalProcess)<-[:ChemicalEntity_Inhibits_BiologicalProcess]-(c:ChemicalEntity)
+RETURN DISTINCT c.name AS chemical_name, c.id AS chemical_id, bp.name AS biological_process_name
+LIMIT 25
+```
+
+The results are empty. You may want to refine the question, for example by checking if the relationship types or gene identifier (e.g., `TP53` vs `tp53`) are correct, or by broadening the search to include indirect inhibition or other gene–process associations.
+
+## Q18 (tier 2) — 13.3s
+
+**Find genes linked to both oxidative stress-induced premature senescence and a named disease.**
+
+```cypher
+MATCH (g:Gene)-[:Gene_BiologicalProcess]->(bp:BiologicalProcess)
+WHERE bp.name_lower CONTAINS 'oxidative stress' AND bp.name_lower CONTAINS 'senescence'
+WITH g
+MATCH (g)-[:Gene_Disease]->(d:Disease)
+RETURN g.id AS gene_id, g.name AS gene_name, d.name AS disease_name
+LIMIT 25
+```
+
+rows: 10
+
+```cypher
+MATCH (g:Gene)-[:Gene_BiologicalProcess]->(bp:BiologicalProcess)
+WHERE bp.name_lower CONTAINS 'oxidative stress' AND bp.name_lower CONTAINS 'senescence'
+WITH g
+MATCH (g)-[:Gene_Disease]->(d:Disease)
+RETURN g.id AS gene_id, g.name AS gene_name, d.name AS disease_name
+LIMIT 25
+```
+
+Based on the retrieved results, the only gene linked to both oxidative stress-induced premature senescence and a named disease is **WNT16** (Wnt family member 16). Its associated diseases include Osteoarthritis, osteoporotic fracture, Coffin-Siris syndrome, osteopenia, colon cancer, Becker muscular dystrophy, B-cell acute lymphoblastic leukemia, malignant tumor of urinary bladder, precursor cell lymphoblastic leukemia-lymphoma, and malignant neoplastic disease.
+
+## Q19 (tier 3) — 11.7s
+
+**How many diseases are in the knowledge graph?**
+
+```cypher
+MATCH (d:Disease)
+RETURN count(d) AS disease_count
+LIMIT 25
+```
+
+rows: 1
+
+```cypher
+MATCH (d:Disease)
+RETURN count(d) AS disease_count
+LIMIT 25
+```
+
+The knowledge graph contains **44,263** diseases.
+
+## Q20 (tier 3) — 12.8s
+
+**How many genes are associated with cellular senescence?**
+
+```cypher
+MATCH (g:Gene)-[:Gene_BiologicalProcess]->(bp:BiologicalProcess)
+WHERE bp.name_lower CONTAINS 'cellular senescence'
+RETURN COUNT(DISTINCT g) AS gene_count
+LIMIT 25
+```
+
+rows: 1
+
+```cypher
+MATCH (g:Gene)-[:Gene_BiologicalProcess]->(bp:BiologicalProcess)
+WHERE bp.name_lower CONTAINS 'cellular senescence'
+RETURN COUNT(DISTINCT g) AS gene_count
+LIMIT 25
+```
+
+Based on the retrieved result, **115 genes** are associated with cellular senescence.
+
+## Q21 (tier 3) — 20.4s
+
+**Which disease has the most associated genes?**
+
+```cypher
+MATCH (d:Disease)<-[:Gene_Disease]-(g:Gene)
+RETURN d.name AS disease, COUNT(g) AS gene_count
+ORDER BY gene_count DESC
+LIMIT 25
+```
+
+rows: 10
+
+```cypher
+MATCH (d:Disease)<-[:Gene_Disease]-(g:Gene)
+RETURN d.name AS disease, COUNT(g) AS gene_count
+ORDER BY gene_count DESC
+LIMIT 25
+```
+
+Based on the retrieved results, the disease with the most associated genes is **Neoplasms**, with 4,055 associated genes.
+
+## Q22 (tier 3) — 12.7s
+
+**What are the top 10 genes by number of associated biological processes?**
+
+```cypher
+MATCH (g:Gene)-[:Gene_BiologicalProcess]->(bp:BiologicalProcess)
+RETURN g.id AS gene_id, g.name AS gene_name, COUNT(bp) AS num_processes
+ORDER BY num_processes DESC
+LIMIT 10
+```
+
+rows: 10
+
+```cypher
+MATCH (g:Gene)-[:Gene_BiologicalProcess]->(bp:BiologicalProcess)
+RETURN g.id AS gene_id, g.name AS gene_name, COUNT(bp) AS num_processes
+ORDER BY num_processes DESC
+LIMIT 10
+```
+
+The top 10 genes by number of associated biological processes are:
+
+1. **TGFB1** (transforming growth factor beta 1) – 1046 processes
+2. **BMP4** (bone morphogenetic protein 4) – 886 processes
+3. **WNT5A** (Wnt family member 5A) – 817 processes
+4. **TNF** (tumor necrosis factor) – 803 processes
+5. **CTNNB1** (catenin beta 1) – 802 processes
+6. **AKT1** (AKT serine/threonine kinase 1) – 760 processes
+7. **NOTCH1** (notch receptor 1) – 757 processes
+8. **IL1B** (interleukin 1 beta) – 738 processes
+9. **SHH** (sonic hedgehog signaling molecule) – 720 processes
+10. **BCL2** (BCL2 apoptosis regulator) – 690 processes
+
+## Q23 (tier 3) — 12.2s
+
+**How many relationship types connect Gene to BiologicalProcess?**
+
+```cypher
+MATCH (g:Gene)-[r]->(bp:BiologicalProcess)
+RETURN count(DISTINCT type(r)) AS relationship_types
+LIMIT 25
+```
+
+rows: 1
+
+```cypher
+MATCH (g:Gene)-[r]->(bp:BiologicalProcess)
+RETURN count(DISTINCT type(r)) AS relationship_types
+LIMIT 25
+```
+
+Based on the retrieved result, there are **6** relationship types connecting Gene to BiologicalProcess.
+
+## Q24 (tier 3) — 10.6s
+
+**Which species are represented in the knowledge graph?**
+
+```cypher
+MATCH (s:Species)
+RETURN s.name AS species_name, s.id AS species_id
+LIMIT 25;
+```
+
+rows: 6
+
+```cypher
+MATCH (s:Species)
+RETURN s.name AS species_name, s.id AS species_id
+LIMIT 25;
+```
+
+The species represented in the knowledge graph are: *Caenorhabditis elegans*, *Danio rerio*, *Drosophila melanogaster*, *Mus musculus*, *Saccharomyces cerevisiae*, and *Homo sapiens*.
+
+## Q25 (tier 4) — 16.4s
+
+**What is the C. elegans ortholog of the human gene SIRT1, and is it linked to lifespan?**
+
+```cypher
+MATCH (human:Gene) WHERE human.id_lower = 'sirt1'
+MATCH (human)-[:Gene_Protein]->(protein:Protein)
+MATCH (protein)-[:Protein_Protein]->(ortholog_protein:Protein)
+MATCH (ortholog_protein)<-[:Gene_Protein]-(ortholog:Gene)
+MATCH (ortholog)-[:Gene_BiologicalProcess|Gene_PositivelyAssociatedWith_BiologicalProcess|Gene_NegativelyAssociatedWith_BiologicalProcess|Gene_Inhibits_BiologicalProcess|Gene_Promotes_BiologicalProcess]->(bp:BiologicalProcess)
+WHERE bp.name_lower CONTAINS 'lifespan'
+RETURN ortholog.id AS ortholog_gene, ortholog.name AS ortholog_name, bp.name AS biological_process
+LIMIT 25
+```
+
+rows: 10
+
+The retrieved results do not contain a C. elegans ortholog for human SIRT1. The orthologs listed (e.g., RAD54B, SIRT4, TFCP2, etc.) are not SIRT1 orthologs, and none are specifically identified as the C. elegans ortholog of SIRT1. Therefore, based on the provided results, the C. elegans ortholog of SIRT1 is not reported, and its link to lifespan cannot be confirmed from these data.
+
+```cypher
+MATCH (human:Gene) WHERE human.id_lower = 'sirt1'
+MATCH (human)-[:Gene_Protein]->(protein:Protein)
+MATCH (protein)-[:Protein_Protein]->(ortholog_protein:Protein)
+MATCH (ortholog_protein)<-[:Gene_Protein]-(ortholog:Gene)
+MATCH (ortholog)-[:Gene_BiologicalProcess|Gene_PositivelyAssociatedWith_BiologicalProcess|Gene_NegativelyAssociatedWith_BiologicalProcess|Gene_Inhibits_BiologicalProcess|Gene_Promotes_BiologicalProcess]->(bp:BiologicalProcess)
+WHERE bp.name_lower CONTAINS 'lifespan'
+RETURN ortholog.id AS ortholog_gene, ortholog.name AS ortholog_name, bp.name AS biological_process
+LIMIT 25
+```
+
+## Q26 (tier 4) — 14.0s
+
+**Which aging-related genes are conserved between human and Drosophila melanogaster?**
+
+```cypher
+MATCH (h:Gene)-[:Gene_Gene]-(d:Gene)
+WHERE h.id_lower CONTAINS 'aging' AND d.id_lower CONTAINS 'drosophila'
+RETURN h.id AS human_gene, d.id AS drosophila_gene
+LIMIT 25
+```
+
+rows: 0
+
+I didn't find any result in the knowledge graph for aging-related genes conserved between human and *Drosophila melanogaster* using the query below. The graph may not contain direct cross-species gene–gene relationships with those specific terms, or the query needs refinement (e.g., using species identifiers, gene symbols, or a different relationship type).
+
+```cypher
+MATCH (h:Gene)-[:Gene_Gene]-(d:Gene)
+WHERE h.id_lower CONTAINS 'aging' AND d.id_lower CONTAINS 'drosophila'
+RETURN h.id AS human_gene, d.id AS drosophila_gene
+LIMIT 25
+```
+
+Please refine the question, for example by specifying known aging gene symbols (e.g., *SIRT1*, *FOXO*, *mTOR*) or using species-specific node properties.
+
+## Q27 (tier 4) — 13.1s
+
+**Do mouse and human share associated genes for cellular senescence?**
+
+```cypher
+MATCH (g1:Gene)-[:Gene_BiologicalProcess]->(bp:BiologicalProcess {name_lower: 'cellular senescence'})
+WITH g1, bp
+MATCH (g2:Gene)-[:Gene_BiologicalProcess]->(bp)
+WHERE g1.id_lower <> g2.id_lower
+MATCH (s1:Species)-[:Species_AssociatedWith]->(g1)
+MATCH (s2:Species)-[:Species_AssociatedWith]->(g2)
+WHERE s1.id_lower = 'mouse' AND s2.id_lower = 'human'
+RETURN DISTINCT g1.id AS mouse_gene, g2.id AS human_gene
+LIMIT 25
+```
+
+rows: 0
+
+I didn't find any result in the knowledge graph for shared mouse and human genes associated with cellular senescence.
+
+Here is the query I used:
+
+```cypher
+MATCH (g1:Gene)-[:Gene_BiologicalProcess]->(bp:BiologicalProcess {name_lower: 'cellular senescence'})
+WITH g1, bp
+MATCH (g2:Gene)-[:Gene_BiologicalProcess]->(bp)
+WHERE g1.id_lower <> g2.id_lower
+MATCH (s1:Species)-[:Species_AssociatedWith]->(g1)
+MATCH (s2:Species)-[:Species_AssociatedWith]->(g2)
+WHERE s1.id_lower = 'mouse' AND s2.id_lower = 'human'
+RETURN DISTINCT g1.id AS mouse_gene, g2.id AS human_gene
+LIMIT 25
+```
+
+The results are empty, which may indicate that the knowledge graph does not contain direct gene–biological process associations for both species under the exact term "cellular senescence," or that the species labels differ (e.g., "Mus musculus" vs. "mouse"). You may want to refine the query by checking the exact species names or using a broader biological process term (e.g., "senescence" or "cell aging").
+
+## Q28 (tier 4) — 11.9s
+
+**Which yeast genes have human orthologs associated with aging?**
+
+```cypher
+MATCH (yeast:Gene)-[:Gene_Gene]->(human:Gene)
+WHERE yeast.id_lower CONTAINS 'saccharomyces' OR yeast.name_lower CONTAINS 'saccharomyces'
+MATCH (human)-[:Gene_Disease]->(d:Disease)
+WHERE d.name_lower CONTAINS 'aging'
+RETURN DISTINCT yeast.id AS yeast_gene, human.id AS human_ortholog, d.name AS disease
+LIMIT 25
+```
+
+rows: 0
+
+I didn't find any result in the knowledge graph for yeast genes with human orthologs associated with aging.
+
+Here is the query I used:
+
+```cypher
+MATCH (yeast:Gene)-[:Gene_Gene]->(human:Gene)
+WHERE yeast.id_lower CONTAINS 'saccharomyces' OR yeast.name_lower CONTAINS 'saccharomyces'
+MATCH (human)-[:Gene_Disease]->(d:Disease)
+WHERE d.name_lower CONTAINS 'aging'
+RETURN DISTINCT yeast.id AS yeast_gene, human.id AS human_ortholog, d.name AS disease
+LIMIT 25
+```
+
+The results are empty. You may want to refine the question, for example by checking the exact relationship types (e.g., `ORTHOLOGOUS` instead of `Gene_Gene`) or broadening the disease term (e.g., "longevity", "senescence").
+
+## Q29 (tier 4) — 14.5s
+
+**Compare the biological processes annotated to FOXO3 in human versus its zebrafish ortholog.**
+
+```cypher
+MATCH (human:Gene {id_lower: 'foxo3'})-[r1:Gene_BiologicalProcess|Gene_PositivelyAssociatedWith_BiologicalProcess|Gene_NegativelyAssociatedWith_BiologicalProcess|Gene_Inhibits_BiologicalProcess|Gene_Promotes_BiologicalProcess|Gene_NotAssociatedWith_BiologicalProcess]->(bp: BiologicalProcess)
+WHERE human.node_species CONTAINS 'human'
+WITH human, bp
+MATCH (zebrafish:Gene {id_lower: 'foxo3'})-[r2:Gene_BiologicalProcess|Gene_PositivelyAssociatedWith_BiologicalProcess|Gene_NegativelyAssociatedWith_BiologicalProcess|Gene_Inhibits_BiologicalProcess|Gene_Promotes_BiologicalProcess|Gene_NotAssociatedWith_BiologicalProcess]->(bp2: BiologicalProcess)
+WHERE zebrafish.node_species CONTAINS 'zebrafish'
+RETURN bp.name AS human_process, bp2.name AS zebrafish_process
+LIMIT 25
+```
+
+rows: 0
+
+I didn't find any result in the knowledge graph for comparing biological processes annotated to FOXO3 in human versus zebrafish. The query I used was:
+
+```cypher
+MATCH (human:Gene {id_lower: 'foxo3'})-[r1:Gene_BiologicalProcess|Gene_PositivelyAssociatedWith_BiologicalProcess|Gene_NegativelyAssociatedWith_BiologicalProcess|Gene_Inhibits_BiologicalProcess|Gene_Promotes_BiologicalProcess|Gene_NotAssociatedWith_BiologicalProcess]->(bp: BiologicalProcess)
+WHERE human.node_species CONTAINS 'human'
+WITH human, bp
+MATCH (zebrafish:Gene {id_lower: 'foxo3'})-[r2:Gene_BiologicalProcess|Gene_PositivelyAssociatedWith_BiologicalProcess|Gene_NegativelyAssociatedWith_BiologicalProcess|Gene_Inhibits_BiologicalProcess|Gene_Promotes_BiologicalProcess|Gene_NotAssociatedWith_BiologicalProcess]->(bp2: BiologicalProcess)
+WHERE zebrafish.node_species CONTAINS 'zebrafish'
+RETURN bp.name AS human_process, bp2.name AS zebrafish_process
+LIMIT 25
+```
+
+The results are empty, which may indicate that the gene name (e.g., `FOXO3` vs `foxo3`), species labels, or relationship types in the graph differ from what was queried. You may want to refine the question by checking the exact gene identifiers and species annotations in the knowledge graph, or by broadening the relationship types.
+
+## Q30 (tier 4) — 156.6s
+
+**Which genes associated with longevity have orthologs in at least three species?**
+
+```cypher
+MATCH (g:Gene)-[:Gene_Gene]->(other:Gene)
+WITH g, COUNT(DISTINCT other) AS ortholog_count
+WHERE ortholog_count >= 3
+MATCH (g)-[:Gene_Disease]->(d:Disease)
+WHERE d.name_lower CONTAINS 'longevity'
+RETURN g.id AS gene_id, g.name AS gene_name, ortholog_count
+LIMIT 25
+```
+
+rows: 0
+
+I didn't find any result in the knowledge graph for genes associated with longevity that have orthologs in at least three species.
+
+Here is the query I used:
+
+```cypher
+MATCH (g:Gene)-[:Gene_Gene]->(other:Gene)
+WITH g, COUNT(DISTINCT other) AS ortholog_count
+WHERE ortholog_count >= 3
+MATCH (g)-[:Gene_Disease]->(d:Disease)
+WHERE d.name_lower CONTAINS 'longevity'
+RETURN g.id AS gene_id, g.name AS gene_name, ortholog_count
+LIMIT 25
+```
+
+The query returned no matches. You may want to refine the question, for example by checking the relationship types (e.g., `Gene_Ortholog` instead of `Gene_Gene`) or verifying that the disease term 'longevity' is correctly indexed in the graph.
+
+## Q31 (tier 5) — 13.0s
+
+**Betaine supplementation promotes healthy aging and inhibits cellular senescence. By acting as an exercise mimetic, betaine inhibits TBK1 activity, reducing systemic inflammation and delaying age-related physical decline.**
+
+```cypher
+MATCH (c:ChemicalEntity {id_lower: 'betaine'})
+MATCH (c)-[:ChemicalEntity_Inhibits_BiologicalProcess]->(bp:BiologicalProcess)
+WHERE bp.name_lower CONTAINS 'cellular senescence'
+RETURN c.name AS chemical, bp.name AS process
+LIMIT 25
+```
+
+rows: 0
+
+I didn't find any result in the knowledge graph for the query provided. The retrieved results are empty.
+
+Here is the query I used:
+```cypher
+MATCH (c:ChemicalEntity {id_lower: 'betaine'})
+MATCH (c)-[:ChemicalEntity_Inhibits_BiologicalProcess]->(bp:BiologicalProcess)
+WHERE bp.name_lower CONTAINS 'cellular senescence'
+RETURN c.name AS chemical, bp.name AS process
+LIMIT 25
+```
+
+Please refine your question or check if the relationship (e.g., `ChemicalEntity_Inhibits_BiologicalProcess`) or the entity name is correct in the knowledge graph.
+
+## Q32 (tier 5) — 13.2s
+
+**Metformin extends lifespan by inhibiting mTOR signalling in C. elegans.**
+
+```cypher
+MATCH (g:Gene)-[:Gene_PositivelyAssociatedWith_BiologicalProcess]->(bp:BiologicalProcess)
+WHERE g.id_lower CONTAINS 'metformin'
+RETURN g.id, bp.name
+LIMIT 25
+```
+
+rows: 0
+
+I didn't find any result in the knowledge graph for the query about metformin extending lifespan by inhibiting mTOR signalling in *C. elegans*. The retrieved results are empty.
+
+Here is the query I used:
+
+```cypher
+MATCH (g:Gene)-[:Gene_PositivelyAssociatedWith_BiologicalProcess]->(bp:BiologicalProcess)
+WHERE g.id_lower CONTAINS 'metformin'
+RETURN g.id, bp.name
+LIMIT 25
+```
+
+You may want to refine your question, for example by searching for the gene `mTOR` (or `let-363` in *C. elegans*) or by using a different biological process term like "lifespan" or "autophagy" instead of "metformin" as a gene name.
+
+## Q33 (tier 5) — 13.5s
+
+**Rapamycin treatment reverses cellular senescence markers in aged cardiac tissue.**
+
+```cypher
+MATCH (c:ChemicalEntity {id_lower: 'rapamycin'})-[:ChemicalEntity_BiologicalProcess]->(bp:BiologicalProcess)
+WHERE bp.name_lower CONTAINS 'cellular senescence'
+MATCH (c)-[:ChemicalEntity_BiologicalProcess]->(bp2:BiologicalProcess)
+WHERE bp2.name_lower CONTAINS 'aging'
+RETURN c.name AS chemical, bp.name AS process, bp2.name AS aging_process
+LIMIT 25
+```
+
+rows: 0
+
+I didn't find any result in the knowledge graph for the relationship between rapamycin and cellular senescence or aging processes. The retrieved results are empty.
+
+Here is the query I used:
+
+```cypher
+MATCH (c:ChemicalEntity {id_lower: 'rapamycin'})-[:ChemicalEntity_BiologicalProcess]->(bp:BiologicalProcess)
+WHERE bp.name_lower CONTAINS 'cellular senescence'
+MATCH (c)-[:ChemicalEntity_BiologicalProcess]->(bp2:BiologicalProcess)
+WHERE bp2.name_lower CONTAINS 'aging'
+RETURN c.name AS chemical, bp.name AS process, bp2.name AS aging_process
+LIMIT 25
+```
+
+You may want to refine the question, for example by checking if rapamycin is linked to other biological processes (e.g., "autophagy", "senescence", "cardiac tissue") or by broadening the search terms.
+
+## Q34 (tier 5) — 13.7s
+
+**NAD+ precursor supplementation restores mitochondrial function via SIRT3 activation.**
+
+```cypher
+MATCH (ce:ChemicalEntity)-[:ChemicalEntity_PositivelyAssociatedWith_BiologicalProcess]->(bp:BiologicalProcess)
+WHERE ce.name_lower CONTAINS 'nad+'
+RETURN ce.name AS chemical_entity, bp.name AS biological_process
+LIMIT 25
+```
+
+rows: 0
+
+The knowledge graph returned no results for the query linking NAD+ to any biological process. The retrieved information is empty.
+
+```cypher
+MATCH (ce:ChemicalEntity)-[:ChemicalEntity_PositivelyAssociatedWith_BiologicalProcess]->(bp:BiologicalProcess)
+WHERE ce.name_lower CONTAINS 'nad+'
+RETURN ce.name AS chemical_entity, bp.name AS biological_process
+LIMIT 25
+```
+
+Please refine your question (e.g., search for “nicotinamide riboside,” “SIRT3,” or “mitochondrial function” separately) or provide more specific terms to query the graph.
+
+## Q35 (tier 5) — 15.1s
+
+**Inhibition of CDKN2A promotes tissue regeneration in aged mammals.**
+
+```cypher
+MATCH (g:Gene)-[r:Gene_Inhibits_BiologicalProcess]->(bp:BiologicalProcess)
+WHERE g.id_lower CONTAINS 'cdkn2a'
+RETURN g.id AS gene_id, g.name AS gene_name, bp.name AS biological_process_name
+LIMIT 25
+```
+
+rows: 0
+
+I didn't find any result in the knowledge graph for the query about CDKN2A inhibition promoting tissue regeneration in aged mammals. The retrieved results are empty.
+
+Here is the query I used:
+
+```cypher
+MATCH (g:Gene)-[r:Gene_Inhibits_BiologicalProcess]->(bp:BiologicalProcess)
+WHERE g.id_lower CONTAINS 'cdkn2a'
+RETURN g.id AS gene_id, g.name AS gene_name, bp.name AS biological_process_name
+LIMIT 25
+```
+
+You may want to refine the question, for example by checking if the gene is stored under a different identifier (e.g., "CDKN2A" vs. "cdkn2a"), or by searching for related processes like "tissue regeneration" or "aging" separately.
+
+## Q36 (tier 5) — 13.1s
+
+**Klotho overexpression protects against age-related cognitive decline through FGF23 signalling.**
+
+```cypher
+MATCH (g:Gene)-[:Gene_PositivelyAssociatedWith_BiologicalProcess]->(bp:BiologicalProcess)
+WHERE g.id_lower CONTAINS 'klotho'
+RETURN g.id AS gene_id, g.name AS gene_name, bp.name AS biological_process
+LIMIT 25
+```
+
+rows: 0
+
+I didn't find any result in the knowledge graph for the query about Klotho overexpression protecting against age-related cognitive decline through FGF23 signalling. The retrieved results were empty.
+
+Here is the query I used:
+
+```cypher
+MATCH (g:Gene)-[:Gene_PositivelyAssociatedWith_BiologicalProcess]->(bp:BiologicalProcess)
+WHERE g.id_lower CONTAINS 'klotho'
+RETURN g.id AS gene_id, g.name AS gene_name, bp.name AS biological_process
+LIMIT 25
+```
+
+Please refine your question, for example by specifying a different gene name (e.g., "KL" or "klotho") or by asking about FGF23-related pathways separately.
+
+## Q37 (tier 5) — 14.8s
+
+**Spermidine induces autophagy and extends healthspan via TFEB activation.**
+
+```cypher
+MATCH (c:ChemicalEntity {id_lower: 'spermidine'})
+MATCH (c)-[:ChemicalEntity_PositivelyAssociatedWith_BiologicalProcess|ChemicalEntity_Promotes_BiologicalProcess]->(bp:BiologicalProcess)
+WHERE bp.name_lower CONTAINS 'autophagy'
+MATCH (c)-[:ChemicalEntity_PositivelyAssociatedWith_BiologicalProcess|ChemicalEntity_Promotes_BiologicalProcess]->(bp2:BiologicalProcess)
+WHERE bp2.name_lower CONTAINS 'healthspan'
+MATCH (c)-[:ChemicalEntity_PositivelyAssociatedWith_BiologicalProcess|ChemicalEntity_Promotes_BiologicalProcess]->(bp3:BiologicalProcess)
+WHERE bp3.name_lower CONTAINS 'tFEB'
+RETURN c.name AS chemical, bp.name AS autophagy_process, bp2.name AS healthspan_process, bp3.name AS tfeb_process
+LIMIT 25
+```
+
+rows: 0
+
+I didn't find any result in the knowledge graph for the query linking spermidine to autophagy, healthspan, and TFEB activation simultaneously.
+
+Here is the query I used:
+
+```cypher
+MATCH (c:ChemicalEntity {id_lower: 'spermidine'})
+MATCH (c)-[:ChemicalEntity_PositivelyAssociatedWith_BiologicalProcess|ChemicalEntity_Promotes_BiologicalProcess]->(bp:BiologicalProcess)
+WHERE bp.name_lower CONTAINS 'autophagy'
+MATCH (c)-[:ChemicalEntity_PositivelyAssociatedWith_BiologicalProcess|ChemicalEntity_Promotes_BiologicalProcess]->(bp2:BiologicalProcess)
+WHERE bp2.name_lower CONTAINS 'healthspan'
+MATCH (c)-[:ChemicalEntity_PositivelyAssociatedWith_BiologicalProcess|ChemicalEntity_Promotes_BiologicalProcess]->(bp3:BiologicalProcess)
+WHERE bp3.name_lower CONTAINS 'tFEB'
+RETURN c.name AS chemical, bp.name AS autophagy_process, bp2.name AS healthspan_process, bp3.name AS tfeb_process
+LIMIT 25
+```
+
+The results are empty. You may want to refine the question by:
+- Checking if the entity is stored under a different name (e.g., "spermidine" vs. "N1-acetyl spermidine").
+- Searching for each relationship separately (e.g., spermidine → autophagy, spermidine → healthspan, spermidine → TFEB) to see which links exist.
+- Using broader terms like "TFEB" (without the "activation" part) or "longevity" instead of "healthspan".
