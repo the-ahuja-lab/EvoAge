@@ -3,11 +3,12 @@
 
 ### Overview
 EvoAge is a comprehensive computational framework designed to accelerate discovery in:
-- Aging biology  
-- Age-related diseases  
-- Cross-species comparative research  
 
-It achieves this through a unified **1.2 billion–triples multi-species Knowledge Graph (KG)** built from **51 integrated public biomedical datasets**.
+Biomedical research
+Cross-species comparative research
+Biological hypothesis generation and evaluation
+
+It achieves this through a unified 1.23 billion–relationship multi-species Knowledge Graph (KG) built from 51 integrated public biomedical and aging-related data layers.
 
 ---
 
