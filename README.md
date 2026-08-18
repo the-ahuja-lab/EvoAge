@@ -46,6 +46,12 @@ The EvoAGE repository is organized into three primary functional components:
 
 ---
 
+## Shell Script Setup
+
+For a guided shell-based setup flow, use the [scripts setup guide](scripts/README.md). It covers environment setup, EvoAge artifact downloads, Neo4j/Redis service setup, optional MedGemma, validation, and app startup.
+
+---
+
 ## 🐳 Quick Start with Docker (Recommended)
 
 A prebuilt image bundles the backend, frontend, and their Python dependencies, so you can skip the conda setup below. You still need Neo4j and Redis on the host (sections 1 and 2).
