@@ -2,20 +2,7 @@
 """Create the two-page publication evaluation panel.
 
 Uses only:
-  A_Type-compatible_ranking       exact filtered full-pool results
-  B_Null_models_and_Baseline_     exact relation/type-preserving shuffled control
-  C_sampled_k_analysis            EvoAge candidate-count sensitivity
-  Simulated_graph                 synthetic DCSBM candidate-count sensitivity
-
-No D_type_cons_shuffled inputs are used.
-
-Outputs
-  eval_panel_final.pdf                   two-page vector PDF
-  figure1_candidate_sensitivity.png/pdf/svg  candidate-count sensitivity
-  figure2_full_ranking.png/pdf/svg           exact full-ranking results
-  plotted_values.csv                     values plotted, for audit/reuse
-
-Run from any directory:
+  Run from any directory:
   python R2_make_evaluation_panels.py
 """
 
