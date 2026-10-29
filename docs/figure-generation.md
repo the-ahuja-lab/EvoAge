@@ -4,7 +4,7 @@ The final stage of the pipeline turns the statistics tables written by the
 earlier steps into the figures used in the paper.
 
 All panels are produced by a single notebook,
-`pipeline/11_ploting/all_figures-raidhani.ipynb`, which covers **main figures 1,
+`pipeline/12_ploting/all_figures-raidhani.ipynb`, which covers **main figures 1,
 2, 4 and 5** panel by panel, together with **supplementary figures 1–7**. Figure
 3 is a schematic and is not generated here.
 

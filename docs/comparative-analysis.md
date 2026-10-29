@@ -66,7 +66,7 @@ from parametric knowledge alone, which is the capability under test.
 ### A4. Reproducing it
 
 Code lives in the repository under
-`pipeline/09_evoage_vs_other/evoage_vs_medgemma_biomistral/`:
+`pipeline/10_evoage_vs_other/evoage_vs_medgemma_biomistral/`:
 
 | Path | What it does |
 |---|---|
@@ -176,7 +176,7 @@ This asymmetry is a property of what is being compared — an end-to-end reasoni
 
 ### B6. Reproducing it
 
-Code lives in the repository under `pipeline/09_evoage_vs_other/evoage_vs_biochat_escargot/`:
+Code lives in the repository under `pipeline/10_evoage_vs_other/evoage_vs_biochat_escargot/`:
 
 | Path | What it does |
 |---|---|

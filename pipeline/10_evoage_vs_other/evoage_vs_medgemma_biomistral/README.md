@@ -8,7 +8,7 @@ parametric knowledge rather than from retrieved graph evidence.
 |---|---|---|
 | `medgemma/` | MedGemma-27B | Biomedical language model, as published |
 | `BioMistral/` | BioMistral-7B | Biomedical language model, as published |
-| `BioMistralFinetuned/` | **Aging_BioMistral_finetuned** | BioMistral-7B after AgingKG-guided adaptation (config `biomistral_lora_sft_optimized4.yaml`; see `pipeline/10_llm_fintunning/`) |
+| `BioMistralFinetuned/` | **Aging_BioMistral_finetuned** | BioMistral-7B after AgingKG-guided adaptation (config `biomistral_lora_sft_optimized4.yaml`; see `pipeline/11_llm_fintunning/`) |
 
 ---
 

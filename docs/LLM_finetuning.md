@@ -32,7 +32,7 @@ python -c "import sglang; print(sglang.__version__)"
 Clone the GraphGen repository and install dependencies in an isolated Python 3.10 environment:
 ```bash
 # Clone the repository and navigate into it
-cd pipeline/10_llm_fintunning/GraphGen/
+cd pipeline/11_llm_fintunning/GraphGen/
 
 # Create and activate a new Conda environment
 conda create -n graphgen python=3.10 -y
