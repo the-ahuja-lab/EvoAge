@@ -37,7 +37,6 @@ evoage_vs_others/
 │       ├── medgemma_analyse_escargot_response.py  # JUDGE -- same rubric, divergence-guarded
 │       └── escargot_hypothesis_results*.csv
 │
-├── evoage_results/                  # EvoAge's own verdicts on the same 101 hypotheses
 └── analysis/                        # DOI join, verdict counts, figures
 ```
 
