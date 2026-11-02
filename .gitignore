@@ -7,6 +7,7 @@ __pycache__/
 *.egg-info/
 dist/
 build/
+/site/
 
 # --- Virtual envs / conda ---
 .venv/
@@ -31,6 +32,8 @@ ENV/
 .idea/
 .DS_Store
 Thumbs.db
+*.swp
+*.swo
 nohup.out
 
 # --- Logs & runtime ---

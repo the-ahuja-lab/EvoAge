@@ -34,7 +34,7 @@ The EvoAge graph is large enough that reproducing it from the paper alone would 
 | 08.3 | [Aging-Specific Test Set](other-analysis-3-aging.md) |
 | 09 | [Hypothesis Cutoff](hypothesis-cutoff.md) |
 | 10 | [Comparative Analysis](comparative-analysis.md) |
-| 11 | [LLM Finetuning](LLM_finetuning.md) |
+| 11 | [LLM Fine-tuning](LLM_finetuning.md) |
 | 12 | [Figure Generation](figure-generation.md) |
 | — | [Neo4j Knowledge Graph](neo4j-kg.md) |
 

@@ -19,14 +19,16 @@ nav = [
     { "Splitting" = "kg-tensors-and-splitting.md" },
     { "Training & Evaluation" = "training.md" },
     { "Other Analysis" = [
+        { "Overview" = "other-analysis.md" },
         { "Species Evaluation" = "other-analysis-1-species.md" },
         { "Shuffled KG Baseline" = "other-analysis-2-shuffled.md" },
         { "Aging-Specific Test Set" = "other-analysis-3-aging.md" }
     ] },
-    { "Neo4j KG" = "neo4j-kg.md" },
-    { "LLM Fintuning" = "LLM_finetuning.md" },
+    { "Hypothesis Cutoff" = "hypothesis-cutoff.md" },
     { "Comparative Analysis" = "comparative-analysis.md" },
-    { "Figure Generation" = "figure-generation.md" }
+    { "LLM Fine-tuning" = "LLM_finetuning.md" },
+    { "Figure Generation" = "figure-generation.md" },
+    { "Neo4j Knowledge Graph" = "neo4j-kg.md" }
 
 ]
 
