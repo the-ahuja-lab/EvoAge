@@ -22,7 +22,8 @@ nav = [
         { "Overview" = "other-analysis.md" },
         { "Species Evaluation" = "other-analysis-1-species.md" },
         { "Shuffled KG Baseline" = "other-analysis-2-shuffled.md" },
-        { "Aging-Specific Test Set" = "other-analysis-3-aging.md" }
+        { "Aging-Specific Test Set" = "other-analysis-3-aging.md" },
+        { "Type-Compatible Evaluation" = "other-analysis-4-type-compatible.md" }
     ] },
     { "Hypothesis Cutoff" = "hypothesis-cutoff.md" },
     { "Comparative Analysis" = "comparative-analysis.md" },

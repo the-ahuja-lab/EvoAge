@@ -32,6 +32,7 @@ The EvoAge graph is large enough that reproducing it from the paper alone would 
 | 08.1 | [Species Evaluation](other-analysis-1-species.md) |
 | 08.2 | [Shuffled KG Baseline](other-analysis-2-shuffled.md) |
 | 08.3 | [Aging-Specific Test Set](other-analysis-3-aging.md) |
+| 08.4 | [Type-Compatible Evaluation](other-analysis-4-type-compatible.md) |
 | 09 | [Hypothesis Cutoff](hypothesis-cutoff.md) |
 | 10 | [Comparative Analysis](comparative-analysis.md) |
 | 11 | [LLM Fine-tuning](LLM_finetuning.md) |
